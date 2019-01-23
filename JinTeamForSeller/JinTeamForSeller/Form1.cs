@@ -23,45 +23,37 @@ namespace JinTeamForSeller
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(DateTime.Now.ToString().Remove(DateTime.Now.ToString().IndexOf('오'),2).Replace(" ","").Replace("-","").Replace(":",""));
-            int cat = 57;
-            string url = "http://www.comeintofashion.net/product/list.html?cate_no=" + cat + "&page=1";
             HtmlWeb web = new HtmlWeb();
-            var doc = web.Load(url);
-            //textBox1.Text = doc.Text;
-
-            var doc2 = doc.DocumentNode.SelectNodes("//body/div/div/div/div/div/div");
-            var doc3 = doc2[1].SelectNodes("//h6/a");
-
-            foreach (var item in doc3)
+            lstWeb.Clear();
+            using (SqlConnection conn = new SqlConnection())
             {
-                if (item.Attributes[0].Value.Contains("product"))
-                {
-                    lstWeb.Add(new WebPage("http://www.comeintofashion.net" + item.Attributes[0].Value, cat));
-                    //textBox1.Text += "http://www.comeintofashion.net" + item.Attributes[0].Value + "\r\n";
-                }
-            }
-            //using (SqlConnection conn = new SqlConnection())
-            //{
-            //    conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
-            //    SqlCommand cmd = new SqlCommand();
-            //    foreach (var item in lstWeb)
-            //    {
-            //        conn.Open();
-            //        cmd.Connection = conn;
-            //        cmd.CommandType = CommandType.Text;
-            //        cmd.CommandText = "insert into webPages values('" + item.WebP + "'," + item.Category + ");";
+                
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                SqlCommand cmd = new SqlCommand();
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select * from webPages";
 
-            //        cmd.ExecuteNonQuery();
-            //        conn.Close();
-            //    }
-            //}
+                var dr = cmd.ExecuteReader();
+                
+                while (dr.Read())
+                {
+                    lstWeb.Add(new WebPage(dr["webP"].ToString(), 1));
+                }
+                conn.Close();
+            }
+
             foreach (var item in lstWeb)
             {
                 string u = item.WebP;
                 int proId = int.Parse(u.Substring(u.IndexOf("=") + 1, 4));
-                doc = web.Load(u);
+                var doc = web.Load(u);
                 // textBox1.Text = doc.Text;
 
                 // 대표 이미지
@@ -118,12 +110,61 @@ namespace JinTeamForSeller
                     cmd.Parameters.AddWithValue("pro_Id", item.Pro_ID);
                     cmd.Parameters.AddWithValue("pro_Name", item.Pro_Name);
                     cmd.Parameters.AddWithValue("pro_Price", item.Pro_Price);
-                    cmd.Parameters.AddWithValue("main_Image", item.Main_Image);
-
+                    cmd.Parameters.AddWithValue("main_Image", "http:" + item.Main_Image);
+                    cmd.Parameters.AddWithValue("seller_no", 1);
+                    cmd.Parameters.AddWithValue("cat_ID", "P05");
                     cmd.ExecuteNonQuery();
                     conn.Close();
                 }
+                MessageBox.Show("저장 완료");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(DateTime.Now.ToString().Remove(DateTime.Now.ToString().IndexOf('오'),2).Replace(" ","").Replace("-","").Replace(":",""));
+            int cat = 71;
+            int pageno = 1;
+            for (int i = 1; i < 4; i++)
+            {
+
+
+                string url = "http://www.comeintofashion.net/product/list.html?cate_no=" + cat + "&page=" + i;
+                HtmlWeb web = new HtmlWeb();
+                var doc = web.Load(url);
+                //textBox1.Text = doc.Text;
+
+                var doc2 = doc.DocumentNode.SelectNodes("//body/div/div/div/div/div/div");
+                var doc3 = doc2[1].SelectNodes("//h6/a");
+
+
+
+                foreach (var item in doc3)
+                {
+                    if (item.Attributes[0].Value.Contains("product"))
+                    {
+                        lstWeb.Add(new WebPage("http://www.comeintofashion.net" + item.Attributes[0].Value, cat));
+                        //textBox1.Text += "http://www.comeintofashion.net" + item.Attributes[0].Value + "\r\n";
+                    }
+                }
+                using (SqlConnection conn = new SqlConnection())
+                {
+                    conn.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
+                    SqlCommand cmd = new SqlCommand();
+                    foreach (var item in lstWeb)
+                    {
+                        conn.Open();
+                        cmd.Connection = conn;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "insert into webPages values('" + item.WebP + "'," + item.Category + ");";
+
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+
+                }
+            }
+            MessageBox.Show("Test");
         }
     }
 }
