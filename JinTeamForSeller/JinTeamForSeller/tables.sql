@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[customers] (
     [cus_age]      INT           NOT NULL,	-- 고객 나이
     [cus_state]    BIT           DEFAULT ((1)) NOT NULL,	-- 고객 정보 상태
 	[cus_count] INT NULL DEFAULT 1,		-- 배송정보 카운트
-	 [withdrawal_date] DATETIME NOT NULL,  -- 탈퇴 날짜
+	 [withdrawal_date] DATETIME NULL,  -- 탈퇴 날짜
     PRIMARY KEY CLUSTERED ([cus_no] ASC),
     UNIQUE NONCLUSTERED ([cus_phone] ASC),
     UNIQUE NONCLUSTERED ([cus_ID] ASC)
@@ -75,7 +75,7 @@ CREATE TABLE [dbo].[products] (
     [pro_hits]     INT             NULL,	-- 상품 조회수
     [pro_like]     INT             NULL,	-- 상품 좋아요
     [pro_discount] INT             NULL,	-- 상품 할인율
-    [pro_gender]   VARBINARY (2)   NOT NULL,	-- 추천 성별
+    [pro_gender]   VARCHAR (2)   NOT NULL,	-- 추천 성별
     [pro_state]    BIT             DEFAULT ((1)) NULL,	-- 상품 정보 상태
     PRIMARY KEY CLUSTERED ([pro_ID] ASC)
 	-- ,CONSTRAINT [pro_cat_FK] FOREIGN KEY ([cat_ID]) REFERENCES [dbo].[category_List] ([cat_ID])
@@ -105,14 +105,14 @@ CREATE TABLE [dbo].[seller] (
     [seller_pwd]    VARCHAR (128)  NOT NULL,	-- 판매자 비밀번호
     [seller_name]   NVARCHAR (30)  NOT NULL,	-- 판매자 이름
     [seller_addr]   NVARCHAR (MAX) NOT NULL,	-- 회사 주소
-    [seller_boos]   NVARCHAR (30)  NOT NULL,	-- 회사 대효
+    [seller_boss]   NVARCHAR (30)  NOT NULL,	-- 회사 대표
     [seller_phone]  VARCHAR (15)   NOT NULL,	-- 판매자 전화번호
-    [seller_postal] INT            NOT NULL,	-- 회사 우편번호
+    [seller_postal] varchar(10)       NOT NULL,	-- 회사 우편번호
     [seller_email]  VARCHAR (50)   NOT NULL,	-- 회사 이메일
-    [seller_fax]    INT            NOT NULL,	-- 회사 팩스
+    [seller_fax]    varchar(20)           NOT NULL,	-- 회사 팩스
     [return_addr]   NVARCHAR (MAX) NOT NULL,	-- 반품지 주소
     [seller_state]  BIT            DEFAULT ((1)) NOT NULL,	-- 판매자 상태 ( 활성화, 비활성화 )
-	[corporate_registration_no] INT NOT NULL, -- 사업자 등록번호
+	[corporate_registration_no] varchar(15) NOT NULL, -- 사업자 등록번호
 	[join_state] BIT NOT NULL DEFAULT 0,	-- 가입 승인 상태
     PRIMARY KEY CLUSTERED ([seller_no] ASC)
 );
@@ -146,7 +146,7 @@ CREATE TABLE [dbo].[user_ship_info] (
     [cus_no]       INT            NOT NULL,	-- 고객 번호
     [user_name]    NVARCHAR (30)  NOT NULL,	-- 받는이
     [user_addr]    NVARCHAR (MAX) NOT NULL,	-- 배송지
-    [postal_code]  INT            NOT NULL,	-- 우편 번호
+    [postal_code]  varchar(10)            NOT NULL,	-- 우편 번호
     [ship_require]      NVARCHAR (MAX) NULL,	-- 요구사항
     PRIMARY KEY CLUSTERED ([user_ship_Id] ASC)
 	-- ,CONSTRAINT [ship_cus_FK] FOREIGN KEY ([cus_no]) REFERENCES [dbo].[customers] ([cus_no]) 
