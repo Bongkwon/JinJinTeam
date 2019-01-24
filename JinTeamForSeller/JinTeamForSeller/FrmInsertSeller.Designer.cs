@@ -51,14 +51,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCheckOverlap = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtReturnAddr = new System.Windows.Forms.TextBox();
             this.btnInsertPic = new System.Windows.Forms.Button();
             this.imgRegistration = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtCorpRegistrationNo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgRegistration)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,12 +244,13 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(452, 352);
+            this.btnSubmit.Location = new System.Drawing.Point(504, 350);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(100, 64);
             this.btnSubmit.TabIndex = 22;
             this.btnSubmit.Text = "확인";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnCheckOverlap
             // 
@@ -259,15 +260,7 @@
             this.btnCheckOverlap.TabIndex = 23;
             this.btnCheckOverlap.Text = "중복 확인";
             this.btnCheckOverlap.UseVisualStyleBackColor = true;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(232, 170);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(70, 23);
-            this.btnSearch.TabIndex = 25;
-            this.btnSearch.Text = "검색";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnCheckOverlap.Click += new System.EventHandler(this.btnCheckOverlap_Click);
             // 
             // txtReturnAddr
             // 
@@ -280,9 +273,9 @@
             // btnInsertPic
             // 
             this.btnInsertPic.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btnInsertPic.Location = new System.Drawing.Point(429, 323);
+            this.btnInsertPic.Location = new System.Drawing.Point(415, 323);
             this.btnInsertPic.Name = "btnInsertPic";
-            this.btnInsertPic.Size = new System.Drawing.Size(127, 23);
+            this.btnInsertPic.Size = new System.Drawing.Size(189, 23);
             this.btnInsertPic.TabIndex = 27;
             this.btnInsertPic.Text = "사업자 등록증 첨부";
             this.btnInsertPic.UseVisualStyleBackColor = true;
@@ -292,7 +285,7 @@
             // 
             this.imgRegistration.Location = new System.Drawing.Point(313, 10);
             this.imgRegistration.Name = "imgRegistration";
-            this.imgRegistration.Size = new System.Drawing.Size(243, 307);
+            this.imgRegistration.Size = new System.Drawing.Size(291, 280);
             this.imgRegistration.TabIndex = 28;
             this.imgRegistration.TabStop = false;
             // 
@@ -309,15 +302,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(232, 321);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "검색";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(113, 323);
@@ -325,18 +309,35 @@
             this.textBox1.Size = new System.Drawing.Size(113, 21);
             this.textBox1.TabIndex = 30;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Location = new System.Drawing.Point(311, 299);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 12);
+            this.label13.TabIndex = 32;
+            this.label13.Text = "사업자 등록 번호";
+            // 
+            // txtCorpRegistrationNo
+            // 
+            this.txtCorpRegistrationNo.Location = new System.Drawing.Point(415, 296);
+            this.txtCorpRegistrationNo.Name = "txtCorpRegistrationNo";
+            this.txtCorpRegistrationNo.Size = new System.Drawing.Size(189, 21);
+            this.txtCorpRegistrationNo.TabIndex = 31;
+            // 
             // FrmInsertSeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 436);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(616, 436);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txtCorpRegistrationNo);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.imgRegistration);
             this.Controls.Add(this.btnInsertPic);
             this.Controls.Add(this.txtReturnAddr);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnCheckOverlap);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtBossName);
@@ -393,13 +394,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCheckOverlap;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtReturnAddr;
         private System.Windows.Forms.Button btnInsertPic;
         private System.Windows.Forms.PictureBox imgRegistration;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtCorpRegistrationNo;
     }
 }
