@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JinTeamForAdmin", "JinTeamForAdmin\JinTeamForAdmin.csproj", "{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20D6B670-38B4-4163-8995-4E516DD02E12}
+	EndGlobalSection
+EndGlobal
