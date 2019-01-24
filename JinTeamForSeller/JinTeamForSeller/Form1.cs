@@ -26,7 +26,7 @@ namespace JinTeamForSeller
         {            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ParsingDetail_Click(object sender, EventArgs e)
         {
             HtmlWeb web = new HtmlWeb();
             lstWeb.Clear();
@@ -119,8 +119,7 @@ namespace JinTeamForSeller
                 MessageBox.Show("저장 완료");
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void ParsingWebPage_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(DateTime.Now.ToString().Remove(DateTime.Now.ToString().IndexOf('오'),2).Replace(" ","").Replace("-","").Replace(":",""));
             int cat = 71;
@@ -165,6 +164,11 @@ namespace JinTeamForSeller
                 }
             }
             MessageBox.Show("Test");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new FrmInsertSeller().Show();
         }
     }
 }
