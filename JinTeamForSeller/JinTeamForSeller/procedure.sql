@@ -1,4 +1,17 @@
-﻿-- 회원 추가
+﻿-- 전체 회원 목록( 탈퇴대기자 포함)
+create procedure select_cus
+as
+	select * from dbo.customers
+go
+
+-- 탈퇴 대기중인 회원 목록
+create procedure select_cus_withdrawal
+as
+select * from dbo.customers
+where cus_state = 0
+go
+
+-- 회원 추가
 CREATE PROCEDURE [dbo].insert_cus
 	@cus_ID varchar(30),
 	@cus_pwd varchar(128),
@@ -20,6 +33,76 @@ as
 delete from dbo.customers
 where cus_state = 0 and withdrawal_date + 30 <= getdate()
 go
+
+-- 회원삭제 ( 포커스 )
+create  procedure dbo.delete_cus_force
+	@cus_no int
+as
+	delete from dbo.customers
+	where cus_no = @cus_no
+go
+
+
+-- 회원 업데이트 ( 회원이 정보수정할때)
+create procedure dbo.update_cus
+@cus_no				 INT,
+@cus_ID				 VARCHAR,
+@cus_pwd			 VARCHAR,
+@cus_phone			 VARCHAR,
+@cus_addr			 NVARCHAR,
+@cus_name			 NVARCHAR,
+@cus_Nickname		 NVARCHAR,
+@cus_gender			 bit,
+@cus_age			 INT,    
+@cus_state			 BIT,   
+@cus_count			 int,
+@withdrawal_date	 DATETIME,
+@join_date			 datetime
+as
+update dbo.customers
+set 		
+	 cus_ID			 = @cus_ID,			
+	 cus_pwd		 = @cus_pwd	,	
+	 cus_phone		 = @cus_phone,		
+	 cus_addr		 = @cus_addr,	
+	 cus_name		 = @cus_name,	
+	 cus_Nickname	 = @cus_Nickname,	
+	 cus_gender		 = @cus_gender,	
+	 cus_age		 = @cus_age,
+	 cus_state		 = @cus_state,	
+	 cus_count		 = @cus_count,	
+	 withdrawal_date = @withdrawal_date,
+	 join_date		 = @join_date		
+where cus_no = @cus_no
+go
+
+-- 회원 탈퇴 버튼시
+create procedure dbo.update_cus_withdrawal
+@cus_no				 INT,  
+@cus_state			 BIT,   
+@withdrawal_date	 DATETIME
+as
+update dbo.customers
+set 			 
+	 cus_state		 = @cus_state,	
+	 withdrawal_date = @withdrawal_date	
+where cus_no = @cus_no
+go
+
+-- 회원 배송정보 카운트업
+create procedure dbo.update_cus_count
+@cus_no				 INT
+as
+update dbo.customers
+set 				
+	 cus_count +=1	
+where cus_no = @cus_no
+go
+
+
+-- 회원
+------------------------------------------------------------------------------------------------------------------------
+-- 판매자
 
 
 -- 판매자 추가

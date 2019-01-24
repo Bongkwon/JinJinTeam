@@ -16,9 +16,10 @@ CREATE TABLE [dbo].[customers] (
     [cus_Nickname] NVARCHAR (40) NULL,	-- 고객 별명
     [cus_gender]   bit   NOT NULL,	-- 고객 성별
     [cus_age]      INT           NOT NULL,	-- 고객 나이
-    [cus_state]    BIT           DEFAULT ((1)) NOT NULL,	-- 고객 정보 상태
+    [cus_state]    BIT           DEFAULT ((1)) NOT NULL,	-- 고객 정보 상태	1 = 가입, 0 = 탈퇴대기
 	[cus_count] INT NULL DEFAULT 1,		-- 배송정보 카운트
-	 [withdrawal_date] DATETIME NULL,  -- 탈퇴 날짜
+	[withdrawal_date] DATETIME NULL,  -- 탈퇴 날짜
+	[join_date] datetime  default getdate() Not Null -- 가입날짜
     PRIMARY KEY CLUSTERED ([cus_no] ASC),
     UNIQUE NONCLUSTERED ([cus_phone] ASC),
     UNIQUE NONCLUSTERED ([cus_ID] ASC)
