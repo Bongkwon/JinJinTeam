@@ -131,6 +131,12 @@ delete from dbo.sellers
 where seller_no = @seller_no
 go
 
+-- 상품 목록
+create procedure select_pro
+as
+	select * from dbo.products
+go
+
 -- 상품 추가	//???
 CREATE PROCEDURE [dbo].insert_product
 	@pro_ID       VARCHAR (20),
@@ -180,5 +186,3 @@ create procedure dbo.insert_cat
 insert into dbo.category_List(cat_ID,cat_kind)
 values(@cat_ID,@cat_kind)
 go
-
-

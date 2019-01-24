@@ -49,6 +49,22 @@ namespace JinTeamForAdmin
             }
         }
 
+        internal bool Delete_GV(string sp)
+        {
+            SqlConnection sqlCon = OpenCon();
+            var cmd = GetCommand(sqlCon, sp, null, null);
+
+            try
+            {
+                cmd.ExecuteReader();
+                return true;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+        }
+
         private SqlCommand GetCommand(SqlConnection sqlCon, string sp, SqlTransaction transaction, SqlParameter[] sqlParameters)
         {
             var cmd = new SqlCommand();

@@ -10,10 +10,10 @@ namespace JinTeamForAdmin.Dao
 {
     class Admin_Dao
     {
-        public List<Customers_Vo> Select_cus_all()
+        public List<Customers_Vo> Select_cus(string sp)
         {
             List<Customers_Vo> cuslst = new List<Customers_Vo>();
-            string sp = "select_cus";
+            //string sp = "select_cus";
 
             SqlDataReader sdr = new DBCon_admin().Select_GV(sp);
             while (sdr.Read())
@@ -39,6 +39,11 @@ namespace JinTeamForAdmin.Dao
             return cuslst;
         }
 
+        public bool Delete_cus(string sp)
+        {
+            bool result = new DBCon_admin().Delete_GV(sp);
+            return result;
+        }
 
     }
 }
