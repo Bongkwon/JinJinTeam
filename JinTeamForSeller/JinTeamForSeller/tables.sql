@@ -166,8 +166,70 @@ CREATE TABLE [dbo].[wish_List] (
 );
 go
 
+--Login Check
+CREATE PROCEDURE [dbo].chkLogin
+	@cus_ID varchar(30),
+	@cus_pwd varchar(MAX)
+AS
+	SELECT 1 from dbo.customers where cus_ID=@cus_ID and PWDCOMPARE(@cus_pwd,cus_pwd) = 1;
+go
 
+--중복되는 ID 검사
+CREATE PROCEDURE [dbo].ChkOverLap
+	@sellerId varchar(30)	
+AS
+	SELECT 1 from dbo.seller where seller_ID = @sellerId;
+go
 
+-- 회원가입(customer)
+CREATE PROCEDURE [dbo].insert_cus
+	@cus_ID varchar(30),
+	@cus_pwd varchar(MAX),
+	@cus_phone varchar(15),
+	@cus_addr nvarchar(max),
+	@cus_name nvarchar(30),
+	@cus_Nickname nvarchar(40),
+	@cus_gender bit,
+	@cus_age int
+AS
+insert into dbo.customers(cus_ID,cus_pwd,cus_phone,cus_addr,cus_name,cus_Nickname,cus_gender,cus_age)
+values(@cus_ID,pwdencrypt(@cus_pwd),@cus_phone,@cus_addr,@cus_name,@cus_Nickname,@cus_gender,@cus_age)
+go;
 
+-- 회원가입(판매자)
+CREATE PROCEDURE [dbo].insert_seller
+	@seller_ID varchar(30),
+	@seller_pwd varchar(128),
+	@seller_name nvarchar(30),
+	@seller_addr varchar(max),
+	@seller_boss varchar(30),
+	@seller_phone varchar(15),
+	@seller_postal varchar(10),
+	@seller_email varchar(50),
+	@seller_fax varchar(20),
+	@return_addr nvarchar(max),
+	@corporate_registration_no varchar(15)
+AS
+insert into dbo.seller(seller_ID,seller_pwd,seller_name,seller_addr,seller_boss,seller_phone,seller_postal,seller_email,seller_fax,return_addr,corporate_registration_no)
+values(@seller_ID,@seller_pwd,@seller_name,@seller_addr,@seller_boss,@seller_phone,@seller_postal,@seller_email,@seller_fax,@return_addr,@corporate_registration_no)
+go;
 
+-- 상품등록
+CREATE PROCEDURE [dbo].insertProductsForTest
+	@pro_Id varchar(20),
+	@pro_Name nvarchar(50),
+	@pro_Price int,
+	@main_Image varchar(MAX),
+	@cat_ID varchar(4),
+	@seller_no int
+AS
+	insert into dbo.products(pro_ID, pro_name, pro_price, main_image, seller_no, cat_ID)
+	values (@pro_Id, @pro_Name, @pro_Price, @main_Image, @seller_no, @cat_ID);
+go
+
+-- 상품 보기
+CREATE PROCEDURE [dbo].ViewProducts
+AS
+	SELECT * from dbo.products where pro_state = 1;
+go;
 

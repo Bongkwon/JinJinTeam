@@ -76,8 +76,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FrmInsert_cus.aspx" />
+    <Content Include="FrmInsertCust.aspx" />
     <Content Include="FrmLogin.aspx" />
+    <Content Include="FrmShowProducts.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JinTeamDB.mdf" />
     <Content Include="JinTeamDB_log.ldf">
@@ -86,12 +87,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmInsert_cus.aspx.cs">
-      <DependentUpon>FrmInsert_cus.aspx</DependentUpon>
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDAO.cs" />
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="FrmInsertCust.aspx.cs">
+      <DependentUpon>FrmInsertCust.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FrmInsert_cus.aspx.designer.cs">
-      <DependentUpon>FrmInsert_cus.aspx</DependentUpon>
+    <Compile Include="FrmInsertCust.aspx.designer.cs">
+      <DependentUpon>FrmInsertCust.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.aspx.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
@@ -100,9 +104,18 @@
     <Compile Include="FrmLogin.aspx.designer.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmShowProducts.aspx.cs">
+      <DependentUpon>FrmShowProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmShowProducts.aspx.designer.cs">
+      <DependentUpon>FrmShowProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Product_VO.cs" />
+    <Compile Include="ProductsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

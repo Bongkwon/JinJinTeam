@@ -21,7 +21,7 @@ namespace JinTeamForServer
             //    cus_ID = Request.Params["cus_ID"].ToString();
             //    cus_pass = Request.Params["cus_pwd"].ToString();
             //}
-            cus_ID = "kyk1234";
+            cus_ID = "kyk12345";
             cus_pass = "qwer1234"; 
             //else
             //{
@@ -32,16 +32,16 @@ namespace JinTeamForServer
             SqlCommand cmd = new SqlCommand();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
 
-            try
-            {
+            //try
+            //{
                 con.Open();
                 Label1.Text = "헤헹";
                 cmd.Connection = con;
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = "chkLogin";
                 cmd.Parameters.AddWithValue("cus_ID", cus_ID);
-                cmd.Parameters.AddWithValue("cus_pwd", cus_pass);
-                string result = cmd.ExecuteScalar().ToString();
+                cmd.Parameters.AddWithValue("cus_pwd", cus_pass);                
+                object result = cmd.ExecuteScalar();
                 //if (result == "1")
                 //{
 
@@ -50,13 +50,20 @@ namespace JinTeamForServer
                 //{
 
                 //}
-                Label1.Text = result;
-            }
-            catch (Exception)
-            {
+                if (result != null)
+                {
+                    Label1.Text = result.ToString();
+                }
+                else
+                {
+                    Label1.Text = "0";
+                }
+            //}
+            //catch (Exception)
+            //{
 
-                throw;
-            }
+            //    throw;
+            //}
 
             con.Close();
             
