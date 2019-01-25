@@ -42,6 +42,7 @@
             this.gb_pro = new System.Windows.Forms.GroupBox();
             this.gb_seller = new System.Windows.Forms.GroupBox();
             this.gb_cus = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
@@ -69,6 +70,7 @@
             this.rdo_all_cus.TabStop = true;
             this.rdo_all_cus.Text = "전체 회원";
             this.rdo_all_cus.UseVisualStyleBackColor = true;
+            this.rdo_all_cus.CheckedChanged += new System.EventHandler(this.cus_Changed);
             // 
             // rdo_deactive_cus
             // 
@@ -79,6 +81,7 @@
             this.rdo_deactive_cus.TabIndex = 5;
             this.rdo_deactive_cus.Text = "탈퇴 대기 회원";
             this.rdo_deactive_cus.UseVisualStyleBackColor = true;
+            this.rdo_deactive_cus.CheckedChanged += new System.EventHandler(this.cus_Changed);
             // 
             // rdo_deactive_pro
             // 
@@ -190,11 +193,22 @@
             this.gb_cus.TabStop = false;
             this.gb_cus.Text = "customers";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(880, 467);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 569);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.gb_cus);
             this.Controls.Add(this.gb_seller);
             this.Controls.Add(this.gb_pro);
@@ -233,5 +247,6 @@
         private System.Windows.Forms.GroupBox gb_pro;
         private System.Windows.Forms.GroupBox gb_seller;
         private System.Windows.Forms.GroupBox gb_cus;
+        private System.Windows.Forms.Button button1;
     }
 }
