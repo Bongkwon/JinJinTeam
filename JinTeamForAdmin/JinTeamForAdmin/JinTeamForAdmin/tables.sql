@@ -75,9 +75,9 @@ CREATE TABLE [dbo].[products] (
     [main_comment] VARCHAR (MAX) NULL,	-- 상품 설명
     [sub_comment]  VARCHAR (MAX)   NULL,	-- 상품 보조설명
     [main_image]   VARCHAR (MAX)   NULL,	-- 상품 대표이미지
-    [pro_hits]     INT             NULL,	-- 상품 조회수
-    [pro_like]     INT             NULL,	-- 상품 좋아요
-    [pro_discount] INT             NULL,	-- 상품 할인율
+    [pro_hits]     INT             NULL DEFAULT 0,	-- 상품 조회수
+    [pro_like]     INT             NULL DEFAULT 0,	-- 상품 좋아요
+    [pro_discount] INT             NULL DEFAULT 0,	-- 상품 할인율
     [pro_gender]   VARCHAR (2)   NOT NULL,	-- 추천 성별
     [pro_state]    BIT             DEFAULT ((1)) NULL,	-- 상품 정보 상태
     PRIMARY KEY CLUSTERED ([pro_ID] ASC)
@@ -106,7 +106,7 @@ CREATE TABLE [dbo].[seller] (
     [seller_no]     INT            NOT NULL IDENTITY,	-- 판매자 번호
     [seller_ID]     VARCHAR (30)   NOT NULL,	-- 판매자 아이디
     [seller_pwd]    VARCHAR (128)  NOT NULL,	-- 판매자 비밀번호
-    [seller_name]   NVARCHAR (30)  NOT NULL,	-- 판매자 이름
+    [seller_name]   NVARCHAR (30)  NOT NULL,	-- 판매자 브랜드명
     [seller_addr]   NVARCHAR (MAX) NOT NULL,	-- 회사 주소
     [seller_boss]   NVARCHAR (30)  NOT NULL,	-- 회사 대표
     [seller_phone]  VARCHAR (15)   NOT NULL,	-- 판매자 전화번호

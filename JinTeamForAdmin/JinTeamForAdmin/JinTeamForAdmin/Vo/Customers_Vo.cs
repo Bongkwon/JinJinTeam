@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JinTeamForAdmin.Vo
 {
-    class Customers_Vo
+    public class Customers_Vo
     {
         private int cus_no;
 

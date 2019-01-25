@@ -1,10 +1,10 @@
-﻿-- 전체 회원 목록( 탈퇴대기자 포함)
+﻿-- 회원 목록(전체 탈퇴대기자 포함)
 create procedure select_cus
 as
 	select * from dbo.customers
 go
 
--- 탈퇴 대기중인 회원 목록
+-- 회원 목록 ( 탈퇴 대기중)
 create procedure select_cus_withdrawal
 as
 select * from dbo.customers
@@ -105,6 +105,39 @@ go
 -- 판매자
 
 
+-- 판매자 목록 (전체)
+create procedure select_seller
+as
+	select * from dbo.seller
+go
+
+-- 판매자 목록 (미가입 상태)
+create procedure select_seller_join_0
+as
+	select * from dbo.seller
+	where join_state = 0
+go
+
+-- 가입 승인 ( 판매자 )
+create procedure update_seller_join
+	@seller_no int
+as
+	update dbo.seller
+	set join_state = 1
+	where seller_no = @seller_no
+go
+
+-- 회원정보 수정 (판매자)
+create procedure update_seller_join_state
+	@seller_no int,
+	@join_state bit,
+	@seller_state bit
+as
+	update dbo.seller
+	set join_state = @join_state , seller_state = @seller_state
+	where seller_no = @seller_no
+go
+
 -- 판매자 추가
 CREATE PROCEDURE [dbo].insert_seller
 	@seller_ID varchar(30),
@@ -131,11 +164,19 @@ delete from dbo.sellers
 where seller_no = @seller_no
 go
 
--- 상품 목록
+-- 상품 목록 (전체)
 create procedure select_pro
 as
 	select * from dbo.products
 go
+
+-- 상품 목록 (비활성화)
+create procedure select_pro_state_0
+as
+	select * from dbo.products
+	where pro_state = 0
+go
+
 
 -- 상품 추가	//???
 CREATE PROCEDURE [dbo].insert_product

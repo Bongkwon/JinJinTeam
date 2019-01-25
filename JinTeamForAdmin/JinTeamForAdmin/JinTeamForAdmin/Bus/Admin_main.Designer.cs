@@ -55,9 +55,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 69);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(964, 380);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // rdo_all_cus
             // 
@@ -104,6 +107,7 @@
             this.rdo_all_pro.TabStop = true;
             this.rdo_all_pro.Text = "전체 상품";
             this.rdo_all_pro.UseVisualStyleBackColor = true;
+            this.rdo_all_pro.CheckedChanged += new System.EventHandler(this.pro_changed);
             // 
             // rdo_deactive_seller
             // 
@@ -112,8 +116,9 @@
             this.rdo_deactive_seller.Name = "rdo_deactive_seller";
             this.rdo_deactive_seller.Size = new System.Drawing.Size(99, 16);
             this.rdo_deactive_seller.TabIndex = 10;
-            this.rdo_deactive_seller.Text = "비활성화 상품";
+            this.rdo_deactive_seller.Text = "미가입 판매자";
             this.rdo_deactive_seller.UseVisualStyleBackColor = true;
+            this.rdo_deactive_seller.CheckedChanged += new System.EventHandler(this.seller_changed);
             // 
             // rdo_all_seller
             // 
@@ -126,6 +131,7 @@
             this.rdo_all_seller.TabStop = true;
             this.rdo_all_seller.Text = "전체 판매자";
             this.rdo_all_seller.UseVisualStyleBackColor = true;
+            this.rdo_all_seller.CheckedChanged += new System.EventHandler(this.seller_changed);
             // 
             // menuStrip1
             // 
@@ -217,6 +223,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin_main";
             this.Text = "Admin_main";
+            this.Load += new System.EventHandler(this.Admin_main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
