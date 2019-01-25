@@ -145,19 +145,21 @@ namespace JinTeamForSeller.Bus
             if (gb_seller.Visible)
             {
                 seller_Detail sd = new seller_Detail(ob_lst[e.RowIndex]);
-                sd.Show();
+                sd.ShowDialog();
             }
             else if(gb_pro.Visible)
             {
                 pro_Detail pd = new pro_Detail();
-                pd.Show();
+                pd.ShowDialog();
             }
             else         // gb_cus.visible
             {
                 cus_Detail cd = new cus_Detail();
-                cd.Show();
+                cd.ShowDialog();
             }
-            
+
+            rdo_all_seller.Checked = true;
+            seller_changed(null, null);
         }
     }
 }
