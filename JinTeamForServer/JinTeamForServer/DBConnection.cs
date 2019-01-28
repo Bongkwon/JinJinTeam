@@ -4,17 +4,22 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Configuration;
+using System.Data;
+
 namespace JinTeamForServer
 {
     class DBConnection
     {
         SqlConnection conn;
         SqlCommand cmd;
-        
+        SqlDataAdapter da;
+
+
         public DBConnection()
         {
             conn = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString);
             cmd = new SqlCommand();
+            da = new SqlDataAdapter();
         }
 
         private SqlConnection OpenConnection()
@@ -100,6 +105,32 @@ namespace JinTeamForServer
                 result = true;
             }
             return result;
+
+        }
+
+        public DataTable ExcuteSelect(string sp, SqlParameter[] sqlParameters)
+        {
+            SqlCommand command = new SqlCommand();
+            da.SelectCommand = command;
+            da.SelectCommand.Connection = conn;
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.CommandText = sp;
+            
+            if (sqlParameters != null)
+            {
+                da.SelectCommand.Parameters.AddRange(sqlParameters);
+            }
+            var set = new DataSet();
+            try
+            {
+                da.Fill(set);
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+
+            return set.Tables[0];
 
         }
     }
