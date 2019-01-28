@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HtmlAgilityPack;
+using JinTeamForSeller.Dao;
 
 namespace JinTeamForSeller
 {
@@ -169,6 +170,75 @@ namespace JinTeamForSeller
         private void button2_Click(object sender, EventArgs e)
         {
             new FrmInsertSeller().Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SqlConnection sql = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sql;
+            sql.Open();
+            sql.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SellerDAO seller = new SellerDAO();
+            
+            if (seller.ChkLogin(txtId.Text, txtPwd.Text))
+            {
+                new FrmMain().Show();
+            }
+            else
+            {
+                MessageBox.Show("비밀번호 또는 아이디가 틀립니다.");
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            List<Product> lstPro = new List<Product>();
+            SqlConnection sql = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString);
+            SqlCommand cmd = new SqlCommand();
+            sql.Open();
+            cmd.Connection = sql;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from dbo.products";
+            var dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Product dc = new Product(dr["pro_ID"].ToString(), dr["cat_ID"].ToString(), int.Parse(dr["Seller_No"].ToString()), dr["pro_Name"].ToString(), int.Parse(dr["pro_Price"].ToString()), "", dr["Main_image"].ToString(), dr["pro_gender"].ToString(), (bool)dr["pro_state"]);
+                dc.Sub_Comment = "";
+                lstPro.Add(dc);
+            }
+            dr.Close();
+            sql.Close();
+
+            SqlConnection insertConn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
+            SqlCommand cmd2 = new SqlCommand();
+            cmd2.Connection = insertConn;
+            cmd2.CommandType = CommandType.StoredProcedure;
+            cmd2.CommandText = "insert_product";
+            foreach (var item in lstPro)
+            {
+                cmd2.Parameters.Clear();
+                insertConn.Open();                
+                SqlParameter[] sqlp =
+                    { (new SqlParameter("pro_id", item.Pro_ID)),
+                (new SqlParameter("cat_id", item.Cat_ID)),
+                (new SqlParameter("Seller_NO", item.Seller_NO)),
+                (new SqlParameter("Pro_Name", item.Pro_Name)),
+                (new SqlParameter("Pro_Price", item.Pro_Price)),
+                (new SqlParameter("Main_Comment", item.Main_Comment)),
+                (new SqlParameter("sub_comment", item.Sub_Comment)),
+                (new SqlParameter("Main_Image", item.Main_Image)),
+                (new SqlParameter("Pro_Gender", item.Pro_Gender))
+                };
+                cmd2.Parameters.AddRange(sqlp);
+                cmd2.ExecuteNonQuery();
+                insertConn.Close();
+            }
         }
     }
 }

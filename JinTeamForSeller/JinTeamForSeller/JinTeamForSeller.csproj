@@ -73,11 +73,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDetailPro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetailPro.Designer.cs">
+      <DependentUpon>FrmDetailPro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInsertSeller.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmInsertSeller.Designer.cs">
       <DependentUpon>FrmInsertSeller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProducts.Designer.cs">
+      <DependentUpon>FrmProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Vo\Product.cs" />
     <Compile Include="Program.cs" />
@@ -89,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInsertSeller.resx">
       <DependentUpon>FrmInsertSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProducts.resx">
+      <DependentUpon>FrmProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

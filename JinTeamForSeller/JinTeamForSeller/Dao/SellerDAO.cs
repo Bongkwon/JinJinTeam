@@ -41,5 +41,22 @@ namespace JinTeamForSeller.Dao
                 throw;
             }            
         }
+
+        public bool ChkLogin(string sellerID, string sellerPwd)
+        {
+            bool result = false;
+            string query = "ChkSeller";
+            SqlParameter[] sqlp = { new SqlParameter("seller_Id", sellerID), new SqlParameter("seller_pwd", sellerPwd) };
+            
+            try
+            {
+                result = con.SendScalarReadQuery(query, sqlp);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return result;
+        }
     }
 }

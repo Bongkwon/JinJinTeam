@@ -15,7 +15,7 @@ namespace JinTeamForSeller.Dao
         public DBConnection()
         {
             conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Jin\JinTeamForSeller\JinTeamForSeller\JinTeamDB.mdf;Integrated Security=True");
-            cmd = new SqlCommand();
+            
         }
 
         private SqlConnection OpenConnection()
@@ -28,7 +28,8 @@ namespace JinTeamForSeller.Dao
         }
 
         public void SendExqueteQuery(string query, SqlParameter[] sqlp)
-        {            
+        {
+            SqlCommand cmd = new SqlCommand();
             try
             {
                 cmd.Connection = OpenConnection();
@@ -46,6 +47,7 @@ namespace JinTeamForSeller.Dao
 
         public SqlDataReader SendReadQuery(string query, SqlParameter[] sqlp)
         {
+            SqlCommand cmd = new SqlCommand();
             try
             {                
                 cmd.Connection = OpenConnection();
@@ -67,6 +69,7 @@ namespace JinTeamForSeller.Dao
 
         public bool SendScalarReadQuery(string query, SqlParameter[] sqlp)
         {
+            SqlCommand cmd = new SqlCommand();
             int a = 0;
             bool result = false;
             
