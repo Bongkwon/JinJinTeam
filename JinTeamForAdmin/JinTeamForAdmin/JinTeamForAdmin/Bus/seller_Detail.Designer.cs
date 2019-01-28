@@ -188,9 +188,9 @@
             this.lbl_join.AutoSize = true;
             this.lbl_join.Location = new System.Drawing.Point(12, 385);
             this.lbl_join.Name = "lbl_join";
-            this.lbl_join.Size = new System.Drawing.Size(53, 12);
+            this.lbl_join.Size = new System.Drawing.Size(57, 12);
             this.lbl_join.TabIndex = 14;
-            this.lbl_join.Text = "가입상태";
+            this.lbl_join.Text = "가입 상태";
             // 
             // btn_ok
             // 

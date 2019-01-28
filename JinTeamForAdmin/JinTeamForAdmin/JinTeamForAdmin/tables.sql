@@ -67,7 +67,7 @@ CREATE TABLE [dbo].[payment_info] (
 go
 
 CREATE TABLE [dbo].[products] (
-    [pro_ID]       VARCHAR (20)    NOT NULL,	-- 상품번호
+    [pro_ID]       VARCHAR (20)    NOT NULL,	-- 상품 번호
     [cat_ID]       VARCHAR (4)     NOT NULL,	-- 카테고리 번호
     [seller_no]    INT             NOT NULL,	-- 판매자 번호
     [pro_name]     NVARCHAR (50)   NOT NULL,	-- 상품 이름
