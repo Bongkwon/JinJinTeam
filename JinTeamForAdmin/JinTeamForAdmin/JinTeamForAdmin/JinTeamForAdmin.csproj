@@ -100,6 +100,9 @@
     <EmbeddedResource Include="Bus\Admin_main.resx">
       <DependentUpon>Admin_main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bus\pro_Detail.resx">
+      <DependentUpon>pro_Detail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bus\seller_Detail.resx">
       <DependentUpon>seller_Detail.cs</DependentUpon>
     </EmbeddedResource>

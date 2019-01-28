@@ -146,10 +146,12 @@ namespace JinTeamForSeller.Bus
             {
                 seller_Detail sd = new seller_Detail(ob_lst[e.RowIndex]);
                 sd.ShowDialog();
+                rdo_all_seller.Checked = true;
+                seller_changed(null, null);
             }
             else if(gb_pro.Visible)
             {
-                pro_Detail pd = new pro_Detail();
+                pro_Detail pd = new pro_Detail(ob_lst[e.RowIndex]);
                 pd.ShowDialog();
             }
             else         // gb_cus.visible
@@ -158,8 +160,7 @@ namespace JinTeamForSeller.Bus
                 cd.ShowDialog();
             }
 
-            rdo_all_seller.Checked = true;
-            seller_changed(null, null);
+            
         }
     }
 }
