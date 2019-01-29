@@ -43,6 +43,7 @@
             this.gb_seller = new System.Windows.Forms.GroupBox();
             this.gb_cus = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.rdo_Disabled_seller = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
@@ -54,13 +55,15 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 69);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(964, 380);
+            this.dataGridView1.Size = new System.Drawing.Size(883, 380);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // rdo_all_cus
             // 
@@ -141,7 +144,7 @@
             this.products목록ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(988, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(905, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -179,11 +182,12 @@
             // 
             // gb_seller
             // 
+            this.gb_seller.Controls.Add(this.rdo_Disabled_seller);
             this.gb_seller.Controls.Add(this.rdo_deactive_seller);
             this.gb_seller.Controls.Add(this.rdo_all_seller);
             this.gb_seller.Location = new System.Drawing.Point(12, 27);
             this.gb_seller.Name = "gb_seller";
-            this.gb_seller.Size = new System.Drawing.Size(200, 36);
+            this.gb_seller.Size = new System.Drawing.Size(309, 36);
             this.gb_seller.TabIndex = 13;
             this.gb_seller.TabStop = false;
             this.gb_seller.Text = "sellers";
@@ -192,7 +196,7 @@
             // 
             this.gb_cus.Controls.Add(this.rdo_deactive_cus);
             this.gb_cus.Controls.Add(this.rdo_all_cus);
-            this.gb_cus.Location = new System.Drawing.Point(218, 27);
+            this.gb_cus.Location = new System.Drawing.Point(630, 27);
             this.gb_cus.Name = "gb_cus";
             this.gb_cus.Size = new System.Drawing.Size(200, 36);
             this.gb_cus.TabIndex = 14;
@@ -201,7 +205,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(880, 467);
+            this.button1.Location = new System.Drawing.Point(749, 464);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
@@ -209,11 +213,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // rdo_Disabled_seller
+            // 
+            this.rdo_Disabled_seller.AutoSize = true;
+            this.rdo_Disabled_seller.Location = new System.Drawing.Point(196, 15);
+            this.rdo_Disabled_seller.Name = "rdo_Disabled_seller";
+            this.rdo_Disabled_seller.Size = new System.Drawing.Size(111, 16);
+            this.rdo_Disabled_seller.TabIndex = 11;
+            this.rdo_Disabled_seller.Text = "비활성화 판매자";
+            this.rdo_Disabled_seller.UseVisualStyleBackColor = true;
+            this.rdo_Disabled_seller.CheckedChanged += new System.EventHandler(this.seller_changed);
+            // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 569);
+            this.ClientSize = new System.Drawing.Size(905, 569);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gb_cus);
             this.Controls.Add(this.gb_seller);
@@ -255,5 +270,6 @@
         private System.Windows.Forms.GroupBox gb_seller;
         private System.Windows.Forms.GroupBox gb_cus;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RadioButton rdo_Disabled_seller;
     }
 }

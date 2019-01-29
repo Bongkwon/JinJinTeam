@@ -26,7 +26,7 @@ namespace JinTeamForAdmin.Dao
             return result;
         }
 
-        internal bool Update_ob(object ob_sub,string type_u)
+        internal bool Update_state_ob(object ob_sub,string type_u)
         {
             SqlParameter[] sqlParameters = new SqlParameter[0];
             string sp = "";

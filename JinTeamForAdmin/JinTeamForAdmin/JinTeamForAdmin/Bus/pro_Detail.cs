@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,9 +32,9 @@ namespace JinTeamForAdmin.Bus
         {
             lbl_catID.Text = pv.Cat_ID.ToString();
             lbl_discount.Text = pv.Pro_Discount.ToString();
-            lbl_gender.Text = pv.Pro_Gender.ToString();
+            //lbl_gender.Text = pv.Pro_Gender.ToString();
             lbl_hits.Text = pv.Pro_Hits.ToString();
-            lbl_like.Text = pv.Pro_Name.ToString();
+            lbl_like.Text = pv.Pro_Like.ToString();
 
             lbl_m_comment.Text = pv.Main_Comment.ToString();
             lbl_m_image.Text = pv.Main_Image.ToString();
@@ -42,8 +43,21 @@ namespace JinTeamForAdmin.Bus
             lbl_proID.Text = pv.Pro_ID.ToString();
 
             lbl_sellno.Text = pv.Seller_NO.ToString();
-            lbl_state.Text = pv.Pro_State.ToString();
+            //lbl_state.Text = pv.Pro_State.ToString();
             lbl_s_comment.Text = pv.Sub_Comment.ToString();
+
+            if (pv.Pro_Gender == "A")
+            {
+                lbl_gender.Text = "혼복";
+            }
+            else if (pv.Pro_Gender == "M")
+            {
+                lbl_gender.Text = "남성복";
+            }
+            else
+            {
+                lbl_gender.Text = "여성복";
+            }
 
             if (pv.Pro_State)
             {
@@ -78,7 +92,7 @@ namespace JinTeamForAdmin.Bus
                 var result = MessageBox.Show("수정 하시겠습니까?", "수정", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
-                    if (new Admin_Dao().Update_ob(pv_sub, type_u))
+                    if (new Admin_Dao().Update_state_ob(pv_sub, type_u))
                     {
                         MessageBox.Show("수정 성공");
                     }
@@ -102,6 +116,13 @@ namespace JinTeamForAdmin.Bus
             {
                 p_s = false;
             }
+        }
+
+        private void lbl_m_image_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lbl_m_image.LinkVisited = true;
+
+            Process.Start(lbl_m_image.Text);
         }
     }
 }
