@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JinTeamForSeller.Vo;
 
 namespace JinTeamForSeller.Dao
 {
@@ -14,7 +15,7 @@ namespace JinTeamForSeller.Dao
         SqlCommand cmd;
         public DBConnection()
         {
-            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Jin\JinTeamForSeller\JinTeamForSeller\JinTeamDB.mdf;Integrated Security=True");
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
             
         }
 
@@ -27,26 +28,30 @@ namespace JinTeamForSeller.Dao
             return conn;
         }
 
-        public void SendExqueteQuery(string query, SqlParameter[] sqlp)
+        public bool SendExqueteQuery(string query, SqlParameter[] sqlp)
         {
+            bool result = false;
             SqlCommand cmd = new SqlCommand();
-            try
-            {
+            //try
+            //{
                 cmd.Connection = OpenConnection();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = query;
                 cmd.Parameters.AddRange(sqlp);
                 cmd.ExecuteNonQuery();
-                conn.Close();                
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+                conn.Close();
+                result = true;
+            //}
+            //catch (Exception)
+            //{
+            //    throw;
+            //}
+            return result;
         }
 
-        public SqlDataReader SendReadQuery(string query, SqlParameter[] sqlp)
+        public List<object> SendReadQuery(string query, SqlParameter[] sqlp)
         {
+            List<object> lstObj = new List<object>();
             SqlCommand cmd = new SqlCommand();
             try
             {                
@@ -58,8 +63,22 @@ namespace JinTeamForSeller.Dao
                     cmd.Parameters.AddRange(sqlp);
                 }
                 SqlDataReader dr = cmd.ExecuteReader();
+                if (query == "select_proEachSeller")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new Product(dr["pro_Id"].ToString(), dr["cat_ID"].ToString(), (int)dr["seller_no"], dr["pro_name"].ToString(), (int)dr["pro_price"], dr["main_comment"].ToString(), dr["sub_comment"].ToString(), dr["main_image"].ToString(), (int)dr["pro_hits"], (int)dr["pro_like"], (int)dr["pro_discount"], dr["pro_gender"].ToString(), (bool)dr["pro_state"]));
+                    }
+                }
+                else if(query == "SelectCategory")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new CatVO(dr["cat_ID"].ToString(), dr["cat_kind"].ToString()));
+                    }
+                }
                 conn.Close();
-                return dr;
+                return lstObj;
             }
             catch (Exception)
             {
@@ -67,11 +86,10 @@ namespace JinTeamForSeller.Dao
             }
         }
 
-        public bool SendScalarReadQuery(string query, SqlParameter[] sqlp)
+        public int SendScalarReadQuery(string query, SqlParameter[] sqlp)
         {
             SqlCommand cmd = new SqlCommand();
-            int a = 0;
-            bool result = false;
+            int a = 0;            
             
             cmd.Connection = OpenConnection();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -80,16 +98,19 @@ namespace JinTeamForSeller.Dao
             {
                 cmd.Parameters.AddRange(sqlp);
             }
-            if (cmd.ExecuteScalar() != null)
+            try
             {
-                a = (int)cmd.ExecuteScalar();
+                a = int.Parse(cmd.ExecuteScalar().ToString());
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
             conn.Close();
-            if (a == 1)
-            {
-                result = true;
-            }
-            return result;
+            
+            return a;
 
         }
     }
