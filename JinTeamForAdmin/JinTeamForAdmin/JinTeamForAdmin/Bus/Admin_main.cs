@@ -20,7 +20,7 @@ namespace JinTeamForSeller.Bus
         //List<Seller_Vo> sell_lst;
         
         string sp = "";
-        string type_p = "";
+        string type_s = "";
         public Admin_main()
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace JinTeamForSeller.Bus
 
             ob_lst.Clear();
             dataGridView1.DataSource = null;
-            type_p = "cus";
+            type_s = "cus";
             if (rdo_all_cus.Checked)
             {
                 sp = "select_cus";
@@ -69,7 +69,7 @@ namespace JinTeamForSeller.Bus
             {
                 sp = "select_cus_withdrawal";
             }
-            ob_lst = new Admin_Dao().Select_ob(sp, type_p);
+            ob_lst = new Admin_Dao().Select_ob(sp, type_s);
             dataGridView1.DataSource = ob_lst;
         }
 
@@ -82,7 +82,7 @@ namespace JinTeamForSeller.Bus
 
             ob_lst.Clear();
             dataGridView1.DataSource = null;
-            type_p = "pro";
+            type_s = "pro";
             if (rdo_all_pro.Checked)
             {
                 sp = "select_pro";
@@ -92,7 +92,7 @@ namespace JinTeamForSeller.Bus
                 sp = "select_pro_state_0";
             }
 
-            ob_lst = new Admin_Dao().Select_ob(sp, type_p);
+            ob_lst = new Admin_Dao().Select_ob(sp, type_s);
             dataGridView1.DataSource = ob_lst;
         }
 
@@ -105,7 +105,7 @@ namespace JinTeamForSeller.Bus
 
             dataGridView1.DataSource = null;
             ob_lst.Clear();
-            type_p = "sel";
+            type_s = "sel";
             if (rdo_all_seller.Checked)
             {
                 sp = "select_seller";
@@ -115,7 +115,7 @@ namespace JinTeamForSeller.Bus
                 sp = "select_seller_join_0";
             }
 
-            ob_lst = new Admin_Dao().Select_ob(sp, type_p);
+            ob_lst = new Admin_Dao().Select_ob(sp, type_s);
             dataGridView1.DataSource = ob_lst;
         }
 
@@ -146,18 +146,22 @@ namespace JinTeamForSeller.Bus
             {
                 seller_Detail sd = new seller_Detail(ob_lst[e.RowIndex]);
                 sd.ShowDialog();
-                rdo_all_seller.Checked = true;
+                //rdo_all_seller.Checked = true;
                 seller_changed(null, null);
             }
             else if(gb_pro.Visible)
             {
                 pro_Detail pd = new pro_Detail(ob_lst[e.RowIndex]);
                 pd.ShowDialog();
+                //rdo_all_pro.Checked = true;
+                pro_changed(null, null);
             }
             else         // gb_cus.visible
             {
                 cus_Detail cd = new cus_Detail();
                 cd.ShowDialog();
+                //rdo_all_cus.Checked = true;
+                cus_Changed(null, null);
             }
 
             

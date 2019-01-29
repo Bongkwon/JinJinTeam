@@ -327,6 +327,7 @@
             this.rdo_Disabled.TabStop = true;
             this.rdo_Disabled.Text = "비활성화";
             this.rdo_Disabled.UseVisualStyleBackColor = true;
+            this.rdo_Disabled.CheckedChanged += new System.EventHandler(this.p_state_changed);
             // 
             // btn_ok
             // 
@@ -336,6 +337,7 @@
             this.btn_ok.TabIndex = 27;
             this.btn_ok.Text = "확인";
             this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
             // 
@@ -345,6 +347,7 @@
             this.btn_cancel.TabIndex = 28;
             this.btn_cancel.Text = "취소";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // pro_Detail
             // 

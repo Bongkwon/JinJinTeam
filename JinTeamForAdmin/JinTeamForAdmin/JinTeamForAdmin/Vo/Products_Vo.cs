@@ -131,5 +131,14 @@ namespace JinTeamForAdmin.Vo
             this.pro_Gender = pro_Gender;
             this.pro_State = pro_State;
         }
+
+        public override bool Equals(object obj)
+        {
+            var products = obj as Products_Vo;
+            return products != null &&
+                pro_Id == products.Pro_ID &&
+                pro_State == products.pro_State;
+        }
+
     }
 }
