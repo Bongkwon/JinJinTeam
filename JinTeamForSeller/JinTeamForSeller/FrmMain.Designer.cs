@@ -82,6 +82,7 @@
             this.Controls.Add(this.button1);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }

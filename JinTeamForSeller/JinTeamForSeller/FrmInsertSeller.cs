@@ -28,9 +28,9 @@ namespace JinTeamForSeller
 
         private void btnCheckOverlap_Click(object sender, EventArgs e)
         {
-            bool result = false;
+            int result = 0;
             result = seller.ChkOverLap(txtId.Text);
-            if (result == true)
+            if (result != 0)
             {
                 MessageBox.Show("중복되는 ID 입니다.");
             }

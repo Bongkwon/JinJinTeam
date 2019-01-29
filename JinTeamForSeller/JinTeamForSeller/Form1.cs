@@ -13,9 +13,11 @@ using HtmlAgilityPack;
 using JinTeamForSeller.Dao;
 
 namespace JinTeamForSeller
-{
+{    
     public partial class Form1 : Form
     {
+        public static int CompanyNo = 0;
+        public static string CompanyName = "";
         List<WebPage> lstWeb = new List<WebPage>();
         List<Product> lstPro = new List<Product>();
         public Form1()
@@ -167,7 +169,7 @@ namespace JinTeamForSeller
             MessageBox.Show("Test");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) // 회원가입
         {
             new FrmInsertSeller().Show();
         }
@@ -181,12 +183,16 @@ namespace JinTeamForSeller
             sql.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // 로그인
         {
             SellerDAO seller = new SellerDAO();
+            int a = seller.ChkLogin(txtId.Text, txtPwd.Text);
             
-            if (seller.ChkLogin(txtId.Text, txtPwd.Text))
+
+            if (a != 0)
             {
+                CompanyNo = a;
+                CompanyName = txtId.Text.Substring(0, 7);
                 new FrmMain().Show();
             }
             else
