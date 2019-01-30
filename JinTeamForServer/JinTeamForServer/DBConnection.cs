@@ -83,7 +83,7 @@ namespace JinTeamForServer
             return pro_lst;            
         }
     
-        public bool SendScalarReadQuery(string query, SqlParameter[] sqlp)
+        public bool ChkData(string query, SqlParameter[] sqlp)
         {
             int a = 0;
             bool result = false;
