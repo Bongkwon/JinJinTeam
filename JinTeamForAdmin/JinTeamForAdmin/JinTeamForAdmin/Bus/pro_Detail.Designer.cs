@@ -34,13 +34,11 @@
             this.lbl_price = new System.Windows.Forms.Label();
             this.lbl_m_comment = new System.Windows.Forms.Label();
             this.lbl_s_comment = new System.Windows.Forms.Label();
-            this.lbl_m_image = new System.Windows.Forms.Label();
             this.lbl_hits = new System.Windows.Forms.Label();
             this.lbl_like = new System.Windows.Forms.Label();
             this.lbl_proID = new System.Windows.Forms.Label();
             this.lbl_discount = new System.Windows.Forms.Label();
             this.lbl_gender = new System.Windows.Forms.Label();
-            this.lbl_state = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,6 +57,7 @@
             this.rdo_Disabled = new System.Windows.Forms.RadioButton();
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
+            this.lbl_m_image = new System.Windows.Forms.LinkLabel();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,15 +115,6 @@
             this.lbl_s_comment.TabIndex = 5;
             this.lbl_s_comment.Text = "sub_comment";
             // 
-            // lbl_m_image
-            // 
-            this.lbl_m_image.AutoSize = true;
-            this.lbl_m_image.Location = new System.Drawing.Point(110, 217);
-            this.lbl_m_image.Name = "lbl_m_image";
-            this.lbl_m_image.Size = new System.Drawing.Size(74, 12);
-            this.lbl_m_image.TabIndex = 6;
-            this.lbl_m_image.Text = "main_image";
-            // 
             // lbl_hits
             // 
             this.lbl_hits.AutoSize = true;
@@ -169,15 +159,6 @@
             this.lbl_gender.Size = new System.Drawing.Size(68, 12);
             this.lbl_gender.TabIndex = 11;
             this.lbl_gender.Text = "pro_gender";
-            // 
-            // lbl_state
-            // 
-            this.lbl_state.AutoSize = true;
-            this.lbl_state.Location = new System.Drawing.Point(285, 357);
-            this.lbl_state.Name = "lbl_state";
-            this.lbl_state.Size = new System.Drawing.Size(56, 12);
-            this.lbl_state.TabIndex = 12;
-            this.lbl_state.Text = "pro_state";
             // 
             // label1
             // 
@@ -300,7 +281,7 @@
             // 
             this.groupBox2.Controls.Add(this.rdo_Activation);
             this.groupBox2.Controls.Add(this.rdo_Disabled);
-            this.groupBox2.Location = new System.Drawing.Point(112, 344);
+            this.groupBox2.Location = new System.Drawing.Point(111, 348);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(151, 30);
             this.groupBox2.TabIndex = 26;
@@ -327,6 +308,7 @@
             this.rdo_Disabled.TabStop = true;
             this.rdo_Disabled.Text = "비활성화";
             this.rdo_Disabled.UseVisualStyleBackColor = true;
+            this.rdo_Disabled.CheckedChanged += new System.EventHandler(this.p_state_changed);
             // 
             // btn_ok
             // 
@@ -336,6 +318,7 @@
             this.btn_ok.TabIndex = 27;
             this.btn_ok.Text = "확인";
             this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
             // 
@@ -345,12 +328,25 @@
             this.btn_cancel.TabIndex = 28;
             this.btn_cancel.Text = "취소";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // lbl_m_image
+            // 
+            this.lbl_m_image.AutoSize = true;
+            this.lbl_m_image.Location = new System.Drawing.Point(110, 217);
+            this.lbl_m_image.Name = "lbl_m_image";
+            this.lbl_m_image.Size = new System.Drawing.Size(74, 12);
+            this.lbl_m_image.TabIndex = 29;
+            this.lbl_m_image.TabStop = true;
+            this.lbl_m_image.Text = "main_image";
+            this.lbl_m_image.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbl_m_image_LinkClicked);
             // 
             // pro_Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(809, 421);
+            this.Controls.Add(this.lbl_m_image);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.groupBox2);
@@ -367,13 +363,11 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.lbl_state);
             this.Controls.Add(this.lbl_gender);
             this.Controls.Add(this.lbl_discount);
             this.Controls.Add(this.lbl_proID);
             this.Controls.Add(this.lbl_like);
             this.Controls.Add(this.lbl_hits);
-            this.Controls.Add(this.lbl_m_image);
             this.Controls.Add(this.lbl_s_comment);
             this.Controls.Add(this.lbl_m_comment);
             this.Controls.Add(this.lbl_price);
@@ -398,13 +392,11 @@
         private System.Windows.Forms.Label lbl_price;
         private System.Windows.Forms.Label lbl_m_comment;
         private System.Windows.Forms.Label lbl_s_comment;
-        private System.Windows.Forms.Label lbl_m_image;
         private System.Windows.Forms.Label lbl_hits;
         private System.Windows.Forms.Label lbl_like;
         private System.Windows.Forms.Label lbl_proID;
         private System.Windows.Forms.Label lbl_discount;
         private System.Windows.Forms.Label lbl_gender;
-        private System.Windows.Forms.Label lbl_state;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -423,5 +415,6 @@
         private System.Windows.Forms.RadioButton rdo_Disabled;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.LinkLabel lbl_m_image;
     }
 }

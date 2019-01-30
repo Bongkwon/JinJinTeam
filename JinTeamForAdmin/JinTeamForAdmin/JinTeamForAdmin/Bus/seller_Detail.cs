@@ -39,8 +39,8 @@ namespace JinTeamForAdmin.Bus
             lbl_ID.Text = sv.Seller_ID.ToString();         
             lbl_name.Text = sv.Seller_name.ToString();
             lbl_postal.Text = sv.Seller_postal.ToString();
-            lbl_pwd.Text = sv.Seller_pwd.ToString();
-
+            //lbl_pwd.Text = sv.Seller_pwd.ToString();
+            lbl_pwd.Text = "안보여줄꺼지렁~";
             lbl_return.Text = sv.Return_addr.ToString();
             lbl_phone.Text = sv.Seller_phone.ToString();
 
@@ -79,6 +79,7 @@ namespace JinTeamForAdmin.Bus
 
         private void btn_ok_Click(object sender, EventArgs e)
         {
+            string type_u = "seller";
             Seller_Vo sv_sub = new Seller_Vo()
             {
                 Seller_NO = Int32.Parse(lbl_No.Text),
@@ -90,7 +91,7 @@ namespace JinTeamForAdmin.Bus
                 var result = MessageBox.Show("수정 하시겠습니까?","수정",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
-                    if (new Admin_Dao().Update_Sel(sv_sub))
+                    if (new Admin_Dao().Update_state_ob(sv_sub,type_u))
                     {
                         MessageBox.Show("수정 성공");
                     }

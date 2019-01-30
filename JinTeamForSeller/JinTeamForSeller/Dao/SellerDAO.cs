@@ -9,11 +9,11 @@ namespace JinTeamForSeller.Dao
 {
     class SellerDAO
     {
-        DBConnection con= new DBConnection();
+        DBConnection con = new DBConnection();
 
-        public bool ChkOverLap(string sellerID)
+        public int ChkOverLap(string sellerID)
         {            
-            bool result = false;
+            int result = 0;
             string query = "ChkOverLap";
             SqlParameter[] sqlp = { new SqlParameter("sellerId", sellerID) };
             try
@@ -42,9 +42,9 @@ namespace JinTeamForSeller.Dao
             }            
         }
 
-        public bool ChkLogin(string sellerID, string sellerPwd)
+        public int ChkLogin(string sellerID, string sellerPwd)
         {
-            bool result = false;
+            int result = 0;
             string query = "ChkSeller";
             SqlParameter[] sqlp = { new SqlParameter("seller_Id", sellerID), new SqlParameter("seller_pwd", sellerPwd) };
             

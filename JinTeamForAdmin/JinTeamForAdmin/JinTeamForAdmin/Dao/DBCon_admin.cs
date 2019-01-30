@@ -165,7 +165,7 @@ namespace JinTeamForAdmin
             return result;
         }
 
-        internal bool Update_Sel(string sp, SqlParameter[] sqlParameters)
+        internal bool Update_ob(string sp, SqlParameter[] sqlParameters)
         {
             bool result = false;
             SqlConnection sqlCon = OpenCon();

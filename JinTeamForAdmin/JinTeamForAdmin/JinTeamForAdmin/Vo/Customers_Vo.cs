@@ -79,6 +79,22 @@ namespace JinTeamForAdmin.Vo
             set { cus_age = value; }
         }
 
+    
+        private int cus_count;
+
+        public int Cus_count
+        {
+            get { return cus_count; }
+            set { cus_count = value; }
+        }
+        private DateTime join_date;
+
+        public DateTime Join_date
+        {
+            get { return join_date; }
+            set { join_date = value; }
+        }
+
         private bool cus_state;
 
         public bool Cus_state
@@ -87,13 +103,6 @@ namespace JinTeamForAdmin.Vo
             set { cus_state = value; }
         }
 
-        private int cus_count;
-
-        public int Cus_count
-        {
-            get { return cus_count; }
-            set { cus_count = value; }
-        }
 
         private string withdrawal_date;
 
@@ -103,13 +112,7 @@ namespace JinTeamForAdmin.Vo
             set { withdrawal_date = value; }
         }
 
-        private DateTime join_date;
-
-        public DateTime Join_date
-        {
-            get { return join_date; }
-            set { join_date = value; }
-        }
+        
 
 
     }

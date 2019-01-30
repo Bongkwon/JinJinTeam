@@ -78,14 +78,12 @@ go
 
 -- 회원 탈퇴 버튼시
 create procedure dbo.update_cus_withdrawal
-@cus_no				 INT,  
-@cus_state			 BIT,   
-@withdrawal_date	 DATETIME
+@cus_no				 INT
 as
 update dbo.customers
 set 			 
-	 cus_state		 = @cus_state,	
-	 withdrawal_date = @withdrawal_date	
+	 cus_state		 = 0,	
+	 withdrawal_date = getdate()	
 where cus_no = @cus_no
 go
 
@@ -118,14 +116,22 @@ as
 	where join_state = 0
 go
 
--- 가입 승인 ( 판매자 )
-create procedure update_seller_join
-	@seller_no int
+
+-- 판매자 목록 (비활성화 상태)
+create procedure select_seller_state_0
 as
-	update dbo.seller
-	set join_state = 1
-	where seller_no = @seller_no
-go
+	select * from dbo.seller
+	where seller_state = 0
+	go
+
+---- 가입 승인 ( 판매자 )
+--create procedure update_seller_join
+--	@seller_no int
+--as
+--	update dbo.seller
+--	set join_state = 1
+--	where seller_no = @seller_no
+--go
 
 -- 회원정보 수정 (판매자)
 create procedure update_seller_join_state
