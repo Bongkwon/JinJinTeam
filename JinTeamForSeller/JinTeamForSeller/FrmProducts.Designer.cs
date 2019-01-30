@@ -44,6 +44,7 @@
             this.gViewProducts.Name = "gViewProducts";
             this.gViewProducts.ReadOnly = true;
             this.gViewProducts.RowTemplate.Height = 23;
+            this.gViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gViewProducts.Size = new System.Drawing.Size(775, 368);
             this.gViewProducts.TabIndex = 0;
             this.gViewProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewProducts_CellClick);
@@ -97,6 +98,7 @@
             this.btnManagePro.TabIndex = 6;
             this.btnManagePro.Text = "상품 판매 / 배송 관리";
             this.btnManagePro.UseVisualStyleBackColor = true;
+            this.btnManagePro.Click += new System.EventHandler(this.btnManagePro_Click);
             // 
             // FrmProducts
             // 

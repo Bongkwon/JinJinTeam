@@ -27,5 +27,11 @@ namespace JinTeamForSeller
         private void FrmMain_Load(object sender, EventArgs e)
         {
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FrmSellAndTransport frm = new FrmSellAndTransport();
+            frm.Show();
+        }
     }
 }

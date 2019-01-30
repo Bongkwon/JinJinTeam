@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +20,10 @@ namespace JinTeamForSeller
         List<CatVO> cat_kinds;
         CatDAO cat = new CatDAO();
         DataGridViewRow row;
+        List<StockVO> lstStock = new List<StockVO>();
+        StockListDAO stockDao = new StockListDAO();
+        StockVO stock;
+
         public FrmDetailPro()
         {
             InitializeComponent();
@@ -47,21 +53,35 @@ namespace JinTeamForSeller
             pro.Pro_Discount = int.Parse(txtDiscount.Text);
             pro.Pro_Gender = cmbGender.Text;
 
-            //try
-            //{
-                if(pDao.UpdateProduct(pro))
+            foreach (var item in lstStock)
+            {
+                if (lblPro_No.Text + "_" + cmbSize.Text == item.Stock_ID)
                 {
-                    MessageBox.Show("수정 성공");
+                    stock = item;
+                    break;
                 }
-                //else
-                //{
-                //    MessageBox.Show("수정 실패");
-                //}
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("수정 실패");
-            //}
+            }
+
+            stock.Stock_Count = (int)numStockCount.Value;
+            
+            try
+            {
+                if (pDao.UpdateProduct(pro))
+                {
+                    if (stockDao.UpdateStock(stock))
+                    {
+                        MessageBox.Show("수정 성공");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("수정 실패");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("수정 실패");
+            }
         }
 
         private void FrmDetailPro_Load(object sender, EventArgs e)
@@ -84,7 +104,7 @@ namespace JinTeamForSeller
             tempPro.Main_Image = row.Cells["main_image"].Value.ToString();
             tempPro.Pro_Discount = (int)row.Cells["pro_discount"].Value;
             tempPro.Pro_Gender = row.Cells["pro_gender"].Value.ToString();
-
+            tempPro.Main_Image = row.Cells["main_image"].Value.ToString();
             foreach (var item in cat_kinds)
             {
                 if(item.Cat_ID == tempPro.Cat_ID)
@@ -101,6 +121,32 @@ namespace JinTeamForSeller
             txtSubComment.Text = tempPro.Sub_Comment;
             cmbCatID.Text = cat_kind;
             cmbGender.Text = tempPro.Pro_Gender;
+
+
+            if (string.IsNullOrEmpty(tempPro.Main_Image) == false) 
+            {
+                WebClient Downloader = new WebClient();
+
+                Stream ImageStream = Downloader.OpenRead(tempPro.Main_Image);
+
+                Bitmap DownloadImage = Bitmap.FromStream(ImageStream) as Bitmap;
+
+                proPic.Image = DownloadImage;
+            }
+            lstStock = stockDao.Select_Stocks(lblPro_No.Text);
+        }
+        
+        private void cmbSize_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            foreach (var item in lstStock)
+            {
+                if (item.Stock_ID == lblPro_No.Text + "_" + cmbSize.Text) ;
+                {
+                    numStockCount.Value = item.Stock_Count;
+                    //MessageBox.Show(item.Pro_Id + "_" + cmbSize.Text);
+                    break;
+                }
+            }
         }
     }
 }

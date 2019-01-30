@@ -204,7 +204,7 @@ namespace JinTeamForSeller
         private void button7_Click(object sender, EventArgs e)
         {
             List<Product> lstPro = new List<Product>();
-            SqlConnection sql = new SqlConnection(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString);
+            SqlConnection sql = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
             SqlCommand cmd = new SqlCommand();
             sql.Open();
             cmd.Connection = sql;
@@ -220,31 +220,62 @@ namespace JinTeamForSeller
             }
             dr.Close();
             sql.Close();
-
-            SqlConnection insertConn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
-            SqlCommand cmd2 = new SqlCommand();
-            cmd2.Connection = insertConn;
-            cmd2.CommandType = CommandType.StoredProcedure;
-            cmd2.CommandText = "insert_product";
+            StockListDAO dao = new StockListDAO();
             foreach (var item in lstPro)
             {
-                cmd2.Parameters.Clear();
-                insertConn.Open();                
-                SqlParameter[] sqlp =
-                    { (new SqlParameter("pro_id", item.Pro_ID)),
-                (new SqlParameter("cat_id", item.Cat_ID)),
-                (new SqlParameter("Seller_NO", item.Seller_NO)),
-                (new SqlParameter("Pro_Name", item.Pro_Name)),
-                (new SqlParameter("Pro_Price", item.Pro_Price)),
-                (new SqlParameter("Main_Comment", item.Main_Comment)),
-                (new SqlParameter("sub_comment", item.Sub_Comment)),
-                (new SqlParameter("Main_Image", item.Main_Image)),
-                (new SqlParameter("Pro_Gender", item.Pro_Gender))
-                };
-                cmd2.Parameters.AddRange(sqlp);
-                cmd2.ExecuteNonQuery();
-                insertConn.Close();
+                
+                for (int i = 0; i < 5; i++)
+                {
+                    string stockSize = "";
+                    switch (i)
+                    {
+                        case 0:
+                            stockSize = "S";
+                            break;
+                        case 1:
+                            stockSize = "M";
+                            break;
+                        case 2:
+                            stockSize = "L";
+                            break;
+                        case 3:
+                            stockSize = "XL";
+                            break;
+                        case 4:
+                            stockSize = "XXL";
+                            break;
+                        default:
+                            break;
+                    }
+                    dao.InsertStock(new Vo.StockVO(item.Pro_ID + "_" + stockSize, item.Pro_ID, item.Seller_NO, stockSize, 50));
+                }
             }
+
+
+            //SqlConnection insertConn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
+            //SqlCommand cmd2 = new SqlCommand();
+            //cmd2.Connection = insertConn;
+            //cmd2.CommandType = CommandType.StoredProcedure;
+            //cmd2.CommandText = "insert_product";
+            //foreach (var item in lstPro)
+            //{
+            //    cmd2.Parameters.Clear();
+            //    insertConn.Open();
+            //    SqlParameter[] sqlp =
+            //        { (new SqlParameter("pro_id", item.Pro_ID)),
+            //    (new SqlParameter("cat_id", item.Cat_ID)),
+            //    (new SqlParameter("Seller_NO", item.Seller_NO)),
+            //    (new SqlParameter("Pro_Name", item.Pro_Name)),
+            //    (new SqlParameter("Pro_Price", item.Pro_Price)),
+            //    (new SqlParameter("Main_Comment", item.Main_Comment)),
+            //    (new SqlParameter("sub_comment", item.Sub_Comment)),
+            //    (new SqlParameter("Main_Image", item.Main_Image)),
+            //    (new SqlParameter("Pro_Gender", item.Pro_Gender))
+            //    };
+            //    cmd2.Parameters.AddRange(sqlp);
+            //    cmd2.ExecuteNonQuery();
+            //    insertConn.Close();
+            //} 
         }
     }
 }
