@@ -41,9 +41,10 @@
             this.products목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_pro = new System.Windows.Forms.GroupBox();
             this.gb_seller = new System.Windows.Forms.GroupBox();
+            this.rdo_Disabled_seller = new System.Windows.Forms.RadioButton();
             this.gb_cus = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.rdo_Disabled_seller = new System.Windows.Forms.RadioButton();
+            this.btn_Refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
@@ -60,10 +61,9 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(883, 380);
+            this.dataGridView1.Size = new System.Drawing.Size(982, 380);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // rdo_all_cus
             // 
@@ -144,7 +144,7 @@
             this.products목록ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(905, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1006, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -192,6 +192,17 @@
             this.gb_seller.TabStop = false;
             this.gb_seller.Text = "sellers";
             // 
+            // rdo_Disabled_seller
+            // 
+            this.rdo_Disabled_seller.AutoSize = true;
+            this.rdo_Disabled_seller.Location = new System.Drawing.Point(196, 15);
+            this.rdo_Disabled_seller.Name = "rdo_Disabled_seller";
+            this.rdo_Disabled_seller.Size = new System.Drawing.Size(111, 16);
+            this.rdo_Disabled_seller.TabIndex = 11;
+            this.rdo_Disabled_seller.Text = "비활성화 판매자";
+            this.rdo_Disabled_seller.UseVisualStyleBackColor = true;
+            this.rdo_Disabled_seller.CheckedChanged += new System.EventHandler(this.seller_changed);
+            // 
             // gb_cus
             // 
             this.gb_cus.Controls.Add(this.rdo_deactive_cus);
@@ -205,7 +216,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(749, 464);
+            this.button1.Location = new System.Drawing.Point(919, 455);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
@@ -213,22 +224,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // rdo_Disabled_seller
+            // btn_Refresh
             // 
-            this.rdo_Disabled_seller.AutoSize = true;
-            this.rdo_Disabled_seller.Location = new System.Drawing.Point(196, 15);
-            this.rdo_Disabled_seller.Name = "rdo_Disabled_seller";
-            this.rdo_Disabled_seller.Size = new System.Drawing.Size(111, 16);
-            this.rdo_Disabled_seller.TabIndex = 11;
-            this.rdo_Disabled_seller.Text = "비활성화 판매자";
-            this.rdo_Disabled_seller.UseVisualStyleBackColor = true;
-            this.rdo_Disabled_seller.CheckedChanged += new System.EventHandler(this.seller_changed);
+            this.btn_Refresh.Location = new System.Drawing.Point(919, 42);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_Refresh.TabIndex = 16;
+            this.btn_Refresh.Text = "새로고침";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 569);
+            this.ClientSize = new System.Drawing.Size(1006, 569);
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gb_cus);
             this.Controls.Add(this.gb_seller);
@@ -271,5 +282,6 @@
         private System.Windows.Forms.GroupBox gb_cus;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rdo_Disabled_seller;
+        private System.Windows.Forms.Button btn_Refresh;
     }
 }

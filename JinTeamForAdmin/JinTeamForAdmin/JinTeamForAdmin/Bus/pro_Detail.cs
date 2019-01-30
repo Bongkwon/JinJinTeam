@@ -1,5 +1,6 @@
 ﻿using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
+using JinTeamForSeller.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,9 +24,10 @@ namespace JinTeamForAdmin.Bus
             InitializeComponent();
         }
 
-        public pro_Detail(object pv) : this()
+        public pro_Detail(object pv,bool temp) : this()
         {
             this.pv = (Products_Vo)pv;
+
         }
 
         private void pro_Detail_Load(object sender, EventArgs e)
@@ -66,7 +68,7 @@ namespace JinTeamForAdmin.Bus
             }
             else
             {
-                rdo_Disabled.Checked = true;
+                rdo_Disabled.Checked = true;                
                 p_s = false;
             }
         }
@@ -79,7 +81,7 @@ namespace JinTeamForAdmin.Bus
         private void btn_ok_Click(object sender, EventArgs e)
         {
             string type_u = "pro";
-
+            //temp = true;
 
             Products_Vo pv_sub = new Products_Vo()
             {
@@ -95,6 +97,9 @@ namespace JinTeamForAdmin.Bus
                     if (new Admin_Dao().Update_state_ob(pv_sub, type_u))
                     {
                         MessageBox.Show("수정 성공");
+
+                        Admin_main ad = (Admin_main)Owner;
+                        ad.Temp = true;
                     }
                 }
                 else
@@ -108,12 +113,15 @@ namespace JinTeamForAdmin.Bus
 
         private void p_state_changed(object sender, EventArgs e)
         {
+            
             if (rdo_Activation.Checked)
             {
                 p_s = true;
+                
             }
             else
             {
+                
                 p_s = false;
             }
         }

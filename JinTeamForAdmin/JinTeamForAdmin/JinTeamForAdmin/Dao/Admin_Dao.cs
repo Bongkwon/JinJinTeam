@@ -14,8 +14,10 @@ namespace JinTeamForAdmin.Dao
         public List<object> Select_ob(string sp, string type_s)
         {
             List<object> ob_lst = new List<object>();
+            //List<Products_Vo> pro_lst = new List<Products_Vo>();
 
             ob_lst = new DBCon_admin().Select_ob(sp,type_s);
+
 
             return ob_lst;
         }

@@ -14,10 +14,12 @@ namespace JinTeamForAdmin
     {
         SqlConnection con;
         List<object> ob_lst;
+        List<Products_Vo> pro_lst;
         public DBCon_admin()
         {
             con = new SqlConnection(ConfigurationManager.ConnectionStrings["JinTeamDB"].ConnectionString);
             ob_lst = new List<object>();
+            pro_lst = new List<Products_Vo>();
         }
 
         private SqlConnection OpenCon()
@@ -86,6 +88,7 @@ namespace JinTeamForAdmin
                         }
 
                         ob_lst.Add(pv);
+                        //pro_lst.Add(pv);
                     }
                 }
                 else if (type_p == "cus")
@@ -142,6 +145,14 @@ namespace JinTeamForAdmin
                 throw;
             }
             finally { sqlCon.Close(); }
+            //if (type_p == "pro")
+            //{
+            //    return pro_lst;
+            //}
+            //else
+            //{
+                
+            //}
             return ob_lst;
         }
 
