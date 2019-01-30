@@ -24,7 +24,7 @@ namespace JinTeamForSeller
         private void FrmProducts_Load(object sender, EventArgs e)
         {
             List<Product> lstPro = pro.select_proEachSeller(Form1.CompanyNo);
-            gViewProducts.DataSource = lstPro;
+            gViewProducts.DataSource = lstPro;            
         }
 
         private void gViewProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -60,9 +60,12 @@ namespace JinTeamForSeller
 
         private void gViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (gViewProducts[e.ColumnIndex, e.RowIndex] != null)
+            if (e.RowIndex >= 0 && e.ColumnIndex > 0)
             {
-                dr = gViewProducts.Rows[e.RowIndex];                
+                if (gViewProducts[e.ColumnIndex, e.RowIndex] != null)
+                {
+                    dr = gViewProducts.Rows[e.RowIndex];
+                }                
             }
         }
 
@@ -85,6 +88,12 @@ namespace JinTeamForSeller
         private void btnPre_Click(object sender, EventArgs e)
         {
             this.OnLoad(null);
+        }
+
+        private void btnManagePro_Click(object sender, EventArgs e)
+        {
+            FrmSellAndTransport frm = new FrmSellAndTransport();
+            frm.Show();
         }
     }
 }

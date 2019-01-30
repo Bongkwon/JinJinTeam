@@ -77,6 +77,20 @@ namespace JinTeamForSeller.Dao
                         lstObj.Add(new CatVO(dr["cat_ID"].ToString(), dr["cat_kind"].ToString()));
                     }
                 }
+                else if(query == "SelectStock")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new StockVO(dr["stock_ID"].ToString(), dr["pro_ID"].ToString(), int.Parse(dr["seller_no"].ToString()), dr["stock_size"].ToString(), int.Parse(dr["stock_count"].ToString())));
+                    }
+                }
+                else if(query == "SelectPayInfo")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new Payment_InfoVO((int)dr["pay_ID"], dr["order_ID"].ToString(), dr["user_ship_ID"].ToString().ToString(), (int)dr["seller_no"], (int)dr["pay_count"], (int)dr["pay_price"], dr["waybill_ID"].ToString()));
+                    }
+                }
                 conn.Close();
                 return lstObj;
             }
