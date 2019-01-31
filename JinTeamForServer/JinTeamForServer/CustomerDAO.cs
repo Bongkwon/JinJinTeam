@@ -29,7 +29,7 @@ namespace JinTeamForServer
         public void InsertCustomer(Customer cus)
         {
             string query = "insert_cus";
-            SqlParameter[] sqlp = { new SqlParameter("cus_ID", cus.Cus_ID), new SqlParameter("cus_pwd", cus.Cus_pwd), new SqlParameter("Cus_phone", cus.Cus_phone), new SqlParameter("Cus_addr", cus.Cus_addr), new SqlParameter("Cus_name", cus.Cus_name), new SqlParameter("Cus_Nickname", cus.Cus_Nickname), new SqlParameter("Cus_gender", cus.Cus_gender), new SqlParameter("Cus_age", cus.Cus_age) };
+            SqlParameter[] sqlp = { new SqlParameter("cus_ID", cus.Cus_ID), new SqlParameter("cus_pwd", cus.Cus_pwd), new SqlParameter("cus_phone", cus.Cus_phone), new SqlParameter("cus_addr", cus.Cus_addr), new SqlParameter("cus_name", cus.Cus_name), new SqlParameter("cus_Nickname", cus.Cus_Nickname), new SqlParameter("cus_gender", cus.Cus_gender), new SqlParameter("cus_age", cus.Cus_age) };
             try
             {
                 con.SendExqueteQuery(query, sqlp);

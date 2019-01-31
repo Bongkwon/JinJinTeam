@@ -35,6 +35,7 @@ namespace JinTeamForServer
         {
             try
             {
+                cmd.Parameters.Clear();
                 cmd.Connection = OpenConnection();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = query;
@@ -105,7 +106,6 @@ namespace JinTeamForServer
                 result = true;
             }
             return result;
-
         }
 
         public DataTable ExcuteSelect(string sp, SqlParameter[] sqlParameters)
