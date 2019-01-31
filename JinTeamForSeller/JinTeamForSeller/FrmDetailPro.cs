@@ -140,7 +140,7 @@ namespace JinTeamForSeller
         {            
             foreach (var item in lstStock)
             {
-                if (item.Stock_ID == lblPro_No.Text + "_" + cmbSize.Text) ;
+                if (item.Stock_ID == lblPro_No.Text + "_" + cmbSize.Text) 
                 {
                     numStockCount.Value = item.Stock_Count;
                     //MessageBox.Show(item.Pro_Id + "_" + cmbSize.Text);

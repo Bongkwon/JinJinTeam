@@ -11,12 +11,10 @@ namespace JinTeamForSeller.Dao
 {
     class DBConnection
     {
-        SqlConnection conn;
-        SqlCommand cmd;
+        SqlConnection conn;        
         public DBConnection()
         {
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
-            
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);            
         }
 
         private SqlConnection OpenConnection()
@@ -32,8 +30,8 @@ namespace JinTeamForSeller.Dao
         {
             bool result = false;
             SqlCommand cmd = new SqlCommand();
-            //try
-            //{
+            try
+            {
                 cmd.Connection = OpenConnection();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = query;
@@ -41,12 +39,13 @@ namespace JinTeamForSeller.Dao
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 result = true;
-            //}
-            //catch (Exception)
-            //{
-            //    throw;
-            //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
             return result;
+
         }
 
         public List<object> SendReadQuery(string query, SqlParameter[] sqlp)
@@ -89,6 +88,13 @@ namespace JinTeamForSeller.Dao
                     while (dr.Read())
                     {
                         lstObj.Add(new Payment_InfoVO((int)dr["pay_ID"], dr["order_ID"].ToString(), dr["user_ship_ID"].ToString().ToString(), (int)dr["seller_no"], (int)dr["pay_count"], (int)dr["pay_price"], dr["waybill_ID"].ToString()));
+                    }
+                }
+                else if(query == "SelectPayInfoForSeller")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new Payment_InfoVO((int)dr["pay_ID"], dr["order_ID"].ToString(), dr["user_ship_ID"].ToString().ToString(), (int)dr["seller_no"], (int)dr["pay_count"], (int)dr["pay_price"], dr["waybill_ID"].ToString(), dr["cus_name"].ToString(), dr["user_addr"].ToString(), dr["stock_ID"].ToString(), dr["order_require"].ToString(), dr["ship_require"].ToString(), dr["transport_state"].ToString(), dr["user_name"].ToString()));
                     }
                 }
                 conn.Close();
