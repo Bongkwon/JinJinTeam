@@ -53,6 +53,15 @@ namespace JinTeamForAdmin.Dao
                 sqlParameters[0] = new SqlParameter("@pro_ID",pv_sub.Pro_ID);
                 sqlParameters[1] = new SqlParameter("@pro_state",pv_sub.Pro_State);
             }
+            else if (type_u == "pay")
+            {
+                TaxBill_Vo tv_sub = ob_sub as TaxBill_Vo;
+                sp = "update_pay_tax_date";
+
+                sqlParameters = new SqlParameter[1];
+                sqlParameters[0] = new SqlParameter("pay_id", tv_sub.Pay_ID);
+
+            }
 
             try
             {

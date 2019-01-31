@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.main_GV = new System.Windows.Forms.DataGridView();
             this.rdo_all_cus = new System.Windows.Forms.RadioButton();
             this.rdo_deactive_cus = new System.Windows.Forms.RadioButton();
             this.rdo_deactive_pro = new System.Windows.Forms.RadioButton();
@@ -45,25 +45,27 @@
             this.gb_cus = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.결제정보세금계산서출력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_Excel_output = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.main_GV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
             this.gb_seller.SuspendLayout();
             this.gb_cus.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // main_GV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 69);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(982, 380);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.main_GV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.main_GV.Location = new System.Drawing.Point(12, 69);
+            this.main_GV.MultiSelect = false;
+            this.main_GV.Name = "main_GV";
+            this.main_GV.ReadOnly = true;
+            this.main_GV.RowTemplate.Height = 23;
+            this.main_GV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.main_GV.Size = new System.Drawing.Size(978, 380);
+            this.main_GV.TabIndex = 0;
+            this.main_GV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // rdo_all_cus
             // 
@@ -141,10 +143,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.seller목록ToolStripMenuItem,
             this.customer목록ToolStripMenuItem,
-            this.products목록ToolStripMenuItem});
+            this.products목록ToolStripMenuItem,
+            this.결제정보세금계산서출력ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1006, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1002, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -173,7 +176,7 @@
             // 
             this.gb_pro.Controls.Add(this.rdo_deactive_pro);
             this.gb_pro.Controls.Add(this.rdo_all_pro);
-            this.gb_pro.Location = new System.Drawing.Point(424, 27);
+            this.gb_pro.Location = new System.Drawing.Point(12, 27);
             this.gb_pro.Name = "gb_pro";
             this.gb_pro.Size = new System.Drawing.Size(200, 36);
             this.gb_pro.TabIndex = 12;
@@ -207,7 +210,7 @@
             // 
             this.gb_cus.Controls.Add(this.rdo_deactive_cus);
             this.gb_cus.Controls.Add(this.rdo_all_cus);
-            this.gb_cus.Location = new System.Drawing.Point(630, 27);
+            this.gb_cus.Location = new System.Drawing.Point(12, 27);
             this.gb_cus.Name = "gb_cus";
             this.gb_cus.Size = new System.Drawing.Size(200, 36);
             this.gb_cus.TabIndex = 14;
@@ -216,17 +219,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(919, 455);
+            this.button1.Location = new System.Drawing.Point(12, 455);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 15;
-            this.button1.Text = "button1";
+            this.button1.Text = "삭제";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Refresh
             // 
-            this.btn_Refresh.Location = new System.Drawing.Point(919, 42);
+            this.btn_Refresh.Location = new System.Drawing.Point(915, 39);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.Size = new System.Drawing.Size(75, 23);
             this.btn_Refresh.TabIndex = 16;
@@ -234,23 +237,40 @@
             this.btn_Refresh.UseVisualStyleBackColor = true;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
+            // 결제정보세금계산서출력ToolStripMenuItem
+            // 
+            this.결제정보세금계산서출력ToolStripMenuItem.Name = "결제정보세금계산서출력ToolStripMenuItem";
+            this.결제정보세금계산서출력ToolStripMenuItem.Size = new System.Drawing.Size(163, 20);
+            this.결제정보세금계산서출력ToolStripMenuItem.Text = "결제정보(세금계산서 출력)";
+            this.결제정보세금계산서출력ToolStripMenuItem.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
+            // btn_Excel_output
+            // 
+            this.btn_Excel_output.Location = new System.Drawing.Point(359, 39);
+            this.btn_Excel_output.Name = "btn_Excel_output";
+            this.btn_Excel_output.Size = new System.Drawing.Size(75, 23);
+            this.btn_Excel_output.TabIndex = 17;
+            this.btn_Excel_output.Text = "Excel 출력";
+            this.btn_Excel_output.UseVisualStyleBackColor = true;
+            // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 569);
+            this.ClientSize = new System.Drawing.Size(1002, 515);
+            this.Controls.Add(this.btn_Excel_output);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gb_cus);
             this.Controls.Add(this.gb_seller);
             this.Controls.Add(this.gb_pro);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.main_GV);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin_main";
             this.Text = "Admin_main";
             this.Load += new System.EventHandler(this.Admin_main_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.main_GV)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gb_pro.ResumeLayout(false);
@@ -266,7 +286,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView main_GV;
         private System.Windows.Forms.RadioButton rdo_all_cus;
         private System.Windows.Forms.RadioButton rdo_deactive_cus;
         private System.Windows.Forms.RadioButton rdo_deactive_pro;
@@ -283,5 +303,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rdo_Disabled_seller;
         private System.Windows.Forms.Button btn_Refresh;
+        private System.Windows.Forms.ToolStripMenuItem 결제정보세금계산서출력ToolStripMenuItem;
+        private System.Windows.Forms.Button btn_Excel_output;
     }
 }

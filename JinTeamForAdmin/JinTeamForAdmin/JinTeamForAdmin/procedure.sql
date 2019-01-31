@@ -233,3 +233,25 @@ create procedure dbo.insert_cat
 insert into dbo.category_List(cat_ID,cat_kind)
 values(@cat_ID,@cat_kind)
 go
+
+
+------------------------------------------------------------
+-- 결제정보
+
+-- 세금계산서 정보 출력
+create procedure dbo.select_taxBill
+as
+select p.pay_ID, o.stock_ID , s.seller_ID, s.seller_boss, s.seller_addr, s.corporate_registration_no, p.pay_price, p.pay_count, p.pay_date, p.output_date_tax
+from seller s, order_List o, payment_info p 
+where s.seller_no = p.seller_no and p.order_ID = o.order_ID
+go
+
+
+-- 출력 날짜 수정(세금)
+CREATE PROCEDURE [dbo].update_pay_tax_date
+	@pay_id int
+AS
+update dbo.payment_info
+set output_date_tax = GETDATE()
+where pay_id = @pay_id
+go

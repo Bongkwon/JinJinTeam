@@ -14,17 +14,17 @@ using System.Windows.Forms;
 
 namespace JinTeamForAdmin.Bus
 {
-    public partial class pro_Detail : Form
+    public partial class Pro_Detail : Form
     {
         private Products_Vo pv;
         bool p_s;
 
-        public pro_Detail()
+        public Pro_Detail()
         {
             InitializeComponent();
         }
 
-        public pro_Detail(object pv,bool temp) : this()
+        public Pro_Detail(object pv,bool temp) : this()
         {
             this.pv = (Products_Vo)pv;
 

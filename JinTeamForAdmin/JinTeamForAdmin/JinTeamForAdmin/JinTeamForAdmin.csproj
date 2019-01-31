@@ -52,6 +52,9 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -72,23 +75,29 @@
     <Compile Include="Bus\Admin_main.Designer.cs">
       <DependentUpon>Admin_main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bus\cus_Detail.cs">
+    <Compile Include="Bus\Cus_Detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bus\cus_Detail.Designer.cs">
-      <DependentUpon>cus_Detail.cs</DependentUpon>
+    <Compile Include="Bus\Cus_Detail.Designer.cs">
+      <DependentUpon>Cus_Detail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bus\pro_Detail.cs">
+    <Compile Include="Bus\Pro_Detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bus\pro_Detail.Designer.cs">
-      <DependentUpon>pro_Detail.cs</DependentUpon>
+    <Compile Include="Bus\Pro_Detail.Designer.cs">
+      <DependentUpon>Pro_Detail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bus\seller_Detail.cs">
+    <Compile Include="Bus\Seller_Detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bus\seller_Detail.Designer.cs">
-      <DependentUpon>seller_Detail.cs</DependentUpon>
+    <Compile Include="Bus\Seller_Detail.Designer.cs">
+      <DependentUpon>Seller_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bus\Tax_Ex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bus\Tax_Ex.Designer.cs">
+      <DependentUpon>Tax_Ex.cs</DependentUpon>
     </Compile>
     <Compile Include="Dao\Admin_Dao.cs" />
     <Compile Include="Dao\DBCon_admin.cs" />
@@ -97,17 +106,21 @@
     <Compile Include="Vo\Customers_Vo.cs" />
     <Compile Include="Vo\Products_Vo.cs" />
     <Compile Include="Vo\Seller_Vo.cs" />
+    <Compile Include="Vo\TaxBill_Vo.cs" />
     <EmbeddedResource Include="Bus\Admin_main.resx">
       <DependentUpon>Admin_main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bus\cus_Detail.resx">
-      <DependentUpon>cus_Detail.cs</DependentUpon>
+    <EmbeddedResource Include="Bus\Cus_Detail.resx">
+      <DependentUpon>Cus_Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bus\pro_Detail.resx">
-      <DependentUpon>pro_Detail.cs</DependentUpon>
+    <EmbeddedResource Include="Bus\Pro_Detail.resx">
+      <DependentUpon>Pro_Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bus\seller_Detail.resx">
-      <DependentUpon>seller_Detail.cs</DependentUpon>
+    <EmbeddedResource Include="Bus\Seller_Detail.resx">
+      <DependentUpon>Seller_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bus\Tax_Ex.resx">
+      <DependentUpon>Tax_Ex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,6 +130,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -127,12 +141,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\세금계산서_양식.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="procedure.sql" />
+    <None Include="Resources\tax.png" />
+    <None Include="Resources\세금계산서.PNG" />
     <Content Include="tables.sql" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿namespace JinTeamForAdmin.Bus
 {
-    partial class pro_Detail
+    partial class Pro_Detail
     {
         /// <summary>
         /// Required designer variable.

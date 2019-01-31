@@ -114,7 +114,7 @@ namespace JinTeamForAdmin
                         });
                     }
                 }
-                else    // type-p = "sel"
+                else if (type_p == "sel")  // type-p = "sel"
                 {
                     while (sdr.Read())
                     {
@@ -137,6 +137,25 @@ namespace JinTeamForAdmin
                         }
 
                         ob_lst.Add(sv);
+                    }
+                }
+                else if( type_p == "pay")
+                {
+                    while (sdr.Read())
+                    {
+                        ob_lst.Add(new TaxBill_Vo() {
+                            Pay_ID = Int32.Parse(sdr["pay_id"].ToString()),
+                            Corporate_registration_no = sdr["Corporate_registration_no"].ToString(),
+                            Output_date_tax = sdr["Output_date_tax"].ToString(),
+                            Pay_count = Int32.Parse(sdr["Pay_count"].ToString()),
+                            Pay_date = sdr["Pay_date"].ToString(),
+                            Pay_price = Int32.Parse(sdr["Pay_price"].ToString()),
+                            Seller_boss = sdr["Seller_boss"].ToString(),
+                            Seller_ID = sdr["Seller_ID"].ToString(),
+                            Stock_ID = sdr["Stock_ID"].ToString(),
+                            Seller_addr = sdr["seller_addr"].ToString()
+                        });
+
                     }
                 }
             }
