@@ -16,7 +16,7 @@ namespace JinTeamForSeller
     {
         CatDAO cat = new CatDAO();
         List<CatVO> cat_kinds;
-        ProductDao pDao = new ProductDao();
+        ProductDAO pDao = new ProductDAO();
         //Product pro = new Product();
         int imgIndex = 0;
         public FrmInsertProduct()

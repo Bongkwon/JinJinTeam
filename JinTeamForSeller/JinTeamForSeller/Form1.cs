@@ -276,5 +276,16 @@ namespace JinTeamForSeller
             //    insertConn.Close();
             //} 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmSearchID frm = new FrmSearchID();
+            frm.Show();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

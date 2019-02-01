@@ -205,44 +205,47 @@ namespace JinTeamForSeller
             bool result = false;
             foreach (DataGridViewRow item in gViewPayInfo.Rows)
             {
-                if(string.IsNullOrEmpty(item.Cells["Transport_State"].Value.ToString()) == false || item.Cells["Transport_State"].Value.ToString().Contains("전"))
+                if (string.IsNullOrEmpty(item.Cells["Transport_State"].Value.ToString()) == false || item.Cells["Transport_State"].Value.ToString().Contains("전"))
                 {
                     //MessageBox.Show("Test");
                     break;
                 }
-                
-                Payment_InfoVO pay = new Payment_InfoVO(
-                (int)item.Cells["Pay_ID"].Value,
-                item.Cells["order_ID"].Value.ToString(),
-                item.Cells["User_Ship_ID"].Value.ToString(),
-                (int)item.Cells["Seller_No"].Value,
-                (int)item.Cells["Pay_count"].Value,
-                (int)item.Cells["Pay_Price"].Value,
-                item.Cells["Waybill_ID"].Value.ToString(),
-                item.Cells["Cus_name"].Value.ToString(),
-                item.Cells["User_addr"].Value.ToString(),
-                item.Cells["Stock_ID"].Value.ToString(),
-                item.Cells["Order_require"].Value.ToString(),
-                item.Cells["Ship_require"].Value.ToString(),
-                item.Cells["Transport_state"].Value.ToString(),
-                item.Cells["User_name"].Value.ToString()
-            );                
-                Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
-                if (pDao.UpdatePaymentInfo(pay))
-                {
-                    result = true;
-                }
                 else
                 {
-                    result = false;
-                }
-                if (tDao.InsertTransport(ti))
-                {
-                    result = true;
-                }
-                else
-                {
-                    result = false;
+
+                    Payment_InfoVO pay = new Payment_InfoVO(
+                    (int)item.Cells["Pay_ID"].Value,
+                    item.Cells["order_ID"].Value.ToString(),
+                    item.Cells["User_Ship_ID"].Value.ToString(),
+                    (int)item.Cells["Seller_No"].Value,
+                    (int)item.Cells["Pay_count"].Value,
+                    (int)item.Cells["Pay_Price"].Value,
+                    item.Cells["Waybill_ID"].Value.ToString(),
+                    item.Cells["Cus_name"].Value.ToString(),
+                    item.Cells["User_addr"].Value.ToString(),
+                    item.Cells["Stock_ID"].Value.ToString(),
+                    item.Cells["Order_require"].Value.ToString(),
+                    item.Cells["Ship_require"].Value.ToString(),
+                    item.Cells["Transport_state"].Value.ToString(),
+                    item.Cells["User_name"].Value.ToString()
+                );
+                    Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
+                    if (pDao.UpdatePaymentInfo(pay))
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
+                    if (tDao.InsertTransport(ti))
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
                 }
             }
             if (UpdateTrans_State())

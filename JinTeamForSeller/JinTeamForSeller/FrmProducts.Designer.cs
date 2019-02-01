@@ -45,14 +45,14 @@
             this.gViewProducts.ReadOnly = true;
             this.gViewProducts.RowTemplate.Height = 23;
             this.gViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gViewProducts.Size = new System.Drawing.Size(775, 368);
+            this.gViewProducts.Size = new System.Drawing.Size(1391, 368);
             this.gViewProducts.TabIndex = 0;
             this.gViewProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewProducts_CellClick);
             this.gViewProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewProducts_CellDoubleClick);
             // 
             // btnInsertPro
             // 
-            this.btnInsertPro.Location = new System.Drawing.Point(13, 387);
+            this.btnInsertPro.Location = new System.Drawing.Point(629, 387);
             this.btnInsertPro.Name = "btnInsertPro";
             this.btnInsertPro.Size = new System.Drawing.Size(150, 50);
             this.btnInsertPro.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // btnUpdatePro
             // 
-            this.btnUpdatePro.Location = new System.Drawing.Point(169, 387);
+            this.btnUpdatePro.Location = new System.Drawing.Point(785, 387);
             this.btnUpdatePro.Name = "btnUpdatePro";
             this.btnUpdatePro.Size = new System.Drawing.Size(150, 50);
             this.btnUpdatePro.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             // btnDeletePro
             // 
-            this.btnDeletePro.Location = new System.Drawing.Point(326, 387);
+            this.btnDeletePro.Location = new System.Drawing.Point(942, 387);
             this.btnDeletePro.Name = "btnDeletePro";
             this.btnDeletePro.Size = new System.Drawing.Size(150, 50);
             this.btnDeletePro.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(638, 387);
+            this.btnRefresh.Location = new System.Drawing.Point(1254, 387);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(150, 50);
             this.btnRefresh.TabIndex = 5;
@@ -92,7 +92,7 @@
             // 
             // btnManagePro
             // 
-            this.btnManagePro.Location = new System.Drawing.Point(482, 387);
+            this.btnManagePro.Location = new System.Drawing.Point(1098, 387);
             this.btnManagePro.Name = "btnManagePro";
             this.btnManagePro.Size = new System.Drawing.Size(150, 50);
             this.btnManagePro.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(798, 443);
+            this.ClientSize = new System.Drawing.Size(1416, 443);
             this.Controls.Add(this.btnManagePro);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnDeletePro);

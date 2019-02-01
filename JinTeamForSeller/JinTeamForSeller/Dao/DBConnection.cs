@@ -97,6 +97,20 @@ namespace JinTeamForSeller.Dao
                         lstObj.Add(new Payment_InfoVO((int)dr["pay_ID"], dr["order_ID"].ToString(), dr["user_ship_ID"].ToString().ToString(), (int)dr["seller_no"], (int)dr["pay_count"], (int)dr["pay_price"], dr["waybill_ID"].ToString(), dr["cus_name"].ToString(), dr["user_addr"].ToString(), dr["stock_ID"].ToString(), dr["order_require"].ToString(), dr["ship_require"].ToString(), dr["transport_state"].ToString(), dr["user_name"].ToString()));
                     }
                 }
+                else if(query == "SearchSellerID")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new SellerVO(dr["seller_ID"].ToString()));
+                    }
+                }
+                else if(query == "SelectReviewForSeller")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new ReviewVO((int)dr["re_ID"], (int)dr["cus_no"], dr["stock_ID"].ToString(), (bool)dr["re_like"], dr["re_image"].ToString(), dr["re_txt"].ToString(), (DateTime)dr["re_date"], dr["re_comment"].ToString(), dr["re_comment_date"].ToString()));
+                    }
+                }
                 conn.Close();
                 return lstObj;
             }

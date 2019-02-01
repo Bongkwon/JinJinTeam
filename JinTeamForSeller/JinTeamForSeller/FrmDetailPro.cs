@@ -16,7 +16,7 @@ namespace JinTeamForSeller
     public partial class FrmDetailPro : Form
     {
         Product tempPro = new Product();
-        ProductDao pDao = new ProductDao();
+        ProductDAO pDao = new ProductDAO();
         List<CatVO> cat_kinds;
         CatDAO cat = new CatDAO();
         DataGridViewRow row;
