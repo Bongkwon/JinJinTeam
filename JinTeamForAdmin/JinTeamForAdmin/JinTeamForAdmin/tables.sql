@@ -21,7 +21,8 @@ CREATE TABLE [dbo].[customers] (
     [cus_state]    BIT           DEFAULT ((1)) NOT NULL,	-- 고객 정보 상태	1 = 가입, 0 = 탈퇴대기
 	[cus_count] INT NULL DEFAULT 1,		-- 배송정보 카운트
 	[withdrawal_date] DATETIME NULL,  -- 탈퇴 날짜
-	[join_date] datetime  default getdate() Not Null -- 가입날짜
+	[join_date] datetime  default getdate() Not Null, -- 가입날짜
+	[cus_guid] VARCHAR(40) NOT NULL DEFAULT '01134cb1-e03f-4f69-9d1d-d36e536bc10c' -- api키
     PRIMARY KEY CLUSTERED ([cus_no] ASC),
     UNIQUE NONCLUSTERED ([cus_phone] ASC),
     UNIQUE NONCLUSTERED ([cus_ID] ASC)
@@ -58,6 +59,9 @@ CREATE TABLE [dbo].[payment_info] (
     [pay_count]    INT          NOT NULL,	-- 결제 수량
     [pay_price]    INT          NOT NULL,	-- 결제 가격
     [waybill_ID]   VARCHAR (13) NULL,	-- 운송장 번호
+	 [pay_date]          DATETIME     DEFAULT (getdate()) NOT NULL,	-- 결제날짜
+    [output_date_tax]   DATETIME     NULL,	-- 출력 날짜(세금)
+    [output_date_order] DATETIME     NULL,	-- 출력 날짜(발주서)
     PRIMARY KEY CLUSTERED ([pay_ID] ASC)
 	-- ,CONSTRAINT [pay_ord_FK] FOREIGN KEY ([order_ID]) REFERENCES [dbo].[order_List] ([order_ID]) 
 	-- ,CONSTRAINT [pay_ship_FK] FOREIGN KEY ([user_ship_Id]) REFERENCES [dbo].[user_ship_info] ([user_ship_Id]) 
@@ -75,11 +79,12 @@ CREATE TABLE [dbo].[products] (
     [main_comment] VARCHAR (MAX) NULL,	-- 상품 설명
     [sub_comment]  VARCHAR (MAX)   NULL,	-- 상품 보조설명
     [main_image]   VARCHAR (MAX)   NULL,	-- 상품 대표이미지
-    [pro_hits]     INT             NULL DEFAULT 0,	-- 상품 조회수
-    [pro_like]     INT             NULL DEFAULT 0,	-- 상품 좋아요
-    [pro_discount] INT             NULL DEFAULT 0,	-- 상품 할인율
-    [pro_gender]   VARCHAR (2)   NOT NULL,	-- 추천 성별
-    [pro_state]    BIT             DEFAULT ((1)) NULL,	-- 상품 정보 상태
+    [pro_hits]     INT             NOT NULL DEFAULT 0,	-- 상품 조회수
+    [pro_like]     INT             NOT NULL DEFAULT 0,	-- 상품 좋아요
+    [pro_discount] INT             NOT NULL DEFAULT 0,	-- 상품 할인율
+    [pro_gender]   VARCHAR (2)   DEFAULT ('A') NOT NULL,	-- 추천 성별
+    [pro_state]    BIT             DEFAULT ((1)) NOT NULL,	-- 상품 정보 상태
+	[pro_url]      NVARCHAR (MAX) NULL, -- 상품페이지
     PRIMARY KEY CLUSTERED ([pro_ID] ASC)
 	-- ,CONSTRAINT [pro_cat_FK] FOREIGN KEY ([cat_ID]) REFERENCES [dbo].[category_List] ([cat_ID])
 	-- ,CONSTRAINT [pro_sell_FK] FOREIGN KEY ([seller_no]) REFERENCES [dbo].[seller] ([seller_no])
@@ -87,9 +92,9 @@ CREATE TABLE [dbo].[products] (
 go
 
 CREATE TABLE [dbo].[review] (
-    [re_ID]           INT            NOT NULL,	-- 리뷰 번호
+    [re_ID]           INT            NOT NULL IDENTITY,	-- 리뷰 번호
     [cus_no]          INT            NOT NULL,	-- 고객 번호
-    [pro_ID]          VARCHAR (30)   NOT NULL,	-- 상품 번호
+    [stock_ID]    VARCHAR (40)   NOT NULL,	-- 재고 번호
     [re_like]         BIT            DEFAULT ((1)) NOT NULL,	-- 상품 좋아요
     [re_image]        VARCHAR (MAX)  NOT NULL,	-- 리뷰 이미지
     [re_txt]          NVARCHAR (MAX) NOT NULL,	-- 리뷰 내용
@@ -168,6 +173,44 @@ CREATE TABLE [dbo].[wish_List] (
 );
 go
 
+--------------------------------------------------------
+-- 문의A - (관리자한테)
+CREATE TABLE [dbo].[Inquire_Admin] (
+    [Inquire_no]    INT            NOT NULL IDENTITY,
+    [Inquire_type]  NVARCHAR (12)  NOT NULL,
+    [Inquire_Id]    INT            NOT NULL,
+    [cus_or_sell]   VARCHAR (2)    NOT NULL,
+    [Inquire_title] NVARCHAR (MAX) NOT NULL,
+    [Inquire_body]  NVARCHAR (MAX) NOT NULL,
+    [Inquire_date]  DATETIME       DEFAULT (getdate()) NOT NULL,
+    [Inquire_image] IMAGE          NULL,
+    [re_date]       DATETIME       NULL,
+    [re_body]       NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([Inquire_no] ASC),
+    CHECK ([Inquire_type]=N'피드백' OR [Inquire_type]=N'사용문의' OR [Inquire_type]=N'회원관련' OR [Inquire_type]=N'기타' OR [Inquire_type]=N'시스템' OR [Inquire_type]=N'결제문의'),
+    CHECK ([cus_or_sell]='S' OR [cus_or_sell]='C')
+);
+go
+
+-- 문의S - (판매자한테)
+
+CREATE TABLE [dbo].[Inquire_Seller] (
+    [Inquire_no]    INT            IDENTITY (1, 1) NOT NULL,
+    [Inquire_type]  NVARCHAR (6)   NOT NULL,
+    [cus_no]        INT            NOT NULL,
+    [stock_ID]      VARCHAR (40)   NOT NULL,
+    [Inquire_title] NVARCHAR (MAX) NOT NULL,
+    [Inquire_body]  NVARCHAR (MAX) NOT NULL,
+    [Inquire_date]  DATETIME       DEFAULT (getdate()) NOT NULL,
+    [Inquire_image] IMAGE          NULL,
+    [re_date]       DATETIME       NULL,
+    [re_body]       NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([Inquire_no] ASC),
+    CHECK ([Inquire_type]=N'기타' OR [Inquire_type]=N'배송' OR [Inquire_type]=N'재고' OR [Inquire_type]=N'환불' OR [Inquire_type]=N'교환')
+	-- ,CONSTRAINT [IS_cus_FK] FOREIGN KEY ([cus_no]) REFERENCES [dbo].[customers] ([cus_no]) 
+	-- ,CONSTRAINT [IS_stk_FK] FOREIGN KEY ([stock_ID]) REFERENCES [dbo].[stock_List] ([stock_ID]) 
+);
+go
 
 
 

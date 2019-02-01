@@ -39,14 +39,13 @@
             this.seller목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customer목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.products목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.결제정보세금계산서출력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_pro = new System.Windows.Forms.GroupBox();
             this.gb_seller = new System.Windows.Forms.GroupBox();
             this.rdo_Disabled_seller = new System.Windows.Forms.RadioButton();
             this.gb_cus = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
-            this.결제정보세금계산서출력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_Excel_output = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.main_GV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
@@ -117,7 +116,7 @@
             // rdo_deactive_seller
             // 
             this.rdo_deactive_seller.AutoSize = true;
-            this.rdo_deactive_seller.Location = new System.Drawing.Point(95, 15);
+            this.rdo_deactive_seller.Location = new System.Drawing.Point(204, 15);
             this.rdo_deactive_seller.Name = "rdo_deactive_seller";
             this.rdo_deactive_seller.Size = new System.Drawing.Size(99, 16);
             this.rdo_deactive_seller.TabIndex = 10;
@@ -172,6 +171,13 @@
             this.products목록ToolStripMenuItem.Text = "products 목록";
             this.products목록ToolStripMenuItem.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
             // 
+            // 결제정보세금계산서출력ToolStripMenuItem
+            // 
+            this.결제정보세금계산서출력ToolStripMenuItem.Name = "결제정보세금계산서출력ToolStripMenuItem";
+            this.결제정보세금계산서출력ToolStripMenuItem.Size = new System.Drawing.Size(163, 20);
+            this.결제정보세금계산서출력ToolStripMenuItem.Text = "결제정보(세금계산서 출력)";
+            this.결제정보세금계산서출력ToolStripMenuItem.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
             // gb_pro
             // 
             this.gb_pro.Controls.Add(this.rdo_deactive_pro);
@@ -198,7 +204,7 @@
             // rdo_Disabled_seller
             // 
             this.rdo_Disabled_seller.AutoSize = true;
-            this.rdo_Disabled_seller.Location = new System.Drawing.Point(196, 15);
+            this.rdo_Disabled_seller.Location = new System.Drawing.Point(92, 15);
             this.rdo_Disabled_seller.Name = "rdo_Disabled_seller";
             this.rdo_Disabled_seller.Size = new System.Drawing.Size(111, 16);
             this.rdo_Disabled_seller.TabIndex = 11;
@@ -237,28 +243,11 @@
             this.btn_Refresh.UseVisualStyleBackColor = true;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
-            // 결제정보세금계산서출력ToolStripMenuItem
-            // 
-            this.결제정보세금계산서출력ToolStripMenuItem.Name = "결제정보세금계산서출력ToolStripMenuItem";
-            this.결제정보세금계산서출력ToolStripMenuItem.Size = new System.Drawing.Size(163, 20);
-            this.결제정보세금계산서출력ToolStripMenuItem.Text = "결제정보(세금계산서 출력)";
-            this.결제정보세금계산서출력ToolStripMenuItem.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
-            // 
-            // btn_Excel_output
-            // 
-            this.btn_Excel_output.Location = new System.Drawing.Point(359, 39);
-            this.btn_Excel_output.Name = "btn_Excel_output";
-            this.btn_Excel_output.Size = new System.Drawing.Size(75, 23);
-            this.btn_Excel_output.TabIndex = 17;
-            this.btn_Excel_output.Text = "Excel 출력";
-            this.btn_Excel_output.UseVisualStyleBackColor = true;
-            // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 515);
-            this.Controls.Add(this.btn_Excel_output);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gb_cus);
@@ -304,6 +293,5 @@
         private System.Windows.Forms.RadioButton rdo_Disabled_seller;
         private System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.ToolStripMenuItem 결제정보세금계산서출력ToolStripMenuItem;
-        private System.Windows.Forms.Button btn_Excel_output;
     }
 }

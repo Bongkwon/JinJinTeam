@@ -19,9 +19,9 @@ namespace JinTeamForSeller.Bus
         List<object> ob_lst;
         List<Seller_Vo> sell_lst;
         List<Products_Vo> pro_lst;
-        bool switch_pro = false;
+        bool switch_pro = true;
         List<TaxBill_Vo> tax_lst;
-        bool tax_switch = false;
+        bool tax_switch = true;
 
         string sp = "";
         string type_s = "";
@@ -150,6 +150,7 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["cus_pwd"].Visible = false;
             main_GV.Columns["cus_count"].Visible = false;
             main_GV.Columns["cus_nickname"].Visible = false;
+            main_GV.Columns["cus_addr"].Visible = false;
             main_GV.Columns["cus_no"].HeaderText = "고객 번호";
             main_GV.Columns["cus_id"].HeaderText = "아이디";
             main_GV.Columns["cus_phone"].HeaderText = "전화번호";
@@ -271,6 +272,11 @@ namespace JinTeamForSeller.Bus
             main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// 자동삭제
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             sp = "delete_cus";
@@ -285,6 +291,7 @@ namespace JinTeamForSeller.Bus
                 MessageBox.Show("삭제 실패");
             }
         }
+
 
         private void Admin_main_Load(object sender, EventArgs e)
         {
@@ -307,7 +314,7 @@ namespace JinTeamForSeller.Bus
                     if (main_GV.Columns[e.ColumnIndex].Index == 4)
                     {
                         main_GV.DataSource = null;
-                        if (switch_pro)
+                        if (!switch_pro)
                         {                          
                             pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
                             {
@@ -315,7 +322,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Price < b.Pro_Price) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -325,14 +332,14 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Price < b.Pro_Price) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         pro_GV();
                     }
                     else if (main_GV.Columns[e.ColumnIndex].Index == 2)
                     {
                         main_GV.DataSource = null;
-                        if (switch_pro)
+                        if (!switch_pro)
                         {
                             pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
                             {
@@ -340,7 +347,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {                           
@@ -350,7 +357,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         pro_GV();
                         //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].HeaderText);
@@ -358,7 +365,7 @@ namespace JinTeamForSeller.Bus
                     else if (main_GV.Columns[e.ColumnIndex].Index == 9)
                     {
                         main_GV.DataSource = null;
-                        if (switch_pro)
+                        if (!switch_pro)
                         {
                             pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
                             {
@@ -366,7 +373,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Like < b.Pro_Like) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -376,7 +383,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Like < b.Pro_Like) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         pro_GV();
                     }
@@ -388,7 +395,7 @@ namespace JinTeamForSeller.Bus
                     {
                         //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
                         main_GV.DataSource = null;
-                        if (switch_pro)
+                        if (!switch_pro)
                         {
                             sell_lst.Sort(delegate (Seller_Vo A, Seller_Vo b)
                             {
@@ -396,7 +403,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -406,7 +413,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         sell_GV();
                     }
@@ -419,7 +426,7 @@ namespace JinTeamForSeller.Bus
                     {
                         //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
                         main_GV.DataSource = null;
-                        if (switch_pro)
+                        if (!switch_pro)
                         {
                             cus_lst.Sort(delegate (Customers_Vo A, Customers_Vo b)
                             {
@@ -427,7 +434,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_no < b.Cus_no) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -437,14 +444,14 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_no < b.Cus_no) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         cus_GV();
                     }
                     else if (main_GV.Columns[e.ColumnIndex].Index == 8)
                     {
                         main_GV.DataSource = null;
-                        if (switch_pro)
+                        if (!switch_pro)
                         {
                             cus_lst.Sort(delegate (Customers_Vo A, Customers_Vo b)
                             {
@@ -452,7 +459,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_age < b.Cus_age) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -462,9 +469,39 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_age < b.Cus_age) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         cus_GV();
+                    }
+                }
+                else if (tax_switch)
+                {
+                    //MessageBox.Show(main_GV.Columns[e.ColumnIndex].Index + "");
+                    if (main_GV.Columns[e.ColumnIndex].Index == 0)
+                    {
+                        //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo b)
+                            {
+                                if (A.Pay_ID > b.Pay_ID) return -1;
+                                else if (A.Pay_ID < b.Pay_ID) return 1;
+                                return 0;
+                            });
+                            switch_pro = true;
+                        }
+                        else
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo b)
+                            {
+                                if (A.Pay_ID > b.Pay_ID) return 1;
+                                else if (A.Pay_ID < b.Pay_ID) return -1;
+                                return 0;
+                            });
+                            switch_pro = false;
+                        }
+                        pay_GV();
                     }
                 }
             }
