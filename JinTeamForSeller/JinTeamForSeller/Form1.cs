@@ -125,8 +125,7 @@ namespace JinTeamForSeller
         private void ParsingWebPage_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(DateTime.Now.ToString().Remove(DateTime.Now.ToString().IndexOf('오'),2).Replace(" ","").Replace("-","").Replace(":",""));
-            int cat = 71;
-            int pageno = 1;
+            int cat = 71;            
             for (int i = 1; i < 4; i++)
             {
 
@@ -276,6 +275,17 @@ namespace JinTeamForSeller
             //    cmd2.ExecuteNonQuery();
             //    insertConn.Close();
             //} 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmSearchID frm = new FrmSearchID();
+            frm.Show();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

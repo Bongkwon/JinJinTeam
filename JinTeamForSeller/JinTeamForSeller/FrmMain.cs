@@ -33,5 +33,11 @@ namespace JinTeamForSeller
             FrmSellAndTransport frm = new FrmSellAndTransport();
             frm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmInquiry frm = new FrmInquiry();
+            frm.Show();
+        }
     }
 }

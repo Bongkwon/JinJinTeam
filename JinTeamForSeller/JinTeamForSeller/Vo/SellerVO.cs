@@ -116,9 +116,17 @@ namespace JinTeamForSeller.Vo
             set { join_state = value; }
         }
 
-        public SellerVO(string seller_Id, string seller_pwd, string seller_name, string seller_addr, string seller_boss, string seller_phone, string seller_postal, string seller_email, string seller_fax, string return_addr, string corporate_registration_no)
+        public SellerVO()
+        {
+        }
+
+        public SellerVO(string seller_Id)
         {
             this.seller_Id = seller_Id;
+        }
+
+        public SellerVO(string seller_Id, string seller_pwd, string seller_name, string seller_addr, string seller_boss, string seller_phone, string seller_postal, string seller_email, string seller_fax, string return_addr, string corporate_registration_no) : this(seller_Id)
+        {            
             this.seller_pwd = seller_pwd;
             this.seller_name = seller_name;
             this.seller_addr = seller_addr;
