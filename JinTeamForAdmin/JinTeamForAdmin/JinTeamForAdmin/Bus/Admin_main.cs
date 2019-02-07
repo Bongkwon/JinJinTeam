@@ -22,6 +22,7 @@ namespace JinTeamForSeller.Bus
         bool switch_pro = true;
         List<TaxBill_Vo> tax_lst;
         bool tax_switch = true;
+        List<Inquire_Vo> inq_lst;
 
         string sp = "";
         string type_s = "";
@@ -42,7 +43,7 @@ namespace JinTeamForSeller.Bus
             sell_lst = new List<Seller_Vo>();
             pro_lst = new List<Products_Vo>();
             tax_lst = new List<TaxBill_Vo>();
-            
+            inq_lst = new List<Inquire_Vo>();
         }
 
 
@@ -68,6 +69,52 @@ namespace JinTeamForSeller.Bus
         {
             Pay_changed();
 
+        }
+
+        private void 문의내역ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rd_all_inq.Checked = true;
+
+            gb_seller.Visible = false;
+            gb_pro.Visible = false;
+            gb_cus.Visible = false;
+            tax_switch = false;
+
+            ob_lst.Clear();
+            //inq_lst.Clear();
+            main_GV.DataSource = null;
+            type_s = "inq";
+            if (rd_all_inq.Checked)
+            {
+               // sp = "select_all_inq";
+            }
+            else if(rd_cus_inq.Checked)
+            {
+               // sp = "select_cus_inq";
+            }
+            else if (rd_sel_inq.Checked)
+            {
+               // sp = "select_sel_inq";
+            }
+            ob_lst = new Admin_Dao().Select_ob(sp, type_s);
+
+            foreach (var item in ob_lst)
+            {
+                inq_lst.Add((Inquire_Vo)item);
+            }
+
+            Inq_GV();
+            
+        }
+
+        private void Inq_GV()
+        {
+            main_GV.DataSource = inq_lst;
+
+            main_GV.Columns["inquire_image"].Visible = false;
+            main_GV.Columns["inquire_body"].Visible = false;
+            //main_GV.Columns["inquire_"].Visible = false;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void Pay_changed()
@@ -564,6 +611,6 @@ namespace JinTeamForSeller.Bus
             }
         }
 
-        
+
     }
 }

@@ -87,7 +87,7 @@ namespace JinTeamForAdmin.Bus
             Excel.Worksheet workSheet;
             object missingValue = System.Reflection.Missing.Value;
 
-
+            //workBook = excelApp.Workbooks.Open(Properties.Resources.세금계산서_양식);
             workBook = excelApp.Workbooks.Open(@"C:\Users\GDC22\Desktop\JinTeam\코딩\JinTeamForAdmin\JinTeamForAdmin\JinTeamForAdmin\Resources\세금계산서_양식.xlsx");
             workSheet = workBook.Worksheets.Item[1];
 
