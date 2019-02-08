@@ -14,12 +14,10 @@ namespace JinTeamForAdmin
     {
         SqlConnection con;
         List<object> ob_lst;
-        List<Products_Vo> pro_lst;
         public DBCon_admin()
         {
             con = new SqlConnection(ConfigurationManager.ConnectionStrings["JinTeamDB"].ConnectionString);
             ob_lst = new List<object>();
-            pro_lst = new List<Products_Vo>();
         }
 
         private SqlConnection OpenCon()
@@ -158,20 +156,31 @@ namespace JinTeamForAdmin
 
                     }
                 }
+                else if (type_p == "inq")
+                {
+                    while (sdr.Read())
+                    {
+                        ob_lst.Add(new Inquire_Admin_Vo() {
+                            Cus_or_sell = sdr["cus_or_sell"].ToString(),
+                            Inquire_body = sdr["inquire_body"].ToString(),
+                            Inquire_date = sdr["inquire_date"].ToString(),
+                            Inquire_id = Int32.Parse(sdr["inquire_id"].ToString()),
+                            Inquire_image = sdr["inquire_image"].ToString(),
+                            Inquire_no = Int32.Parse(sdr["inquire_no"].ToString()),
+                            Inquire_title = sdr["inquire_title"].ToString(),
+                            Inquire_type = sdr["inquire_type"].ToString(),
+                            Re_body = sdr["re_body"].ToString(),
+                            Re_date = sdr["re_date"].ToString()
+                        });
+                    }
+                }
             }
             catch (SqlException)
             {
                 throw;
             }
             finally { sqlCon.Close(); }
-            //if (type_p == "pro")
-            //{
-            //    return pro_lst;
-            //}
-            //else
-            //{
-                
-            //}
+
             return ob_lst;
         }
 

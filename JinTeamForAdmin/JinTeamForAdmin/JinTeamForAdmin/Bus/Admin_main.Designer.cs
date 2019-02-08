@@ -40,14 +40,15 @@
             this.customer목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.products목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.결제정보세금계산서출력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.문의내역ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_pro = new System.Windows.Forms.GroupBox();
             this.gb_seller = new System.Windows.Forms.GroupBox();
             this.rdo_Disabled_seller = new System.Windows.Forms.RadioButton();
             this.gb_cus = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
-            this.문의내역ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_inq = new System.Windows.Forms.GroupBox();
+            this.cb_inquire = new System.Windows.Forms.ComboBox();
             this.rd_sel_inq = new System.Windows.Forms.RadioButton();
             this.rd_cus_inq = new System.Windows.Forms.RadioButton();
             this.rd_all_inq = new System.Windows.Forms.RadioButton();
@@ -185,6 +186,13 @@
             this.결제정보세금계산서출력ToolStripMenuItem.Text = "결제정보(세금계산서 출력)";
             this.결제정보세금계산서출력ToolStripMenuItem.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
             // 
+            // 문의내역ToolStripMenuItem
+            // 
+            this.문의내역ToolStripMenuItem.Name = "문의내역ToolStripMenuItem";
+            this.문의내역ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.문의내역ToolStripMenuItem.Text = "문의내역";
+            this.문의내역ToolStripMenuItem.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
             // gb_pro
             // 
             this.gb_pro.Controls.Add(this.rdo_deactive_pro);
@@ -250,24 +258,27 @@
             this.btn_Refresh.UseVisualStyleBackColor = true;
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
-            // 문의내역ToolStripMenuItem
-            // 
-            this.문의내역ToolStripMenuItem.Name = "문의내역ToolStripMenuItem";
-            this.문의내역ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.문의내역ToolStripMenuItem.Text = "문의내역";
-            this.문의내역ToolStripMenuItem.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
-            // 
             // gb_inq
             // 
+            this.gb_inq.Controls.Add(this.cb_inquire);
             this.gb_inq.Controls.Add(this.rd_sel_inq);
             this.gb_inq.Controls.Add(this.rd_cus_inq);
             this.gb_inq.Controls.Add(this.rd_all_inq);
-            this.gb_inq.Location = new System.Drawing.Point(411, 27);
+            this.gb_inq.Location = new System.Drawing.Point(352, 27);
             this.gb_inq.Name = "gb_inq";
-            this.gb_inq.Size = new System.Drawing.Size(309, 36);
+            this.gb_inq.Size = new System.Drawing.Size(406, 36);
             this.gb_inq.TabIndex = 17;
             this.gb_inq.TabStop = false;
             this.gb_inq.Text = "inquire";
+            // 
+            // cb_inquire
+            // 
+            this.cb_inquire.FormattingEnabled = true;
+            this.cb_inquire.Location = new System.Drawing.Point(278, 11);
+            this.cb_inquire.Name = "cb_inquire";
+            this.cb_inquire.Size = new System.Drawing.Size(121, 20);
+            this.cb_inquire.TabIndex = 18;
+            this.cb_inquire.TextChanged += new System.EventHandler(this.cb_inquire_TextChanged);
             // 
             // rd_sel_inq
             // 
@@ -278,16 +289,18 @@
             this.rd_sel_inq.TabIndex = 11;
             this.rd_sel_inq.Text = "문의(판매자)";
             this.rd_sel_inq.UseVisualStyleBackColor = true;
+            this.rd_sel_inq.CheckedChanged += new System.EventHandler(this.inq_changed);
             // 
             // rd_cus_inq
             // 
             this.rd_cus_inq.AutoSize = true;
-            this.rd_cus_inq.Location = new System.Drawing.Point(204, 15);
+            this.rd_cus_inq.Location = new System.Drawing.Point(191, 14);
             this.rd_cus_inq.Name = "rd_cus_inq";
             this.rd_cus_inq.Size = new System.Drawing.Size(81, 16);
             this.rd_cus_inq.TabIndex = 10;
             this.rd_cus_inq.Text = "문의(고객)";
             this.rd_cus_inq.UseVisualStyleBackColor = true;
+            this.rd_cus_inq.CheckedChanged += new System.EventHandler(this.inq_changed);
             // 
             // rd_all_inq
             // 
@@ -300,12 +313,13 @@
             this.rd_all_inq.TabStop = true;
             this.rd_all_inq.Text = "문의(전체)";
             this.rd_all_inq.UseVisualStyleBackColor = true;
+            this.rd_all_inq.CheckedChanged += new System.EventHandler(this.inq_changed);
             // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 515);
+            this.ClientSize = new System.Drawing.Size(1002, 496);
             this.Controls.Add(this.gb_inq);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.button1);
@@ -359,5 +373,6 @@
         private System.Windows.Forms.RadioButton rd_sel_inq;
         private System.Windows.Forms.RadioButton rd_cus_inq;
         private System.Windows.Forms.RadioButton rd_all_inq;
+        private System.Windows.Forms.ComboBox cb_inquire;
     }
 }

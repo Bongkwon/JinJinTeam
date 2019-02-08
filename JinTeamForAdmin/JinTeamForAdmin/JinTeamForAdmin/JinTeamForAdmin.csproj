@@ -81,11 +81,11 @@
     <Compile Include="Bus\Cus_Detail.Designer.cs">
       <DependentUpon>Cus_Detail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bus\Inquire_Detail.cs">
+    <Compile Include="Bus\Inquire_Admin_Detail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bus\Inquire_Detail.Designer.cs">
-      <DependentUpon>Inquire_Detail.cs</DependentUpon>
+    <Compile Include="Bus\Inquire_Admin_Detail.Designer.cs">
+      <DependentUpon>Inquire_Admin_Detail.cs</DependentUpon>
     </Compile>
     <Compile Include="Bus\Pro_Detail.cs">
       <SubType>Form</SubType>
@@ -110,7 +110,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vo\Customers_Vo.cs" />
-    <Compile Include="Vo\Inquire_Vo.cs" />
+    <Compile Include="Vo\Inquire_Admin_Vo.cs" />
     <Compile Include="Vo\Products_Vo.cs" />
     <Compile Include="Vo\Seller_Vo.cs" />
     <Compile Include="Vo\TaxBill_Vo.cs" />
@@ -120,8 +120,8 @@
     <EmbeddedResource Include="Bus\Cus_Detail.resx">
       <DependentUpon>Cus_Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bus\Inquire_Detail.resx">
-      <DependentUpon>Inquire_Detail.cs</DependentUpon>
+    <EmbeddedResource Include="Bus\Inquire_Admin_Detail.resx">
+      <DependentUpon>Inquire_Admin_Detail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bus\Pro_Detail.resx">
       <DependentUpon>Pro_Detail.cs</DependentUpon>
@@ -151,15 +151,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\세금계산서_양식.xlsx" />
+    <Content Include="Resources\세금계산서_양식.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="procedure.sql" />
-    <None Include="Resources\tax.png" />
-    <None Include="Resources\세금계산서.PNG" />
+    <Content Include="Resources\세금계산서.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="tables.sql" />
   </ItemGroup>
   <ItemGroup>

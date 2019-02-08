@@ -36,7 +36,7 @@ namespace JinTeamForAdmin.Bus
 
             lbl_path.Text = "저장위치를 지정 해주세요";
 
-            BackgroundImage = Properties.Resources.세금계산서_예시;
+            BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/세금계산서.png");
 
             lbl_corporate_registration_no.Text = tv.Corporate_registration_no;
             lbl_stock_id.Text = tv.Stock_ID;
@@ -87,8 +87,7 @@ namespace JinTeamForAdmin.Bus
             Excel.Worksheet workSheet;
             object missingValue = System.Reflection.Missing.Value;
 
-            //workBook = excelApp.Workbooks.Open(Properties.Resources.세금계산서_양식);
-            workBook = excelApp.Workbooks.Open(@"C:\Users\GDC22\Desktop\JinTeam\코딩\JinTeamForAdmin\JinTeamForAdmin\JinTeamForAdmin\Resources\세금계산서_양식.xlsx");
+            workBook = excelApp.Workbooks.Open(Application.StartupPath +"/Resources/세금계산서_양식");
             workSheet = workBook.Worksheets.Item[1];
 
 

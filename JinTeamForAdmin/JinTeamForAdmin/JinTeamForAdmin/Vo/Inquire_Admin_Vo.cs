@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JinTeamForAdmin.Vo
 {
-    class Inquire_Vo
+    class Inquire_Admin_Vo
     {
         private int inquire_no;
 
@@ -78,8 +78,6 @@ namespace JinTeamForAdmin.Vo
             get { return re_body; }
             set { re_body = value; }
         }
-
-
 
     }
 }
