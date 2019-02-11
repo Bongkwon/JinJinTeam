@@ -50,9 +50,12 @@ namespace JinTeamForAdmin.Bus
 
             lbl_pay_date_2.Text = tv.Pay_date.Substring(5,5);
 
-            lbl_pay_price_1.Text = lbl_pay_price_6.Text = tv.Pay_price.ToString();
-            lbl_pay_price_2.Text = lbl_pay_price_3.Text = (tv.Pay_price * 0.9).ToString();
-            lbl_pay_price_5.Text = lbl_pay_price_4.Text = (tv.Pay_price * 0.1).ToString();
+            lbl_pay_price_1.Text = tv.Pay_price.ToString();
+            lbl_pay_price_6.Text = (tv.Pay_price*tv.Pay_count).ToString();
+            lbl_pay_price_2.Text = (tv.Pay_price*tv.Pay_count * 0.9).ToString();
+            lbl_pay_price_3.Text = (tv.Pay_price * 0.9).ToString();
+            lbl_pay_price_5.Text = (tv.Pay_price * tv.Pay_count * 0.1).ToString();
+            lbl_pay_price_4.Text = (tv.Pay_price * 0.1).ToString();
 
 
         }
