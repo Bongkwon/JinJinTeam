@@ -51,7 +51,6 @@
             this.cb_inquire = new System.Windows.Forms.ComboBox();
             this.rd_sel_inq = new System.Windows.Forms.RadioButton();
             this.rd_cus_inq = new System.Windows.Forms.RadioButton();
-            this.rd_all_inq = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.main_GV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
@@ -263,10 +262,9 @@
             this.gb_inq.Controls.Add(this.cb_inquire);
             this.gb_inq.Controls.Add(this.rd_sel_inq);
             this.gb_inq.Controls.Add(this.rd_cus_inq);
-            this.gb_inq.Controls.Add(this.rd_all_inq);
-            this.gb_inq.Location = new System.Drawing.Point(352, 27);
+            this.gb_inq.Location = new System.Drawing.Point(12, 27);
             this.gb_inq.Name = "gb_inq";
-            this.gb_inq.Size = new System.Drawing.Size(406, 36);
+            this.gb_inq.Size = new System.Drawing.Size(318, 36);
             this.gb_inq.TabIndex = 17;
             this.gb_inq.TabStop = false;
             this.gb_inq.Text = "inquire";
@@ -274,7 +272,7 @@
             // cb_inquire
             // 
             this.cb_inquire.FormattingEnabled = true;
-            this.cb_inquire.Location = new System.Drawing.Point(278, 11);
+            this.cb_inquire.Location = new System.Drawing.Point(190, 11);
             this.cb_inquire.Name = "cb_inquire";
             this.cb_inquire.Size = new System.Drawing.Size(121, 20);
             this.cb_inquire.TabIndex = 18;
@@ -283,7 +281,7 @@
             // rd_sel_inq
             // 
             this.rd_sel_inq.AutoSize = true;
-            this.rd_sel_inq.Location = new System.Drawing.Point(92, 15);
+            this.rd_sel_inq.Location = new System.Drawing.Point(6, 15);
             this.rd_sel_inq.Name = "rd_sel_inq";
             this.rd_sel_inq.Size = new System.Drawing.Size(93, 16);
             this.rd_sel_inq.TabIndex = 11;
@@ -294,26 +292,13 @@
             // rd_cus_inq
             // 
             this.rd_cus_inq.AutoSize = true;
-            this.rd_cus_inq.Location = new System.Drawing.Point(191, 14);
+            this.rd_cus_inq.Location = new System.Drawing.Point(105, 14);
             this.rd_cus_inq.Name = "rd_cus_inq";
             this.rd_cus_inq.Size = new System.Drawing.Size(81, 16);
             this.rd_cus_inq.TabIndex = 10;
             this.rd_cus_inq.Text = "문의(고객)";
             this.rd_cus_inq.UseVisualStyleBackColor = true;
             this.rd_cus_inq.CheckedChanged += new System.EventHandler(this.inq_changed);
-            // 
-            // rd_all_inq
-            // 
-            this.rd_all_inq.AutoSize = true;
-            this.rd_all_inq.Checked = true;
-            this.rd_all_inq.Location = new System.Drawing.Point(6, 15);
-            this.rd_all_inq.Name = "rd_all_inq";
-            this.rd_all_inq.Size = new System.Drawing.Size(81, 16);
-            this.rd_all_inq.TabIndex = 9;
-            this.rd_all_inq.TabStop = true;
-            this.rd_all_inq.Text = "문의(전체)";
-            this.rd_all_inq.UseVisualStyleBackColor = true;
-            this.rd_all_inq.CheckedChanged += new System.EventHandler(this.inq_changed);
             // 
             // Admin_main
             // 
@@ -372,7 +357,6 @@
         private System.Windows.Forms.GroupBox gb_inq;
         private System.Windows.Forms.RadioButton rd_sel_inq;
         private System.Windows.Forms.RadioButton rd_cus_inq;
-        private System.Windows.Forms.RadioButton rd_all_inq;
         private System.Windows.Forms.ComboBox cb_inquire;
     }
 }

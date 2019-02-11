@@ -22,6 +22,23 @@ namespace JinTeamForAdmin.Vo
             get { return inquire_type; }
             set { inquire_type = value; }
         }
+
+        private string inquire_name;
+
+        public string Inquire_name
+        {
+            get { return inquire_name; }
+            set { inquire_name = value; }
+        }
+        private string inquire_email;
+
+        public string Inquire_email
+        {
+            get { return inquire_email; }
+            set { inquire_email = value; }
+        }
+
+
         private int inquire_id;
 
         public int Inquire_id

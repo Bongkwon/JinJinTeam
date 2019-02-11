@@ -50,8 +50,8 @@ namespace JinTeamForAdmin.Dao
                 Products_Vo pv_sub = ob_sub as Products_Vo;
                 sp = "update_products_state";
                 sqlParameters = new SqlParameter[2];
-                sqlParameters[0] = new SqlParameter("@pro_ID",pv_sub.Pro_ID);
-                sqlParameters[1] = new SqlParameter("@pro_state",pv_sub.Pro_State);
+                sqlParameters[0] = new SqlParameter("pro_ID",pv_sub.Pro_ID);
+                sqlParameters[1] = new SqlParameter("pro_state",pv_sub.Pro_State);
             }
             else if (type_u == "pay")
             {
@@ -60,7 +60,15 @@ namespace JinTeamForAdmin.Dao
 
                 sqlParameters = new SqlParameter[1];
                 sqlParameters[0] = new SqlParameter("pay_id", tv_sub.Pay_ID);
+            }
+            else if (type_u == "inq")
+            {
+                Inquire_Admin_Vo ia_sub = ob_sub as Inquire_Admin_Vo;
+                sp = "update_Inquire_Admin";
 
+                sqlParameters = new SqlParameter[2];
+                sqlParameters[0] = new SqlParameter("inquire_no", ia_sub.Inquire_no);
+                sqlParameters[1] = new SqlParameter("re_body", ia_sub.Re_body);                
             }
 
             try

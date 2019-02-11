@@ -75,7 +75,7 @@ namespace JinTeamForSeller.Bus
 
         private void 문의내역ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rd_all_inq.Checked = true;
+            rd_sel_inq.Checked = true;
             inq_changed(null,null);                  
         }
 
@@ -92,15 +92,8 @@ namespace JinTeamForSeller.Bus
             tax_switch = false;
             gb_inq.Visible = true;
        
-            if (rd_all_inq.Checked)
-            {
-                common_cb();
-                cb_inquire.Items.Add("결제문의");
-                cb_inquire.Items.Add("사용문의");
-                
-                sp = "select_all_inq";
-            }
-            else if (rd_cus_inq.Checked)
+
+            if (rd_cus_inq.Checked)
             {
                 common_cb();
                 cb_inquire.Items.Add("결제문의");
@@ -168,10 +161,23 @@ namespace JinTeamForSeller.Bus
 
         private void Inq_GV()
         {
-            
+            //main_GV.DataSource = inq_lst_sub;
+
             main_GV.Columns["inquire_image"].Visible = false;
             main_GV.Columns["inquire_body"].Visible = false;
-            //main_GV.Columns["inquire_"].Visible = false;
+            main_GV.Columns["inquire_email"].Visible = false;
+            main_GV.Columns["inquire_id"].Visible = false;
+            main_GV.Columns["re_body"].Visible = false;
+            main_GV.Columns["cus_or_sell"].Visible = false;
+            main_GV.Columns["inquire_no"].HeaderText = "문의 번호";
+            main_GV.Columns["inquire_type"].HeaderText = "문의 타입";
+            main_GV.Columns["inquire_name"].HeaderText = "문의자";
+            main_GV.Columns["cus_or_sell"].HeaderText = "문의자 타입";
+            main_GV.Columns["inquire_title"].HeaderText = "문의 제목";
+            main_GV.Columns["re_date"].HeaderText = "답변 날짜";
+            main_GV.Columns["inquire_date"].HeaderText = "문의 날짜";
+
+            //main_GV.Columns["inquire_email"].Visible = false;
             main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
@@ -614,6 +620,35 @@ namespace JinTeamForSeller.Bus
                         pay_GV();
                     }
                 }
+                //else if (gb_inq.Visible)
+                //{
+                //    if (main_GV.Columns[e.ColumnIndex].Index == 0)
+                //    {
+                //        main_GV.DataSource = null;
+                //        if (!switch_pro)
+                //        {
+                //            inq_lst_sub.Sort(delegate (Inquire_Admin_Vo A, Inquire_Admin_Vo B)
+                //            {
+                //                if (A.Inquire_no > B.Inquire_no) return -1;
+                //                else if (A.Inquire_no < B.Inquire_no) return 1;
+                //                return 0;
+                //            });
+                //            switch_pro = true;
+                //        }
+                //        else
+                //        {
+                //            inq_lst_sub.Sort(delegate (Inquire_Admin_Vo A, Inquire_Admin_Vo B)
+                //            {
+                //                if (A.Inquire_no > B.Inquire_no) return 1;
+                //                else if (A.Inquire_no < B.Inquire_no) return -1;
+                //                return 0;
+                //            });
+                //            switch_pro = false;
+                //        }
+                //        //main_GV.DataSource = inq_lst_sub;
+                //        Inq_GV();
+                //    }
+                //}
             }
             else
             {
@@ -649,6 +684,7 @@ namespace JinTeamForSeller.Bus
                 {
                     //main_GV.SelectedRows
                     Inquire_Admin_Detail iad = new Inquire_Admin_Detail(main_GV.SelectedRows);
+                    iad.Owner = this;
                     iad.ShowDialog();
                     //MessageBox.Show("Test");
                 }

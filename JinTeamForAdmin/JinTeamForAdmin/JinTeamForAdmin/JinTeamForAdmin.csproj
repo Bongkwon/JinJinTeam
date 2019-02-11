@@ -93,6 +93,12 @@
     <Compile Include="Bus\Pro_Detail.Designer.cs">
       <DependentUpon>Pro_Detail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bus\return_inquire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bus\return_inquire.Designer.cs">
+      <DependentUpon>return_inquire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Bus\Seller_Detail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bus\Pro_Detail.resx">
       <DependentUpon>Pro_Detail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bus\return_inquire.resx">
+      <DependentUpon>return_inquire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bus\Seller_Detail.resx">
       <DependentUpon>Seller_Detail.cs</DependentUpon>
