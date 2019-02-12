@@ -17,6 +17,7 @@ namespace JinTeamForSeller
         CatDAO cat = new CatDAO();
         List<CatVO> cat_kinds;
         ProductDAO pDao = new ProductDAO();
+        StockListDAO sDao = new StockListDAO();
         //Product pro = new Product();
         int imgIndex = 0;
         public FrmInsertProduct()
@@ -58,6 +59,32 @@ namespace JinTeamForSeller
                     }
                 }
                 Product pro = new Product(Form1.CompanyName + "_" + txtProID.Text, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "", 0, 0, 0, cmbGender.Text, false);
+
+                if (chkSizeS.Checked)
+                {
+                    StockVO stock = new StockVO(Form1.CompanyName + "_" + txtProID.Text + "_" + "S", Form1.CompanyName + "_" + txtProID.Text, Form1.CompanyNo, "S", (int)numStockCount.Value);
+                    sDao.InsertStock(stock);
+                }
+                if (chkSizeM.Checked)
+                {
+                    StockVO stock = new StockVO(Form1.CompanyName + "_" + txtProID.Text + "_" + "M", Form1.CompanyName + "_" + txtProID.Text, Form1.CompanyNo, "M", (int)numStockCount.Value);
+                    sDao.InsertStock(stock);
+                }
+                if (chkSizeL.Checked)
+                {
+                    StockVO stock = new StockVO(Form1.CompanyName + "_" + txtProID.Text + "_" + "L", Form1.CompanyName + "_" + txtProID.Text, Form1.CompanyNo, "L", (int)numStockCount.Value);
+                    sDao.InsertStock(stock);
+                }
+                if (chkSizeXL.Checked)
+                {
+                    StockVO stock = new StockVO(Form1.CompanyName + "_" + txtProID.Text + "_" + "XL", Form1.CompanyName + "_" + txtProID.Text, Form1.CompanyNo, "XL", (int)numStockCount.Value);
+                    sDao.InsertStock(stock);
+                }
+                if (chkSizeXXL.Checked)
+                {
+                    StockVO stock = new StockVO(Form1.CompanyName + "_" + txtProID.Text + "_" + "XXL", Form1.CompanyName + "_" + txtProID.Text, Form1.CompanyNo, "XXL", (int)numStockCount.Value);
+                    sDao.InsertStock(stock);
+                }
 
                 if (pDao.Insert_Product(pro))
                 {

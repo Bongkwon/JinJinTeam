@@ -50,7 +50,16 @@
             this.imgLst = new System.Windows.Forms.ImageList(this.components);
             this.lblImgNo = new System.Windows.Forms.Label();
             this.openImg = new System.Windows.Forms.OpenFileDialog();
+            this.chkSizeS = new System.Windows.Forms.CheckBox();
+            this.chkSizeM = new System.Windows.Forms.CheckBox();
+            this.chkSizeL = new System.Windows.Forms.CheckBox();
+            this.chkSizeXL = new System.Windows.Forms.CheckBox();
+            this.chkSizeXXL = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numStockCount = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.proPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStockCount)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -90,7 +99,7 @@
             // 
             // txtProName
             // 
-            this.txtProName.Location = new System.Drawing.Point(85, 69);
+            this.txtProName.Location = new System.Drawing.Point(85, 98);
             this.txtProName.Multiline = true;
             this.txtProName.Name = "txtProName";
             this.txtProName.Size = new System.Drawing.Size(387, 187);
@@ -99,7 +108,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 72);
+            this.label3.Location = new System.Drawing.Point(12, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 5;
@@ -123,7 +132,7 @@
             // 
             // txtMainComment
             // 
-            this.txtMainComment.Location = new System.Drawing.Point(85, 262);
+            this.txtMainComment.Location = new System.Drawing.Point(85, 291);
             this.txtMainComment.Multiline = true;
             this.txtMainComment.Name = "txtMainComment";
             this.txtMainComment.Size = new System.Drawing.Size(387, 250);
@@ -132,7 +141,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 265);
+            this.label5.Location = new System.Drawing.Point(12, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 9;
@@ -140,7 +149,7 @@
             // 
             // txtSubComment
             // 
-            this.txtSubComment.Location = new System.Drawing.Point(586, 262);
+            this.txtSubComment.Location = new System.Drawing.Point(582, 291);
             this.txtSubComment.Multiline = true;
             this.txtSubComment.Name = "txtSubComment";
             this.txtSubComment.Size = new System.Drawing.Size(374, 250);
@@ -149,7 +158,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(527, 265);
+            this.label6.Location = new System.Drawing.Point(523, 294);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 11;
@@ -186,7 +195,7 @@
             // 
             // proPic
             // 
-            this.proPic.Location = new System.Drawing.Point(586, 13);
+            this.proPic.Location = new System.Drawing.Point(582, 42);
             this.proPic.Name = "proPic";
             this.proPic.Size = new System.Drawing.Size(374, 244);
             this.proPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -196,7 +205,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(511, 12);
+            this.label8.Location = new System.Drawing.Point(507, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 12);
             this.label8.TabIndex = 17;
@@ -204,7 +213,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(972, 233);
+            this.button2.Location = new System.Drawing.Point(968, 262);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 23);
             this.button2.TabIndex = 18;
@@ -221,7 +230,7 @@
             // lblImgNo
             // 
             this.lblImgNo.AutoSize = true;
-            this.lblImgNo.Location = new System.Drawing.Point(970, 218);
+            this.lblImgNo.Location = new System.Drawing.Point(966, 247);
             this.lblImgNo.Name = "lblImgNo";
             this.lblImgNo.Size = new System.Drawing.Size(0, 12);
             this.lblImgNo.TabIndex = 19;
@@ -231,11 +240,94 @@
             this.openImg.FileName = "openFileDialog1";
             this.openImg.Filter = "이미지파일 | *.jpg |gif파일 |*.gif | png파일 | *.png |모든 파일 |*.*";
             // 
+            // chkSizeS
+            // 
+            this.chkSizeS.AutoSize = true;
+            this.chkSizeS.Location = new System.Drawing.Point(85, 69);
+            this.chkSizeS.Name = "chkSizeS";
+            this.chkSizeS.Size = new System.Drawing.Size(32, 16);
+            this.chkSizeS.TabIndex = 20;
+            this.chkSizeS.Text = "S";
+            this.chkSizeS.UseVisualStyleBackColor = true;
+            // 
+            // chkSizeM
+            // 
+            this.chkSizeM.AutoSize = true;
+            this.chkSizeM.Location = new System.Drawing.Point(123, 69);
+            this.chkSizeM.Name = "chkSizeM";
+            this.chkSizeM.Size = new System.Drawing.Size(35, 16);
+            this.chkSizeM.TabIndex = 21;
+            this.chkSizeM.Text = "M";
+            this.chkSizeM.UseVisualStyleBackColor = true;
+            // 
+            // chkSizeL
+            // 
+            this.chkSizeL.AutoSize = true;
+            this.chkSizeL.Location = new System.Drawing.Point(164, 69);
+            this.chkSizeL.Name = "chkSizeL";
+            this.chkSizeL.Size = new System.Drawing.Size(31, 16);
+            this.chkSizeL.TabIndex = 22;
+            this.chkSizeL.Text = "L";
+            this.chkSizeL.UseVisualStyleBackColor = true;
+            // 
+            // chkSizeXL
+            // 
+            this.chkSizeXL.AutoSize = true;
+            this.chkSizeXL.Location = new System.Drawing.Point(205, 69);
+            this.chkSizeXL.Name = "chkSizeXL";
+            this.chkSizeXL.Size = new System.Drawing.Size(39, 16);
+            this.chkSizeXL.TabIndex = 23;
+            this.chkSizeXL.Text = "XL";
+            this.chkSizeXL.UseVisualStyleBackColor = true;
+            // 
+            // chkSizeXXL
+            // 
+            this.chkSizeXXL.AutoSize = true;
+            this.chkSizeXXL.Location = new System.Drawing.Point(246, 69);
+            this.chkSizeXXL.Name = "chkSizeXXL";
+            this.chkSizeXXL.Size = new System.Drawing.Size(47, 16);
+            this.chkSizeXXL.TabIndex = 24;
+            this.chkSizeXXL.Text = "XXL";
+            this.chkSizeXXL.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 70);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 12);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "사이즈 선택";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(300, 70);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(29, 12);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "수량";
+            // 
+            // numStockCount
+            // 
+            this.numStockCount.Location = new System.Drawing.Point(372, 70);
+            this.numStockCount.Name = "numStockCount";
+            this.numStockCount.Size = new System.Drawing.Size(100, 21);
+            this.numStockCount.TabIndex = 27;
+            // 
             // FrmInsertProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 553);
+            this.Controls.Add(this.numStockCount);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.chkSizeXXL);
+            this.Controls.Add(this.chkSizeXL);
+            this.Controls.Add(this.chkSizeL);
+            this.Controls.Add(this.chkSizeM);
+            this.Controls.Add(this.chkSizeS);
             this.Controls.Add(this.lblImgNo);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
@@ -259,6 +351,7 @@
             this.Text = "FrmInsertProduct";
             this.Load += new System.EventHandler(this.FrmInsertProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.proPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStockCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +380,13 @@
         private System.Windows.Forms.ImageList imgLst;
         private System.Windows.Forms.Label lblImgNo;
         private System.Windows.Forms.OpenFileDialog openImg;
+        private System.Windows.Forms.CheckBox chkSizeS;
+        private System.Windows.Forms.CheckBox chkSizeM;
+        private System.Windows.Forms.CheckBox chkSizeL;
+        private System.Windows.Forms.CheckBox chkSizeXL;
+        private System.Windows.Forms.CheckBox chkSizeXXL;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown numStockCount;
     }
 }

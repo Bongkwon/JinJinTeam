@@ -25,5 +25,12 @@ namespace JinTeamForSeller.Dao
 
             return con.SendExqueteQuery(query, sqlp);
         }
+
+        internal bool UpdateTransportWaybill(string oldwaybillID, string waybill_ID)
+        {
+            string query = "UpdateTransportWaybill";
+            SqlParameter[] sqlp = { new SqlParameter("oldWaybill_ID", oldwaybillID), new SqlParameter("waybill_ID", waybill_ID) };
+            return con.SendExqueteQuery(query, sqlp);
+        }
     }
 }

@@ -35,6 +35,7 @@ namespace JinTeamForSeller
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            stock = null;
             Product pro = new Product();
             pro.Pro_ID = lblPro_No.Text;
             foreach (var item in cat_kinds)
@@ -48,8 +49,8 @@ namespace JinTeamForSeller
             pro.Pro_Name = txtProName.Text;
             pro.Pro_Price = int.Parse(txtProPrice.Text);
             pro.Main_Comment = txtMainComment.Text;
-            pro.Sub_Comment = txtSubComment.Text;
-            pro.Main_Image = "";
+            pro.Sub_Comment = txtSubComment.Text;            
+            pro.Main_Image = row.Cells["main_image"].Value.ToString();
             pro.Pro_Discount = int.Parse(txtDiscount.Text);
             pro.Pro_Gender = cmbGender.Text;
 
@@ -62,7 +63,12 @@ namespace JinTeamForSeller
                 }
             }
 
-            stock.Stock_Count = (int)numStockCount.Value;
+            if (cmbSize.SelectedIndex > -1 && stock != null) 
+            {
+                stock.Stock_Count = (int)numStockCount.Value;
+            }
+            
+            
             
             try
             {
@@ -146,6 +152,21 @@ namespace JinTeamForSeller
                     //MessageBox.Show(item.Pro_Id + "_" + cmbSize.Text);
                     break;
                 }
+            }
+        }
+
+        private void btnInsertStock_Click(object sender, EventArgs e)
+        {
+            StockVO stock = new StockVO(lblPro_No.Text + "_" + cmbSize.Text, lblPro_No.Text, Form1.CompanyNo, cmbSize.Text, (int)numStockCount.Value);
+
+            try
+            {
+                stockDao.InsertStock(stock);
+                MessageBox.Show("사이즈 추가 성공!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("이미 존재하는 사이즈 입니다.");
             }
         }
     }

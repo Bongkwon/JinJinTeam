@@ -22,6 +22,11 @@ namespace JinTeamForSeller.Vo
             get { return cus_NO; }
             set { cus_NO = value; }
         }
+        public string CusName
+        {
+            get { return cusName; }
+            set { cusName = value; }
+        }
         private string pro_ID;
 
         public string Pro_ID
@@ -72,8 +77,18 @@ namespace JinTeamForSeller.Vo
             get { return re_Comment_Date; }
             set { re_Comment_Date = value; }
         }
+        private string cusName;
+        private string mainImage;
 
-        public ReviewVO(int re_ID, int cus_NO, string pro_ID, bool re_Like, string re_Image, string re_Txt, DateTime re_Date, string re_Comment, string re_Comment_Date)
+        public string MainImage
+        {
+            get { return mainImage; }
+            set { mainImage = value; }
+        }
+
+
+        public ReviewVO(int re_ID, int cus_NO, string pro_ID, bool re_Like, string re_Image, string re_Txt, 
+            DateTime re_Date, string re_Comment, string re_Comment_Date, string cusName, string mainImage)
         {
             this.re_ID = re_ID;
             this.cus_NO = cus_NO;
@@ -84,6 +99,8 @@ namespace JinTeamForSeller.Vo
             this.re_Date = re_Date;
             this.re_Comment = re_Comment;
             this.re_Comment_Date = re_Comment_Date;
+            this.cusName = cusName;
+            this.mainImage = mainImage;
         }
 
         public ReviewVO()

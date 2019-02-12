@@ -202,71 +202,124 @@ namespace JinTeamForSeller
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             bool result = false;
+            bool result2 = false;
+            bool result3 = false;
+            int i = 0;
             foreach (DataGridViewRow item in gViewPayInfo.Rows)
             {
-                if (string.IsNullOrEmpty(item.Cells["Transport_State"].Value.ToString()) == false || item.Cells["Transport_State"].Value.ToString().Contains("전"))
+                try
                 {
-                    //MessageBox.Show("Test");
-                    break;
-                }
-                else
-                {
-
                     Payment_InfoVO pay = new Payment_InfoVO(
-                    (int)item.Cells["Pay_ID"].Value,
-                    item.Cells["order_ID"].Value.ToString(),
-                    item.Cells["User_Ship_ID"].Value.ToString(),
-                    (int)item.Cells["Seller_No"].Value,
-                    (int)item.Cells["Pay_count"].Value,
-                    (int)item.Cells["Pay_Price"].Value,
-                    item.Cells["Waybill_ID"].Value.ToString(),
-                    item.Cells["Cus_name"].Value.ToString(),
-                    item.Cells["User_addr"].Value.ToString(),
-                    item.Cells["Stock_ID"].Value.ToString(),
-                    item.Cells["Order_require"].Value.ToString(),
-                    item.Cells["Ship_require"].Value.ToString(),
-                    item.Cells["Transport_state"].Value.ToString(),
-                    item.Cells["User_name"].Value.ToString()
-                );
+                                (int)item.Cells["Pay_ID"].Value,
+                                item.Cells["order_ID"].Value.ToString(),
+                                item.Cells["User_Ship_ID"].Value.ToString(),
+                                (int)item.Cells["Seller_No"].Value,
+                                (int)item.Cells["Pay_count"].Value,
+                                (int)item.Cells["Pay_Price"].Value,
+                                item.Cells["Waybill_ID"].Value.ToString(),
+                                item.Cells["Cus_name"].Value.ToString(),
+                                item.Cells["User_addr"].Value.ToString(),
+                                item.Cells["Stock_ID"].Value.ToString(),
+                                item.Cells["Order_require"].Value.ToString(),
+                                item.Cells["Ship_require"].Value.ToString(),
+                                item.Cells["Transport_state"].Value.ToString(),
+                                item.Cells["User_name"].Value.ToString()
+                                );
                     Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
-                    if (pDao.UpdatePaymentInfo(pay))
+                    if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == false)
                     {
-                        result = true;
+                        tDao.UpdateTransportWaybill(lstPInfo[i].Waybill_ID, pay.Waybill_ID);
+                        pDao.UpdatePaymentInfo(pay);
                     }
-                    else
+                    else if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == true && string.IsNullOrEmpty(item.Cells["Waybill_ID"].Value.ToString()) == false)
                     {
-                        result = false;
+                        tDao.InsertTransport(ti);
+                        pDao.UpdatePaymentInfo(pay);
                     }
-                    if (tDao.InsertTransport(ti))
+                    if ((bool)item.Cells["trans_State_Com"].FormattedValue == true)
                     {
-                        result = true;
+                        item.Cells["Transport_state"].Value = "배송 완료";
                     }
-                    else
+                    else if ((bool)item.Cells["trans_State_Com"].FormattedValue == false)
                     {
-                        result = false;
+                        item.Cells["Transport_state"].Value = "배송 중";
                     }
+                    Transport_InfoVO ti2 = new Transport_InfoVO(item.Cells["waybill_ID"].Value.ToString(), item.Cells["transport_State"].Value.ToString());
+                    tDao.UpdateTransportState(ti2);                    
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("저장 실패");
+                }
+
+                //if (string.IsNullOrEmpty(item.Cells["Transport_State"].Value.ToString()) == false && item.Cells["Transport_State"].Value.ToString().Contains("전"))
+                //{
+                //    continue;
+                //}
+                //else
+                //{
+                //    Payment_InfoVO pay = new Payment_InfoVO(
+                //    (int)item.Cells["Pay_ID"].Value,
+                //    item.Cells["order_ID"].Value.ToString(),
+                //    item.Cells["User_Ship_ID"].Value.ToString(),
+                //    (int)item.Cells["Seller_No"].Value,
+                //    (int)item.Cells["Pay_count"].Value,
+                //    (int)item.Cells["Pay_Price"].Value,
+                //    item.Cells["Waybill_ID"].Value.ToString(),
+                //    item.Cells["Cus_name"].Value.ToString(),
+                //    item.Cells["User_addr"].Value.ToString(),
+                //    item.Cells["Stock_ID"].Value.ToString(),
+                //    item.Cells["Order_require"].Value.ToString(),
+                //    item.Cells["Ship_require"].Value.ToString(),
+                //    item.Cells["Transport_state"].Value.ToString(),
+                //    item.Cells["User_name"].Value.ToString()
+                //);
+                //    Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
+                //    if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == false)
+                //    {
+                //        try
+                //        {
+                //            tDao.InsertTransport(ti);
+                //            pDao.UpdatePaymentInfo(pay);
+                //        }
+                //        catch (Exception)
+                //        {
+                //            tDao.UpdateTransportWaybill(lstPInfo[i].Waybill_ID, pay.Waybill_ID);
+                //            pDao.UpdatePaymentInfo(pay);
+                //        }
+                //    }
+                //}
+                i++;
             }
-            if (UpdateTrans_State())
-            {
-                result = true;
-            }
-            else
-            {
-                result = false;
-            }
-            if (result)
-            {
-                MessageBox.Show("저장 완료");                
-            }
+            //if (UpdateTrans_State())
+            //{
+            //    result3 = true;
+            //}
+            //else
+            //{
+            //    result3 = false;
+            //}
+            //if (result && result3) 
+            //{
+            //    MessageBox.Show("저장 완료");
+            //}
+
             this.OnLoad(null);
             rdoShowAll.Checked = true;
         }
 
         private void btnSaveTrans_State_Click(object sender, EventArgs e)
         {
-            
+            //foreach (DataGridViewRow item in gViewPayInfo.Rows)
+            //{
+            //    //MessageBox.Show(item.Cells["trans_State_Com"].FormattedValue.ToString());
+            //    if ((bool)item.Cells["trans_State_Com"].FormattedValue == true)
+            //    {
+
+            //    }
+            //}
         }
 
         private bool UpdateTrans_State()
@@ -274,11 +327,12 @@ namespace JinTeamForSeller
             bool result = false;
             foreach (DataGridViewRow item in gViewPayInfo.Rows)
             {
-                if ((bool)item.Cells["trans_State_Com"].Value == true)
+                //MessageBox.Show(item.Cells["trans_State_Com"].Value.ToString());
+                if ((bool)item.Cells["trans_State_Com"].FormattedValue == true)
                 {
                     item.Cells["Transport_state"].Value = "배송 완료";
                 }
-                else if ((bool)item.Cells["trans_State_Com"].Value == false)
+                else if ((bool)item.Cells["trans_State_Com"].FormattedValue == false)
                 {
                     item.Cells["Transport_state"].Value = "배송 중";
                 }

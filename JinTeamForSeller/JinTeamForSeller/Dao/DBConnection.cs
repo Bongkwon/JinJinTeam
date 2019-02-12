@@ -108,7 +108,21 @@ namespace JinTeamForSeller.Dao
                 {
                     while (dr.Read())
                     {
-                        lstObj.Add(new ReviewVO((int)dr["re_ID"], (int)dr["cus_no"], dr["stock_ID"].ToString(), (bool)dr["re_like"], dr["re_image"].ToString(), dr["re_txt"].ToString(), (DateTime)dr["re_date"], dr["re_comment"].ToString(), dr["re_comment_date"].ToString()));
+                        lstObj.Add(new ReviewVO((int)dr["re_ID"], (int)dr["cus_no"], dr["stock_ID"].ToString(), (bool)dr["re_like"], dr["re_image"].ToString(), dr["re_txt"].ToString(), (DateTime)dr["re_date"], dr["re_comment"].ToString(), dr["re_comment_date"].ToString(), dr["cus_name"].ToString(), dr["main_image"].ToString()));
+                    }
+                }
+                else if(query == "SelectInquireForSeller")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new InquireVO((int)dr["Inquire_no"],dr["Inquire_type"].ToString(), (int)dr["cus_no"], dr["cus_name"].ToString(), dr["stock_ID"].ToString(), dr["Inquire_title"].ToString(), dr["Inquire_body"].ToString(),dr["Inquire_date"].ToString(),dr["Inquire_image"].ToString(), dr["re_date"].ToString(), dr["re_body"].ToString(), dr["main_image"].ToString()));
+                    }
+                }
+                else if(query == "SelectInquireAdminForSeller")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new InquireVO((int)dr["Inquire_no"], dr["Inquire_type"].ToString(), (int)dr["inquire_id"], dr["Inquire_title"].ToString(), dr["Inquire_body"].ToString(), dr["Inquire_date"].ToString(), dr["Inquire_image"].ToString(), dr["re_date"].ToString(), dr["re_body"].ToString()));
                     }
                 }
                 conn.Close();
@@ -138,7 +152,6 @@ namespace JinTeamForSeller.Dao
             }
             catch (Exception)
             {
-
                 throw;
             }
             

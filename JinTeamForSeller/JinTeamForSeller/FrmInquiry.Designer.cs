@@ -73,16 +73,22 @@
             // 
             // gViewInquiry
             // 
+            this.gViewInquiry.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gViewInquiry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gViewInquiry.GridColor = System.Drawing.SystemColors.Control;
             this.gViewInquiry.Location = new System.Drawing.Point(13, 36);
+            this.gViewInquiry.MultiSelect = false;
             this.gViewInquiry.Name = "gViewInquiry";
+            this.gViewInquiry.ReadOnly = true;
             this.gViewInquiry.RowTemplate.Height = 23;
-            this.gViewInquiry.Size = new System.Drawing.Size(775, 402);
+            this.gViewInquiry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gViewInquiry.Size = new System.Drawing.Size(1130, 402);
             this.gViewInquiry.TabIndex = 3;
+            this.gViewInquiry.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewInquiry_CellDoubleClick);
             // 
             // btnInsertInquiry
             // 
-            this.btnInsertInquiry.Location = new System.Drawing.Point(713, 6);
+            this.btnInsertInquiry.Location = new System.Drawing.Point(943, 5);
             this.btnInsertInquiry.Name = "btnInsertInquiry";
             this.btnInsertInquiry.Size = new System.Drawing.Size(75, 23);
             this.btnInsertInquiry.TabIndex = 4;
@@ -95,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1155, 450);
             this.Controls.Add(this.btnInsertInquiry);
             this.Controls.Add(this.gViewInquiry);
             this.Controls.Add(this.rdoInquireToSys);

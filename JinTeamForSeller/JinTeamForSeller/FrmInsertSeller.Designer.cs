@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.txtChkPass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblchkPass = new System.Windows.Forms.Label();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -59,6 +59,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtCorpRegistrationNo = new System.Windows.Forms.TextBox();
+            this.btnSearchAddr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgRegistration)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,6 +79,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(113, 21);
             this.txtId.TabIndex = 1;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // txtChkPass
             // 
@@ -85,16 +87,17 @@
             this.txtChkPass.Name = "txtChkPass";
             this.txtChkPass.Size = new System.Drawing.Size(189, 21);
             this.txtChkPass.TabIndex = 3;
+            this.txtChkPass.TextChanged += new System.EventHandler(this.txtChkPass_TextChanged);
             // 
-            // label2
+            // lblchkPass
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(13, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 12);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "비밀번호 확인";
+            this.lblchkPass.AutoSize = true;
+            this.lblchkPass.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblchkPass.Location = new System.Drawing.Point(13, 67);
+            this.lblchkPass.Name = "lblchkPass";
+            this.lblchkPass.Size = new System.Drawing.Size(81, 12);
+            this.lblchkPass.TabIndex = 2;
+            this.lblchkPass.Text = "비밀번호 확인";
             // 
             // txtPass
             // 
@@ -326,11 +329,22 @@
             this.txtCorpRegistrationNo.Size = new System.Drawing.Size(189, 21);
             this.txtCorpRegistrationNo.TabIndex = 31;
             // 
+            // btnSearchAddr
+            // 
+            this.btnSearchAddr.Location = new System.Drawing.Point(232, 172);
+            this.btnSearchAddr.Name = "btnSearchAddr";
+            this.btnSearchAddr.Size = new System.Drawing.Size(70, 21);
+            this.btnSearchAddr.TabIndex = 33;
+            this.btnSearchAddr.Text = "검색";
+            this.btnSearchAddr.UseVisualStyleBackColor = true;
+            this.btnSearchAddr.Click += new System.EventHandler(this.btnSearchAddr_Click);
+            // 
             // FrmInsertSeller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 436);
+            this.Controls.Add(this.btnSearchAddr);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtCorpRegistrationNo);
             this.Controls.Add(this.textBox1);
@@ -358,7 +372,7 @@
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtChkPass);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblchkPass);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
             this.Name = "FrmInsertSeller";
@@ -374,7 +388,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtChkPass;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblchkPass;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtEmail;
@@ -402,5 +416,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCorpRegistrationNo;
+        private System.Windows.Forms.Button btnSearchAddr;
     }
 }
