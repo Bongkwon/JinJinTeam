@@ -41,6 +41,7 @@
             this.products목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.결제정보세금계산서출력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.문의내역ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.매출관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_pro = new System.Windows.Forms.GroupBox();
             this.gb_seller = new System.Windows.Forms.GroupBox();
             this.rdo_Disabled_seller = new System.Windows.Forms.RadioButton();
@@ -150,7 +151,8 @@
             this.customer목록ToolStripMenuItem,
             this.products목록ToolStripMenuItem,
             this.결제정보세금계산서출력ToolStripMenuItem,
-            this.문의내역ToolStripMenuItem});
+            this.문의내역ToolStripMenuItem,
+            this.매출관리ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1002, 24);
@@ -191,6 +193,13 @@
             this.문의내역ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.문의내역ToolStripMenuItem.Text = "문의내역";
             this.문의내역ToolStripMenuItem.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
+            // 매출관리ToolStripMenuItem
+            // 
+            this.매출관리ToolStripMenuItem.Name = "매출관리ToolStripMenuItem";
+            this.매출관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.매출관리ToolStripMenuItem.Text = "매출관리";
+            this.매출관리ToolStripMenuItem.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
             // 
             // gb_pro
             // 
@@ -358,5 +367,6 @@
         private System.Windows.Forms.RadioButton rd_sel_inq;
         private System.Windows.Forms.RadioButton rd_cus_inq;
         private System.Windows.Forms.ComboBox cb_inquire;
+        private System.Windows.Forms.ToolStripMenuItem 매출관리ToolStripMenuItem;
     }
 }

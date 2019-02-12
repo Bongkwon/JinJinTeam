@@ -41,6 +41,9 @@ namespace JinTeamForAdmin.Bus
             var cells = selectedRows[0].Cells;
             txt_body.Text = selectedRows[0].Cells[7].Value.ToString();  // 본문
             txt_date.Text = selectedRows[0].Cells[8].Value.ToString();  // 날짜
+            txt_date.Text = DateTime.Parse(txt_date.Text).ToShortDateString();
+            //txt_date.Text = txt_date.Text.Substring(txt_date.Text.IndexOf("-") + 1); // 02-07
+            //txt_date.Text = txt_date.Text.Substring(txt_date.Text.IndexOf("-") + 1,2); // 01
             txt_name.Text = selectedRows[0].Cells[2].Value.ToString();
             txt_title.Text = selectedRows[0].Cells[6].Value.ToString();
             txt_type.Text = selectedRows[0].Cells[1].Value.ToString();
@@ -64,7 +67,7 @@ namespace JinTeamForAdmin.Bus
 
         private void btn_return_Click(object sender, EventArgs e)
         {
-            return_inquire ri = new return_inquire(selectedRows);
+            Return_inquire ri = new Return_inquire(selectedRows);
             ri.Owner = this;         
             ri.Show();
 

@@ -15,16 +15,16 @@ using System.Windows.Forms;
 
 namespace JinTeamForAdmin.Bus
 {
-    public partial class return_inquire : Form
+    public partial class Return_inquire : Form
     {
         private DataGridViewSelectedRowCollection selectedRows;
 
-        public return_inquire()
+        public Return_inquire()
         {
             InitializeComponent();
         }
 
-        public return_inquire(DataGridViewSelectedRowCollection selectedRows) : this()
+        public Return_inquire(DataGridViewSelectedRowCollection selectedRows) : this()
         {
             this.selectedRows = selectedRows;
         }

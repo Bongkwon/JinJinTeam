@@ -1,6 +1,6 @@
 ﻿namespace JinTeamForAdmin.Bus
 {
-    partial class return_inquire
+    partial class Return_inquire
     {
         /// <summary>
         /// Required designer variable.

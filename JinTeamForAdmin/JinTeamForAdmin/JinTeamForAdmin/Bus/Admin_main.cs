@@ -19,7 +19,7 @@ namespace JinTeamForSeller.Bus
         List<object> ob_lst;
         List<Seller_Vo> sell_lst;
         List<Products_Vo> pro_lst;
-        bool switch_pro = true;
+        bool switch_pro = false;
         List<TaxBill_Vo> tax_lst;
         bool tax_switch = true;
         List<Inquire_Admin_Vo> inq_lst;
@@ -70,13 +70,19 @@ namespace JinTeamForSeller.Bus
         private void 결제정보세금계산서출력ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Pay_changed();
-
         }
 
         private void 문의내역ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rd_sel_inq.Checked = true;
             inq_changed(null,null);                  
+        }
+
+
+        private void 매출관리ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sales_Manager sm = new Sales_Manager();
+            sm.ShowDialog();
         }
 
         private void inq_changed(object sender, EventArgs e)
@@ -413,6 +419,7 @@ namespace JinTeamForSeller.Bus
            
             rdo_all_seller.Checked = true;
             seller_changed(null, null);
+         
         }
         
 
@@ -721,6 +728,5 @@ namespace JinTeamForSeller.Bus
             }
         }
 
-       
     }
 }

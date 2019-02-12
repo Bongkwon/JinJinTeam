@@ -39,10 +39,10 @@ namespace JinTeamForAdmin.Bus
             lbl_like.Text = pv.Pro_Like.ToString();
 
             lbl_m_comment.Text = pv.Main_Comment.ToString();
-            lbl_m_image.Text = pv.Main_Image.ToString();
             lbl_name.Text = pv.Pro_Name.ToString();
             lbl_price.Text = pv.Pro_Price.ToString();
             lbl_proID.Text = pv.Pro_ID.ToString();
+            pictureBox1.ImageLocation = pv.Main_Image;
 
             lbl_sellno.Text = pv.Seller_NO.ToString();
             //lbl_state.Text = pv.Pro_State.ToString();
@@ -126,11 +126,11 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
-        private void lbl_m_image_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            lbl_m_image.LinkVisited = true;
 
-            Process.Start(lbl_m_image.Text);
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+            Process.Start(pv.Main_Image);
         }
     }
 }

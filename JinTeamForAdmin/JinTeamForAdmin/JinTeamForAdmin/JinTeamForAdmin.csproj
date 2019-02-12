@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,11 +94,17 @@
     <Compile Include="Bus\Pro_Detail.Designer.cs">
       <DependentUpon>Pro_Detail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bus\return_inquire.cs">
+    <Compile Include="Bus\Return_inquire.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bus\return_inquire.Designer.cs">
-      <DependentUpon>return_inquire.cs</DependentUpon>
+    <Compile Include="Bus\Return_inquire.Designer.cs">
+      <DependentUpon>Return_inquire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bus\Sales_Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bus\Sales_Manager.Designer.cs">
+      <DependentUpon>Sales_Manager.cs</DependentUpon>
     </Compile>
     <Compile Include="Bus\Seller_Detail.cs">
       <SubType>Form</SubType>
@@ -118,6 +125,7 @@
     <Compile Include="Vo\Customers_Vo.cs" />
     <Compile Include="Vo\Inquire_Admin_Vo.cs" />
     <Compile Include="Vo\Products_Vo.cs" />
+    <Compile Include="Vo\Sales_manager_Vo.cs" />
     <Compile Include="Vo\Seller_Vo.cs" />
     <Compile Include="Vo\TaxBill_Vo.cs" />
     <EmbeddedResource Include="Bus\Admin_main.resx">
@@ -132,8 +140,11 @@
     <EmbeddedResource Include="Bus\Pro_Detail.resx">
       <DependentUpon>Pro_Detail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bus\return_inquire.resx">
-      <DependentUpon>return_inquire.cs</DependentUpon>
+    <EmbeddedResource Include="Bus\Return_inquire.resx">
+      <DependentUpon>Return_inquire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bus\Sales_Manager.resx">
+      <DependentUpon>Sales_Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bus\Seller_Detail.resx">
       <DependentUpon>Seller_Detail.cs</DependentUpon>

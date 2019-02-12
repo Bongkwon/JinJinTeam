@@ -199,8 +199,19 @@ namespace JinTeamForAdmin
                                 Re_date = sdr["re_date"].ToString()
                             });
                         }
+                    }                  
+                }else if (type_p == "sal")
+                {
+                    while (sdr.Read())
+                    {
+                        ob_lst.Add(new Sales_manager_Vo()
+                        {
+                            Seller_ID = sdr["seller_id"].ToString(),
+                            Pay_date = sdr["pay_date"].ToString(),
+                            Pay_count = Int32.Parse(sdr["pay_count"].ToString()),
+                            Pay_price = Int32.Parse(sdr["Pay_price"].ToString())
+                        });
                     }
-                    
                 }
             }
             catch (SqlException)
