@@ -38,8 +38,8 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtsangseAddr1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtsangseAddr2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -86,10 +86,7 @@
             this.lblPostalCode6 = new System.Windows.Forms.Label();
             this.lblJibunAddr6 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.lblPage = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPre = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -139,27 +136,27 @@
             this.lblPostalCode1.AutoSize = true;
             this.lblPostalCode1.Location = new System.Drawing.Point(78, 13);
             this.lblPostalCode1.Name = "lblPostalCode1";
-            this.lblPostalCode1.Size = new System.Drawing.Size(38, 12);
+            this.lblPostalCode1.Size = new System.Drawing.Size(9, 12);
             this.lblPostalCode1.TabIndex = 4;
-            this.lblPostalCode1.Text = "label5";
+            this.lblPostalCode1.Text = " ";
             // 
             // lblJibunAddr1
             // 
             this.lblJibunAddr1.AutoSize = true;
             this.lblJibunAddr1.Location = new System.Drawing.Point(78, 42);
             this.lblJibunAddr1.Name = "lblJibunAddr1";
-            this.lblJibunAddr1.Size = new System.Drawing.Size(38, 12);
+            this.lblJibunAddr1.Size = new System.Drawing.Size(9, 12);
             this.lblJibunAddr1.TabIndex = 5;
-            this.lblJibunAddr1.Text = "label6";
+            this.lblJibunAddr1.Text = " ";
             // 
             // lblRoadAddr1
             // 
             this.lblRoadAddr1.AutoSize = true;
             this.lblRoadAddr1.Location = new System.Drawing.Point(78, 72);
             this.lblRoadAddr1.Name = "lblRoadAddr1";
-            this.lblRoadAddr1.Size = new System.Drawing.Size(38, 12);
+            this.lblRoadAddr1.Size = new System.Drawing.Size(9, 12);
             this.lblRoadAddr1.TabIndex = 6;
-            this.lblRoadAddr1.Text = "label7";
+            this.lblRoadAddr1.Text = " ";
             // 
             // txtSearch
             // 
@@ -180,6 +177,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel1.Controls.Add(this.txtsangseAddr1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label2);
@@ -190,8 +188,16 @@
             this.panel1.Controls.Add(this.lblJibunAddr1);
             this.panel1.Location = new System.Drawing.Point(15, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(351, 128);
+            this.panel1.Size = new System.Drawing.Size(452, 128);
             this.panel1.TabIndex = 9;
+            this.panel1.DoubleClick += new System.EventHandler(this.panel1_DoubleClick);
+            // 
+            // txtsangseAddr1
+            // 
+            this.txtsangseAddr1.Location = new System.Drawing.Point(80, 94);
+            this.txtsangseAddr1.Name = "txtsangseAddr1";
+            this.txtsangseAddr1.Size = new System.Drawing.Size(331, 21);
+            this.txtsangseAddr1.TabIndex = 8;
             // 
             // label8
             // 
@@ -202,15 +208,9 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "상세주소";
             // 
-            // txtsangseAddr1
-            // 
-            this.txtsangseAddr1.Location = new System.Drawing.Point(80, 94);
-            this.txtsangseAddr1.Name = "txtsangseAddr1";
-            this.txtsangseAddr1.Size = new System.Drawing.Size(268, 21);
-            this.txtsangseAddr1.TabIndex = 8;
-            // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel2.Controls.Add(this.txtsangseAddr2);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label6);
@@ -221,14 +221,15 @@
             this.panel2.Controls.Add(this.lblJibunAddr2);
             this.panel2.Location = new System.Drawing.Point(15, 171);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(351, 128);
+            this.panel2.Size = new System.Drawing.Size(452, 128);
             this.panel2.TabIndex = 10;
+            this.panel2.DoubleClick += new System.EventHandler(this.panel2_DoubleClick);
             // 
             // txtsangseAddr2
             // 
             this.txtsangseAddr2.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr2.Name = "txtsangseAddr2";
-            this.txtsangseAddr2.Size = new System.Drawing.Size(268, 21);
+            this.txtsangseAddr2.Size = new System.Drawing.Size(331, 21);
             this.txtsangseAddr2.TabIndex = 8;
             // 
             // label5
@@ -272,30 +273,32 @@
             this.lblRoadAddr2.AutoSize = true;
             this.lblRoadAddr2.Location = new System.Drawing.Point(78, 72);
             this.lblRoadAddr2.Name = "lblRoadAddr2";
-            this.lblRoadAddr2.Size = new System.Drawing.Size(38, 12);
+            this.lblRoadAddr2.Size = new System.Drawing.Size(9, 12);
             this.lblRoadAddr2.TabIndex = 6;
-            this.lblRoadAddr2.Text = "label7";
+            this.lblRoadAddr2.Tag = " ";
+            this.lblRoadAddr2.Text = " ";
             // 
             // lblPostalCode2
             // 
             this.lblPostalCode2.AutoSize = true;
             this.lblPostalCode2.Location = new System.Drawing.Point(78, 13);
             this.lblPostalCode2.Name = "lblPostalCode2";
-            this.lblPostalCode2.Size = new System.Drawing.Size(38, 12);
+            this.lblPostalCode2.Size = new System.Drawing.Size(9, 12);
             this.lblPostalCode2.TabIndex = 4;
-            this.lblPostalCode2.Text = "label5";
+            this.lblPostalCode2.Text = " ";
             // 
             // lblJibunAddr2
             // 
             this.lblJibunAddr2.AutoSize = true;
             this.lblJibunAddr2.Location = new System.Drawing.Point(78, 42);
             this.lblJibunAddr2.Name = "lblJibunAddr2";
-            this.lblJibunAddr2.Size = new System.Drawing.Size(38, 12);
+            this.lblJibunAddr2.Size = new System.Drawing.Size(9, 12);
             this.lblJibunAddr2.TabIndex = 5;
-            this.lblJibunAddr2.Text = "label6";
+            this.lblJibunAddr2.Text = " ";
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel3.Controls.Add(this.txtsangseAddr3);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label14);
@@ -306,14 +309,15 @@
             this.panel3.Controls.Add(this.lblJibunAddr3);
             this.panel3.Location = new System.Drawing.Point(15, 305);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(351, 128);
+            this.panel3.Size = new System.Drawing.Size(452, 128);
             this.panel3.TabIndex = 11;
+            this.panel3.DoubleClick += new System.EventHandler(this.panel3_DoubleClick);
             // 
             // txtsangseAddr3
             // 
             this.txtsangseAddr3.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr3.Name = "txtsangseAddr3";
-            this.txtsangseAddr3.Size = new System.Drawing.Size(268, 21);
+            this.txtsangseAddr3.Size = new System.Drawing.Size(331, 21);
             this.txtsangseAddr3.TabIndex = 8;
             // 
             // label13
@@ -357,30 +361,31 @@
             this.lblRoadAddr3.AutoSize = true;
             this.lblRoadAddr3.Location = new System.Drawing.Point(78, 72);
             this.lblRoadAddr3.Name = "lblRoadAddr3";
-            this.lblRoadAddr3.Size = new System.Drawing.Size(38, 12);
+            this.lblRoadAddr3.Size = new System.Drawing.Size(9, 12);
             this.lblRoadAddr3.TabIndex = 6;
-            this.lblRoadAddr3.Text = "label7";
+            this.lblRoadAddr3.Text = " ";
             // 
             // lblPostalCode3
             // 
             this.lblPostalCode3.AutoSize = true;
             this.lblPostalCode3.Location = new System.Drawing.Point(78, 13);
             this.lblPostalCode3.Name = "lblPostalCode3";
-            this.lblPostalCode3.Size = new System.Drawing.Size(38, 12);
+            this.lblPostalCode3.Size = new System.Drawing.Size(9, 12);
             this.lblPostalCode3.TabIndex = 4;
-            this.lblPostalCode3.Text = "label5";
+            this.lblPostalCode3.Text = " ";
             // 
             // lblJibunAddr3
             // 
             this.lblJibunAddr3.AutoSize = true;
             this.lblJibunAddr3.Location = new System.Drawing.Point(78, 42);
             this.lblJibunAddr3.Name = "lblJibunAddr3";
-            this.lblJibunAddr3.Size = new System.Drawing.Size(38, 12);
+            this.lblJibunAddr3.Size = new System.Drawing.Size(9, 12);
             this.lblJibunAddr3.TabIndex = 5;
-            this.lblJibunAddr3.Text = "label6";
+            this.lblJibunAddr3.Text = " ";
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel4.Controls.Add(this.txtsangseAddr4);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label21);
@@ -389,16 +394,17 @@
             this.panel4.Controls.Add(this.lblRoadAddr4);
             this.panel4.Controls.Add(this.lblPostalCode4);
             this.panel4.Controls.Add(this.lblJibunAddr4);
-            this.panel4.Location = new System.Drawing.Point(372, 37);
+            this.panel4.Location = new System.Drawing.Point(473, 37);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(351, 128);
+            this.panel4.Size = new System.Drawing.Size(452, 128);
             this.panel4.TabIndex = 12;
+            this.panel4.DoubleClick += new System.EventHandler(this.panel4_DoubleClick);
             // 
             // txtsangseAddr4
             // 
             this.txtsangseAddr4.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr4.Name = "txtsangseAddr4";
-            this.txtsangseAddr4.Size = new System.Drawing.Size(268, 21);
+            this.txtsangseAddr4.Size = new System.Drawing.Size(331, 21);
             this.txtsangseAddr4.TabIndex = 8;
             // 
             // label20
@@ -442,30 +448,31 @@
             this.lblRoadAddr4.AutoSize = true;
             this.lblRoadAddr4.Location = new System.Drawing.Point(78, 72);
             this.lblRoadAddr4.Name = "lblRoadAddr4";
-            this.lblRoadAddr4.Size = new System.Drawing.Size(38, 12);
+            this.lblRoadAddr4.Size = new System.Drawing.Size(9, 12);
             this.lblRoadAddr4.TabIndex = 6;
-            this.lblRoadAddr4.Text = "label7";
+            this.lblRoadAddr4.Text = " ";
             // 
             // lblPostalCode4
             // 
             this.lblPostalCode4.AutoSize = true;
             this.lblPostalCode4.Location = new System.Drawing.Point(78, 13);
             this.lblPostalCode4.Name = "lblPostalCode4";
-            this.lblPostalCode4.Size = new System.Drawing.Size(38, 12);
+            this.lblPostalCode4.Size = new System.Drawing.Size(9, 12);
             this.lblPostalCode4.TabIndex = 4;
-            this.lblPostalCode4.Text = "label5";
+            this.lblPostalCode4.Text = " ";
             // 
             // lblJibunAddr4
             // 
             this.lblJibunAddr4.AutoSize = true;
             this.lblJibunAddr4.Location = new System.Drawing.Point(78, 42);
             this.lblJibunAddr4.Name = "lblJibunAddr4";
-            this.lblJibunAddr4.Size = new System.Drawing.Size(38, 12);
+            this.lblJibunAddr4.Size = new System.Drawing.Size(9, 12);
             this.lblJibunAddr4.TabIndex = 5;
-            this.lblJibunAddr4.Text = "label6";
+            this.lblJibunAddr4.Text = " ";
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel5.Controls.Add(this.txtsangseAddr5);
             this.panel5.Controls.Add(this.label27);
             this.panel5.Controls.Add(this.label28);
@@ -474,16 +481,17 @@
             this.panel5.Controls.Add(this.lblRoadAddr5);
             this.panel5.Controls.Add(this.lblPostalCode5);
             this.panel5.Controls.Add(this.lblJibunAddr5);
-            this.panel5.Location = new System.Drawing.Point(372, 171);
+            this.panel5.Location = new System.Drawing.Point(473, 171);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(351, 128);
+            this.panel5.Size = new System.Drawing.Size(452, 128);
             this.panel5.TabIndex = 10;
+            this.panel5.DoubleClick += new System.EventHandler(this.panel5_DoubleClick);
             // 
             // txtsangseAddr5
             // 
             this.txtsangseAddr5.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr5.Name = "txtsangseAddr5";
-            this.txtsangseAddr5.Size = new System.Drawing.Size(268, 21);
+            this.txtsangseAddr5.Size = new System.Drawing.Size(331, 21);
             this.txtsangseAddr5.TabIndex = 8;
             // 
             // label27
@@ -527,30 +535,31 @@
             this.lblRoadAddr5.AutoSize = true;
             this.lblRoadAddr5.Location = new System.Drawing.Point(78, 72);
             this.lblRoadAddr5.Name = "lblRoadAddr5";
-            this.lblRoadAddr5.Size = new System.Drawing.Size(38, 12);
+            this.lblRoadAddr5.Size = new System.Drawing.Size(9, 12);
             this.lblRoadAddr5.TabIndex = 6;
-            this.lblRoadAddr5.Text = "label7";
+            this.lblRoadAddr5.Text = " ";
             // 
             // lblPostalCode5
             // 
             this.lblPostalCode5.AutoSize = true;
             this.lblPostalCode5.Location = new System.Drawing.Point(78, 13);
             this.lblPostalCode5.Name = "lblPostalCode5";
-            this.lblPostalCode5.Size = new System.Drawing.Size(38, 12);
+            this.lblPostalCode5.Size = new System.Drawing.Size(9, 12);
             this.lblPostalCode5.TabIndex = 4;
-            this.lblPostalCode5.Text = "label5";
+            this.lblPostalCode5.Text = " ";
             // 
             // lblJibunAddr5
             // 
             this.lblJibunAddr5.AutoSize = true;
             this.lblJibunAddr5.Location = new System.Drawing.Point(78, 42);
             this.lblJibunAddr5.Name = "lblJibunAddr5";
-            this.lblJibunAddr5.Size = new System.Drawing.Size(38, 12);
+            this.lblJibunAddr5.Size = new System.Drawing.Size(9, 12);
             this.lblJibunAddr5.TabIndex = 5;
-            this.lblJibunAddr5.Text = "label6";
+            this.lblJibunAddr5.Text = " ";
             // 
             // panel6
             // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.panel6.Controls.Add(this.txtsangseAddr6);
             this.panel6.Controls.Add(this.label34);
             this.panel6.Controls.Add(this.label35);
@@ -559,16 +568,17 @@
             this.panel6.Controls.Add(this.lblRoadAddr6);
             this.panel6.Controls.Add(this.lblPostalCode6);
             this.panel6.Controls.Add(this.lblJibunAddr6);
-            this.panel6.Location = new System.Drawing.Point(372, 305);
+            this.panel6.Location = new System.Drawing.Point(473, 305);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(351, 128);
+            this.panel6.Size = new System.Drawing.Size(452, 128);
             this.panel6.TabIndex = 10;
+            this.panel6.DoubleClick += new System.EventHandler(this.panel6_DoubleClick);
             // 
             // txtsangseAddr6
             // 
             this.txtsangseAddr6.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr6.Name = "txtsangseAddr6";
-            this.txtsangseAddr6.Size = new System.Drawing.Size(268, 21);
+            this.txtsangseAddr6.Size = new System.Drawing.Size(331, 21);
             this.txtsangseAddr6.TabIndex = 8;
             // 
             // label34
@@ -612,27 +622,27 @@
             this.lblRoadAddr6.AutoSize = true;
             this.lblRoadAddr6.Location = new System.Drawing.Point(78, 72);
             this.lblRoadAddr6.Name = "lblRoadAddr6";
-            this.lblRoadAddr6.Size = new System.Drawing.Size(38, 12);
+            this.lblRoadAddr6.Size = new System.Drawing.Size(9, 12);
             this.lblRoadAddr6.TabIndex = 6;
-            this.lblRoadAddr6.Text = "label7";
+            this.lblRoadAddr6.Text = " ";
             // 
             // lblPostalCode6
             // 
             this.lblPostalCode6.AutoSize = true;
             this.lblPostalCode6.Location = new System.Drawing.Point(78, 13);
             this.lblPostalCode6.Name = "lblPostalCode6";
-            this.lblPostalCode6.Size = new System.Drawing.Size(38, 12);
+            this.lblPostalCode6.Size = new System.Drawing.Size(9, 12);
             this.lblPostalCode6.TabIndex = 4;
-            this.lblPostalCode6.Text = "label5";
+            this.lblPostalCode6.Text = " ";
             // 
             // lblJibunAddr6
             // 
             this.lblJibunAddr6.AutoSize = true;
             this.lblJibunAddr6.Location = new System.Drawing.Point(78, 42);
             this.lblJibunAddr6.Name = "lblJibunAddr6";
-            this.lblJibunAddr6.Size = new System.Drawing.Size(38, 12);
+            this.lblJibunAddr6.Size = new System.Drawing.Size(9, 12);
             this.lblJibunAddr6.TabIndex = 5;
-            this.lblJibunAddr6.Text = "label6";
+            this.lblJibunAddr6.Text = " ";
             // 
             // label41
             // 
@@ -643,51 +653,22 @@
             this.label41.TabIndex = 13;
             this.label41.Text = "해당하는 주소를 더블클릭 하시면 자동으로 작성이 됩니다.";
             // 
-            // lblPage
+            // button1
             // 
-            this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(598, 444);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(44, 12);
-            this.lblPage.TabIndex = 14;
-            this.lblPage.Text = "label42";
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(695, 439);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(28, 23);
-            this.btnNext.TabIndex = 15;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPre
-            // 
-            this.btnPre.Location = new System.Drawing.Point(522, 439);
-            this.btnPre.Name = "btnPre";
-            this.btnPre.Size = new System.Drawing.Size(24, 23);
-            this.btnPre.TabIndex = 16;
-            this.btnPre.Text = "<";
-            this.btnPre.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(730, 37);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(323, 396);
-            this.textBox1.TabIndex = 17;
+            this.button1.Location = new System.Drawing.Point(849, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "닫기";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmSearchAddr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 474);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnPre);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.lblPage);
+            this.ClientSize = new System.Drawing.Size(936, 441);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -777,9 +758,6 @@
         private System.Windows.Forms.Label lblPostalCode6;
         private System.Windows.Forms.Label lblJibunAddr6;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label lblPage;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnPre;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

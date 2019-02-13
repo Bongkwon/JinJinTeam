@@ -202,31 +202,29 @@ namespace JinTeamForSeller
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-            bool result = false;
-            bool result2 = false;
-            bool result3 = false;
+            
             int i = 0;
             foreach (DataGridViewRow item in gViewPayInfo.Rows)
             {
                 try
                 {
-                    Payment_InfoVO pay = new Payment_InfoVO(
-                                (int)item.Cells["Pay_ID"].Value,
-                                item.Cells["order_ID"].Value.ToString(),
-                                item.Cells["User_Ship_ID"].Value.ToString(),
-                                (int)item.Cells["Seller_No"].Value,
-                                (int)item.Cells["Pay_count"].Value,
-                                (int)item.Cells["Pay_Price"].Value,
-                                item.Cells["Waybill_ID"].Value.ToString(),
-                                item.Cells["Cus_name"].Value.ToString(),
-                                item.Cells["User_addr"].Value.ToString(),
-                                item.Cells["Stock_ID"].Value.ToString(),
-                                item.Cells["Order_require"].Value.ToString(),
-                                item.Cells["Ship_require"].Value.ToString(),
-                                item.Cells["Transport_state"].Value.ToString(),
-                                item.Cells["User_name"].Value.ToString()
-                                );
+                    Payment_InfoVO pay = new Payment_InfoVO
+                        (                                
+                        (int)item.Cells["Pay_ID"].Value,                               
+                        item.Cells["order_ID"].Value.ToString(),                       
+                        item.Cells["User_Ship_ID"].Value.ToString(),                        
+                        (int)item.Cells["Seller_No"].Value,                        
+                        (int)item.Cells["Pay_count"].Value,                        
+                        (int)item.Cells["Pay_Price"].Value,                        
+                        item.Cells["Waybill_ID"].Value.ToString(),                        
+                        item.Cells["Cus_name"].Value.ToString(),                        
+                        item.Cells["User_addr"].Value.ToString(),                        
+                        item.Cells["Stock_ID"].Value.ToString(),                        
+                        item.Cells["Order_require"].Value.ToString(),                        
+                        item.Cells["Ship_require"].Value.ToString(),
+                        item.Cells["Transport_state"].Value.ToString(),                        
+                        item.Cells["User_name"].Value.ToString()
+                        );
                     Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
                     if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == false)
                     {
@@ -247,7 +245,7 @@ namespace JinTeamForSeller
                         item.Cells["Transport_state"].Value = "배송 중";
                     }
                     Transport_InfoVO ti2 = new Transport_InfoVO(item.Cells["waybill_ID"].Value.ToString(), item.Cells["transport_State"].Value.ToString());
-                    tDao.UpdateTransportState(ti2);                    
+                    tDao.UpdateTransportState(ti2);
                 }
                 catch (Exception)
                 {

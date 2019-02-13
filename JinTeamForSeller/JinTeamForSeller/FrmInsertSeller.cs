@@ -12,6 +12,7 @@ namespace JinTeamForSeller
 {
     public partial class FrmInsertSeller : Form
     {
+        //bool canInsert = false;
         Dao.SellerDAO seller = new Dao.SellerDAO();
         public FrmInsertSeller()
         {
@@ -37,22 +38,25 @@ namespace JinTeamForSeller
                     if (result == 0)
                     {
                         MessageBox.Show("사용 할 수 없는 ID 입니다.");
+                        btnSubmit.Enabled = false;
                     }
                     else
                     {
                         MessageBox.Show("중복되는 ID 입니다.");
+                        btnSubmit.Enabled = false;
                     }
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("사용 할 수 있는 ID 입니다.");
+                    btnSubmit.Enabled = true;
                 }
             }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtId.Text) && !string.IsNullOrEmpty(txtPass.Text) && !string.IsNullOrEmpty(txtChkPass.Text) && string.IsNullOrEmpty(txtComName.Text) && string.IsNullOrEmpty(txtBossName.Text) && string.IsNullOrEmpty(txtPhone.Text) && string.IsNullOrEmpty(txtPostal.Text) && !string.IsNullOrEmpty(txtAddr.Text) && !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtFax.Text) && !string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(txtReturnAddr.Text) && !string.IsNullOrEmpty(txtCorpRegistrationNo.Text))
+            if (!string.IsNullOrEmpty(txtId.Text) && !string.IsNullOrEmpty(txtPass.Text) && !string.IsNullOrEmpty(txtChkPass.Text) && !string.IsNullOrEmpty(txtComName.Text) && !string.IsNullOrEmpty(txtBossName.Text) && !string.IsNullOrEmpty(txtPhone.Text) && !string.IsNullOrEmpty(txtPostal.Text) && !string.IsNullOrEmpty(txtAddr.Text) && !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtFax.Text) && !string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(txtReturnAddr.Text) && !string.IsNullOrEmpty(txtCorpRegistrationNo.Text))
             {
                 seller.InsertSeller(new Vo.SellerVO(txtId.Text, txtPass.Text, txtComName.Text, txtAddr.Text, txtBossName.Text, txtPhone.Text, txtPostal.Text, txtEmail.Text, txtFax.Text, txtReturnAddr.Text, txtCorpRegistrationNo.Text));
             }
@@ -90,6 +94,8 @@ namespace JinTeamForSeller
             //string uri = "http://www.juso.go.kr/addrlink/addrLinkApi.do" + "?query="
             FrmSearchAddr frm = new FrmSearchAddr();
             frm.ShowDialog();
+            txtAddr.Text = FrmSearchAddr.roadAddr;
+            txtPostal.Text = FrmSearchAddr.zipNo;
         }
     }
 }

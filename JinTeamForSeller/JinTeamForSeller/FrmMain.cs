@@ -39,5 +39,11 @@ namespace JinTeamForSeller
             FrmInquiry frm = new FrmInquiry();
             frm.Show();
         }
+
+        private void btnSaleManagement_Click(object sender, EventArgs e)
+        {
+            FrmSaleManagement frm = new FrmSaleManagement();
+            frm.Show();
+        }
     }
 }

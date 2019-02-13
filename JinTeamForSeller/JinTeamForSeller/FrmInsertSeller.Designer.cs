@@ -247,6 +247,7 @@
             // 
             // btnSubmit
             // 
+            this.btnSubmit.Enabled = false;
             this.btnSubmit.Location = new System.Drawing.Point(504, 350);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(100, 64);
@@ -396,26 +397,26 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtComName;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtPostal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtFax;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtAddr;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtBossName;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCheckOverlap;
-        private System.Windows.Forms.TextBox txtReturnAddr;
         private System.Windows.Forms.Button btnInsertPic;
         private System.Windows.Forms.PictureBox imgRegistration;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCorpRegistrationNo;
         private System.Windows.Forms.Button btnSearchAddr;
+        internal System.Windows.Forms.TextBox txtPostal;
+        internal System.Windows.Forms.TextBox txtAddr;
+        internal System.Windows.Forms.TextBox txtReturnAddr;
+        internal System.Windows.Forms.TextBox textBox1;
     }
 }

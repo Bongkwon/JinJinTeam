@@ -125,6 +125,13 @@ namespace JinTeamForSeller.Dao
                         lstObj.Add(new InquireVO((int)dr["Inquire_no"], dr["Inquire_type"].ToString(), (int)dr["inquire_id"], dr["Inquire_title"].ToString(), dr["Inquire_body"].ToString(), dr["Inquire_date"].ToString(), dr["Inquire_image"].ToString(), dr["re_date"].ToString(), dr["re_body"].ToString()));
                     }
                 }
+                else if(query == "selectSalesManagementForSeller")
+                {
+                    while (dr.Read())
+                    {
+                        lstObj.Add(new SalesManagementVO(dr["pro_name"].ToString(), dr["stock_ID"].ToString(), (int)dr["pay_count"], (int)dr["pay_price"], DateTime.Parse(dr["pay_date"].ToString())));
+                    }
+                }
                 conn.Close();
                 return lstObj;
             }
