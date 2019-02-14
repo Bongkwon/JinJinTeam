@@ -14,12 +14,10 @@ namespace JinTeamForAdmin
     {
         SqlConnection con;
         List<object> ob_lst;
-        List<Products_Vo> pro_lst;
         public DBCon_admin()
         {
             con = new SqlConnection(ConfigurationManager.ConnectionStrings["JinTeamDB"].ConnectionString);
             ob_lst = new List<object>();
-            pro_lst = new List<Products_Vo>();
         }
 
         private SqlConnection OpenCon()
@@ -158,20 +156,71 @@ namespace JinTeamForAdmin
 
                     }
                 }
+                else if (type_p == "inq")
+                {
+                    if (sp == "select_sel_inq")
+                    {
+                        while (sdr.Read())
+                        {
+                            ob_lst.Add(new Inquire_Admin_Vo()
+                            {
+                                Inquire_email = sdr["seller_email"].ToString(),
+                                Inquire_name = sdr["seller_ID"].ToString(),
+                                Cus_or_sell = sdr["cus_or_sell"].ToString(),
+                                Inquire_body = sdr["inquire_body"].ToString(),
+                                Inquire_date = sdr["inquire_date"].ToString(),
+                                Inquire_id = Int32.Parse(sdr["inquire_id"].ToString()),
+                                Inquire_image = sdr["inquire_image"].ToString(),
+                                Inquire_no = Int32.Parse(sdr["inquire_no"].ToString()),
+                                Inquire_title = sdr["inquire_title"].ToString(),
+                                Inquire_type = sdr["inquire_type"].ToString(),
+                                Re_body = sdr["re_body"].ToString(),
+                                Re_date = sdr["re_date"].ToString()
+                            });
+                        }
+                    }
+                    else if(sp == "select_cus_inq")
+                    {
+                        while (sdr.Read())
+                        {
+                            ob_lst.Add(new Inquire_Admin_Vo()
+                            {
+                                Inquire_email = sdr["cus_id"].ToString(),
+                                Inquire_name = sdr["cus_nickname"].ToString(),
+                                Cus_or_sell = sdr["cus_or_sell"].ToString(),
+                                Inquire_body = sdr["inquire_body"].ToString(),
+                                Inquire_date = sdr["inquire_date"].ToString(),
+                                Inquire_id = Int32.Parse(sdr["inquire_id"].ToString()),
+                                Inquire_image = sdr["inquire_image"].ToString(),
+                                Inquire_no = Int32.Parse(sdr["inquire_no"].ToString()),
+                                Inquire_title = sdr["inquire_title"].ToString(),
+                                Inquire_type = sdr["inquire_type"].ToString(),
+                                Re_body = sdr["re_body"].ToString(),
+                                Re_date = sdr["re_date"].ToString()
+                            });
+                        }
+                    }                  
+                }else if (type_p == "sal")
+                {
+                    while (sdr.Read())
+                    {
+                        ob_lst.Add(new Sales_manager_Vo()
+                        {
+                            Seller_ID = sdr["seller_id"].ToString(),
+                            Pay_date = sdr["pay_date"].ToString(),
+                            Pay_date_m = sdr["pay_date"].ToString().Substring(sdr["pay_date"].ToString().IndexOf("-") + 1, 2),
+                            Pay_count = Int32.Parse(sdr["pay_count"].ToString()),
+                            Pay_price = Int32.Parse(sdr["Pay_price"].ToString())
+                        });
+                    }
+                }
             }
             catch (SqlException)
             {
                 throw;
             }
             finally { sqlCon.Close(); }
-            //if (type_p == "pro")
-            //{
-            //    return pro_lst;
-            //}
-            //else
-            //{
-                
-            //}
+
             return ob_lst;
         }
 
