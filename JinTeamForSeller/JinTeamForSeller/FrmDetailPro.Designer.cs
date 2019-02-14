@@ -53,6 +53,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.numStockCount = new System.Windows.Forms.NumericUpDown();
+            this.btnInsertStock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.proPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockCount)).BeginInit();
             this.SuspendLayout();
@@ -281,11 +282,22 @@
             this.numStockCount.Size = new System.Drawing.Size(100, 21);
             this.numStockCount.TabIndex = 46;
             // 
+            // btnInsertStock
+            // 
+            this.btnInsertStock.Location = new System.Drawing.Point(386, 98);
+            this.btnInsertStock.Name = "btnInsertStock";
+            this.btnInsertStock.Size = new System.Drawing.Size(86, 22);
+            this.btnInsertStock.TabIndex = 47;
+            this.btnInsertStock.Text = "사이즈 추가";
+            this.btnInsertStock.UseVisualStyleBackColor = true;
+            this.btnInsertStock.Click += new System.EventHandler(this.btnInsertStock_Click);
+            // 
             // FrmDetailPro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 587);
+            this.Controls.Add(this.btnInsertStock);
             this.Controls.Add(this.numStockCount);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -348,5 +360,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numStockCount;
+        private System.Windows.Forms.Button btnInsertStock;
     }
 }

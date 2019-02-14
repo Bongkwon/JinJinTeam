@@ -36,7 +36,7 @@ namespace JinTeamForAdmin.Bus
 
             lbl_path.Text = "저장위치를 지정 해주세요";
 
-            BackgroundImage = Properties.Resources.세금계산서_예시;
+            BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/세금계산서.png");
 
             lbl_corporate_registration_no.Text = tv.Corporate_registration_no;
             lbl_stock_id.Text = tv.Stock_ID;
@@ -50,9 +50,12 @@ namespace JinTeamForAdmin.Bus
 
             lbl_pay_date_2.Text = tv.Pay_date.Substring(5,5);
 
-            lbl_pay_price_1.Text = lbl_pay_price_6.Text = tv.Pay_price.ToString();
-            lbl_pay_price_2.Text = lbl_pay_price_3.Text = (tv.Pay_price * 0.9).ToString();
-            lbl_pay_price_5.Text = lbl_pay_price_4.Text = (tv.Pay_price * 0.1).ToString();
+            lbl_pay_price_1.Text = tv.Pay_price.ToString();
+            lbl_pay_price_6.Text = (tv.Pay_price*tv.Pay_count).ToString();
+            lbl_pay_price_2.Text = (tv.Pay_price*tv.Pay_count * 0.9).ToString();
+            lbl_pay_price_3.Text = (tv.Pay_price * 0.9).ToString();
+            lbl_pay_price_5.Text = (tv.Pay_price * tv.Pay_count * 0.1).ToString();
+            lbl_pay_price_4.Text = (tv.Pay_price * 0.1).ToString();
 
 
         }
@@ -87,8 +90,7 @@ namespace JinTeamForAdmin.Bus
             Excel.Worksheet workSheet;
             object missingValue = System.Reflection.Missing.Value;
 
-
-            workBook = excelApp.Workbooks.Open(@"C:\Users\GDC22\Desktop\JinTeam\코딩\JinTeamForAdmin\JinTeamForAdmin\JinTeamForAdmin\Resources\세금계산서_양식.xlsx");
+            workBook = excelApp.Workbooks.Open(Application.StartupPath +"/Resources/세금계산서_양식");
             workSheet = workBook.Worksheets.Item[1];
 
 

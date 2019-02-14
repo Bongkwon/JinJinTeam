@@ -25,6 +25,12 @@ namespace JinTeamForSeller.Dao
             return lstReview;
         }
 
+        internal bool UpdateReview(int re_ID, string re_Comment)
+        {
+            string query = "UpdateReview";
+            SqlParameter[] sqlp = { new SqlParameter("re_ID", re_ID), new SqlParameter("re_Comment", re_Comment) };
 
+            return con.SendExqueteQuery(query, sqlp);
+        }
     }
 }

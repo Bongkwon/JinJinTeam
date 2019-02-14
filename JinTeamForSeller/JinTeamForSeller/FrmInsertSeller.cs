@@ -12,6 +12,7 @@ namespace JinTeamForSeller
 {
     public partial class FrmInsertSeller : Form
     {
+        //bool canInsert = false;
         Dao.SellerDAO seller = new Dao.SellerDAO();
         public FrmInsertSeller()
         {
@@ -29,20 +30,72 @@ namespace JinTeamForSeller
         private void btnCheckOverlap_Click(object sender, EventArgs e)
         {
             int result = 0;
-            result = seller.ChkOverLap(txtId.Text);
-            if (result != 0)
+            if (!string.IsNullOrEmpty(txtId.Text))
             {
-                MessageBox.Show("중복되는 ID 입니다.");
-            }
-            else
-            {
-                MessageBox.Show("사용가능한 ID 입니다.");
+                try
+                {
+                    result = seller.ChkOverLap(txtId.Text);
+                    if (result == 0)
+                    {
+                        MessageBox.Show("사용 할 수 없는 ID 입니다.");
+                        btnSubmit.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("중복되는 ID 입니다.");
+                        btnSubmit.Enabled = false;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("사용 할 수 있는 ID 입니다.");
+                    btnSubmit.Enabled = true;
+                }
             }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            seller.InsertSeller(new Vo.SellerVO(txtId.Text, txtPass.Text, txtComName.Text, txtAddr.Text, txtBossName.Text, txtPhone.Text, txtPostal.Text, txtEmail.Text, txtFax.Text, txtReturnAddr.Text, txtCorpRegistrationNo.Text));
+            if (!string.IsNullOrEmpty(txtId.Text) && !string.IsNullOrEmpty(txtPass.Text) && !string.IsNullOrEmpty(txtChkPass.Text) && !string.IsNullOrEmpty(txtComName.Text) && !string.IsNullOrEmpty(txtBossName.Text) && !string.IsNullOrEmpty(txtPhone.Text) && !string.IsNullOrEmpty(txtPostal.Text) && !string.IsNullOrEmpty(txtAddr.Text) && !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtFax.Text) && !string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(txtReturnAddr.Text) && !string.IsNullOrEmpty(txtCorpRegistrationNo.Text))
+            {
+                seller.InsertSeller(new Vo.SellerVO(txtId.Text, txtPass.Text, txtComName.Text, txtAddr.Text, txtBossName.Text, txtPhone.Text, txtPostal.Text, txtEmail.Text, txtFax.Text, txtReturnAddr.Text, txtCorpRegistrationNo.Text));
+            }
+            else
+            {
+                MessageBox.Show("빈칸이 있으면 안됩니다.");
+            }
+        }
+
+        private void txtChkPass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtChkPass.Text != txtPass.Text)
+            {
+                lblchkPass.ForeColor = Color.Red;
+                txtChkPass.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblchkPass.ForeColor = Color.Black;
+                txtChkPass.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+            if(txtId.Text.Contains(" "))
+            {
+                MessageBox.Show("공백은 사용 할 수 없습니다.");
+                txtId.Clear();
+            }
+        }
+
+        private void btnSearchAddr_Click(object sender, EventArgs e)
+        {
+            //string uri = "http://www.juso.go.kr/addrlink/addrLinkApi.do" + "?query="
+            FrmSearchAddr frm = new FrmSearchAddr();
+            frm.ShowDialog();
+            txtAddr.Text = FrmSearchAddr.roadAddr;
+            txtPostal.Text = FrmSearchAddr.zipNo;
         }
     }
 }

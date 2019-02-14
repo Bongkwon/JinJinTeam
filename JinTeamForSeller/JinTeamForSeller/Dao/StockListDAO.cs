@@ -35,6 +35,6 @@ namespace JinTeamForSeller.Dao
             string query = "UpdateStock";
             SqlParameter[] sqlp = { new SqlParameter("stock_ID", stock.Stock_ID), new SqlParameter("stock_count", stock.Stock_Count) };
             return conn.SendExqueteQuery(query, sqlp);
-        }
+        }        
     }
 }

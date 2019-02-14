@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,9 +68,11 @@
   <ItemGroup>
     <Compile Include="Dao\CatDAO.cs" />
     <Compile Include="Dao\DBConnection.cs" />
+    <Compile Include="Dao\InquireDao.cs" />
     <Compile Include="Dao\PaymentInfoDAO.cs" />
     <Compile Include="Dao\ProductDAO.cs" />
     <Compile Include="Dao\ReviewDAO.cs" />
+    <Compile Include="Dao\SalesManagementDAO.cs" />
     <Compile Include="Dao\SellerDAO.cs" />
     <Compile Include="Dao\StockListDAO.cs" />
     <Compile Include="Dao\TransportInfoDAO.cs" />
@@ -84,6 +87,12 @@
     </Compile>
     <Compile Include="FrmDetailPro.Designer.cs">
       <DependentUpon>FrmDetailPro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInquireDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInquireDetail.Designer.cs">
+      <DependentUpon>FrmInquireDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInquiry.cs">
       <SubType>Form</SubType>
@@ -121,11 +130,29 @@
     <Compile Include="FrmProducts.Designer.cs">
       <DependentUpon>FrmProducts.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReviewDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReviewDetail.Designer.cs">
+      <DependentUpon>FrmReviewDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSaleManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSaleManagement.Designer.cs">
+      <DependentUpon>FrmSaleManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSalesDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSalesDetail.Designer.cs">
       <DependentUpon>FrmSalesDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchAddr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchAddr.Designer.cs">
+      <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSearchID.cs">
       <SubType>Form</SubType>
@@ -139,12 +166,15 @@
     <Compile Include="FrmSellAndTransport.Designer.cs">
       <DependentUpon>FrmSellAndTransport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Juso.cs" />
     <Compile Include="Vo\CatVO.cs" />
+    <Compile Include="Vo\InquireVO.cs" />
     <Compile Include="Vo\Payment_InfoVO.cs" />
     <Compile Include="Vo\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vo\ReviewVO.cs" />
+    <Compile Include="Vo\SalesManagementVO.cs" />
     <Compile Include="Vo\SellerVO.cs" />
     <Compile Include="Vo\StockVO.cs" />
     <Compile Include="Vo\Transport_InfoVO.cs" />
@@ -155,8 +185,14 @@
     <EmbeddedResource Include="FrmDetailPro.resx">
       <DependentUpon>FrmDetailPro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInquireDetail.resx">
+      <DependentUpon>FrmInquireDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmInquiry.resx">
       <DependentUpon>FrmInquiry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInsertInqury.resx">
+      <DependentUpon>FrmInsertInqury.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInsertProduct.resx">
       <DependentUpon>FrmInsertProduct.cs</DependentUpon>
@@ -170,8 +206,17 @@
     <EmbeddedResource Include="FrmProducts.resx">
       <DependentUpon>FrmProducts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReviewDetail.resx">
+      <DependentUpon>FrmReviewDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSaleManagement.resx">
+      <DependentUpon>FrmSaleManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSalesDetail.resx">
       <DependentUpon>FrmSalesDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchAddr.resx">
+      <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSearchID.resx">
       <DependentUpon>FrmSearchID.cs</DependentUpon>

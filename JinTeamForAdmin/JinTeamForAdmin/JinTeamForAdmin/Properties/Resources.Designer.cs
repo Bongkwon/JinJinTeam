@@ -61,12 +61,11 @@ namespace JinTeamForAdmin.Properties {
         }
         
         /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        ///   PK!b?h^?[Content_Types].xml ?(?[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static byte[] 세금계산서_양식 {
+        internal static string 세금계산서_양식 {
             get {
-                object obj = ResourceManager.GetObject("세금계산서_양식", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("세금계산서_양식", resourceCulture);
             }
         }
         

@@ -19,9 +19,11 @@ namespace JinTeamForSeller.Bus
         List<object> ob_lst;
         List<Seller_Vo> sell_lst;
         List<Products_Vo> pro_lst;
-        bool switch_pro = true;
+        bool switch_pro = false;
         List<TaxBill_Vo> tax_lst;
         bool tax_switch = true;
+        List<Inquire_Admin_Vo> inq_lst;
+        List<Inquire_Admin_Vo> inq_lst_sub;
 
         string sp = "";
         string type_s = "";
@@ -42,7 +44,8 @@ namespace JinTeamForSeller.Bus
             sell_lst = new List<Seller_Vo>();
             pro_lst = new List<Products_Vo>();
             tax_lst = new List<TaxBill_Vo>();
-            
+            inq_lst = new List<Inquire_Admin_Vo>();
+            inq_lst_sub = new List<Inquire_Admin_Vo>();
         }
 
 
@@ -67,11 +70,126 @@ namespace JinTeamForSeller.Bus
         private void 결제정보세금계산서출력ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Pay_changed();
+        }
 
+        private void 문의내역ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rd_sel_inq.Checked = true;
+            inq_changed(null,null);                  
+        }
+
+
+        private void 매출관리ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sales_Manager sm = new Sales_Manager();
+            sm.ShowDialog();
+        }
+
+        private void inq_changed(object sender, EventArgs e)
+        {
+            ob_lst.Clear();
+            inq_lst.Clear();
+            main_GV.DataSource = null;
+            type_s = "inq";
+
+            gb_seller.Visible = false;
+            gb_pro.Visible = false;
+            gb_cus.Visible = false;
+            tax_switch = false;
+            gb_inq.Visible = true;
+       
+
+            if (rd_cus_inq.Checked)
+            {
+                common_cb();
+                cb_inquire.Items.Add("결제문의");
+                sp = "select_cus_inq";
+            }
+            else if (rd_sel_inq.Checked)
+            {
+                common_cb();
+                cb_inquire.Items.Add("피드백");
+                cb_inquire.Items.Add("사용문의");
+                sp = "select_sel_inq";
+            }
+
+
+            ob_lst = new Admin_Dao().Select_ob(sp, type_s);
+
+            foreach (var item in ob_lst)
+            {
+                inq_lst.Add((Inquire_Admin_Vo)item);
+            }
+            //cb_inquire_TextChanged(null, null);
+            main_GV.DataSource = inq_lst;
+            Inq_GV();
+            //rd_all_inq.Checked = true;
+            cb_inquire.SelectedIndex = 0;
+        }
+
+        private void cb_inquire_TextChanged(object sender, EventArgs e)
+        {
+
+            inq_lst_sub.Clear();
+
+            string selectedItem = cb_inquire.SelectedItem.ToString();
+            if (selectedItem == "전체보기")
+            {
+                main_GV.DataSource = null;
+                main_GV.DataSource = inq_lst;
+            }
+            else
+            {
+                foreach (var item in inq_lst)
+                {
+                    if (item.Inquire_type == selectedItem)
+                    {
+                        inq_lst_sub.Add(item);
+                    }
+                }
+                main_GV.DataSource = null;
+                main_GV.DataSource = inq_lst_sub;
+            }
+            Inq_GV();
+
+        }
+
+        private void common_cb()
+        {
+            cb_inquire.Items.Clear();
+            
+            cb_inquire.Items.Add("전체보기");
+            cb_inquire.Items.Add("회원문의");
+                               
+            cb_inquire.Items.Add("시스템");
+            cb_inquire.Items.Add("기타");
+        }
+
+        private void Inq_GV()
+        {
+            //main_GV.DataSource = inq_lst_sub;
+
+            main_GV.Columns["inquire_image"].Visible = false;
+            main_GV.Columns["inquire_body"].Visible = false;
+            main_GV.Columns["inquire_email"].Visible = false;
+            main_GV.Columns["inquire_id"].Visible = false;
+            main_GV.Columns["re_body"].Visible = false;
+            main_GV.Columns["cus_or_sell"].Visible = false;
+            main_GV.Columns["inquire_no"].HeaderText = "문의 번호";
+            main_GV.Columns["inquire_type"].HeaderText = "문의 타입";
+            main_GV.Columns["inquire_name"].HeaderText = "문의자";
+            main_GV.Columns["cus_or_sell"].HeaderText = "문의자 타입";
+            main_GV.Columns["inquire_title"].HeaderText = "문의 제목";
+            main_GV.Columns["re_date"].HeaderText = "답변 날짜";
+            main_GV.Columns["inquire_date"].HeaderText = "문의 날짜";
+
+            //main_GV.Columns["inquire_email"].Visible = false;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void Pay_changed()
         {
+            gb_inq.Visible = false;
             gb_seller.Visible = false;
             gb_pro.Visible = false;
             gb_cus.Visible = false;
@@ -120,6 +238,7 @@ namespace JinTeamForSeller.Bus
             gb_pro.Visible = false;
             gb_cus.Visible = true;
             tax_switch = false;
+            gb_inq.Visible = false;
 
             ob_lst.Clear();
             cus_lst.Clear();
@@ -170,6 +289,7 @@ namespace JinTeamForSeller.Bus
             gb_pro.Visible = true;
             gb_cus.Visible = false;
             tax_switch = false;
+            gb_inq.Visible = false;
 
             ob_lst.Clear();
             pro_lst.Clear();
@@ -221,6 +341,7 @@ namespace JinTeamForSeller.Bus
             gb_pro.Visible = false;
             gb_cus.Visible = false;
             tax_switch = false;
+            gb_inq.Visible = false;
 
             main_GV.DataSource = null;
             ob_lst.Clear();
@@ -295,8 +416,10 @@ namespace JinTeamForSeller.Bus
 
         private void Admin_main_Load(object sender, EventArgs e)
         {
+           
             rdo_all_seller.Checked = true;
             seller_changed(null, null);
+         
         }
         
 
@@ -504,6 +627,35 @@ namespace JinTeamForSeller.Bus
                         pay_GV();
                     }
                 }
+                //else if (gb_inq.Visible)
+                //{
+                //    if (main_GV.Columns[e.ColumnIndex].Index == 0)
+                //    {
+                //        main_GV.DataSource = null;
+                //        if (!switch_pro)
+                //        {
+                //            inq_lst_sub.Sort(delegate (Inquire_Admin_Vo A, Inquire_Admin_Vo B)
+                //            {
+                //                if (A.Inquire_no > B.Inquire_no) return -1;
+                //                else if (A.Inquire_no < B.Inquire_no) return 1;
+                //                return 0;
+                //            });
+                //            switch_pro = true;
+                //        }
+                //        else
+                //        {
+                //            inq_lst_sub.Sort(delegate (Inquire_Admin_Vo A, Inquire_Admin_Vo B)
+                //            {
+                //                if (A.Inquire_no > B.Inquire_no) return 1;
+                //                else if (A.Inquire_no < B.Inquire_no) return -1;
+                //                return 0;
+                //            });
+                //            switch_pro = false;
+                //        }
+                //        //main_GV.DataSource = inq_lst_sub;
+                //        Inq_GV();
+                //    }
+                //}
             }
             else
             {
@@ -535,6 +687,14 @@ namespace JinTeamForSeller.Bus
                     te.Owner = this;
                     te.ShowDialog();
                 }
+                else if (gb_inq.Visible)
+                {
+                    //main_GV.SelectedRows
+                    Inquire_Admin_Detail iad = new Inquire_Admin_Detail(main_GV.SelectedRows);
+                    iad.Owner = this;
+                    iad.ShowDialog();
+                    //MessageBox.Show("Test");
+                }
 
                 if (Temp)
                 {
@@ -561,9 +721,12 @@ namespace JinTeamForSeller.Bus
             else if (tax_switch)
             {
                 Pay_changed();
+            }else if (gb_inq.Visible)
+            {
+                inq_changed(null, null);
+
             }
         }
 
-        
     }
 }
