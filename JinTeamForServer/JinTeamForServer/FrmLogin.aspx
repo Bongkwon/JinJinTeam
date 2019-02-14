@@ -11,6 +11,7 @@
     <form id="로그인" runat="server">
         <div>
         </div>
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

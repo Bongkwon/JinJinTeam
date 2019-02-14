@@ -11,42 +11,62 @@ namespace JinTeamForServer
 {
     public partial class FrmLogin : System.Web.UI.Page
     {
-        string errCode;
         string cus_ID;
-        string cus_pwd;
+        string cus_pass;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["cus_ID"] != null && Request.Params["cus_pwd"] != null)
-            {
-                cus_ID = Request.Params["cus_ID"];
-                cus_pwd = Request.Params["cus_pwd"];
-            }
+
+            //if ((string.IsNullOrEmpty(Request.Params["cus_ID"].ToString()) || string.IsNullOrEmpty(Request.Params["cus_pwd"].ToString())) == null)
+            //{
+            //    cus_ID = Request.Params["cus_ID"].ToString();
+            //    cus_pass = Request.Params["cus_pwd"].ToString();
+            //}
+            cus_ID = "kyk12345";
+            cus_pass = "qwer1234"; 
+            //else
+            //{
+               // Label1.Text = "안돼 돌아가";
+            //}
 
             SqlConnection con = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
             con.ConnectionString = ConfigurationManager.ConnectionStrings["conStr"].ConnectionString;
 
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = "chkLogin";
-            cmd.Parameters.AddWithValue("cus_ID", cus_ID);
-            cmd.Parameters.AddWithValue("cus_pwd", cus_pwd);
-            object result = cmd.ExecuteScalar();
+            //try
+            //{
+                con.Open();
+                Label1.Text = "헤헹";
+                cmd.Connection = con;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "chkLogin";
+                cmd.Parameters.AddWithValue("cus_ID", cus_ID);
+                cmd.Parameters.AddWithValue("cus_pwd", cus_pass);                
+                object result = cmd.ExecuteScalar();
+                //if (result == "1")
+                //{
 
+                //}
+                //else
+                //{
 
-            if (result != null)
-            {
-                errCode = "500";    //로그인 성공
-                Response.Write(errCode);
-            }
-            else
-            {
-                errCode = "600";    // 로그인 실패
-                Response.Write(errCode);
-            }
+                //}
+                if (result != null)
+                {
+                    Label1.Text = result.ToString();
+                }
+                else
+                {
+                    Label1.Text = "0";
+                }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
 
             con.Close();
+            
         }
     }
 }
