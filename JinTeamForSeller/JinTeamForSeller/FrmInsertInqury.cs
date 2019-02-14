@@ -38,6 +38,7 @@ namespace JinTeamForSeller
                 cmbInquireType.Enabled = false;
                 this.btnInsertInquire.Visible = false;
                 this.btnClose.Visible = true;
+                this.txt_Re_Body.Visible = true;
                 lblReBody.Visible = true;
                 lblReDate.Visible = true;
                 lblRe_Date.Visible = true;

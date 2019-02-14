@@ -41,7 +41,7 @@ namespace JinTeamForSeller.Vo
         public DateTime Pay_Date
         {
             get { return pay_Date; }
-            set { pay_Date = value; }
+            set { pay_Date = new DateTime(value.Year, value.Month, value.Day); }
         }
 
         public SalesManagementVO(string pro_Name, string stock_ID, int pay_Count, int pay_Price, DateTime pay_Date)
@@ -50,7 +50,7 @@ namespace JinTeamForSeller.Vo
             this.stock_ID = stock_ID;
             this.pay_Count = pay_Count;
             this.pay_Price = pay_Price;
-            this.pay_Date = pay_Date;
+            this.pay_Date = new DateTime(pay_Date.Year, pay_Date.Month, pay_Date.Day);
         }
     }
 }

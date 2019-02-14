@@ -175,6 +175,8 @@
             // 
             // txt_Re_Body
             // 
+            this.txt_Re_Body.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_Re_Body.Enabled = false;
             this.txt_Re_Body.Location = new System.Drawing.Point(76, 329);
             this.txt_Re_Body.Multiline = true;
             this.txt_Re_Body.Name = "txt_Re_Body";

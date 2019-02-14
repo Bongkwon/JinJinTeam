@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -95,6 +95,7 @@
             // 
             // dTPicFromDate
             // 
+            this.dTPicFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTPicFromDate.Location = new System.Drawing.Point(12, 12);
             this.dTPicFromDate.Name = "dTPicFromDate";
             this.dTPicFromDate.Size = new System.Drawing.Size(113, 21);
@@ -102,6 +103,7 @@
             // 
             // dTPicToDate
             // 
+            this.dTPicToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dTPicToDate.Location = new System.Drawing.Point(151, 12);
             this.dTPicToDate.Name = "dTPicToDate";
             this.dTPicToDate.Size = new System.Drawing.Size(113, 21);
@@ -144,6 +146,7 @@
             this.rdoDayDay.TabIndex = 10;
             this.rdoDayDay.Text = "일별";
             this.rdoDayDay.UseVisualStyleBackColor = true;
+            this.rdoDayDay.CheckedChanged += new System.EventHandler(this.rdoDayDay_CheckedChanged);
             // 
             // rdoMonthMonth
             // 
@@ -156,19 +159,20 @@
             this.rdoMonthMonth.TabStop = true;
             this.rdoMonthMonth.Text = "월별";
             this.rdoMonthMonth.UseVisualStyleBackColor = true;
+            this.rdoMonthMonth.CheckedChanged += new System.EventHandler(this.rdoMonthMonth_CheckedChanged);
             // 
             // chartSales
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartSales.Legends.Add(legend2);
+            chartArea12.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea12);
+            legend12.Name = "Legend1";
+            this.chartSales.Legends.Add(legend12);
             this.chartSales.Location = new System.Drawing.Point(11, 39);
             this.chartSales.Name = "chartSales";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartSales.Series.Add(series2);
+            series12.ChartArea = "ChartArea1";
+            series12.Legend = "Legend1";
+            series12.Name = "Series1";
+            this.chartSales.Series.Add(series12);
             this.chartSales.Size = new System.Drawing.Size(476, 323);
             this.chartSales.TabIndex = 12;
             this.chartSales.Text = "chart1";

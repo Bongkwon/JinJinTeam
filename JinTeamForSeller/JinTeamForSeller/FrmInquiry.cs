@@ -66,6 +66,7 @@ namespace JinTeamForSeller
             FrmInsertInqury frm = new FrmInsertInqury();
             frm.ShowDialog();            
             this.OnLoad(null);
+            rdoInquryOfProduct.Checked = true;
         }
 
         private void gViewInquiry_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
