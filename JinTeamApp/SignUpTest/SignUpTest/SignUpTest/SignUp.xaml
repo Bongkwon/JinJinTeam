@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.SignUp">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                 Spacing="0"
+                 Padding="5,10"
+                     >
+            <Label Text="ID"
+               FontSize="10"
+               />
+            <StackLayout Orientation="Horizontal">
+                <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="ID를 입력하세요 ex) abcd@example.com"
+               
+               FontSize="10"
+               x:Name="cus_ID"/>
+
+                <Button Text="메일 인증" Clicked="ID_Confirm_Clicked"/>
+            </StackLayout>
+            <Label Text="PW"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="PW를 입력하세요"
+               IsPassword="True"
+               FontSize="10"
+               
+               x:Name="cus_pwd"/>
+
+            <Label Text="PW확인"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="PW 확인"
+               IsPassword="True"
+               FontSize="10"
+               x:Name="txt_ChkPw"/>
+
+            <Label Text="주소"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="주소"
+               FontSize="10"
+               x:Name="cus_addr"/>
+
+            <Label Text="이름"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="이름"
+               FontSize="10"
+               x:Name="cus_name"/>
+
+
+            <Label Text="별명(*)"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   Placeholder="별명 (선택사항)"
+                   WidthRequest="200"
+               FontSize="10"
+               x:Name="cus_Nickname"/>
+
+            <Label Text="나이(*)"
+               FontSize="10"
+               />
+            <Picker Title="회원님의 나이를 선택해주세요"
+                    HorizontalOptions="Start"
+                    WidthRequest="200"
+                    FontSize="10"
+                    SelectedIndexChanged="pickAge"
+                    x:Name="cus_age">
+
+            </Picker>
+
+            <Label Text="성별 선택"
+               FontSize="10"
+               />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="여자"
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="Large"/>
+                
+                <Switch IsToggled="false" 
+                HorizontalOptions="Start"
+                HeightRequest="30"
+                Scale="1.0"
+                x:Name="cus_gender"
+                        OnColor="LightSkyBlue"
+                        BackgroundColor="LightPink"
+                        />
+                
+                <Label Text="남자"
+                       VerticalOptions="CenterAndExpand"
+                       FontSize="Large"/>
+            </StackLayout>
+            <Label Text="전화번호"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="FillAndExpand"
+                   WidthRequest="200"
+                   Placeholder="전화번호"
+               FontSize="10"
+               x:Name="cus_phone"/>
+
+            <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="End"
+                     BackgroundColor="White">
+                <Button HorizontalOptions="FillAndExpand"
+                    Text="확인" Clicked="SignUp_Clicked">
+                </Button>
+
+                <Button HorizontalOptions="FillAndExpand"
+                    Text="취소">
+                </Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+    
+    
+
+</ContentPage>

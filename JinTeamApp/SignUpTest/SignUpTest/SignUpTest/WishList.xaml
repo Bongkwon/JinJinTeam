@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.WishList">
+    <ListView x:Name="wishListView" ItemSelected="OnItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+                        <StackLayout Padding="5,0,0,0" VerticalOptions="Start" Orientation="Horizontal">
+                            <Image HorizontalOptions="Start" Source="http://www.comeintofashion.net/web/product/tiny/201804/6464_shop1_177274.jpg" WidthRequest="50" HeightRequest="50"></Image>
+                            <StackLayout Padding="0,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                                <Label Text="{Binding}" VerticalTextAlignment="Center" FontSize="Small" BackgroundColor="LightYellow" />
+                                <Label x:Name="itemInfo" Text="해당 상품 설명...dddddddddddddddddddddddddddddd" VerticalTextAlignment="Center" FontSize="Micro" BackgroundColor="LightYellow" 
+                                   LineBreakMode="TailTruncation"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <Button Text="삭제" BackgroundColor="LightSeaGreen" HorizontalOptions="EndAndExpand" CommandParameter="{Binding}" Clicked="DeleteProduct_Clicked" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

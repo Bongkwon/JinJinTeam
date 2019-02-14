@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.OrderHistory">
+    <StackLayout>
+        <Label Text=" JIN SHOP  주문 내역 " HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="Large" TextColor="Black"
+               x:Name="txtHI"/>
+        <ScrollView>
+            <ListView x:Name="OrderHistoryView" ItemSelected="OnItemSelected" ItemsSource="{Binding .}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5,0,0,0" HorizontalOptions="Fill" VerticalOptions="Start" Orientation="Horizontal">
+                                <Image HorizontalOptions="Start" Source="http://www.comeintofashion.net/web/product/tiny/201804/6464_shop1_177274.jpg" WidthRequest="50" HeightRequest="50"></Image>
+                                <StackLayout Padding="0,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                                    <Label x:Name="txtStock" Text="{Binding Stock_Id}" VerticalTextAlignment="Center" FontSize="10" />
+                                    <Label x:Name="itemInfo" Text="{Binding Order_Price}" VerticalTextAlignment="Center" FontSize="Micro" 
+                                   LineBreakMode="TailTruncation"/>
+                                </StackLayout>
+                                <Button x:Name="txtReview" Text="리뷰" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Clicked="Review_Clicked" BackgroundColor="LightSkyBlue" WidthRequest="50"></Button>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

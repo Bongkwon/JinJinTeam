@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.MyPage">
+    <ScrollView>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                 Spacing="0"
+                 Padding="5,10"                     
+                     >
+
+            <StackLayout Orientation="Horizontal">
+
+                <Image x:Name="btnSet" Source="Setting.jpg"
+                       HeightRequest="40">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Set_Clicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand">
+            <Button Text="주문 내역" Clicked="OrderHistory_Clicked" 
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="회원정보 수정" Clicked="ProfileSet_Clicked" 
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="리뷰 내역" Clicked="ReviewHistory_Clicked"
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="문의" Clicked="QuestionHistory_Clicked"
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

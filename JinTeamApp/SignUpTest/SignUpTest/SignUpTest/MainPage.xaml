@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SignUpTest"
+             x:Class="SignUpTest.MainPage">
+    <ScrollView>
+    <StackLayout
+        
+        VerticalOptions="Center"
+        HorizontalOptions="FillAndExpand">
+        
+        <Image  Source="Dool.png"/>
+        <Label Text="Jinteam Market" 
+               FontSize="Large"
+               BackgroundColor="Gray"
+               TextColor="WhiteSmoke" 
+               VerticalOptions="Center"/>
+
+        <StackLayout
+                Orientation="Horizontal">
+            <Label Text="ID" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="StartAndExpand"
+                   WidthRequest="50"
+                   />
+            <Entry
+                x:Name="txtID"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                WidthRequest="150"
+                Margin="10,0,10,0"/>
+        </StackLayout>
+
+        <StackLayout
+                Orientation="Horizontal">
+            <Label Text="비밀번호" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="StartAndExpand"/>
+            <Entry
+                x:Name="txtPassword"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                WidthRequest="150"
+                IsPassword="true"
+                Margin="10,0,10,0"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal">
+            <Button Text="로그인" 
+                x:Name="btnLogin"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+                    Clicked="Login_Clicked"
+           />
+            <Button Text="회원가입" 
+                x:Name="btnSignUp"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand"
+                    Clicked="SignUp_Cliekced"
+           />
+        </StackLayout>
+
+    </StackLayout>
+    </ScrollView>
+
+</ContentPage>
