@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -13,20 +15,18 @@ namespace JinTeamForServer
     {
         string cus_ID;
         string cus_pass;
+        string json;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //if ((string.IsNullOrEmpty(Request.Params["cus_ID"].ToString()) || string.IsNullOrEmpty(Request.Params["cus_pwd"].ToString())) == null)
-            //{
-            //    cus_ID = Request.Params["cus_ID"].ToString();
-            //    cus_pass = Request.Params["cus_pwd"].ToString();
-            //}
-            cus_ID = "kyk12345";
-            cus_pass = "qwer1234"; 
-            //else
-            //{
-               // Label1.Text = "안돼 돌아가";
-            //}
+            if ((String.IsNullOrEmpty(Request.Params["cus_ID"].ToString()) || String.IsNullOrEmpty(Request.Params["cus_pwd"].ToString())))
+            {
+                json = "200";   // 입력 없음 에러   (에러 날 일 없음 테스트용)
+            }
+            else
+            {
+                cus_ID = Request.Params["cus_ID"].ToString();
+                cus_pass = Request.Params["cus_pwd"].ToString();
+            }
 
             SqlConnection con = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
@@ -34,39 +34,47 @@ namespace JinTeamForServer
 
             //try
             //{
-                con.Open();
-                Label1.Text = "헤헹";
-                cmd.Connection = con;
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.CommandText = "chkLogin";
-                cmd.Parameters.AddWithValue("cus_ID", cus_ID);
-                cmd.Parameters.AddWithValue("cus_pwd", cus_pass);                
-                object result = cmd.ExecuteScalar();
-                //if (result == "1")
-                //{
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "chkLogin";
+            cmd.Parameters.AddWithValue("cus_ID", cus_ID);
+            cmd.Parameters.AddWithValue("cus_pwd", cus_pass);
+            object result = cmd.ExecuteScalar();
 
-                //}
-                //else
-                //{
 
-                //}
-                if (result != null)
+            if (result != null)
+            {
+                //로그인 성공
+
+                DBConnection connection = new DBConnection();
+
+                json = null;
+                string sp = "select_cus_ID";
+                SqlParameter[] sqlParameters = { new SqlParameter("cus_ID", cus_ID) };
+
+                DataTable dt = connection.ExcuteSelect(sp, sqlParameters);
+                
+                if (dt.Rows.Count == 0)
                 {
-                    Label1.Text = result.ToString();
+                    json = "<Categories><DataCount>" + dt.Rows.Count + "</DataCount></Categories>";
                 }
                 else
                 {
-                    Label1.Text = "0";
+                    json = JsonConvert.SerializeObject(dt);
                 }
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
+            }
+            else
+            {
+                json = "600";
+            }
 
             con.Close();
-            
+            Response.Clear();
+            Response.ContentType = "application/json, charset=utf-8";
+            Response.Write(json);
+            Response.Flush();
+            Response.End();
         }
     }
 }

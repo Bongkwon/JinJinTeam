@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmLogin.aspx.cs" Inherits="JinTeamForServer.FrmLogin" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="FrmUserShipInfo.aspx.cs" Inherits="JinTeamForServer.FrmUserShipInfo" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-    <form id="로그인" runat="server">
+    <form id="form1" runat="server">
         <div>
         </div>
     </form>

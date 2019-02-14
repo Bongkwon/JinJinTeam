@@ -84,8 +84,11 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="FrmInsertCust.aspx" />
+    <Content Include="FrmInstWishList.aspx" />
     <Content Include="FrmLogin.aspx" />
+    <Content Include="FrmOrderList.aspx" />
     <Content Include="FrmShowProducts.aspx" />
+    <Content Include="FrmUserShipInfo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JinTeamDB.mdf" />
     <Content Include="JinTeamDB_log.ldf">
@@ -111,12 +114,26 @@
     <Compile Include="FrmInsertCust.aspx.designer.cs">
       <DependentUpon>FrmInsertCust.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmInstWishList.aspx.cs">
+      <DependentUpon>FrmInstWishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInstWishList.aspx.designer.cs">
+      <DependentUpon>FrmInstWishList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.aspx.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FrmLogin.aspx.designer.cs">
       <DependentUpon>FrmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrderList.aspx.cs">
+      <DependentUpon>FrmOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmOrderList.aspx.designer.cs">
+      <DependentUpon>FrmOrderList.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmShowProducts.aspx.cs">
       <DependentUpon>FrmShowProducts.aspx</DependentUpon>
@@ -125,12 +142,25 @@
     <Compile Include="FrmShowProducts.aspx.designer.cs">
       <DependentUpon>FrmShowProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmUserShipInfo.aspx.cs">
+      <DependentUpon>FrmUserShipInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmUserShipInfo.aspx.designer.cs">
+      <DependentUpon>FrmUserShipInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="OrderList_DAO.cs" />
+    <Compile Include="OrderList_VO.cs" />
     <Compile Include="Product_VO.cs" />
     <Compile Include="ProductsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserShipInfo_DAO.cs" />
+    <Compile Include="UserShipInfo_VO.cs" />
+    <Compile Include="WishList_VO.cs" />
+    <Compile Include="WishListDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
