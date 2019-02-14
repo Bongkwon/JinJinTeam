@@ -14,7 +14,7 @@ namespace JinTeamForSeller
     public partial class FrmProducts : Form
     {
         DataGridViewRow dr;
-        ProductDao pro = new ProductDao();
+        ProductDAO pro = new ProductDAO();
         public FrmProducts()
         {
             InitializeComponent();

@@ -19,7 +19,9 @@ namespace JinTeamForSeller.Bus
         List<object> ob_lst;
         List<Seller_Vo> sell_lst;
         List<Products_Vo> pro_lst;
-        bool switch_pro = false;
+        bool switch_pro = true;
+        List<TaxBill_Vo> tax_lst;
+        bool tax_switch = true;
 
         string sp = "";
         string type_s = "";
@@ -39,6 +41,7 @@ namespace JinTeamForSeller.Bus
             ob_lst = new List<object>();
             sell_lst = new List<Seller_Vo>();
             pro_lst = new List<Products_Vo>();
+            tax_lst = new List<TaxBill_Vo>();
             
         }
 
@@ -61,6 +64,53 @@ namespace JinTeamForSeller.Bus
             cus_Changed(null, null);
         }
 
+        private void 결제정보세금계산서출력ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pay_changed();
+
+        }
+
+        private void Pay_changed()
+        {
+            gb_seller.Visible = false;
+            gb_pro.Visible = false;
+            gb_cus.Visible = false;
+            tax_switch = true;
+
+            ob_lst.Clear();
+            tax_lst.Clear();
+            main_GV.DataSource = null;
+            type_s = "pay";
+            sp = "select_taxBill";
+            ob_lst = new Admin_Dao().Select_ob(sp, type_s);
+            foreach (var item in ob_lst)
+            {
+                tax_lst.Add((TaxBill_Vo)item);
+            }
+
+            pay_GV();
+        }
+
+        private void pay_GV()
+        {
+            main_GV.DataSource = tax_lst;
+
+            main_GV.Columns["pay_id"].HeaderText = "결제 번호";
+            main_GV.Columns["stock_id"].HeaderText = "상품 이름";
+            main_GV.Columns["seller_id"].HeaderText = "브랜드명";
+            main_GV.Columns["seller_boss"].HeaderText = "대표";
+            main_GV.Columns["corporate_registration_no"].HeaderText = "사업자 번호";
+
+            main_GV.Columns["pay_price"].HeaderText = "결제 가격";
+            main_GV.Columns["pay_count"].HeaderText = "결제 수량";
+            main_GV.Columns["pay_date"].HeaderText = "결제 날짜";
+            main_GV.Columns["seller_addr"].HeaderText = "주소";
+            main_GV.Columns["seller_addr"].Visible = false;
+            main_GV.Columns["output_date_tax"].HeaderText = "출력 날짜";
+
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+
         private void cus_Changed(object sender, EventArgs e)
         {
             //dataGridView1.Columns["Cus_no"].HeaderText = "번호";
@@ -69,11 +119,11 @@ namespace JinTeamForSeller.Bus
             gb_seller.Visible = false;
             gb_pro.Visible = false;
             gb_cus.Visible = true;
-
+            tax_switch = false;
 
             ob_lst.Clear();
             cus_lst.Clear();
-            dataGridView1.DataSource = null;
+            main_GV.DataSource = null;
             type_s = "cus";
             if (rdo_all_cus.Checked)
             {
@@ -95,22 +145,23 @@ namespace JinTeamForSeller.Bus
 
         private void cus_GV()
         {
-            dataGridView1.DataSource = cus_lst;
+            main_GV.DataSource = cus_lst;
 
-            dataGridView1.Columns["cus_pwd"].Visible = false;
-            dataGridView1.Columns["cus_count"].Visible = false;
-            dataGridView1.Columns["cus_nickname"].Visible = false;
-            dataGridView1.Columns["cus_no"].HeaderText = "고객 번호";
-            dataGridView1.Columns["cus_id"].HeaderText = "아이디";
-            dataGridView1.Columns["cus_phone"].HeaderText = "전화번호";
-            dataGridView1.Columns["cus_name"].HeaderText = "이름";
-            dataGridView1.Columns["cus_gender"].HeaderText = "성별";
-            dataGridView1.Columns["cus_age"].HeaderText = "나이";
-            dataGridView1.Columns["cus_state"].HeaderText = "가입 상태";
-            dataGridView1.Columns["withdrawal_date"].HeaderText = "탈퇴 날짜";
-            dataGridView1.Columns["join_date"].HeaderText = "가입 날짜";
+            main_GV.Columns["cus_pwd"].Visible = false;
+            main_GV.Columns["cus_count"].Visible = false;
+            main_GV.Columns["cus_nickname"].Visible = false;
+            main_GV.Columns["cus_addr"].Visible = false;
+            main_GV.Columns["cus_no"].HeaderText = "고객 번호";
+            main_GV.Columns["cus_id"].HeaderText = "아이디";
+            main_GV.Columns["cus_phone"].HeaderText = "전화번호";
+            main_GV.Columns["cus_name"].HeaderText = "이름";
+            main_GV.Columns["cus_gender"].HeaderText = "성별";
+            main_GV.Columns["cus_age"].HeaderText = "나이";
+            main_GV.Columns["cus_state"].HeaderText = "가입 상태";
+            main_GV.Columns["withdrawal_date"].HeaderText = "탈퇴 날짜";
+            main_GV.Columns["join_date"].HeaderText = "가입 날짜";
 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void pro_changed(object sender, EventArgs e)
@@ -118,10 +169,11 @@ namespace JinTeamForSeller.Bus
             gb_seller.Visible = false;
             gb_pro.Visible = true;
             gb_cus.Visible = false;
+            tax_switch = false;
 
             ob_lst.Clear();
             pro_lst.Clear();
-            dataGridView1.DataSource = null;
+            main_GV.DataSource = null;
             type_s = "pro";
             if (rdo_all_pro.Checked)
             {
@@ -144,23 +196,23 @@ namespace JinTeamForSeller.Bus
 
         private void pro_GV()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = pro_lst;
+            main_GV.DataSource = null;
+            main_GV.DataSource = pro_lst;
 
-            dataGridView1.Columns["cat_id"].Visible = false;
-            dataGridView1.Columns["main_comment"].Visible = false;
-            dataGridView1.Columns["sub_comment"].Visible = false;
-            dataGridView1.Columns["main_image"].Visible = false;
-            dataGridView1.Columns["pro_hits"].Visible = false;
-            dataGridView1.Columns["pro_like"].HeaderText = "추천수";
-            dataGridView1.Columns["pro_discount"].Visible = false;
-            dataGridView1.Columns["pro_gender"].Visible = false;
-            dataGridView1.Columns["pro_id"].HeaderText = "상품 번호";
-            dataGridView1.Columns["seller_no"].HeaderText = "판매자 번호";
-            dataGridView1.Columns["pro_name"].HeaderText = "상품 이름";
-            dataGridView1.Columns["pro_price"].HeaderText = "상품 가격";
-            dataGridView1.Columns["pro_state"].HeaderText = "상품 상태";
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.Columns["cat_id"].Visible = false;
+            main_GV.Columns["main_comment"].Visible = false;
+            main_GV.Columns["sub_comment"].Visible = false;
+            main_GV.Columns["main_image"].Visible = false;
+            main_GV.Columns["pro_hits"].Visible = false;
+            main_GV.Columns["pro_like"].HeaderText = "추천수";
+            main_GV.Columns["pro_discount"].Visible = false;
+            main_GV.Columns["pro_gender"].Visible = false;
+            main_GV.Columns["pro_id"].HeaderText = "상품 번호";
+            main_GV.Columns["seller_no"].HeaderText = "판매자 번호";
+            main_GV.Columns["pro_name"].HeaderText = "상품 이름";
+            main_GV.Columns["pro_price"].HeaderText = "상품 가격";
+            main_GV.Columns["pro_state"].HeaderText = "상품 상태";
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
         private void seller_changed(object sender, EventArgs e)
@@ -168,8 +220,9 @@ namespace JinTeamForSeller.Bus
             gb_seller.Visible = true;
             gb_pro.Visible = false;
             gb_cus.Visible = false;
+            tax_switch = false;
 
-            dataGridView1.DataSource = null;
+            main_GV.DataSource = null;
             ob_lst.Clear();
             sell_lst.Clear();
             type_s = "sel";
@@ -199,26 +252,31 @@ namespace JinTeamForSeller.Bus
 
         private void sell_GV()
         {
-            dataGridView1.DataSource = sell_lst;
+            main_GV.DataSource = sell_lst;
 
-            dataGridView1.Columns["Seller_pwd"].Visible = false;
-            dataGridView1.Columns["Seller_addr"].Visible = false;
-            dataGridView1.Columns["Seller_postal"].Visible = false;
-            dataGridView1.Columns["Seller_fax"].Visible = false;
-            dataGridView1.Columns["return_addr"].Visible = false;
-            dataGridView1.Columns["seller_no"].HeaderText = "판매자 번호";
-            dataGridView1.Columns["seller_id"].HeaderText = "아이디";
-            dataGridView1.Columns["seller_name"].HeaderText = "브랜드명";
-            dataGridView1.Columns["seller_boss"].HeaderText = "대표";
-            dataGridView1.Columns["seller_phone"].HeaderText = "전화번호";
-            dataGridView1.Columns["seller_email"].HeaderText = "e-mail";
-            dataGridView1.Columns["seller_state"].HeaderText = "판매자 상태";
-            dataGridView1.Columns["join_state"].HeaderText = "가입 상태";
-            dataGridView1.Columns["corporate_registration_no"].HeaderText = "사업증 번호";
+            main_GV.Columns["Seller_pwd"].Visible = false;
+            main_GV.Columns["Seller_addr"].Visible = false;
+            main_GV.Columns["Seller_postal"].Visible = false;
+            main_GV.Columns["Seller_fax"].Visible = false;
+            main_GV.Columns["return_addr"].Visible = false;
+            main_GV.Columns["seller_no"].HeaderText = "판매자 번호";
+            main_GV.Columns["seller_id"].HeaderText = "아이디";
+            main_GV.Columns["seller_name"].HeaderText = "브랜드명";
+            main_GV.Columns["seller_boss"].HeaderText = "대표";
+            main_GV.Columns["seller_phone"].HeaderText = "전화번호";
+            main_GV.Columns["seller_email"].HeaderText = "e-mail";
+            main_GV.Columns["seller_state"].HeaderText = "판매자 상태";
+            main_GV.Columns["join_state"].HeaderText = "가입 상태";
+            main_GV.Columns["corporate_registration_no"].HeaderText = "사업증 번호";
 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
+        /// <summary>
+        /// 자동삭제
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             sp = "delete_cus";
@@ -234,9 +292,9 @@ namespace JinTeamForSeller.Bus
             }
         }
 
+
         private void Admin_main_Load(object sender, EventArgs e)
         {
-
             rdo_all_seller.Checked = true;
             seller_changed(null, null);
         }
@@ -253,10 +311,10 @@ namespace JinTeamForSeller.Bus
                     //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index+"");
                     // 0 상품 번호 4 가격 2 판매자 번호 9 추천수
                     
-                    if (dataGridView1.Columns[e.ColumnIndex].Index == 4)
+                    if (main_GV.Columns[e.ColumnIndex].Index == 4)
                     {
-                        dataGridView1.DataSource = null;
-                        if (switch_pro)
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
                         {                          
                             pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
                             {
@@ -264,7 +322,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Price < b.Pro_Price) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -274,14 +332,14 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Price < b.Pro_Price) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         pro_GV();
                     }
-                    else if (dataGridView1.Columns[e.ColumnIndex].Index == 2)
+                    else if (main_GV.Columns[e.ColumnIndex].Index == 2)
                     {
-                        dataGridView1.DataSource = null;
-                        if (switch_pro)
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
                         {
                             pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
                             {
@@ -289,7 +347,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {                           
@@ -299,15 +357,15 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         pro_GV();
                         //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].HeaderText);
                     }
-                    else if (dataGridView1.Columns[e.ColumnIndex].Index == 9)
+                    else if (main_GV.Columns[e.ColumnIndex].Index == 9)
                     {
-                        dataGridView1.DataSource = null;
-                        if (switch_pro)
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
                         {
                             pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
                             {
@@ -315,7 +373,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Like < b.Pro_Like) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -325,7 +383,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Pro_Like < b.Pro_Like) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         pro_GV();
                     }
@@ -333,11 +391,11 @@ namespace JinTeamForSeller.Bus
                 else if(gb_seller.Visible)
                 {                  
                     // 0 번호
-                    if (dataGridView1.Columns[e.ColumnIndex].Index == 0)
+                    if (main_GV.Columns[e.ColumnIndex].Index == 0)
                     {
                         //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
-                        dataGridView1.DataSource = null;
-                        if (switch_pro)
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
                         {
                             sell_lst.Sort(delegate (Seller_Vo A, Seller_Vo b)
                             {
@@ -345,7 +403,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -355,20 +413,20 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Seller_NO < b.Seller_NO) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         sell_GV();
                     }
                 }
-                else   // gb_cus.visible
+                else if(gb_cus.Visible) // gb_cus.visible
                 {
                     //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
                     // 0 번호 8 나이 
-                    if (dataGridView1.Columns[e.ColumnIndex].Index == 0)
+                    if (main_GV.Columns[e.ColumnIndex].Index == 0)
                     {
                         //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
-                        dataGridView1.DataSource = null;
-                        if (switch_pro)
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
                         {
                             cus_lst.Sort(delegate (Customers_Vo A, Customers_Vo b)
                             {
@@ -376,7 +434,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_no < b.Cus_no) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -386,14 +444,14 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_no < b.Cus_no) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         cus_GV();
                     }
-                    else if (dataGridView1.Columns[e.ColumnIndex].Index == 8)
+                    else if (main_GV.Columns[e.ColumnIndex].Index == 8)
                     {
-                        dataGridView1.DataSource = null;
-                        if (switch_pro)
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
                         {
                             cus_lst.Sort(delegate (Customers_Vo A, Customers_Vo b)
                             {
@@ -401,7 +459,7 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_age < b.Cus_age) return 1;
                                 return 0;
                             });
-                            switch_pro = false;
+                            switch_pro = true;
                         }
                         else
                         {
@@ -411,9 +469,39 @@ namespace JinTeamForSeller.Bus
                                 else if (A.Cus_age < b.Cus_age) return -1;
                                 return 0;
                             });
-                            switch_pro = true;
+                            switch_pro = false;
                         }
                         cus_GV();
+                    }
+                }
+                else if (tax_switch)
+                {
+                    //MessageBox.Show(main_GV.Columns[e.ColumnIndex].Index + "");
+                    if (main_GV.Columns[e.ColumnIndex].Index == 0)
+                    {
+                        //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo b)
+                            {
+                                if (A.Pay_ID > b.Pay_ID) return -1;
+                                else if (A.Pay_ID < b.Pay_ID) return 1;
+                                return 0;
+                            });
+                            switch_pro = true;
+                        }
+                        else
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo b)
+                            {
+                                if (A.Pay_ID > b.Pay_ID) return 1;
+                                else if (A.Pay_ID < b.Pay_ID) return -1;
+                                return 0;
+                            });
+                            switch_pro = false;
+                        }
+                        pay_GV();
                     }
                 }
             }
@@ -421,40 +509,43 @@ namespace JinTeamForSeller.Bus
             {
                 if (gb_seller.Visible)
                 {
-                    seller_Detail sd = new seller_Detail(ob_lst[e.RowIndex]);
+                    Seller_Detail sd = new Seller_Detail(sell_lst[e.RowIndex]);
+                    sd.Owner = this;
                     sd.ShowDialog();                   
                     //sell_GV();
                 }
                 else if (gb_pro.Visible)
                 {
-                    pro_Detail pd = new pro_Detail(pro_lst[e.RowIndex],temp);
+                    Pro_Detail pd = new Pro_Detail(pro_lst[e.RowIndex],temp);
                     pd.Owner = this;
                     pd.ShowDialog();
                     //dataGridView1.Columns["pro_state"].
                     
                     //pro_GV();
                 }
-                else         // gb_cus.visible
+                else if (gb_cus.Visible)        // gb_cus.visible
                 {
-                    cus_Detail cd = new cus_Detail(ob_lst[e.RowIndex]);
+                    Cus_Detail cd = new Cus_Detail(cus_lst[e.RowIndex]);
                     cd.ShowDialog();
                     //cus_GV();
+                }
+                else if (tax_switch)
+                {
+                    Tax_Ex te = new Tax_Ex(tax_lst[e.RowIndex]);
+                    te.Owner = this;
+                    te.ShowDialog();
                 }
 
                 if (Temp)
                 {
                     btn_Refresh_Click(null, null);
-                }
-             
+                }            
             }         
         }
 
-
-
-
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            switch_pro = false;
+            //switch_pro = false;
             if (gb_seller.Visible)
             {              
                 seller_changed(null, null);              
@@ -463,10 +554,16 @@ namespace JinTeamForSeller.Bus
             {             
                 pro_changed(null, null);
             }
-            else         // gb_cus.visible
+            else if (gb_cus.Visible)        // gb_cus.visible
             {                
-                cus_Changed(null, null);                
+                cus_Changed(null, null);
+            }
+            else if (tax_switch)
+            {
+                Pay_changed();
             }
         }
+
+        
     }
 }

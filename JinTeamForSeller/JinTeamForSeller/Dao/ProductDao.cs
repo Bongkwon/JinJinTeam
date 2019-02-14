@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace JinTeamForSeller.Dao
 {
-    class ProductDao
+    class ProductDAO
     {
         DBConnection con = new DBConnection();
 

@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace JinTeamForAdmin.Bus
 {
-    public partial class cus_Detail : Form
+    public partial class Cus_Detail : Form
     {
         private Customers_Vo cv;
 
-        public cus_Detail()
+        public Cus_Detail()
         {
             InitializeComponent();
         }
 
-        public cus_Detail(object cv) : this()
+        public Cus_Detail(object cv) : this()
         {
             this.cv = cv as Customers_Vo;
         }

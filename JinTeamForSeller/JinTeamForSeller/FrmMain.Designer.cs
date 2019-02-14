@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnInqury = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnSellAndTrans = new System.Windows.Forms.Button();
@@ -45,14 +45,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnInqury
             // 
-            this.button2.Location = new System.Drawing.Point(243, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(225, 202);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "문의관리";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnInqury.Location = new System.Drawing.Point(243, 12);
+            this.btnInqury.Name = "btnInqury";
+            this.btnInqury.Size = new System.Drawing.Size(225, 202);
+            this.btnInqury.TabIndex = 1;
+            this.btnInqury.Text = "문의관리";
+            this.btnInqury.UseVisualStyleBackColor = true;
+            this.btnInqury.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -90,7 +91,7 @@
             this.Controls.Add(this.btnSellAndTrans);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnInqury);
             this.Controls.Add(this.button1);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
@@ -102,7 +103,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnInqury;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnSellAndTrans;

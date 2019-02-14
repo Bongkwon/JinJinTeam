@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JinTeamForSeller.Vo;
 
 namespace JinTeamForSeller.Dao
 {
@@ -57,6 +58,23 @@ namespace JinTeamForSeller.Dao
                 throw;
             }
             return result;
+        }
+
+        public SellerVO SearchSellerID(SellerVO seller)
+        {
+            List<object> lstObj = new List<object>();
+            string query = "SearchSellerID";
+            SqlParameter[] sqlp = { new SqlParameter("corpRegiNo", seller.Corporate_registration_no) };
+            lstObj = con.SendReadQuery(query, sqlp);
+            try
+            {
+                seller = (SellerVO)lstObj[0];
+                return seller;
+            }
+            catch (Exception)
+            {
+                throw;
+            }                        
         }
     }
 }

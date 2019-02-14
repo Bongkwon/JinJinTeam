@@ -29,6 +29,13 @@ namespace JinTeamForSeller.Vo
             get { return user_Ship_ID; }
             set { user_Ship_ID = value; }
         }
+        private string stock_ID;
+
+        public string Stock_ID
+        {
+            get { return stock_ID; }
+            set { stock_ID = value; }
+        }
         private int seller_No;
 
         public int Seller_No
@@ -58,19 +65,76 @@ namespace JinTeamForSeller.Vo
             get { return waybill_ID; }
             set { waybill_ID = value; }
         }
+        private string cus_name;
 
-        public Payment_InfoVO(int pay_ID, string order_ID, string user_Ship_ID, int seller_No, int pay_count ,int pay_Price, string waybill_ID)
+        public string Cus_name
+        {
+            get { return cus_name; }
+            set { cus_name = value; }
+        }
+        private string user_addr;
+
+        public string User_addr
+        {
+            get { return user_addr; }
+            set { user_addr = value; }
+        }
+        private string user_name;
+
+        public string User_name
+        {
+            get { return user_name; }
+            set { user_name = value; }
+        }
+
+        private string order_require;
+
+        
+        private string transport_state;
+
+        public string Transport_state
+        {
+            get { return transport_state; }
+            set { transport_state = value; }
+        }
+        public string Order_require
+        {
+            get { return order_require; }
+            set { order_require = value; }
+        }
+        private string ship_require;
+
+        public string Ship_require
+        {
+            get { return ship_require; }
+            set { ship_require = value; }
+        }
+
+        public Payment_InfoVO(int pay_ID, string order_ID, string user_Ship_ID, int seller_No, int pay_count, int pay_Price, string waybill_ID)
         {
             this.pay_ID = pay_ID;
             this.order_ID = order_ID;
             this.user_Ship_ID = user_Ship_ID;
             this.seller_No = seller_No;
+            this.pay_count = pay_count;
             this.pay_Price = pay_Price;
             this.waybill_ID = waybill_ID;
         }
+
         public Payment_InfoVO()
         {
 
+        }
+
+        public Payment_InfoVO(int pay_ID, string order_ID, string user_Ship_ID, int seller_No, int pay_count, int pay_Price, string waybill_ID, string cus_name, string user_addr, string stock_ID, string order_require, string ship_require, string transport_state, string user_name) : this(pay_ID, order_ID, user_Ship_ID, seller_No, pay_count, pay_Price, waybill_ID)
+        {
+            this.cus_name = cus_name;
+            this.user_addr = user_addr;
+            this.stock_ID = stock_ID;
+            this.order_require = order_require;
+            this.ship_require = ship_require;
+            this.transport_state = transport_state;
+            this.user_name = user_name;
         }
     }
 }

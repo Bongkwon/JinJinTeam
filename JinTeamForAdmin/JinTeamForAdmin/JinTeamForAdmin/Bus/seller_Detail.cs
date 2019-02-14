@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
+using JinTeamForSeller.Bus;
 
 namespace JinTeamForAdmin.Bus
 {
-    public partial class seller_Detail : Form
+    public partial class Seller_Detail : Form
     {
         private Seller_Vo sv;
         bool s_s;
         bool j_s;
-        public seller_Detail()
+        public Seller_Detail()
         {
             InitializeComponent();
         }
 
-        public seller_Detail(object sv) : this()
+        public Seller_Detail(object sv) : this()
         {
             this.sv = (Seller_Vo)sv;
         }
@@ -94,6 +95,8 @@ namespace JinTeamForAdmin.Bus
                     if (new Admin_Dao().Update_state_ob(sv_sub,type_u))
                     {
                         MessageBox.Show("수정 성공");
+                        Admin_main ad = (Admin_main)Owner;
+                        ad.Temp = true;
                     }
                 }
                 else
