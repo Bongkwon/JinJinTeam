@@ -168,7 +168,8 @@ namespace JinTeamForSeller.Bus
         private void Inq_GV()
         {
             //main_GV.DataSource = inq_lst_sub;
-
+           
+            
             main_GV.Columns["inquire_image"].Visible = false;
             main_GV.Columns["inquire_body"].Visible = false;
             main_GV.Columns["inquire_email"].Visible = false;
@@ -182,9 +183,11 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["inquire_title"].HeaderText = "문의 제목";
             main_GV.Columns["re_date"].HeaderText = "답변 날짜";
             main_GV.Columns["inquire_date"].HeaderText = "문의 날짜";
+            //main_GV.Columns["inquire_title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             //main_GV.Columns["inquire_email"].Visible = false;
-            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void Pay_changed()
@@ -218,7 +221,7 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["seller_id"].HeaderText = "브랜드명";
             main_GV.Columns["seller_boss"].HeaderText = "대표";
             main_GV.Columns["corporate_registration_no"].HeaderText = "사업자 번호";
-
+            main_GV.Columns["stock_id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             main_GV.Columns["pay_price"].HeaderText = "상품 가격";
             main_GV.Columns["pay_count"].HeaderText = "결제 수량";
             main_GV.Columns["pay_date"].HeaderText = "결제 날짜";
@@ -226,7 +229,7 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["seller_addr"].Visible = false;
             main_GV.Columns["output_date_tax"].HeaderText = "출력 날짜";
 
-            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void cus_Changed(object sender, EventArgs e)
@@ -272,6 +275,7 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["cus_addr"].Visible = false;
             main_GV.Columns["cus_no"].HeaderText = "고객 번호";
             main_GV.Columns["cus_id"].HeaderText = "아이디";
+            main_GV.Columns["cus_id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             main_GV.Columns["cus_phone"].HeaderText = "전화번호";
             main_GV.Columns["cus_name"].HeaderText = "이름";
             main_GV.Columns["cus_gender"].HeaderText = "성별";
@@ -280,7 +284,7 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["withdrawal_date"].HeaderText = "탈퇴 날짜";
             main_GV.Columns["join_date"].HeaderText = "가입 날짜";
 
-            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void pro_changed(object sender, EventArgs e)
@@ -319,6 +323,9 @@ namespace JinTeamForSeller.Bus
             main_GV.DataSource = null;
             main_GV.DataSource = pro_lst;
 
+            main_GV.GridColor = Color.Pink;
+            main_GV.ForeColor = Color.PowderBlue;
+
             main_GV.Columns["cat_id"].Visible = false;
             main_GV.Columns["main_comment"].Visible = false;
             main_GV.Columns["sub_comment"].Visible = false;
@@ -330,9 +337,10 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["pro_id"].HeaderText = "상품 번호";
             main_GV.Columns["seller_no"].HeaderText = "판매자 번호";
             main_GV.Columns["pro_name"].HeaderText = "상품 이름";
+            main_GV.Columns["pro_name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             main_GV.Columns["pro_price"].HeaderText = "상품 가격";
             main_GV.Columns["pro_state"].HeaderText = "상품 상태";
-            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void seller_changed(object sender, EventArgs e)
@@ -382,15 +390,17 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["return_addr"].Visible = false;
             main_GV.Columns["seller_no"].HeaderText = "판매자 번호";
             main_GV.Columns["seller_id"].HeaderText = "아이디";
+            main_GV.Columns["seller_id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             main_GV.Columns["seller_name"].HeaderText = "브랜드명";
             main_GV.Columns["seller_boss"].HeaderText = "대표";
             main_GV.Columns["seller_phone"].HeaderText = "전화번호";
             main_GV.Columns["seller_email"].HeaderText = "e-mail";
+            main_GV.Columns["seller_email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             main_GV.Columns["seller_state"].HeaderText = "판매자 상태";
             main_GV.Columns["join_state"].HeaderText = "가입 상태";
             main_GV.Columns["corporate_registration_no"].HeaderText = "사업증 번호";
 
-            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         /// <summary>
@@ -762,5 +772,9 @@ namespace JinTeamForSeller.Bus
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

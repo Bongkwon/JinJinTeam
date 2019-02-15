@@ -52,6 +52,7 @@
             this.cb_inquire = new System.Windows.Forms.ComboBox();
             this.rd_sel_inq = new System.Windows.Forms.RadioButton();
             this.rd_cus_inq = new System.Windows.Forms.RadioButton();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.main_GV)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // main_GV
             // 
+            this.main_GV.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.main_GV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.main_GV.Location = new System.Drawing.Point(12, 69);
             this.main_GV.MultiSelect = false;
@@ -146,6 +148,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.seller목록ToolStripMenuItem,
             this.customer목록ToolStripMenuItem,
@@ -258,9 +261,10 @@
             // 
             // btn_Refresh
             // 
-            this.btn_Refresh.Location = new System.Drawing.Point(915, 39);
+            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Refresh.Location = new System.Drawing.Point(917, 39);
             this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(75, 23);
+            this.btn_Refresh.Size = new System.Drawing.Size(73, 23);
             this.btn_Refresh.TabIndex = 16;
             this.btn_Refresh.Text = "새로고침";
             this.btn_Refresh.UseVisualStyleBackColor = true;
@@ -268,6 +272,7 @@
             // 
             // gb_inq
             // 
+            this.gb_inq.BackColor = System.Drawing.Color.LightGray;
             this.gb_inq.Controls.Add(this.cb_inquire);
             this.gb_inq.Controls.Add(this.rd_sel_inq);
             this.gb_inq.Controls.Add(this.rd_cus_inq);
@@ -309,11 +314,29 @@
             this.rd_cus_inq.UseVisualStyleBackColor = true;
             this.rd_cus_inq.CheckedChanged += new System.EventHandler(this.inq_changed);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.LightGray;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.button2.Location = new System.Drawing.Point(967, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 33);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(1002, 496);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.gb_inq);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.button1);
@@ -322,6 +345,7 @@
             this.Controls.Add(this.gb_pro);
             this.Controls.Add(this.main_GV);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin_main";
             this.Text = "Admin_main";
@@ -368,5 +392,6 @@
         private System.Windows.Forms.RadioButton rd_cus_inq;
         private System.Windows.Forms.ComboBox cb_inquire;
         private System.Windows.Forms.ToolStripMenuItem 매출관리ToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
     }
 }
