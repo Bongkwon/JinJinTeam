@@ -55,164 +55,105 @@ namespace JinTeamForAdmin.Bus
 
             if (rd_Price.Checked && rd_dd.Checked)
             {
-                sales_sub_lst.Clear();
-                textBox1.Clear();
-                var result = from sales in sales_lst
-                             orderby sales.Pay_date descending
-                             group sales by sales.Pay_date;
-
-                //group sales by sales.Pay_date.Substring(sales.Pay_date.IndexOf("-") + 1, 2);
-
-                foreach (var itemG in result)
-                {
-                    int price = 0;
-                    int count = 0;
-                    string name = "";
-                    int mm = 0;
-                    textBox1.Text += itemG.Key + " 금액 : ";
-
-                    foreach (var itemK in itemG)
-                    {
-                        price += (itemK.Pay_price * itemK.Pay_count);
-                        //count += itemK.Pay_count;
-                        count += 1;
-                        name = itemK.Seller_ID;
-                        mm = Int32.Parse(itemK.Pay_date_m);
-                    }
-                    textBox1.Text += price.ToString() + " 주문 건수 : " + count.ToString() + " " + name + Environment.NewLine;
-                    if (sales_sub_lst.Count < 3)
-                    {
-                        sales_sub_lst.Add(new Sales_manager_Vo
-                        {
-                            Seller_ID = name,
-                            Pay_price = price,
-                            Pay_count = count,
-                            Pay_date = itemG.Key.Substring(5),
-                            Pay_date_m = mm.ToString()
-                        });
-                    }
-                }
-                //textBox1.Text += sales_sub_lst[0].Pay_date + sales_sub_lst[0].Pay_price;
-                sales_sub_lst.Reverse();
-
-                chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", "Pay_price", null);
-            }
-            else if (rd_Price.Checked && rd_mm.Checked)
-            {
-                sales_sub_lst.Clear();
-                textBox1.Clear();
-                var result = from sales in sales_lst
-                                 //orderby sales.Pay_date descending
-                             group sales by sales.Pay_date_m;
-
-                foreach (var itemG in result)
-                {
-                    int price = 0;
-                    int count = 0;
-                    string name = "";
-                    int mm = 0;
-                    textBox1.Text += itemG.Key;
-                    textBox1.Text += Environment.NewLine;
-                    foreach (var itemK in itemG)
-                    {
-                        price += (itemK.Pay_price * itemK.Pay_count);
-                        count += 1;
-                        name = itemK.Seller_ID;
-                        mm = Int32.Parse(itemK.Pay_date_m);
-                        textBox1.Text += " : " + itemK.Pay_date + " " + itemK.Pay_price + " " + price + " " + count;
-                        textBox1.Text += Environment.NewLine;
-                    }
-                    if (sales_sub_lst.Count < 3)
-                    {
-                        sales_sub_lst.Add(new Sales_manager_Vo
-                        {
-                            Seller_ID = name,
-                            Pay_date_m = mm.ToString(),
-                            Pay_count = count,
-                            Pay_price = price
-                        });
-                    }
-                }
-
-                chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date_m", "Pay_price", null);
-            }
-            else if (rd_Count.Checked && rd_mm.Checked)
-            {
-                sales_sub_lst.Clear();
-                textBox1.Clear();
-                var result = from sales in sales_lst
-                                 //orderby sales.Pay_date descending
-                             group sales by sales.Pay_date_m;
-
-                foreach (var itemG in result)
-                {
-                    int price = 0;
-                    int count = 0;
-                    string name = "";
-                    int mm = 0;
-                    textBox1.Text += itemG.Key;
-                    textBox1.Text += Environment.NewLine;
-                    foreach (var itemK in itemG)
-                    {
-                        price += (itemK.Pay_price * itemK.Pay_count);
-                        count += 1;
-                        name = itemK.Seller_ID;
-                        mm = Int32.Parse(itemK.Pay_date_m);
-                        textBox1.Text += " : " + itemK.Pay_date + " " + itemK.Pay_price + " " + price + " " + count;
-                        textBox1.Text += Environment.NewLine;
-                    }
-                    if (sales_sub_lst.Count < 3)
-                    {
-                        sales_sub_lst.Add(new Sales_manager_Vo
-                        {
-                            Seller_ID = name,
-                            Pay_date_m = mm.ToString(),
-                            Pay_count = count,
-                            Pay_price = price
-                        });
-                    }
-                }
-
-                chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date_m", "Pay_count", null);
+                Sales_day("Pay_price");
             }
             else if (rd_Count.Checked && rd_dd.Checked)
             {
-                sales_sub_lst.Clear();
-                textBox1.Clear();
-                var result = from sales in sales_lst
-                             orderby sales.Pay_date descending
-                             group sales by sales.Pay_date;
-
-                //group sales by sales.Pay_date.Substring(sales.Pay_date.IndexOf("-") + 1, 2);
-
-                foreach (var itemG in result)
-                {
-                    int price = 0;
-                    int count = 0;
-                    string name = "";
-                    int mm = 0;
-                    textBox1.Text += itemG.Key + " 금액 : ";
-
-                    foreach (var itemK in itemG)
-                    {
-                        price += (itemK.Pay_price * itemK.Pay_count);
-                        //count += itemK.Pay_count;
-                        count += 1;
-                        name = itemK.Seller_ID;
-                        mm = Int32.Parse(itemK.Pay_date_m);
-                    }
-                    textBox1.Text += price.ToString() + " 주문 건수 : " + count.ToString() + " " + name + Environment.NewLine;
-                    if (sales_sub_lst.Count < 3)
-                    {
-                        sales_sub_lst.Add(new Sales_manager_Vo { Seller_ID = name, Pay_price = price, Pay_count = count, Pay_date = itemG.Key.Substring(5), Pay_date_m = mm.ToString() });
-                    }
-                }
-                //textBox1.Text += sales_sub_lst[0].Pay_date + sales_sub_lst[0].Pay_price;
-                sales_sub_lst.Reverse();
-
-                chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", "Pay_count", null);
+                Sales_day("Pay_count");           
+            }
+            else if (rd_Price.Checked && rd_mm.Checked)
+            {
+                Sales_month("Pay_price");
+            }
+            else if (rd_Count.Checked && rd_mm.Checked)
+            {
+                Sales_month("Pay_count");                
             }
         }
 
+        private void Sales_month(string pay_type)
+        {
+            sales_sub_lst.Clear();
+            textBox1.Clear();
+            var result = from sales in sales_lst
+                             //orderby sales.Pay_date descending
+                         group sales by sales.Pay_date_m;
+
+            foreach (var itemG in result)
+            {
+                int price = 0;
+                int count = 0;
+                string name = "";
+                int mm = 0;
+                textBox1.Text += itemG.Key;
+                textBox1.Text += Environment.NewLine;
+                foreach (var itemK in itemG)
+                {
+                    price += (itemK.Pay_price * itemK.Pay_count);
+                    count += 1;
+                    name = itemK.Seller_ID;
+                    mm = Int32.Parse(itemK.Pay_date_m);
+                    textBox1.Text += " : " + itemK.Pay_date + " " + itemK.Pay_price + " " + price + " " + count;
+                    textBox1.Text += Environment.NewLine;
+                }
+                if (sales_sub_lst.Count < 3)
+                {
+                    sales_sub_lst.Add(new Sales_manager_Vo
+                    {
+                        Seller_ID = name,
+                        Pay_date_m = mm.ToString(),
+                        Pay_count = count,
+                        Pay_price = price
+                    });
+                }
+            }
+
+            chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date_m", pay_type, null);
+        }
+        private void Sales_day( string pay_type)
+        {
+            sales_sub_lst.Clear();
+            textBox1.Clear();
+            var result = from sales in sales_lst
+                         orderby sales.Pay_date descending
+                         group sales by sales.Pay_date;
+
+            //group sales by sales.Pay_date.Substring(sales.Pay_date.IndexOf("-") + 1, 2);
+
+            foreach (var itemG in result)
+            {
+                int price = 0;
+                int count = 0;
+                string name = "";
+                int mm = 0;
+                textBox1.Text += itemG.Key + " 금액 : ";
+
+                foreach (var itemK in itemG)
+                {
+                    price += (itemK.Pay_price * itemK.Pay_count);
+                    //count += itemK.Pay_count;
+                    count += 1;
+                    name = itemK.Seller_ID;
+                    mm = Int32.Parse(itemK.Pay_date_m);
+                }
+                textBox1.Text += price.ToString() + " 주문 건수 : " + count.ToString() + " " + name + Environment.NewLine;
+                if (sales_sub_lst.Count < 3)
+                {
+                    sales_sub_lst.Add(new Sales_manager_Vo
+                    {
+                        Seller_ID = name,
+                        Pay_price = price,
+                        Pay_count = count,
+                        Pay_date = itemG.Key.Substring(5),
+                        Pay_date_m = mm.ToString()
+                    });
+                }
+            }
+            //textBox1.Text += sales_sub_lst[0].Pay_date + sales_sub_lst[0].Pay_price;
+            sales_sub_lst.Reverse();
+
+           // chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", "Pay_price", null);
+            chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", pay_type, null);
+        }
     }
 }
