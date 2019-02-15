@@ -44,18 +44,20 @@ namespace JinTeamForAdmin.Bus
             lbl_seller_boss.Text = tv.Seller_boss;
             lbl_seller_addr.Text = tv.Seller_addr;
 
-            lbl_pay_count.Text = tv.Pay_count.ToString();
+            lbl_pay_count.Text = tv.Pay_count.ToString("#,##0");
             
             lbl_pay_date_1.Text = tv.Pay_date.Substring(0, tv.Pay_date.IndexOf('오'));
 
             lbl_pay_date_2.Text = tv.Pay_date.Substring(5,5);
 
             lbl_pay_price_1.Text = tv.Pay_price.ToString();
-            lbl_pay_price_6.Text = (tv.Pay_price*tv.Pay_count).ToString();
-            lbl_pay_price_2.Text = (tv.Pay_price*tv.Pay_count * 0.9).ToString();
-            lbl_pay_price_3.Text = (tv.Pay_price * 0.9).ToString();
-            lbl_pay_price_5.Text = (tv.Pay_price * tv.Pay_count * 0.1).ToString();
-            lbl_pay_price_4.Text = (tv.Pay_price * 0.1).ToString();
+            int pay_price = Int32.Parse(tv.Pay_price.Replace(",", ""));
+
+            lbl_pay_price_6.Text = (pay_price * tv.Pay_count).ToString("#,##0");
+            lbl_pay_price_2.Text = (pay_price * tv.Pay_count * 0.9).ToString("#,##0");
+            lbl_pay_price_3.Text = (pay_price * 0.9).ToString("#,##0");
+            lbl_pay_price_5.Text = (pay_price * tv.Pay_count * 0.1).ToString("#,##0");
+            lbl_pay_price_4.Text = (pay_price * 0.1).ToString("#,##0");
 
 
         }

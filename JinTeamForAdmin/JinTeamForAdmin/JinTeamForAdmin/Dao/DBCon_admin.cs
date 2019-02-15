@@ -74,7 +74,9 @@ namespace JinTeamForAdmin
                             pv.Cat_ID = sdr["cat_id"].ToString();
                             pv.Seller_NO = Int32.Parse(sdr["seller_no"].ToString());
                             pv.Pro_Name = sdr["pro_name"].ToString();
-                            pv.Pro_Price = Int32.Parse(sdr["pro_price"].ToString());
+                            //pv.Pro_Price = Int32.Parse(sdr["pro_price"].ToString());
+                            int Pro_Price = Int32.Parse(sdr["pro_price"].ToString());
+                            pv.Pro_Price = Pro_Price.ToString("#,##0");
                             pv.Main_Comment = sdr["main_comment"].ToString();
                             pv.Sub_Comment = sdr["sub_comment"].ToString();
                             pv.Main_Image = sdr["main_image"].ToString();
@@ -147,7 +149,7 @@ namespace JinTeamForAdmin
                             Output_date_tax = sdr["Output_date_tax"].ToString(),
                             Pay_count = Int32.Parse(sdr["Pay_count"].ToString()),
                             Pay_date = sdr["Pay_date"].ToString(),
-                            Pay_price = Int32.Parse(sdr["Pay_price"].ToString()),
+                            Pay_price = Int32.Parse(sdr["Pay_price"].ToString()).ToString("#,##0"),
                             Seller_boss = sdr["Seller_boss"].ToString(),
                             Seller_ID = sdr["Seller_ID"].ToString(),
                             Stock_ID = sdr["Stock_ID"].ToString(),

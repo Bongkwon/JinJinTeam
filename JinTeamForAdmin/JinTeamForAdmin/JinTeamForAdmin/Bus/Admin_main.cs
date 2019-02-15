@@ -219,7 +219,7 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["seller_boss"].HeaderText = "대표";
             main_GV.Columns["corporate_registration_no"].HeaderText = "사업자 번호";
 
-            main_GV.Columns["pay_price"].HeaderText = "결제 가격";
+            main_GV.Columns["pay_price"].HeaderText = "상품 가격";
             main_GV.Columns["pay_count"].HeaderText = "결제 수량";
             main_GV.Columns["pay_date"].HeaderText = "결제 날짜";
             main_GV.Columns["seller_addr"].HeaderText = "주소";
@@ -431,28 +431,32 @@ namespace JinTeamForSeller.Bus
             {
                 if (gb_pro.Visible)
                 {              
-                    //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index+"");
                     // 0 상품 번호 4 가격 2 판매자 번호 9 추천수
                     
                     if (main_GV.Columns[e.ColumnIndex].Index == 4)
                     {
                         main_GV.DataSource = null;
                         if (!switch_pro)
-                        {                          
-                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
+                        {
+
+                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo B)
                             {
-                                if (A.Pro_Price > b.Pro_Price) return -1;
-                                else if (A.Pro_Price < b.Pro_Price) return 1;
+                                int a_value = Int32.Parse(A.Pro_Price.Replace(",",""));
+                                int b_value = Int32.Parse(B.Pro_Price.Replace(",",""));
+                                if (a_value > b_value) return -1;
+                                else if (a_value < b_value) return 1;
                                 return 0;
                             });
                             switch_pro = true;
                         }
                         else
                         {
-                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
+                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo B)
                             {
-                                if (A.Pro_Price > b.Pro_Price) return 1;
-                                else if (A.Pro_Price < b.Pro_Price) return -1;
+                                int a_value = Int32.Parse(A.Pro_Price.Replace(",", ""));
+                                int b_value = Int32.Parse(B.Pro_Price.Replace(",", ""));
+                                if (a_value > b_value) return 1;
+                                else if (a_value < b_value) return -1;
                                 return 0;
                             });
                             switch_pro = false;
@@ -464,20 +468,20 @@ namespace JinTeamForSeller.Bus
                         main_GV.DataSource = null;
                         if (!switch_pro)
                         {
-                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
+                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo B)
                             {
-                                if (A.Seller_NO > b.Seller_NO) return -1;
-                                else if (A.Seller_NO < b.Seller_NO) return 1;
+                                if (A.Seller_NO > B.Seller_NO) return -1;
+                                else if (A.Seller_NO < B.Seller_NO) return 1;
                                 return 0;
                             });
                             switch_pro = true;
                         }
                         else
                         {                           
-                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
+                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo B)
                             {
-                                if (A.Seller_NO > b.Seller_NO) return 1;
-                                else if (A.Seller_NO < b.Seller_NO) return -1;
+                                if (A.Seller_NO > B.Seller_NO) return 1;
+                                else if (A.Seller_NO < B.Seller_NO) return -1;
                                 return 0;
                             });
                             switch_pro = false;
@@ -490,20 +494,20 @@ namespace JinTeamForSeller.Bus
                         main_GV.DataSource = null;
                         if (!switch_pro)
                         {
-                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
+                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo B)
                             {
-                                if (A.Pro_Like > b.Pro_Like) return -1;
-                                else if (A.Pro_Like < b.Pro_Like) return 1;
+                                if (A.Pro_Like > B.Pro_Like) return -1;
+                                else if (A.Pro_Like < B.Pro_Like) return 1;
                                 return 0;
                             });
                             switch_pro = true;
                         }
                         else
                         {
-                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo b)
+                            pro_lst.Sort(delegate (Products_Vo A, Products_Vo B)
                             {
-                                if (A.Pro_Like > b.Pro_Like) return 1;
-                                else if (A.Pro_Like < b.Pro_Like) return -1;
+                                if (A.Pro_Like > B.Pro_Like) return 1;
+                                else if (A.Pro_Like < B.Pro_Like) return -1;
                                 return 0;
                             });
                             switch_pro = false;
@@ -599,63 +603,89 @@ namespace JinTeamForSeller.Bus
                 }
                 else if (tax_switch)
                 {
-                    //MessageBox.Show(main_GV.Columns[e.ColumnIndex].Index + "");
+                    // 0 번호 5 가격 6 수량
                     if (main_GV.Columns[e.ColumnIndex].Index == 0)
                     {
-                        //MessageBox.Show(dataGridView1.Columns[e.ColumnIndex].Index + "");
                         main_GV.DataSource = null;
                         if (!switch_pro)
                         {
-                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo b)
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo B)
                             {
-                                if (A.Pay_ID > b.Pay_ID) return -1;
-                                else if (A.Pay_ID < b.Pay_ID) return 1;
+                                if (A.Pay_ID > B.Pay_ID) return -1;
+                                else if (A.Pay_ID < B.Pay_ID) return 1;
                                 return 0;
                             });
                             switch_pro = true;
                         }
                         else
                         {
-                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo b)
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo B)
                             {
-                                if (A.Pay_ID > b.Pay_ID) return 1;
-                                else if (A.Pay_ID < b.Pay_ID) return -1;
+                                if (A.Pay_ID > B.Pay_ID) return 1;
+                                else if (A.Pay_ID < B.Pay_ID) return -1;
                                 return 0;
                             });
                             switch_pro = false;
                         }
                         pay_GV();
                     }
+                    else if (main_GV.Columns[e.ColumnIndex].Index == 5)
+                    {
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo B) {
+                                var a_value = Int32.Parse(A.Pay_price.Replace(",", ""));
+                                var b_value = Int32.Parse(B.Pay_price.Replace(",", ""));
+                                if (a_value > b_value) return -1;
+                                else if (a_value < b_value) return 1;
+                                return 0;
+                            });
+                            switch_pro = true;
+                        }
+                        else
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo B) {
+                                var a_value = Int32.Parse(A.Pay_price.Replace(",", ""));
+                                var b_value = Int32.Parse(B.Pay_price.Replace(",", ""));
+                                if (a_value > b_value) return 1;
+                                else if (a_value < b_value) return -1;
+                                return 0;
+                            });
+                            switch_pro = false;
+                        }
+
+                        pay_GV();
+                    }
+                    else if (main_GV.Columns[e.ColumnIndex].Index == 6)
+                    {
+                        main_GV.DataSource = null;
+                        if (!switch_pro)
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo B) {
+
+                                if (A.Pay_count > B.Pay_count) return -1;
+                                else if (A.Pay_count < B.Pay_count) return 1;
+                                return 0;
+                            });
+                            switch_pro = true;
+                        }
+                        else
+                        {
+                            tax_lst.Sort(delegate (TaxBill_Vo A, TaxBill_Vo B) {
+
+                                if (A.Pay_count > B.Pay_count) return 1;
+                                else if (A.Pay_count < B.Pay_count) return -1;
+                                return 0;
+                            });
+                            switch_pro = false;
+                        }
+
+                        pay_GV();
+                    }
                 }
-                //else if (gb_inq.Visible)
-                //{
-                //    if (main_GV.Columns[e.ColumnIndex].Index == 0)
-                //    {
-                //        main_GV.DataSource = null;
-                //        if (!switch_pro)
-                //        {
-                //            inq_lst_sub.Sort(delegate (Inquire_Admin_Vo A, Inquire_Admin_Vo B)
-                //            {
-                //                if (A.Inquire_no > B.Inquire_no) return -1;
-                //                else if (A.Inquire_no < B.Inquire_no) return 1;
-                //                return 0;
-                //            });
-                //            switch_pro = true;
-                //        }
-                //        else
-                //        {
-                //            inq_lst_sub.Sort(delegate (Inquire_Admin_Vo A, Inquire_Admin_Vo B)
-                //            {
-                //                if (A.Inquire_no > B.Inquire_no) return 1;
-                //                else if (A.Inquire_no < B.Inquire_no) return -1;
-                //                return 0;
-                //            });
-                //            switch_pro = false;
-                //        }
-                //        //main_GV.DataSource = inq_lst_sub;
-                //        Inq_GV();
-                //    }
-                //}
+                
+               
             }
             else
             {

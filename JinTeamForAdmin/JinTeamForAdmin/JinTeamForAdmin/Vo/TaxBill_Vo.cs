@@ -43,9 +43,9 @@ namespace JinTeamForAdmin.Vo
             get { return corporate_registration_no; }
             set { corporate_registration_no = value; }
         }
-        private int pay_price;
+        private string pay_price;
 
-        public int Pay_price
+        public string Pay_price
         {
             get { return pay_price; }
             set { pay_price = value; }

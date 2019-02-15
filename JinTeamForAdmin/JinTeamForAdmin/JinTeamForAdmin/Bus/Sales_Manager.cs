@@ -41,41 +41,45 @@ namespace JinTeamForAdmin.Bus
                 sales_lst.Add((Sales_manager_Vo)item);
             }
 
-            dataGridView1.DataSource = sales_lst;
+            //dataGridView1.DataSource = sales_lst;
 
 
             //textBox1.Text += sales_sub_lst[0].Pay_date + sales_sub_lst[0].Pay_price;
 
             rd_Price.Checked = true;
             rd_dd.Checked = true;
+            chart_sales.Series[0].Name = "액수";
         }
 
 
         private void rd_CheckedChanged(object sender, EventArgs e)
         {
-
             if (rd_Price.Checked && rd_dd.Checked)
             {
                 Sales_day("Pay_price");
+                chart_sales.Series[0].Name = "액수";
             }
             else if (rd_Count.Checked && rd_dd.Checked)
             {
                 Sales_day("Pay_count");
+                chart_sales.Series[0].Name = "건수";
             }
             else if (rd_Price.Checked && rd_mm.Checked)
             {
                 Sales_month("Pay_price");
+                chart_sales.Series[0].Name = "액수";
             }
             else if (rd_Count.Checked && rd_mm.Checked)
             {
                 Sales_month("Pay_count");
+                chart_sales.Series[0].Name = "건수";
             }
         }
 
         private void Sales_month(string pay_type)
         {
             sales_sub_lst.Clear();
-            textBox1.Clear();
+            //textBox1.Clear();
             var result = from sales in sales_lst
                              //orderby sales.Pay_date descending
                          group sales by sales.Pay_date_m;
@@ -86,16 +90,16 @@ namespace JinTeamForAdmin.Bus
                 int count = 0;
                 string name = "";
                 int mm = 0;
-                textBox1.Text += itemG.Key;
-                textBox1.Text += Environment.NewLine;
+                //textBox1.Text += itemG.Key;
+                //textBox1.Text += Environment.NewLine;
                 foreach (var itemK in itemG)
                 {
                     price += (itemK.Pay_price * itemK.Pay_count);
                     count += 1;
                     name = itemK.Seller_ID;
                     mm = Int32.Parse(itemK.Pay_date_m);
-                    textBox1.Text += " : " + itemK.Pay_date + " " + itemK.Pay_price + " " + price + " " + count;
-                    textBox1.Text += Environment.NewLine;
+                    //textBox1.Text += " : " + itemK.Pay_date + " " + itemK.Pay_price + " " + price + " " + count;
+                    //textBox1.Text += Environment.NewLine;
                 }
                 if (sales_sub_lst.Count < 3)
                 {
@@ -109,12 +113,12 @@ namespace JinTeamForAdmin.Bus
                 }
             }
 
-            chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date_m", pay_type, null);
+            chart_sales.Series[0].Points.DataBind(sales_sub_lst, "pay_date_m", pay_type, null);
         }
         private void Sales_day(string pay_type)
         {
             sales_sub_lst.Clear();
-            textBox1.Clear();
+            //textBox1.Clear();
             var result = from sales in sales_lst
                          orderby sales.Pay_date descending
                          group sales by sales.Pay_date;
@@ -127,7 +131,7 @@ namespace JinTeamForAdmin.Bus
                 int count = 0;
                 string name = "";
                 int mm = 0;
-                textBox1.Text += itemG.Key + " 금액 : ";
+                //textBox1.Text += itemG.Key + " 금액 : ";
 
                 foreach (var itemK in itemG)
                 {
@@ -137,7 +141,7 @@ namespace JinTeamForAdmin.Bus
                     name = itemK.Seller_ID;
                     mm = Int32.Parse(itemK.Pay_date_m);
                 }
-                textBox1.Text += price.ToString() + " 주문 건수 : " + count.ToString() + " " + name + Environment.NewLine;
+                //textBox1.Text += price.ToString() + " 주문 건수 : " + count.ToString() + " " + name + Environment.NewLine;
                 if (sales_sub_lst.Count < 3)
                 {
                     sales_sub_lst.Add(new Sales_manager_Vo
@@ -154,7 +158,7 @@ namespace JinTeamForAdmin.Bus
             sales_sub_lst.Reverse();
 
             // chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", "Pay_price", null);
-            chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", pay_type, null);
+            chart_sales.Series[0].Points.DataBind(sales_sub_lst, "pay_date", pay_type, null);
         }
 
 
@@ -170,12 +174,12 @@ namespace JinTeamForAdmin.Bus
             }
             myToolTip.RemoveAll();
             previous = nowPosition;
-            HitTestResult hit = chart1.HitTest(nowPosition.X, nowPosition.Y, ChartElementType.DataPoint);
+            HitTestResult hit = chart_sales.HitTest(nowPosition.X, nowPosition.Y, ChartElementType.DataPoint);
             if (hit.ChartElementType == ChartElementType.DataPoint)
             {
                 var name = sales_sub_lst[hit.PointIndex].Seller_ID;
-                var price = sales_sub_lst[hit.PointIndex].Pay_price;
-                var count = sales_sub_lst[hit.PointIndex].Pay_count;
+                var price = sales_sub_lst[hit.PointIndex].Pay_price.ToString("#,##0") + "원";
+                var count = sales_sub_lst[hit.PointIndex].Pay_count.ToString("#,##0") + "건";
                 string date = "";
 
                 if (rd_dd.Checked)
@@ -190,7 +194,7 @@ namespace JinTeamForAdmin.Bus
                                        + "매출 : " + price + Environment.NewLine +
                                        "건수 : " + count + Environment.NewLine +
                                        "날짜 : " + date
-                                       , chart1, new Point(nowPosition.X + 10, nowPosition.Y + 15));
+                                       , chart_sales, new Point(nowPosition.X + 10, nowPosition.Y + 15));
             }
         }
     }

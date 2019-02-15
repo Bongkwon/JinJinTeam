@@ -33,8 +33,8 @@ namespace JinTeamForAdmin.Vo
             get { return pro_name; }
             set { pro_name = value; }
         }
-        private int pro_Price;
-        public int Pro_Price
+        private string pro_Price;
+        public string Pro_Price
         {
             get { return pro_Price; }
             set { pro_Price = value; }
@@ -90,7 +90,7 @@ namespace JinTeamForAdmin.Vo
             set { pro_State = value; }
         }
 
-        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, int pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State)
+        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, string pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State)
         {
             this.pro_Id = pro_Id;
             this.cat_ID = cat_ID;
@@ -111,7 +111,7 @@ namespace JinTeamForAdmin.Vo
         {
         }
 
-        public Products_Vo(string pro_Id, string pro_name, int pro_Price, string main_Image)
+        public Products_Vo(string pro_Id, string pro_name, string pro_Price, string main_Image)
         {
             this.pro_Id = pro_Id;
             this.pro_name = pro_name;
@@ -119,7 +119,7 @@ namespace JinTeamForAdmin.Vo
             this.main_Image = main_Image;
         }
 
-        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, int pro_Price, string main_Comment, string main_Image, string pro_Gender, bool pro_State)
+        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, string pro_Price, string main_Comment, string main_Image, string pro_Gender, bool pro_State)
         {
             this.pro_Id = pro_Id;
             this.cat_ID = cat_ID;
