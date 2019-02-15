@@ -35,7 +35,6 @@
             this.rdoShowFin = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSaveWaybill_ID = new System.Windows.Forms.Button();
-            this.btnSaveTrans_State = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gViewPayInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,6 +46,7 @@
             this.gViewPayInfo.RowTemplate.Height = 23;
             this.gViewPayInfo.Size = new System.Drawing.Size(1558, 479);
             this.gViewPayInfo.TabIndex = 0;
+            this.gViewPayInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewPayInfo_CellClick);
             this.gViewPayInfo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewPayInfo_CellDoubleClick);
             // 
             // rdoShowAll
@@ -114,22 +114,11 @@
             this.btnSaveWaybill_ID.UseVisualStyleBackColor = true;
             this.btnSaveWaybill_ID.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnSaveTrans_State
-            // 
-            this.btnSaveTrans_State.Location = new System.Drawing.Point(1235, 524);
-            this.btnSaveTrans_State.Name = "btnSaveTrans_State";
-            this.btnSaveTrans_State.Size = new System.Drawing.Size(165, 23);
-            this.btnSaveTrans_State.TabIndex = 7;
-            this.btnSaveTrans_State.Text = "배송 상태 저장";
-            this.btnSaveTrans_State.UseVisualStyleBackColor = true;
-            this.btnSaveTrans_State.Click += new System.EventHandler(this.btnSaveTrans_State_Click);
-            // 
             // FrmSellAndTransport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1583, 577);
-            this.Controls.Add(this.btnSaveTrans_State);
             this.Controls.Add(this.btnSaveWaybill_ID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rdoShowFin);
@@ -155,6 +144,5 @@
         private System.Windows.Forms.RadioButton rdoShowFin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSaveWaybill_ID;
-        private System.Windows.Forms.Button btnSaveTrans_State;
     }
 }

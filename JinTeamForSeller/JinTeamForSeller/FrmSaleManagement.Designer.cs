@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -100,6 +100,7 @@
             this.dTPicFromDate.Name = "dTPicFromDate";
             this.dTPicFromDate.Size = new System.Drawing.Size(113, 21);
             this.dTPicFromDate.TabIndex = 5;
+            this.dTPicFromDate.Value = new System.DateTime(2018, 1, 25, 0, 0, 0, 0);
             // 
             // dTPicToDate
             // 
@@ -163,19 +164,20 @@
             // 
             // chartSales
             // 
-            chartArea12.Name = "ChartArea1";
-            this.chartSales.ChartAreas.Add(chartArea12);
-            legend12.Name = "Legend1";
-            this.chartSales.Legends.Add(legend12);
+            chartArea2.Name = "ChartArea1";
+            this.chartSales.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartSales.Legends.Add(legend2);
             this.chartSales.Location = new System.Drawing.Point(11, 39);
             this.chartSales.Name = "chartSales";
-            series12.ChartArea = "ChartArea1";
-            series12.Legend = "Legend1";
-            series12.Name = "Series1";
-            this.chartSales.Series.Add(series12);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartSales.Series.Add(series2);
             this.chartSales.Size = new System.Drawing.Size(476, 323);
             this.chartSales.TabIndex = 12;
             this.chartSales.Text = "chart1";
+            this.chartSales.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartSales_MouseMove);
             // 
             // FrmSaleManagement
             // 

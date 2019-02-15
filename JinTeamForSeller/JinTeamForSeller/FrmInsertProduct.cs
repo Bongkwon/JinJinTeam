@@ -69,7 +69,7 @@ namespace JinTeamForSeller
                 }
                 else
                 {
-                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "https://jinweb.azurewebsites.net/img/" + proname, 0, 0, 0, cmbGender.Text, false);
+                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "https://jinweb.azurewebsites.net/img/" + pathFile, 0, 0, 0, cmbGender.Text, false);
                 }
                 if (chkSizeS.Checked)
                 {

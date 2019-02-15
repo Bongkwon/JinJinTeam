@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblImgNo = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnImgInsert = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.proPic = new System.Windows.Forms.PictureBox();
             this.cmbCatID = new System.Windows.Forms.ComboBox();
@@ -54,6 +54,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.numStockCount = new System.Windows.Forms.NumericUpDown();
             this.btnInsertStock = new System.Windows.Forms.Button();
+            this.openImg = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.proPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockCount)).BeginInit();
             this.SuspendLayout();
@@ -66,14 +67,15 @@
             this.lblImgNo.Size = new System.Drawing.Size(0, 12);
             this.lblImgNo.TabIndex = 38;
             // 
-            // button2
+            // btnImgInsert
             // 
-            this.button2.Location = new System.Drawing.Point(938, 256);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 23);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "이미지 등록";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnImgInsert.Location = new System.Drawing.Point(938, 256);
+            this.btnImgInsert.Name = "btnImgInsert";
+            this.btnImgInsert.Size = new System.Drawing.Size(86, 23);
+            this.btnImgInsert.TabIndex = 37;
+            this.btnImgInsert.Text = "이미지 등록";
+            this.btnImgInsert.UseVisualStyleBackColor = true;
+            this.btnImgInsert.Click += new System.EventHandler(this.btnImgInsert_Click);
             // 
             // label8
             // 
@@ -292,6 +294,10 @@
             this.btnInsertStock.UseVisualStyleBackColor = true;
             this.btnInsertStock.Click += new System.EventHandler(this.btnInsertStock_Click);
             // 
+            // openImg
+            // 
+            this.openImg.FileName = "openFileDialog1";
+            // 
             // FrmDetailPro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -306,7 +312,7 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblPro_No);
             this.Controls.Add(this.lblImgNo);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnImgInsert);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.proPic);
             this.Controls.Add(this.cmbCatID);
@@ -336,7 +342,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblImgNo;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnImgInsert;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox proPic;
         private System.Windows.Forms.ComboBox cmbCatID;
@@ -361,5 +367,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numStockCount;
         private System.Windows.Forms.Button btnInsertStock;
+        private System.Windows.Forms.OpenFileDialog openImg;
     }
 }

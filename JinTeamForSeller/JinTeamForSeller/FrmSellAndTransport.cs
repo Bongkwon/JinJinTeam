@@ -18,6 +18,8 @@ namespace JinTeamForSeller
         List<Payment_InfoVO> lstPInfo;
         DataGridViewCheckBoxColumn dc = new DataGridViewCheckBoxColumn();
         TransportInfoDAO tDao = new TransportInfoDAO();
+        List<string> lstOldWaybill = new List<string>();
+
         public FrmSellAndTransport()
         {
             InitializeComponent();
@@ -30,24 +32,29 @@ namespace JinTeamForSeller
             dc.HeaderText = "배송 완료시 체크";
             
             lstPInfo = pDao.SelectPaymentInfoForSeller(Form1.CompanyNo);
+            if (!gViewPayInfo.Columns.Contains(dc))
+            {
+                gViewPayInfo.Columns.Add(dc);
+            }
             gViewPayInfo.DataSource = lstPInfo;
             gViewPayInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gViewPayInfo.Columns["order_ID"].Visible = false;
-            gViewPayInfo.Columns["Seller_No"].Visible = false;
+
+            //gViewPayInfo.Columns["order_ID"].Visible = false;
+            //gViewPayInfo.Columns["Seller_No"].Visible = false;
             foreach (DataGridViewColumn item in gViewPayInfo.Columns)
             {
                 item.ReadOnly = true;
             }
             gViewPayInfo.Columns["Waybill_ID"].ReadOnly = false;
-            
+            foreach (var item in lstPInfo)
+            {
+                lstOldWaybill.Add(item.Waybill_ID);
+            }
             dc.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
 
             //DataGridViewColumn dc = new DataGridViewColumn();
             //dc.DefaultCellStyle = bool;
-            if (!gViewPayInfo.Columns.Contains(dc))
-            {
-                gViewPayInfo.Columns.Add(dc);
-            }
+            
             CheckTransportStateCom();
             gViewPayInfo.Columns["trans_State_Com"].ReadOnly = false;
             // MessageBox.Show(gViewPayInfo.Rows.Count.ToString());
@@ -80,6 +87,11 @@ namespace JinTeamForSeller
         {
             if(rdoShowAll.Checked == true)
             {
+                lstOldWaybill.Clear();
+                foreach (var item in lstPInfo)
+                {
+                    lstOldWaybill.Add(item.Waybill_ID);
+                }                
                 gViewPayInfo.DataSource = null;
                 gViewPayInfo.DataSource = lstPInfo;
                 CheckTransportStateCom();
@@ -90,11 +102,13 @@ namespace JinTeamForSeller
             List<Payment_InfoVO> lstYet = new List<Payment_InfoVO>();
             if (rdoShowYet.Checked == true)
             {
+                lstOldWaybill.Clear();
                 foreach (var item in lstPInfo)
                 {
                     if (string.IsNullOrEmpty(item.Waybill_ID) != false || item.Transport_state.Contains("전"))
                     {
                         lstYet.Add(item);
+                        lstOldWaybill.Add(item.Waybill_ID);
                     }
                 }
                 gViewPayInfo.DataSource = lstYet;
@@ -107,11 +121,13 @@ namespace JinTeamForSeller
             List<Payment_InfoVO> lstIng = new List<Payment_InfoVO>();
             if (rdoShowIng.Checked == true)
             {
+                lstOldWaybill.Clear();
                 foreach (var item in lstPInfo)
                 {
                     if (item.Transport_state.Contains("중"))
                     {
                         lstIng.Add(item);
+                        lstOldWaybill.Add(item.Waybill_ID);
                     }
                 }
                 gViewPayInfo.DataSource = lstIng;
@@ -124,173 +140,152 @@ namespace JinTeamForSeller
             List<Payment_InfoVO> lstFin = new List<Payment_InfoVO>();
             if (rdoShowFin.Checked == true)
             {
+                lstOldWaybill.Clear();
                 foreach (var item in lstPInfo)
                 {
                     if (item.Transport_state.Contains("완"))
                     {
                         lstFin.Add(item);
+                        lstOldWaybill.Add(item.Waybill_ID);
                     }
                 }
                 gViewPayInfo.DataSource = lstFin;
                 CheckTransportStateCom();
             }
         }
-
-        private void gViewPayInfo_KeyUp(object sender, KeyEventArgs e)
-        {
-            //if (gViewPayInfo.CurrentRow.Index >= 0 && gViewPayInfo.CurrentCell.ColumnIndex == 7)
-            //{
-            //    if (e.KeyCode == Keys.Down)
-            //        e.KeyCode == Keys.Enter || || e.KeyCode == Keys.Up
-            //    {
-            //        MessageBox.Show(gViewPayInfo.CurrentCell.Value.ToString());
-            //        if (string.IsNullOrEmpty(gViewPayInfo.CurrentRow.Cells["Transport_State"].Value.ToString()) == false)
-            //        {
-            //            Payment_InfoVO pay = new Payment_InfoVO();
-            //            if (gViewPayInfo.CurrentRow.Index == gViewPayInfo.Rows.Count - 1)
-            //            {
-            //                pay = new Payment_InfoVO(
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Pay_ID"].Value,
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["order_ID"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["User_Ship_ID"].Value.ToString(),
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Seller_No"].Value,
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Pay_count"].Value,
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Pay_Price"].Value,
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Waybill_ID"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Cus_name"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["User_addr"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Stock_ID"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Order_require"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Ship_require"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["Transport_state"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index].Cells["User_name"].Value.ToString()
-            //            );
-            //            }
-            //            else if (gViewPayInfo.CurrentRow.Index < gViewPayInfo.Rows.Count - 1)
-            //            {
-            //                pay = new Payment_InfoVO(
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Pay_ID"].Value,
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["order_ID"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["User_Ship_ID"].Value.ToString(),
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Seller_No"].Value,
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Pay_count"].Value,
-            //                (int)gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Pay_Price"].Value,
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Waybill_ID"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Cus_name"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["User_addr"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Stock_ID"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Order_require"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Ship_require"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["Transport_state"].Value.ToString(),
-            //                gViewPayInfo.Rows[gViewPayInfo.CurrentRow.Index - 1].Cells["User_name"].Value.ToString()
-            //            );
-            //            }
-            //            Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
-            //            if (!pDao.UpdatePaymentInfo(pay))
-            //            {
-
-            //            }
-            //            if (!tDao.InsertTransport(ti))
-            //            {
-            //                MessageBox.Show("오류 발생");
-            //            }
-            //        }
-            //    }
-            //}
-
-        }
-
+        string trans_State = "";
         private void button1_Click(object sender, EventArgs e)
         {
             
-            int i = 0;
-            foreach (DataGridViewRow item in gViewPayInfo.Rows)
+            for (int i = 0; i < gViewPayInfo.RowCount; i++)
             {
+                bool result = false;
+                if (!string.IsNullOrEmpty(gViewPayInfo["Waybill_ID",i].Value.ToString()))
+                {
+                    string oldwaybill = gViewPayInfo["Waybill_ID", i].Value.ToString();
+                }
                 try
                 {
-                    Payment_InfoVO pay = new Payment_InfoVO
-                        (                                
-                        (int)item.Cells["Pay_ID"].Value,                               
-                        item.Cells["order_ID"].Value.ToString(),                       
-                        item.Cells["User_Ship_ID"].Value.ToString(),                        
-                        (int)item.Cells["Seller_No"].Value,                        
-                        (int)item.Cells["Pay_count"].Value,                        
-                        (int)item.Cells["Pay_Price"].Value,                        
-                        item.Cells["Waybill_ID"].Value.ToString(),                        
-                        item.Cells["Cus_name"].Value.ToString(),                        
-                        item.Cells["User_addr"].Value.ToString(),                        
-                        item.Cells["Stock_ID"].Value.ToString(),                        
-                        item.Cells["Order_require"].Value.ToString(),                        
-                        item.Cells["Ship_require"].Value.ToString(),
-                        item.Cells["Transport_state"].Value.ToString(),                        
-                        item.Cells["User_name"].Value.ToString()
-                        );
-                    Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
-                    if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == false)
-                    {
-                        tDao.UpdateTransportWaybill(lstPInfo[i].Waybill_ID, pay.Waybill_ID);
-                        pDao.UpdatePaymentInfo(pay);
-                    }
-                    else if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == true && string.IsNullOrEmpty(item.Cells["Waybill_ID"].Value.ToString()) == false)
-                    {
-                        tDao.InsertTransport(ti);
-                        pDao.UpdatePaymentInfo(pay);
-                    }
-                    if ((bool)item.Cells["trans_State_Com"].FormattedValue == true)
-                    {
-                        item.Cells["Transport_state"].Value = "배송 완료";
-                    }
-                    else if ((bool)item.Cells["trans_State_Com"].FormattedValue == false)
-                    {
-                        item.Cells["Transport_state"].Value = "배송 중";
-                    }
-                    Transport_InfoVO ti2 = new Transport_InfoVO(item.Cells["waybill_ID"].Value.ToString(), item.Cells["transport_State"].Value.ToString());
-                    tDao.UpdateTransportState(ti2);
+                    result = (bool)gViewPayInfo["trans_State_Com", i].Value;
                 }
                 catch (Exception)
-                {
-                    MessageBox.Show("저장 실패");
+                {                    
                 }
-
-                //if (string.IsNullOrEmpty(item.Cells["Transport_State"].Value.ToString()) == false && item.Cells["Transport_State"].Value.ToString().Contains("전"))
-                //{
-                //    continue;
-                //}
-                //else
-                //{
-                //    Payment_InfoVO pay = new Payment_InfoVO(
-                //    (int)item.Cells["Pay_ID"].Value,
-                //    item.Cells["order_ID"].Value.ToString(),
-                //    item.Cells["User_Ship_ID"].Value.ToString(),
-                //    (int)item.Cells["Seller_No"].Value,
-                //    (int)item.Cells["Pay_count"].Value,
-                //    (int)item.Cells["Pay_Price"].Value,
-                //    item.Cells["Waybill_ID"].Value.ToString(),
-                //    item.Cells["Cus_name"].Value.ToString(),
-                //    item.Cells["User_addr"].Value.ToString(),
-                //    item.Cells["Stock_ID"].Value.ToString(),
-                //    item.Cells["Order_require"].Value.ToString(),
-                //    item.Cells["Ship_require"].Value.ToString(),
-                //    item.Cells["Transport_state"].Value.ToString(),
-                //    item.Cells["User_name"].Value.ToString()
-                //);
-                //    Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
-                //    if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == false)
-                //    {
-                //        try
-                //        {
-                //            tDao.InsertTransport(ti);
-                //            pDao.UpdatePaymentInfo(pay);
-                //        }
-                //        catch (Exception)
-                //        {
-                //            tDao.UpdateTransportWaybill(lstPInfo[i].Waybill_ID, pay.Waybill_ID);
-                //            pDao.UpdatePaymentInfo(pay);
-                //        }
-                //    }
-                //}
-                i++;
+                //MessageBox.Show(result.ToString());
+                if (result)
+                {
+                    trans_State = "배송 완료";
+                }
+                else
+                {
+                    trans_State = "배송 중";
+                }
+                if (string.IsNullOrEmpty(lstOldWaybill[i]) && 
+                    !string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
+                {
+                    Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
+                    tDao.InsertTransport(tVo, (int)gViewPayInfo["Pay_ID", i].Value);
+                    MessageBox.Show("Test1");
+                }
+                else if(!string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
+                {
+                    // && lstPInfo[i].Waybill_ID != gViewPayInfo["Waybill_ID", i].Value.ToString()
+                    Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
+                    tDao.UpdateTransportWaybill(tVo, lstOldWaybill[i], (int)gViewPayInfo["Pay_ID", i].Value);
+                    //MessageBox.Show(lstOldWaybill[i]);
+                    //MessageBox.Show(tVo.Waybill_ID);
+                }
             }
+            this.OnLoad(null);
+            rdoShowAll.Checked = true;
+            //int i = 0;
+            //foreach (DataGridViewRow item in gViewPayInfo.Rows)
+            //{
+            //    try
+            //    {
+            //        Payment_InfoVO pay = new Payment_InfoVO
+            //            (
+            //            (int)item.Cells["Pay_ID"].Value,
+            //            item.Cells["order_ID"].Value.ToString(),
+            //            item.Cells["User_Ship_ID"].Value.ToString(),
+            //            (int)item.Cells["Seller_No"].Value,
+            //            (int)item.Cells["Pay_count"].Value,
+            //            (int)item.Cells["Pay_Price"].Value,
+            //            item.Cells["Waybill_ID"].Value.ToString(),
+            //            item.Cells["Cus_name"].Value.ToString(),
+            //            item.Cells["User_addr"].Value.ToString(),
+            //            item.Cells["Stock_ID"].Value.ToString(),
+            //            item.Cells["Order_require"].Value.ToString(),
+            //            item.Cells["Ship_require"].Value.ToString(),
+            //            item.Cells["Transport_state"].Value.ToString(),
+            //            item.Cells["User_name"].Value.ToString()
+            //            );
+            //        Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
+            //        if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == false)
+            //        {
+            //            tDao.UpdateTransportWaybill(lstPInfo[i].Waybill_ID, pay.Waybill_ID);
+            //            pDao.UpdatePaymentInfo(pay);
+            //        }
+            //        else if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == true && string.IsNullOrEmpty(item.Cells["Waybill_ID"].Value.ToString()) == false)
+            //        {
+            //            tDao.InsertTransport(ti);
+            //            pDao.UpdatePaymentInfo(pay);
+            //        }
+            //        if ((bool)item.Cells["trans_State_Com"].FormattedValue == true)
+            //        {
+            //            item.Cells["Transport_state"].Value = "배송 완료";
+            //        }
+            //        else if ((bool)item.Cells["trans_State_Com"].FormattedValue == false)
+            //        {
+            //            item.Cells["Transport_state"].Value = "배송 중";
+            //        }
+            //        Transport_InfoVO ti2 = new Transport_InfoVO(item.Cells["waybill_ID"].Value.ToString(), item.Cells["transport_State"].Value.ToString());
+            //        tDao.UpdateTransportState(ti2);
+            //    }
+            //    catch (Exception)
+            //    {
+            //        MessageBox.Show("저장 실패");
+            //    }
+
+            //    if (string.IsNullOrEmpty(item.Cells["Transport_State"].Value.ToString()) == false && item.Cells["Transport_State"].Value.ToString().Contains("전"))
+            //    {
+            //        continue;
+            //    }
+            //    else
+            //    {
+            //        Payment_InfoVO pay = new Payment_InfoVO(
+            //        (int)item.Cells["Pay_ID"].Value,
+            //        item.Cells["order_ID"].Value.ToString(),
+            //        item.Cells["User_Ship_ID"].Value.ToString(),
+            //        (int)item.Cells["Seller_No"].Value,
+            //        (int)item.Cells["Pay_count"].Value,
+            //        (int)item.Cells["Pay_Price"].Value,
+            //        item.Cells["Waybill_ID"].Value.ToString(),
+            //        item.Cells["Cus_name"].Value.ToString(),
+            //        item.Cells["User_addr"].Value.ToString(),
+            //        item.Cells["Stock_ID"].Value.ToString(),
+            //        item.Cells["Order_require"].Value.ToString(),
+            //        item.Cells["Ship_require"].Value.ToString(),
+            //        item.Cells["Transport_state"].Value.ToString(),
+            //        item.Cells["User_name"].Value.ToString()
+            //    );
+            //        Transport_InfoVO ti = new Transport_InfoVO(Form1.CompanyNo, pay.Waybill_ID);
+            //        if (string.IsNullOrEmpty(lstPInfo[i].Waybill_ID) == false)
+            //        {
+            //            try
+            //            {
+            //                tDao.InsertTransport(ti);
+            //                pDao.UpdatePaymentInfo(pay);
+            //            }
+            //            catch (Exception)
+            //            {
+            //                tDao.UpdateTransportWaybill(lstPInfo[i].Waybill_ID, pay.Waybill_ID);
+            //                pDao.UpdatePaymentInfo(pay);
+            //            }
+            //        }
+            //    }
+            //    i++;
+            //}
             //if (UpdateTrans_State())
             //{
             //    result3 = true;
@@ -299,25 +294,13 @@ namespace JinTeamForSeller
             //{
             //    result3 = false;
             //}
-            //if (result && result3) 
+            //if (result && result3)
             //{
             //    MessageBox.Show("저장 완료");
             //}
 
-            this.OnLoad(null);
-            rdoShowAll.Checked = true;
-        }
-
-        private void btnSaveTrans_State_Click(object sender, EventArgs e)
-        {
-            //foreach (DataGridViewRow item in gViewPayInfo.Rows)
-            //{
-            //    //MessageBox.Show(item.Cells["trans_State_Com"].FormattedValue.ToString());
-            //    if ((bool)item.Cells["trans_State_Com"].FormattedValue == true)
-            //    {
-
-            //    }
-            //}
+            //this.OnLoad(null);
+            //rdoShowAll.Checked = true;
         }
 
         private bool UpdateTrans_State()
@@ -345,6 +328,14 @@ namespace JinTeamForSeller
                 }
             }
             return result;
+        }
+        string oldway = "";
+        private void gViewPayInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                oldway = gViewPayInfo["Waybill_ID", e.RowIndex].Value.ToString();
+            }
         }
     }
 }

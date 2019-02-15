@@ -26,7 +26,37 @@ namespace JinTeamForSeller
         {
             get { return pro_State; }
             set { pro_State = value; }
+        }        
+
+        public int Seller_NO
+        {
+            get { return seller_No; }
+            set { seller_No = value; }
         }
+
+        public string Cat_ID
+        {
+            get { return cat_ID; }
+            set { cat_ID = value; }
+        }
+
+        public string Pro_ID
+        {
+            get { return pro_Id; }
+            set { pro_Id = value; }
+        }
+        public string Pro_Name
+        {
+            get { return pro_name; }
+            set { pro_name = value; }
+        }
+        public int Pro_Price
+        {
+            get { return pro_Price; }
+            set { pro_Price = value; }
+        }
+
+        
 
         public string Pro_Gender
         {
@@ -69,37 +99,6 @@ namespace JinTeamForSeller
             get { return main_Comment; }
             set { main_Comment = value; }
         }
-
-        public int Pro_Price
-        {
-            get { return pro_Price; }
-            set { pro_Price = value; }
-        }
-
-        public string Pro_Name
-        {
-            get { return pro_name; }
-            set { pro_name = value; }
-        }
-
-        public int Seller_NO
-        {
-            get { return seller_No; }
-            set { seller_No = value; }
-        }
-
-        public string Cat_ID
-        {
-            get { return cat_ID; }
-            set { cat_ID = value; }
-        }
-
-        public string Pro_ID
-        {
-            get { return pro_Id; }
-            set { pro_Id = value; }
-        }
-
         public Product(string pro_Id, string cat_ID, int seller_No, string pro_name, int pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State)
         {
             this.pro_Id = pro_Id;

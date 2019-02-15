@@ -232,6 +232,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -251,6 +252,7 @@
     <Content Include="DetailXml.xml" />
     <Content Include="HTMLPage1.html" />
     <Content Include="procedure.sql" />
+    <None Include="Resources\cancel.png" />
     <Content Include="tables.sql" />
   </ItemGroup>
   <ItemGroup>

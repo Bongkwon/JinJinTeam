@@ -23,6 +23,8 @@ namespace JinTeamForSeller
         List<StockVO> lstStock = new List<StockVO>();
         StockListDAO stockDao = new StockListDAO();
         StockVO stock;
+        string originFile;
+        string pathFile;
 
         public FrmDetailPro()
         {
@@ -40,17 +42,28 @@ namespace JinTeamForSeller
             pro.Pro_ID = lblPro_No.Text;
             foreach (var item in cat_kinds)
             {
-                if(item.Cat_Kind == cmbCatID.Text)
+                if (item.Cat_Kind == cmbCatID.Text)
                 {
                     pro.Cat_ID = item.Cat_ID;
                 }
             }
-            
+
             pro.Pro_Name = txtProName.Text;
             pro.Pro_Price = int.Parse(txtProPrice.Text);
             pro.Main_Comment = txtMainComment.Text;
-            pro.Sub_Comment = txtSubComment.Text;            
-            pro.Main_Image = row.Cells["main_image"].Value.ToString();
+            pro.Sub_Comment = txtSubComment.Text;
+            if (proPic.Image != null)
+            {
+                pro.Main_Image = "https://jinweb.azurewebsites.net/img/" + pathFile;
+            }
+            else if (proPic.Image != null && !string.IsNullOrEmpty(row.Cells["main_image"].Value.ToString()))
+            {
+                pro.Main_Image = row.Cells["main_image"].Value.ToString();
+            }
+            else if (proPic.Image == null)
+            {
+                pro.Main_Image = "";
+            }
             pro.Pro_Discount = int.Parse(txtDiscount.Text);
             pro.Pro_Gender = cmbGender.Text;
 
@@ -63,31 +76,70 @@ namespace JinTeamForSeller
                 }
             }
 
-            if (cmbSize.SelectedIndex > -1 && stock != null) 
+            if (cmbSize.SelectedIndex > -1 && stock != null)
             {
                 stock.Stock_Count = (int)numStockCount.Value;
             }
-            
-            
-            
-            try
+
+            if (string.IsNullOrEmpty(cmbSize.Text))
             {
-                if (pDao.UpdateProduct(pro))
+                //try
                 {
-                    if (stockDao.UpdateStock(stock))
+                    pDao.UpdateProduct(pro);
+                    MessageBox.Show("수정 성공");
+                }
+                //catch (Exception)
+                {
+                    //MessageBox.Show("수정 실패");
+                }
+            }
+            else
+            {
+                try
+                {
+                    if (pDao.UpdateProduct(pro))
                     {
-                        MessageBox.Show("수정 성공");
+                        if (stockDao.UpdateStock(stock))
+                        {
+                            UploadImgToFTP();
+
+                            MessageBox.Show("수정 성공");
+                        }
                     }
                 }
-                else
+                catch (Exception)
                 {
                     MessageBox.Show("수정 실패");
                 }
             }
-            catch (Exception)
+            this.Close();
+        }
+
+        private void UploadImgToFTP()
+        {
+            // Get the object used to communicate with the server.                
+            var request = (FtpWebRequest)WebRequest.Create(@"ftp://waws-prod-ps1-001.ftp.azurewebsites.windows.net/site/wwwroot/img/" + pathFile);
+            request.Method = WebRequestMethods.Ftp.UploadFile;
+
+            // This example assumes the FTP site uses anonymous logon.
+            request.Credentials = new NetworkCredential(@"JinWeb\$JinWeb", "2SdrxPjgTjN0kJv6djRdLuYAJofn0B2pZAZPL1f081PigdFh9KcfadcCWBEw");
+
+            // Copy the contents of the file to the request stream.
+            byte[] fileContents;
+            using (StreamReader sourceStream = new StreamReader(originFile))
             {
-                MessageBox.Show("수정 실패");
+                fileContents = File.ReadAllBytes(originFile);
+                //Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
             }
+
+
+            request.ContentLength = fileContents.Length;
+
+            using (Stream requestStream = request.GetRequestStream())
+            {
+                requestStream.Write(fileContents, 0, fileContents.Length);
+            }
+            FtpWebResponse resp = (FtpWebResponse)request.GetResponse();
         }
 
         private void FrmDetailPro_Load(object sender, EventArgs e)
@@ -109,7 +161,7 @@ namespace JinTeamForSeller
             tempPro.Sub_Comment = row.Cells["sub_comment"].Value.ToString();
             tempPro.Main_Image = row.Cells["main_image"].Value.ToString();
             tempPro.Pro_Discount = (int)row.Cells["pro_discount"].Value;
-            tempPro.Pro_Gender = row.Cells["pro_gender"].Value.ToString();
+            tempPro.Pro_Gender = row.Cells["pro_gender"].Value.ToString();            
             tempPro.Main_Image = row.Cells["main_image"].Value.ToString();
             foreach (var item in cat_kinds)
             {
@@ -167,6 +219,16 @@ namespace JinTeamForSeller
             catch (Exception)
             {
                 MessageBox.Show("이미 존재하는 사이즈 입니다.");
+            }
+        }
+
+        private void btnImgInsert_Click(object sender, EventArgs e)
+        {
+            if (openImg.ShowDialog() == DialogResult.OK)
+            {
+                pathFile = openImg.SafeFileName;
+                originFile = openImg.FileName;
+                proPic.Image = Image.FromFile(originFile);
             }
         }
     }
