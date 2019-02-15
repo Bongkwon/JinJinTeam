@@ -29,7 +29,7 @@ CREATE TABLE [dbo].[customers] (
 );
 go
 
-CREATE TABLE [dbo].[image_List] (
+CREATE TABLE [dbo].[image_List] (	-- 삭제
     [image_ID]  VARCHAR (30)  NOT NULL,	-- 이미지 번호
     [pro_ID]    VARCHAR (30)  NOT NULL,	-- 상품 번호
     [sub_image] VARCHAR (MAX) NOT NULL,	-- 상품 이미지
@@ -83,7 +83,7 @@ CREATE TABLE [dbo].[products] (
     [pro_like]     INT             NOT NULL DEFAULT 0,	-- 상품 좋아요
     [pro_discount] INT             NOT NULL DEFAULT 0,	-- 상품 할인율
     [pro_gender]   VARCHAR (2)   DEFAULT ('A') NOT NULL,	-- 추천 성별
-    [pro_state]    BIT             DEFAULT ((1)) NOT NULL,	-- 상품 정보 상태
+    [pro_state]    BIT             DEFAULT ((0)) NOT NULL,	-- 상품 정보 상태
 	[pro_url]      NVARCHAR (MAX) NULL, -- 상품페이지
     PRIMARY KEY CLUSTERED ([pro_ID] ASC)
 	-- ,CONSTRAINT [pro_cat_FK] FOREIGN KEY ([cat_ID]) REFERENCES [dbo].[category_List] ([cat_ID])
