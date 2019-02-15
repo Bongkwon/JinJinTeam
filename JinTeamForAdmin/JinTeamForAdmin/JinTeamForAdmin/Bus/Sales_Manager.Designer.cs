@@ -52,7 +52,7 @@
             this.chart1.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(12, 24);
+            this.chart1.Location = new System.Drawing.Point(12, 12);
             this.chart1.Name = "chart1";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
@@ -61,6 +61,7 @@
             this.chart1.Size = new System.Drawing.Size(411, 389);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
+            this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseMove);
             // 
             // rd_Price
             // 
@@ -123,7 +124,7 @@
             // 
             this.gb_sales_S_C.Controls.Add(this.rd_Price);
             this.gb_sales_S_C.Controls.Add(this.rd_Count);
-            this.gb_sales_S_C.Location = new System.Drawing.Point(472, 63);
+            this.gb_sales_S_C.Location = new System.Drawing.Point(444, 28);
             this.gb_sales_S_C.Name = "gb_sales_S_C";
             this.gb_sales_S_C.Size = new System.Drawing.Size(195, 33);
             this.gb_sales_S_C.TabIndex = 8;
@@ -133,7 +134,7 @@
             // 
             this.gb_sales_D_M.Controls.Add(this.rd_mm);
             this.gb_sales_D_M.Controls.Add(this.rd_dd);
-            this.gb_sales_D_M.Location = new System.Drawing.Point(469, 109);
+            this.gb_sales_D_M.Location = new System.Drawing.Point(442, 67);
             this.gb_sales_D_M.Name = "gb_sales_D_M";
             this.gb_sales_D_M.Size = new System.Drawing.Size(197, 36);
             this.gb_sales_D_M.TabIndex = 9;

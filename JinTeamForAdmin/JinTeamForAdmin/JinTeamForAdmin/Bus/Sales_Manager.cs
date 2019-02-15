@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace JinTeamForAdmin.Bus
 {
@@ -59,7 +60,7 @@ namespace JinTeamForAdmin.Bus
             }
             else if (rd_Count.Checked && rd_dd.Checked)
             {
-                Sales_day("Pay_count");           
+                Sales_day("Pay_count");
             }
             else if (rd_Price.Checked && rd_mm.Checked)
             {
@@ -67,7 +68,7 @@ namespace JinTeamForAdmin.Bus
             }
             else if (rd_Count.Checked && rd_mm.Checked)
             {
-                Sales_month("Pay_count");                
+                Sales_month("Pay_count");
             }
         }
 
@@ -110,7 +111,7 @@ namespace JinTeamForAdmin.Bus
 
             chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date_m", pay_type, null);
         }
-        private void Sales_day( string pay_type)
+        private void Sales_day(string pay_type)
         {
             sales_sub_lst.Clear();
             textBox1.Clear();
@@ -152,8 +153,45 @@ namespace JinTeamForAdmin.Bus
             //textBox1.Text += sales_sub_lst[0].Pay_date + sales_sub_lst[0].Pay_price;
             sales_sub_lst.Reverse();
 
-           // chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", "Pay_price", null);
+            // chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", "Pay_price", null);
             chart1.Series[0].Points.DataBind(sales_sub_lst, "pay_date", pay_type, null);
+        }
+
+
+        Point? previous = null;
+        ToolTip myToolTip = new ToolTip();
+
+        private void chart1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point nowPosition = e.Location;
+            if (previous.HasValue && nowPosition == previous) // 마우스 움직임이 없을 때
+            {
+                return;
+            }
+            myToolTip.RemoveAll();
+            previous = nowPosition;
+            HitTestResult hit = chart1.HitTest(nowPosition.X, nowPosition.Y, ChartElementType.DataPoint);
+            if (hit.ChartElementType == ChartElementType.DataPoint)
+            {
+                var name = sales_sub_lst[hit.PointIndex].Seller_ID;
+                var price = sales_sub_lst[hit.PointIndex].Pay_price;
+                var count = sales_sub_lst[hit.PointIndex].Pay_count;
+                string date = "";
+
+                if (rd_dd.Checked)
+                {
+                    date = sales_sub_lst[hit.PointIndex].Pay_date;
+                }
+                else if (rd_mm.Checked)
+                {
+                    date = sales_sub_lst[hit.PointIndex].Pay_date_m + "월";                  
+                }
+                myToolTip.Show("회사 : " + name + Environment.NewLine
+                                       + "매출 : " + price + Environment.NewLine +
+                                       "건수 : " + count + Environment.NewLine +
+                                       "날짜 : " + date
+                                       , chart1, new Point(nowPosition.X + 10, nowPosition.Y + 15));
+            }
         }
     }
 }

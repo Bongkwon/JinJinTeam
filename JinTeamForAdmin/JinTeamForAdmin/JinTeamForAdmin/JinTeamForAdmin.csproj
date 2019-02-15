@@ -128,7 +128,6 @@
     <Compile Include="Vo\Sales_manager_Vo.cs" />
     <Compile Include="Vo\Seller_Vo.cs" />
     <Compile Include="Vo\TaxBill_Vo.cs" />
-    <Content Include="Vo\TextFile1.txt" />
     <EmbeddedResource Include="Bus\Admin_main.resx">
       <DependentUpon>Admin_main.cs</DependentUpon>
     </EmbeddedResource>
