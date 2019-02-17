@@ -29,7 +29,7 @@ namespace JinTeamForSeller
 
         private void FrmSaleManagement_Load(object sender, EventArgs e)
         {
-            ViewGView();
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2); ViewGView();
             chartSales.Series[0].LegendText = "매출액";
             dTPicToDate.CustomFormat = "yyyy-MM";
             dTPicFromDate.CustomFormat = "yyyy-MM";
@@ -178,6 +178,26 @@ namespace JinTeamForSeller
                 
                 //myToolTip.Show(ballNum + "번 공 당첨 횟수 : " + ptBalls, chart1, new Point(nowPosition.X + 10, nowPosition.Y + 15));
             }
+        }
+        private void Panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+                return;
+
+            s.Parent.Left = this.Left + (e.X - ((Point)s.Tag).X);
+            s.Parent.Top = this.Top + (e.Y - ((Point)s.Tag).Y);
+        }
+
+        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

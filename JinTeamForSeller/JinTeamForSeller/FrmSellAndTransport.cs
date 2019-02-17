@@ -27,7 +27,7 @@ namespace JinTeamForSeller
 
         private void FrmSellAndTransport_Load(object sender, EventArgs e)
         {
-            
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             dc.Name = "trans_State_Com";
             dc.HeaderText = "배송 완료시 체크";
             
@@ -336,6 +336,26 @@ namespace JinTeamForSeller
             {
                 oldway = gViewPayInfo["Waybill_ID", e.RowIndex].Value.ToString();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void Panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+                return;
+
+            s.Parent.Left = this.Left + (e.X - ((Point)s.Tag).X);
+            s.Parent.Top = this.Top + (e.Y - ((Point)s.Tag).Y);
+        }
+
+        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
         }
     }
 }

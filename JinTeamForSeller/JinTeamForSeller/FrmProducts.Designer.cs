@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gViewProducts = new System.Windows.Forms.DataGridView();
             this.btnInsertPro = new System.Windows.Forms.Button();
             this.btnUpdatePro = new System.Windows.Forms.Button();
@@ -37,18 +37,18 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnManagePro = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gViewProducts)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gViewProducts
             // 
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            this.gViewProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
-            this.gViewProducts.BackgroundColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.gViewProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.gViewProducts.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.gViewProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.gViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewProducts.GridColor = System.Drawing.Color.LightGray;
@@ -57,14 +57,14 @@
             this.gViewProducts.MultiSelect = false;
             this.gViewProducts.Name = "gViewProducts";
             this.gViewProducts.ReadOnly = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gViewProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gViewProducts.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.gViewProducts.RowTemplate.Height = 23;
             this.gViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gViewProducts.Size = new System.Drawing.Size(1413, 368);
@@ -74,7 +74,10 @@
             // 
             // btnInsertPro
             // 
-            this.btnInsertPro.BackColor = System.Drawing.Color.Gray;
+            this.btnInsertPro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnInsertPro.FlatAppearance.BorderSize = 0;
+            this.btnInsertPro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInsertPro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.btnInsertPro.Location = new System.Drawing.Point(628, 432);
             this.btnInsertPro.Name = "btnInsertPro";
             this.btnInsertPro.Size = new System.Drawing.Size(150, 50);
@@ -85,7 +88,10 @@
             // 
             // btnUpdatePro
             // 
-            this.btnUpdatePro.BackColor = System.Drawing.Color.Gray;
+            this.btnUpdatePro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnUpdatePro.FlatAppearance.BorderSize = 0;
+            this.btnUpdatePro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdatePro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.btnUpdatePro.Location = new System.Drawing.Point(784, 432);
             this.btnUpdatePro.Name = "btnUpdatePro";
             this.btnUpdatePro.Size = new System.Drawing.Size(150, 50);
@@ -96,7 +102,10 @@
             // 
             // btnDeletePro
             // 
-            this.btnDeletePro.BackColor = System.Drawing.Color.Gray;
+            this.btnDeletePro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnDeletePro.FlatAppearance.BorderSize = 0;
+            this.btnDeletePro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletePro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.btnDeletePro.Location = new System.Drawing.Point(941, 432);
             this.btnDeletePro.Name = "btnDeletePro";
             this.btnDeletePro.Size = new System.Drawing.Size(150, 50);
@@ -107,7 +116,10 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.BackColor = System.Drawing.Color.Gray;
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.btnRefresh.Location = new System.Drawing.Point(1253, 432);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(150, 50);
@@ -118,7 +130,10 @@
             // 
             // btnManagePro
             // 
-            this.btnManagePro.BackColor = System.Drawing.Color.Gray;
+            this.btnManagePro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnManagePro.FlatAppearance.BorderSize = 0;
+            this.btnManagePro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManagePro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.btnManagePro.Location = new System.Drawing.Point(1097, 432);
             this.btnManagePro.Name = "btnManagePro";
             this.btnManagePro.Size = new System.Drawing.Size(150, 50);
@@ -142,6 +157,17 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseMove);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label4.Location = new System.Drawing.Point(12, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(179, 54);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "JinTeam";
+            // 
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
@@ -155,16 +181,6 @@
             this.btnClose.TabIndex = 1;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(12, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 54);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "JinTeam";
             // 
             // FrmProducts
             // 

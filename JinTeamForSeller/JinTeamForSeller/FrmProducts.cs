@@ -23,20 +23,20 @@ namespace JinTeamForSeller
 
         private void FrmProducts_Load(object sender, EventArgs e)
         {
-            List<Product> lstPro = pro.select_proEachSeller(Form1.CompanyNo);
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2); List<Product> lstPro = pro.select_proEachSeller(Form1.CompanyNo);
             gViewProducts.DataSource = lstPro;
             gViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gViewProducts.Columns["Main_Image"].Visible = false;
             dr = gViewProducts.Rows[0];
             this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             DataGridViewCellStyle style = new DataGridViewCellStyle();
-            style.BackColor = Color.Gray;
+            style.BackColor = Color.FromArgb(143, 145, 147);
             //style.
             gViewProducts.DefaultCellStyle = style;
             gViewProducts.Columns["Seller_NO"].Visible = false;
             gViewProducts.Columns["Sub_Comment"].Visible = false;
             gViewProducts.Columns["Main_Comment"].Visible = false;
-            gViewProducts.ColumnHeadersDefaultCellStyle.BackColor = Color.Gray;
+            gViewProducts.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(143, 145, 147);
             gViewProducts.EnableHeadersVisualStyles = false;
             
         }

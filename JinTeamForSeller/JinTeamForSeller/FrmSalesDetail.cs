@@ -24,7 +24,7 @@ namespace JinTeamForSeller
 
         private void FrmSalesDetail_Load(object sender, EventArgs e)
         {
-            string pay_ID = dr.Cells["pay_ID"].Value.ToString();            
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2); string pay_ID = dr.Cells["pay_ID"].Value.ToString();            
             string stock_ID = dr.Cells["stock_ID"].Value.ToString();
             string pay_count = dr.Cells["pay_count"].Value.ToString();
             string pay_Price = dr.Cells["pay_Price"].Value.ToString();
@@ -67,6 +67,26 @@ namespace JinTeamForSeller
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void Panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+                return;
+
+            s.Parent.Left = this.Left + (e.X - ((Point)s.Tag).X);
+            s.Parent.Top = this.Top + (e.Y - ((Point)s.Tag).Y);
+        }
+
+        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
         }
     }
 }

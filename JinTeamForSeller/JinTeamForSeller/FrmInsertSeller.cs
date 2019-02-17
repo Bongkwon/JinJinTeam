@@ -52,6 +52,10 @@ namespace JinTeamForSeller
                     btnSubmit.Enabled = true;
                 }
             }
+            else
+            {
+                MessageBox.Show("ID가 비어있을 수 없습니다.");
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -96,6 +100,26 @@ namespace JinTeamForSeller
             frm.ShowDialog();
             txtAddr.Text = FrmSearchAddr.roadAddr;
             txtPostal.Text = FrmSearchAddr.zipNo;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+                return;
+
+            s.Parent.Left = this.Left + (e.X - ((Point)s.Tag).X);
+            s.Parent.Top = this.Top + (e.Y - ((Point)s.Tag).Y);
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
         }
     }
 }
