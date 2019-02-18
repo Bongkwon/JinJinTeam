@@ -21,6 +21,14 @@ namespace JinTeamForSeller
         private int pro_Discount;
         private string pro_Gender;
         private bool pro_State;
+        private string proUri;
+
+        public string ProUri
+        {
+            get { return proUri; }
+            set { proUri = value; }
+        }
+
 
         public bool Pro_State
         {
@@ -99,6 +107,12 @@ namespace JinTeamForSeller
             get { return main_Comment; }
             set { main_Comment = value; }
         }
+
+        public Product(string pro_Id, string cat_ID, int seller_No, string pro_name, int pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State, string proUri) : this(pro_Id, cat_ID, seller_No, pro_name, pro_Price, main_Comment, sub_Comment, main_Image, pro_Hits, pro_Like, pro_Discount, pro_Gender, pro_State)
+        {
+            this.proUri = proUri;
+        }
+
         public Product(string pro_Id, string cat_ID, int seller_No, string pro_name, int pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State)
         {
             this.pro_Id = pro_Id;

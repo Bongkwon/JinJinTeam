@@ -59,8 +59,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.numStockCount = new System.Windows.Forms.NumericUpDown();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.proPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockCount)).BeginInit();
             this.panel1.SuspendLayout();
@@ -356,22 +356,6 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
-            this.button3.BackgroundImage = global::JinTeamForSeller.Properties.Resources.cancel;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(1006, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(52, 49);
-            this.button3.TabIndex = 21;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -383,6 +367,22 @@
             this.label11.Size = new System.Drawing.Size(179, 54);
             this.label11.TabIndex = 22;
             this.label11.Text = "JinTeam";
+            // 
+            // button3
+            // 
+            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.button3.BackgroundImage = global::JinTeamForSeller.Properties.Resources.cancel1;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Location = new System.Drawing.Point(1006, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(52, 49);
+            this.button3.TabIndex = 21;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FrmInsertProduct
             // 

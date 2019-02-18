@@ -37,7 +37,31 @@ namespace JinTeamForSeller.Dao
         {
             bool result = false;
             string query = "insert_product";
-            SqlParameter[] sqlp = { new SqlParameter("pro_ID", pro.Pro_ID), new SqlParameter("cat_ID", pro.Cat_ID), new SqlParameter("seller_no", pro.Seller_NO), new SqlParameter("pro_name", pro.Pro_Name), new SqlParameter("pro_price", pro.Pro_Price), new SqlParameter("main_comment", pro.Main_Comment), new SqlParameter("sub_comment", pro.Sub_Comment), new SqlParameter("main_image", pro.Main_Image), new SqlParameter("pro_gender", pro.Pro_Gender) };
+            SqlParameter[] sqlp = {
+                new SqlParameter("pro_ID", pro.Pro_ID), new SqlParameter("cat_ID", pro.Cat_ID),
+                new SqlParameter("seller_no", pro.Seller_NO), new SqlParameter("pro_name", pro.Pro_Name),
+                new SqlParameter("pro_price", pro.Pro_Price), new SqlParameter("main_comment", pro.Main_Comment),
+                new SqlParameter("sub_comment", pro.Sub_Comment), new SqlParameter("main_image", pro.Main_Image),
+                new SqlParameter("pro_gender", pro.Pro_Gender) };
+
+            result = con.SendExqueteQuery(query, sqlp);
+
+            return result;
+        }
+
+        public bool Insert_Product2(Product pro)
+        {
+            bool result = false;
+            string query = "insert_product2";
+            SqlParameter[] sqlp = 
+                {
+                new SqlParameter("pro_ID", pro.Pro_ID), new SqlParameter("cat_ID", pro.Cat_ID),
+                new SqlParameter("seller_no", pro.Seller_NO), new SqlParameter("pro_name", pro.Pro_Name),
+                new SqlParameter("pro_price", pro.Pro_Price), new SqlParameter("main_comment", pro.Main_Comment),
+                new SqlParameter("sub_comment", pro.Sub_Comment), new SqlParameter("main_image", pro.Main_Image),
+                new SqlParameter("pro_gender", pro.Pro_Gender),
+                new SqlParameter("pro_Uri", pro.ProUri)
+            };
 
             result = con.SendExqueteQuery(query, sqlp);
 

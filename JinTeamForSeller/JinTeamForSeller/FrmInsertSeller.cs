@@ -62,7 +62,16 @@ namespace JinTeamForSeller
         {
             if (!string.IsNullOrEmpty(txtId.Text) && !string.IsNullOrEmpty(txtPass.Text) && !string.IsNullOrEmpty(txtChkPass.Text) && !string.IsNullOrEmpty(txtComName.Text) && !string.IsNullOrEmpty(txtBossName.Text) && !string.IsNullOrEmpty(txtPhone.Text) && !string.IsNullOrEmpty(txtPostal.Text) && !string.IsNullOrEmpty(txtAddr.Text) && !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtFax.Text) && !string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(txtReturnAddr.Text) && !string.IsNullOrEmpty(txtCorpRegistrationNo.Text))
             {
-                seller.InsertSeller(new Vo.SellerVO(txtId.Text, txtPass.Text, txtComName.Text, txtAddr.Text, txtBossName.Text, txtPhone.Text, txtPostal.Text, txtEmail.Text, txtFax.Text, txtReturnAddr.Text, txtCorpRegistrationNo.Text));
+                try
+                {
+                    seller.InsertSeller(new Vo.SellerVO(txtId.Text, txtPass.Text, txtComName.Text, txtAddr.Text, txtBossName.Text, txtPhone.Text, txtPostal.Text, txtEmail.Text, txtFax.Text, txtReturnAddr.Text, txtCorpRegistrationNo.Text));
+                    MessageBox.Show("가입 완료!");
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("가입 실패.");
+                }
             }
             else
             {

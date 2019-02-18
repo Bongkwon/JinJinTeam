@@ -36,6 +36,10 @@ namespace JinTeamForSeller
             {
                 gViewPayInfo.Columns.Add(dc);
             }
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.BackColor = Color.FromArgb(143, 145, 147);
+            //style.
+            gViewPayInfo.DefaultCellStyle = style;
             gViewPayInfo.DataSource = lstPInfo;
             gViewPayInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
@@ -156,45 +160,51 @@ namespace JinTeamForSeller
         string trans_State = "";
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            for (int i = 0; i < gViewPayInfo.RowCount; i++)
+
+            try
             {
-                bool result = false;
-                if (!string.IsNullOrEmpty(gViewPayInfo["Waybill_ID",i].Value.ToString()))
+                for (int i = 0; i < gViewPayInfo.RowCount; i++)
                 {
-                    string oldwaybill = gViewPayInfo["Waybill_ID", i].Value.ToString();
+                    bool result = false;
+                    if (!string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
+                    {
+                        string oldwaybill = gViewPayInfo["Waybill_ID", i].Value.ToString();
+                    }
+                    try
+                    {
+                        result = (bool)gViewPayInfo["trans_State_Com", i].Value;
+                    }
+                    catch (Exception)
+                    {
+                    }
+                    //MessageBox.Show(result.ToString());
+                    if (result)
+                    {
+                        trans_State = "배송 완료";
+                    }
+                    else
+                    {
+                        trans_State = "배송 중";
+                    }
+                    if (string.IsNullOrEmpty(lstOldWaybill[i]) &&
+                        !string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
+                    {
+                        Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
+                        tDao.InsertTransport(tVo, (int)gViewPayInfo["Pay_ID", i].Value);
+                        //MessageBox.Show("Test1");
+                    }
+                    else if (!string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
+                    {
+                        // && lstPInfo[i].Waybill_ID != gViewPayInfo["Waybill_ID", i].Value.ToString()
+                        Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
+                        tDao.UpdateTransportWaybill(tVo, lstOldWaybill[i], (int)gViewPayInfo["Pay_ID", i].Value);
+                        //MessageBox.Show(lstOldWaybill[i]);
+                        //MessageBox.Show(tVo.Waybill_ID);
+                    }
                 }
-                try
-                {
-                    result = (bool)gViewPayInfo["trans_State_Com", i].Value;
-                }
-                catch (Exception)
-                {                    
-                }
-                //MessageBox.Show(result.ToString());
-                if (result)
-                {
-                    trans_State = "배송 완료";
-                }
-                else
-                {
-                    trans_State = "배송 중";
-                }
-                if (string.IsNullOrEmpty(lstOldWaybill[i]) && 
-                    !string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
-                {
-                    Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
-                    tDao.InsertTransport(tVo, (int)gViewPayInfo["Pay_ID", i].Value);
-                    MessageBox.Show("Test1");
-                }
-                else if(!string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
-                {
-                    // && lstPInfo[i].Waybill_ID != gViewPayInfo["Waybill_ID", i].Value.ToString()
-                    Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
-                    tDao.UpdateTransportWaybill(tVo, lstOldWaybill[i], (int)gViewPayInfo["Pay_ID", i].Value);
-                    //MessageBox.Show(lstOldWaybill[i]);
-                    //MessageBox.Show(tVo.Waybill_ID);
-                }
+            }
+            catch (Exception)
+            {                
             }
             this.OnLoad(null);
             rdoShowAll.Checked = true;
