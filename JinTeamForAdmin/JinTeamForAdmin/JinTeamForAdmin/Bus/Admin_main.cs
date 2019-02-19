@@ -323,8 +323,8 @@ namespace JinTeamForSeller.Bus
             main_GV.DataSource = null;
             main_GV.DataSource = pro_lst;
 
-            main_GV.GridColor = Color.Pink;
-            main_GV.ForeColor = Color.PowderBlue;
+            //main_GV.GridColor = Color.Pink;
+            //main_GV.ForeColor = Color.PowderBlue;
 
             main_GV.Columns["cat_id"].Visible = false;
             main_GV.Columns["main_comment"].Visible = false;
