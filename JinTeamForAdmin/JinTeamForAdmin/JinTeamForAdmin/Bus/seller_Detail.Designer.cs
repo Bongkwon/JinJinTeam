@@ -388,10 +388,11 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "ID";
             // 
-            // seller_Detail
+            // Seller_Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(406, 446);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -423,7 +424,7 @@
             this.Controls.Add(this.lbl_boss);
             this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.lbl_ID);
-            this.Name = "seller_Detail";
+            this.Name = "Seller_Detail";
             this.Text = "seller_Detail";
             this.Load += new System.EventHandler(this.seller_Detail_Load);
             this.groupBox1.ResumeLayout(false);

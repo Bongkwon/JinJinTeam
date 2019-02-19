@@ -322,7 +322,7 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(967, 0);
+            this.button2.Location = new System.Drawing.Point(104, 455);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(35, 33);
             this.button2.TabIndex = 18;
@@ -345,7 +345,6 @@
             this.Controls.Add(this.gb_pro);
             this.Controls.Add(this.main_GV);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Admin_main";
             this.Text = "Admin_main";

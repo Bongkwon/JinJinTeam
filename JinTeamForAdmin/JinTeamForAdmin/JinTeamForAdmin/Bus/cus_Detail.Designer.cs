@@ -281,10 +281,11 @@
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
-            // cus_Detail
+            // Cus_Detail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(533, 349);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.label1);
@@ -311,7 +312,7 @@
             this.Controls.Add(this.lbl_phone);
             this.Controls.Add(this.lbl_pwd);
             this.Controls.Add(this.lbl_no);
-            this.Name = "cus_Detail";
+            this.Name = "Cus_Detail";
             this.Text = "cus_Detail";
             this.Load += new System.EventHandler(this.cus_Detail_Load);
             this.ResumeLayout(false);

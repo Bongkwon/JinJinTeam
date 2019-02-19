@@ -131,10 +131,11 @@
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // return_inquire
+            // Return_inquire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(567, 394);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_send);
@@ -146,7 +147,7 @@
             this.Controls.Add(this.lbl_email);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "return_inquire";
+            this.Name = "Return_inquire";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "return_inquire";
             this.Load += new System.EventHandler(this.return_inquire_Load);

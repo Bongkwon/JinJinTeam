@@ -233,6 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.BackgroundImage = global::JinTeamForAdmin.Properties.Resources.세금계산서_예시;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(959, 360);
@@ -255,6 +256,7 @@
             this.Controls.Add(this.btn_saveLocation);
             this.Controls.Add(this.btn_output);
             this.DoubleBuffered = true;
+            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "Tax_Ex";
             this.Text = "Tax_Ex";
             this.Load += new System.EventHandler(this.Tax_Ex_Load);
