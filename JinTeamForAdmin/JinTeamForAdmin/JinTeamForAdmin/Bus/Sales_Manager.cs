@@ -190,8 +190,8 @@ namespace JinTeamForAdmin.Bus
                 {
                     date = sales_sub_lst[hit.PointIndex].Pay_date_m + "월";                  
                 }
-                myToolTip.Show("회사 : " + name + Environment.NewLine
-                                       + "매출 : " + price + Environment.NewLine +
+                myToolTip.Show(/*"회사 : " + name + Environment.NewLine +*/
+                                        "매출 : " + price + Environment.NewLine +
                                        "건수 : " + count + Environment.NewLine +
                                        "날짜 : " + date
                                        , chart_sales, new Point(nowPosition.X + 10, nowPosition.Y + 15));

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.main_GV = new System.Windows.Forms.DataGridView();
             this.rdo_all_cus = new System.Windows.Forms.RadioButton();
             this.rdo_deactive_cus = new System.Windows.Forms.RadioButton();
@@ -35,40 +38,85 @@
             this.rdo_all_pro = new System.Windows.Forms.RadioButton();
             this.rdo_deactive_seller = new System.Windows.Forms.RadioButton();
             this.rdo_all_seller = new System.Windows.Forms.RadioButton();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.seller목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customer목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.products목록ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.결제정보세금계산서출력ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.문의내역ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.매출관리ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gb_pro = new System.Windows.Forms.GroupBox();
             this.gb_seller = new System.Windows.Forms.GroupBox();
             this.rdo_Disabled_seller = new System.Windows.Forms.RadioButton();
             this.gb_cus = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_Refresh = new System.Windows.Forms.Button();
             this.gb_inq = new System.Windows.Forms.GroupBox();
             this.cb_inquire = new System.Windows.Forms.ComboBox();
             this.rd_sel_inq = new System.Windows.Forms.RadioButton();
             this.rd_cus_inq = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pn1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pn2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pn4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pn3 = new System.Windows.Forms.Panel();
+            this.pn6 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pn5 = new System.Windows.Forms.Panel();
+            this.pb_refresh = new System.Windows.Forms.PictureBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pb_Exit = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.main_GV)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.gb_pro.SuspendLayout();
             this.gb_seller.SuspendLayout();
             this.gb_cus.SuspendLayout();
             this.gb_inq.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_refresh)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_GV
             // 
-            this.main_GV.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.main_GV.BackgroundColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.main_GV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.main_GV.Location = new System.Drawing.Point(12, 69);
+            this.main_GV.EnableHeadersVisualStyles = false;
+            this.main_GV.Location = new System.Drawing.Point(12, 143);
             this.main_GV.MultiSelect = false;
             this.main_GV.Name = "main_GV";
             this.main_GV.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Empty;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.main_GV.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.main_GV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+            this.main_GV.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Empty;
             this.main_GV.RowTemplate.Height = 23;
             this.main_GV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.main_GV.Size = new System.Drawing.Size(978, 380);
@@ -146,69 +194,11 @@
             this.rdo_all_seller.UseVisualStyleBackColor = true;
             this.rdo_all_seller.CheckedChanged += new System.EventHandler(this.seller_changed);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.LightGray;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seller목록ToolStripMenuItem,
-            this.customer목록ToolStripMenuItem,
-            this.products목록ToolStripMenuItem,
-            this.결제정보세금계산서출력ToolStripMenuItem,
-            this.문의내역ToolStripMenuItem,
-            this.매출관리ToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1002, 24);
-            this.menuStrip1.TabIndex = 11;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // seller목록ToolStripMenuItem
-            // 
-            this.seller목록ToolStripMenuItem.Name = "seller목록ToolStripMenuItem";
-            this.seller목록ToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.seller목록ToolStripMenuItem.Text = "seller 목록";
-            this.seller목록ToolStripMenuItem.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
-            // 
-            // customer목록ToolStripMenuItem
-            // 
-            this.customer목록ToolStripMenuItem.Name = "customer목록ToolStripMenuItem";
-            this.customer목록ToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.customer목록ToolStripMenuItem.Text = "customer 목록";
-            this.customer목록ToolStripMenuItem.Click += new System.EventHandler(this.customer목록ToolStripMenuItem_Click);
-            // 
-            // products목록ToolStripMenuItem
-            // 
-            this.products목록ToolStripMenuItem.Name = "products목록ToolStripMenuItem";
-            this.products목록ToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.products목록ToolStripMenuItem.Text = "products 목록";
-            this.products목록ToolStripMenuItem.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
-            // 
-            // 결제정보세금계산서출력ToolStripMenuItem
-            // 
-            this.결제정보세금계산서출력ToolStripMenuItem.Name = "결제정보세금계산서출력ToolStripMenuItem";
-            this.결제정보세금계산서출력ToolStripMenuItem.Size = new System.Drawing.Size(163, 20);
-            this.결제정보세금계산서출력ToolStripMenuItem.Text = "결제정보(세금계산서 출력)";
-            this.결제정보세금계산서출력ToolStripMenuItem.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
-            // 
-            // 문의내역ToolStripMenuItem
-            // 
-            this.문의내역ToolStripMenuItem.Name = "문의내역ToolStripMenuItem";
-            this.문의내역ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.문의내역ToolStripMenuItem.Text = "문의내역";
-            this.문의내역ToolStripMenuItem.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
-            // 
-            // 매출관리ToolStripMenuItem
-            // 
-            this.매출관리ToolStripMenuItem.Name = "매출관리ToolStripMenuItem";
-            this.매출관리ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.매출관리ToolStripMenuItem.Text = "매출관리";
-            this.매출관리ToolStripMenuItem.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
-            // 
             // gb_pro
             // 
             this.gb_pro.Controls.Add(this.rdo_deactive_pro);
             this.gb_pro.Controls.Add(this.rdo_all_pro);
-            this.gb_pro.Location = new System.Drawing.Point(12, 27);
+            this.gb_pro.Location = new System.Drawing.Point(12, 94);
             this.gb_pro.Name = "gb_pro";
             this.gb_pro.Size = new System.Drawing.Size(200, 36);
             this.gb_pro.TabIndex = 12;
@@ -220,7 +210,7 @@
             this.gb_seller.Controls.Add(this.rdo_Disabled_seller);
             this.gb_seller.Controls.Add(this.rdo_deactive_seller);
             this.gb_seller.Controls.Add(this.rdo_all_seller);
-            this.gb_seller.Location = new System.Drawing.Point(12, 27);
+            this.gb_seller.Location = new System.Drawing.Point(12, 94);
             this.gb_seller.Name = "gb_seller";
             this.gb_seller.Size = new System.Drawing.Size(309, 36);
             this.gb_seller.TabIndex = 13;
@@ -242,33 +232,12 @@
             // 
             this.gb_cus.Controls.Add(this.rdo_deactive_cus);
             this.gb_cus.Controls.Add(this.rdo_all_cus);
-            this.gb_cus.Location = new System.Drawing.Point(12, 27);
+            this.gb_cus.Location = new System.Drawing.Point(12, 94);
             this.gb_cus.Name = "gb_cus";
             this.gb_cus.Size = new System.Drawing.Size(200, 36);
             this.gb_cus.TabIndex = 14;
             this.gb_cus.TabStop = false;
             this.gb_cus.Text = "customers";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 455);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "삭제";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btn_Refresh
-            // 
-            this.btn_Refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Refresh.Location = new System.Drawing.Point(917, 39);
-            this.btn_Refresh.Name = "btn_Refresh";
-            this.btn_Refresh.Size = new System.Drawing.Size(73, 23);
-            this.btn_Refresh.TabIndex = 16;
-            this.btn_Refresh.Text = "새로고침";
-            this.btn_Refresh.UseVisualStyleBackColor = true;
-            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // gb_inq
             // 
@@ -276,7 +245,7 @@
             this.gb_inq.Controls.Add(this.cb_inquire);
             this.gb_inq.Controls.Add(this.rd_sel_inq);
             this.gb_inq.Controls.Add(this.rd_cus_inq);
-            this.gb_inq.Location = new System.Drawing.Point(12, 27);
+            this.gb_inq.Location = new System.Drawing.Point(12, 94);
             this.gb_inq.Name = "gb_inq";
             this.gb_inq.Size = new System.Drawing.Size(318, 36);
             this.gb_inq.TabIndex = 17;
@@ -314,44 +283,264 @@
             this.rd_cus_inq.UseVisualStyleBackColor = true;
             this.rd_cus_inq.CheckedChanged += new System.EventHandler(this.inq_changed);
             // 
-            // button2
+            // pn1
             // 
-            this.button2.BackColor = System.Drawing.Color.LightGray;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("휴먼둥근헤드라인", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button2.Location = new System.Drawing.Point(104, 455);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 33);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.pn1.BackColor = System.Drawing.Color.White;
+            this.pn1.Location = new System.Drawing.Point(12, 55);
+            this.pn1.Name = "pn1";
+            this.pn1.Size = new System.Drawing.Size(93, 34);
+            this.pn1.TabIndex = 19;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(12, 55);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(93, 30);
+            this.panel2.TabIndex = 20;
+            this.panel2.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 12);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "판매자 목록";
+            this.label1.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.LightGray;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(105, 55);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(93, 30);
+            this.panel3.TabIndex = 22;
+            this.panel3.Click += new System.EventHandler(this.customer목록ToolStripMenuItem_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 12);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "고객 목록";
+            this.label2.Click += new System.EventHandler(this.customer목록ToolStripMenuItem_Click);
+            // 
+            // pn2
+            // 
+            this.pn2.BackColor = System.Drawing.Color.White;
+            this.pn2.Location = new System.Drawing.Point(105, 55);
+            this.pn2.Name = "pn2";
+            this.pn2.Size = new System.Drawing.Size(93, 34);
+            this.pn2.TabIndex = 21;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.LightGray;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(291, 55);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(93, 30);
+            this.panel5.TabIndex = 26;
+            this.panel5.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 12);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "결제 정보";
+            this.label5.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 12);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "결제 정보";
+            // 
+            // pn4
+            // 
+            this.pn4.BackColor = System.Drawing.Color.White;
+            this.pn4.Location = new System.Drawing.Point(291, 55);
+            this.pn4.Name = "pn4";
+            this.pn4.Size = new System.Drawing.Size(93, 34);
+            this.pn4.TabIndex = 25;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.LightGray;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Location = new System.Drawing.Point(198, 55);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(93, 30);
+            this.panel7.TabIndex = 24;
+            this.panel7.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 12);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "상품 목록";
+            this.label3.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            // 
+            // pn3
+            // 
+            this.pn3.BackColor = System.Drawing.Color.White;
+            this.pn3.Location = new System.Drawing.Point(198, 55);
+            this.pn3.Name = "pn3";
+            this.pn3.Size = new System.Drawing.Size(93, 34);
+            this.pn3.TabIndex = 23;
+            // 
+            // pn6
+            // 
+            this.pn6.BackColor = System.Drawing.Color.White;
+            this.pn6.Location = new System.Drawing.Point(477, 55);
+            this.pn6.Name = "pn6";
+            this.pn6.Size = new System.Drawing.Size(93, 34);
+            this.pn6.TabIndex = 29;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.LightGray;
+            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel11.Controls.Add(this.label6);
+            this.panel11.Location = new System.Drawing.Point(384, 55);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(93, 30);
+            this.panel11.TabIndex = 28;
+            this.panel11.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 12);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "문의 내역";
+            this.label6.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
+            // pn5
+            // 
+            this.pn5.BackColor = System.Drawing.Color.White;
+            this.pn5.Location = new System.Drawing.Point(384, 55);
+            this.pn5.Name = "pn5";
+            this.pn5.Size = new System.Drawing.Size(93, 34);
+            this.pn5.TabIndex = 27;
+            // 
+            // pb_refresh
+            // 
+            this.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_refresh.Location = new System.Drawing.Point(953, 101);
+            this.pb_refresh.Name = "pb_refresh";
+            this.pb_refresh.Size = new System.Drawing.Size(37, 36);
+            this.pb_refresh.TabIndex = 31;
+            this.pb_refresh.TabStop = false;
+            this.pb_refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.LightGray;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.label7);
+            this.panel9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel9.Location = new System.Drawing.Point(477, 55);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(93, 30);
+            this.panel9.TabIndex = 29;
+            this.panel9.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 12);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "매출 관리";
+            this.label7.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
+            // 
+            // pb_Exit
+            // 
+            this.pb_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Exit.Location = new System.Drawing.Point(958, 8);
+            this.pb_Exit.Name = "pb_Exit";
+            this.pb_Exit.Size = new System.Drawing.Size(36, 36);
+            this.pb_Exit.TabIndex = 32;
+            this.pb_Exit.TabStop = false;
+            this.pb_Exit.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.pb_Exit);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1001, 54);
+            this.panel1.TabIndex = 33;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label8.Location = new System.Drawing.Point(8, -5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(172, 54);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "JinShop";
             // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1002, 496);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1002, 535);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.pb_refresh);
+            this.Controls.Add(this.pn6);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.pn5);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.pn4);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.pn3);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pn2);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pn1);
             this.Controls.Add(this.gb_inq);
-            this.Controls.Add(this.btn_Refresh);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.gb_cus);
             this.Controls.Add(this.gb_seller);
             this.Controls.Add(this.gb_pro);
             this.Controls.Add(this.main_GV);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Admin_main";
             this.Text = "Admin_main";
             this.Load += new System.EventHandler(this.Admin_main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.main_GV)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.gb_pro.ResumeLayout(false);
             this.gb_pro.PerformLayout();
             this.gb_seller.ResumeLayout(false);
@@ -360,8 +549,23 @@
             this.gb_cus.PerformLayout();
             this.gb_inq.ResumeLayout(false);
             this.gb_inq.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_refresh)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -374,23 +578,36 @@
         private System.Windows.Forms.RadioButton rdo_all_pro;
         private System.Windows.Forms.RadioButton rdo_deactive_seller;
         private System.Windows.Forms.RadioButton rdo_all_seller;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem seller목록ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customer목록ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem products목록ToolStripMenuItem;
         private System.Windows.Forms.GroupBox gb_pro;
         private System.Windows.Forms.GroupBox gb_seller;
         private System.Windows.Forms.GroupBox gb_cus;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rdo_Disabled_seller;
-        private System.Windows.Forms.Button btn_Refresh;
-        private System.Windows.Forms.ToolStripMenuItem 결제정보세금계산서출력ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 문의내역ToolStripMenuItem;
         private System.Windows.Forms.GroupBox gb_inq;
         private System.Windows.Forms.RadioButton rd_sel_inq;
         private System.Windows.Forms.RadioButton rd_cus_inq;
         private System.Windows.Forms.ComboBox cb_inquire;
-        private System.Windows.Forms.ToolStripMenuItem 매출관리ToolStripMenuItem;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel pn1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pn2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pn4;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pn3;
+        private System.Windows.Forms.Panel pn6;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel pn5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pb_refresh;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pb_Exit;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label8;
     }
 }

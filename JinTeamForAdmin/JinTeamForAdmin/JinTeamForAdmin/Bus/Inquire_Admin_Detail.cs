@@ -41,7 +41,7 @@ namespace JinTeamForAdmin.Bus
             var cells = selectedRows[0].Cells;
             txt_body.Text = selectedRows[0].Cells[7].Value.ToString();  // 본문
             txt_date.Text = selectedRows[0].Cells[8].Value.ToString();  // 날짜
-            txt_date.Text = DateTime.Parse(txt_date.Text).ToShortDateString();
+            //txt_date.Text = DateTime.Parse(txt_date.Text).ToShortDateString();
             //txt_date.Text = txt_date.Text.Substring(txt_date.Text.IndexOf("-") + 1); // 02-07
             //txt_date.Text = txt_date.Text.Substring(txt_date.Text.IndexOf("-") + 1,2); // 01
             txt_name.Text = selectedRows[0].Cells[2].Value.ToString();

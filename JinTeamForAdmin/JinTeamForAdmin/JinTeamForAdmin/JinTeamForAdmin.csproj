@@ -128,6 +128,26 @@
     <Compile Include="Vo\Sales_manager_Vo.cs" />
     <Compile Include="Vo\Seller_Vo.cs" />
     <Compile Include="Vo\TaxBill_Vo.cs" />
+    <Content Include="Database1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="Resources\cancel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\refresh-arrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="test1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="test1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>test1.mdf</DependentUpon>
+    </Content>
     <EmbeddedResource Include="Bus\Admin_main.resx">
       <DependentUpon>Admin_main.cs</DependentUpon>
     </EmbeddedResource>
