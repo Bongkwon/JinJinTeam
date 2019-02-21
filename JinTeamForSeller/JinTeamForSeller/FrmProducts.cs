@@ -27,8 +27,12 @@ namespace JinTeamForSeller
             gViewProducts.DataSource = lstPro;
             gViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gViewProducts.Columns["Main_Image"].Visible = false;
-            dr = gViewProducts.Rows[0];
-            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
+            if (lstPro.Count>0)
+            {
+                dr = gViewProducts.Rows[0];
+            }
+            //this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
+
             DataGridViewCellStyle style = new DataGridViewCellStyle();
             style.BackColor = Color.FromArgb(143, 145, 147);
             //style.

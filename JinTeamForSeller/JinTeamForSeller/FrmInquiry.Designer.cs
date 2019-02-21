@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.rdoInquryOfProduct = new System.Windows.Forms.RadioButton();
             this.rdoReviewForPro = new System.Windows.Forms.RadioButton();
             this.rdoInquireToSys = new System.Windows.Forms.RadioButton();
             this.gViewInquiry = new System.Windows.Forms.DataGridView();
             this.btnInsertInquiry = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gViewInquiry)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -78,12 +79,21 @@
             // gViewInquiry
             // 
             this.gViewInquiry.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.gViewInquiry.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.gViewInquiry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewInquiry.GridColor = System.Drawing.SystemColors.Control;
             this.gViewInquiry.Location = new System.Drawing.Point(12, 109);
             this.gViewInquiry.MultiSelect = false;
             this.gViewInquiry.Name = "gViewInquiry";
             this.gViewInquiry.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(210)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(97)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gViewInquiry.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gViewInquiry.RowTemplate.Height = 23;
             this.gViewInquiry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gViewInquiry.Size = new System.Drawing.Size(1130, 402);
@@ -117,22 +127,6 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
-            this.button1.BackgroundImage = global::JinTeamForSeller.Properties.Resources.cancel;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(1090, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(52, 49);
-            this.button1.TabIndex = 21;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -144,6 +138,22 @@
             this.label6.Size = new System.Drawing.Size(179, 54);
             this.label6.TabIndex = 22;
             this.label6.Text = "JinTeam";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.button1.BackgroundImage = global::JinTeamForSeller.Properties.Resources.cancel1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1094, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 32);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmInquiry
             // 

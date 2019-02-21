@@ -34,6 +34,8 @@ namespace JinTeamForSeller
             dTPicToDate.CustomFormat = "yyyy-MM";
             dTPicFromDate.CustomFormat = "yyyy-MM";
             btnSearch_Click(null, null);
+            chartSales.Legends[0].BackColor = Color.FromArgb(206, 206, 210);
+            //chartSales.Palette = ChartColorPalette.Light;
         }
 
         private void ViewGView()

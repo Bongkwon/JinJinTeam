@@ -67,6 +67,13 @@ namespace JinTeamForSeller
             gViewInquiry.Columns["inquireNo"].Visible = false;
             gViewInquiry.Columns["inquireImage"].Visible = false;
             gViewInquiry.Columns["MainImage"].Visible = false;
+
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.BackColor = Color.FromArgb(143, 145, 147);
+            //style.
+            gViewInquiry.DefaultCellStyle = style;
+            gViewInquiry.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(143, 145, 147);
+            gViewInquiry.EnableHeadersVisualStyles = false;
         }
 
         private void btnInsertInquiry_Click(object sender, EventArgs e)

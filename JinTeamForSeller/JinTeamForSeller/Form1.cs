@@ -5,12 +5,15 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HtmlAgilityPack;
 using JinTeamForSeller.Dao;
+using JinTeamForSeller.Vo;
 
 namespace JinTeamForSeller
 {    
@@ -305,6 +308,51 @@ namespace JinTeamForSeller
         {
             var s = sender as Panel;
             s.Tag = new Point(e.X, e.Y);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            List<Product> lstPro = new List<Product>();
+            int i = 26;
+            int page = 1;
+            WebRequest req = WebRequest.Create("https://rollingus.com/category/top/" + i + "?page=" + page);
+            WebResponse res = req.GetResponse();
+            Stream stream = res.GetResponseStream();
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.Load(stream,Encoding.UTF8);
+            HtmlNode root = doc.DocumentNode;
+
+
+            var webNodes = root.SelectNodes("//body/div/div/div/div/div/div/ul/li/div/a");
+            var imgNodes = root.SelectNodes("//body/div/div/div/div/div/div/ul/li/div/a/img");
+            var nameNodes = root.SelectNodes("//body/div/div/div/div/div/div/ul/li/div/strong/a");
+            var priceNodes = root.SelectNodes("//body/div/div/div/div/div/div/ul/li/div/ul");
+
+            for (int j = 0; j < imgNodes.Count; j++)
+            {
+                string webUri = "https://rollingus.com" + webNodes[j].Attributes[0].Value;
+
+                string proID = "Lollingu_" + webNodes[j].Attributes[1].Value.Substring(webNodes[j].Attributes[1].Value.LastIndexOf("_") + 1, 4);
+
+                string mainImage = "http:" + imgNodes[j].Attributes[0].Value;
+
+                string proName = nameNodes[j].ChildNodes[2].InnerText;
+
+                int proPrice = int.Parse(priceNodes[j].ChildNodes[2].ChildNodes[3].InnerText.Replace(",", "").Remove(priceNodes[j].ChildNodes[2].ChildNodes[3].InnerText.LastIndexOf("w")-1).Trim());
+
+                Product pro = new Product(proID, "T00", 21, proName, proPrice, "", "", mainImage, 0, 0, 0, "A", true, webUri);
+                lstPro.Add(pro);                
+            }
+            ProductDAO pDao = new ProductDAO();
+            foreach (var item in lstPro)
+            {
+                pDao.Insert_Product2(item);
+            }            
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

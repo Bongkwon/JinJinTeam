@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace JinTeamForSeller.Vo
+namespace JinTeamForServer
 {
-    class ReviewVO
+    public class ReviewVO
     {
         private int re_ID;
 
@@ -87,7 +86,7 @@ namespace JinTeamForSeller.Vo
         }
 
 
-        public ReviewVO(int re_ID, int cus_NO, string pro_ID, bool re_Like, string re_Image, string re_Txt, 
+        public ReviewVO(int re_ID, int cus_NO, string pro_ID, bool re_Like, string re_Image, string re_Txt,
             DateTime re_Date, string re_Comment, string re_Comment_Date, string cusName, string mainImage)
         {
             this.re_ID = re_ID;
@@ -96,7 +95,7 @@ namespace JinTeamForSeller.Vo
             this.re_Like = re_Like;
             this.re_Image = re_Image;
             this.re_Txt = re_Txt;
-            this.re_Date = re_Date; 
+            this.re_Date = re_Date;
             this.re_Comment = re_Comment;
             this.re_Comment_Date = re_Comment_Date;
             this.cusName = cusName;
