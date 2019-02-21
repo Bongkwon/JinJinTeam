@@ -13,7 +13,7 @@ namespace JinTeamForServer
         {
             List<object> lstobj = new List<object>();
             List<ReviewVO> lstReview = new List<ReviewVO>();
-            string query = "SelectReviewForSeller";
+            string query = "SelectReviewForCustomer";
             SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
             lstobj = con.SendReadQuery(query, sqlp);
             foreach (var item in lstobj)
@@ -27,8 +27,16 @@ namespace JinTeamForServer
         {
             string query = "UpdateReview";
             SqlParameter[] sqlp = { new SqlParameter("re_ID", re_ID), new SqlParameter("re_Comment", re_Comment) };
-
-            return con.SendExqueteQuery(query, sqlp);
+            try
+            {
+                con.SendExqueteQuery(query, sqlp);
+                return true;
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
+            
         }
     }
 }
