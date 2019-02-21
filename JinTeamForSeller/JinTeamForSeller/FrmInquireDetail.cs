@@ -68,5 +68,20 @@ namespace JinTeamForSeller
                 }
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
+        }
     }
 }
