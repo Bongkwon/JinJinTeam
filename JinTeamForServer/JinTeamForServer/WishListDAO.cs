@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -29,6 +31,28 @@ namespace JinTeamForServer
             {
                 throw;
             }
+        }
+
+        public string SelectWishList(int cus_No)
+        {
+            string json = null;
+            DBConnection con = new DBConnection();
+            string sp = "select_wishlist";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("cus_No", cus_No);
+
+            DataTable dt = con.ExcuteSelect(sp, sqlParameters);
+
+            if (dt.Rows.Count == 0)
+            {
+                json = "<Categories><DataCount>" + dt.Rows.Count + "</DataCount></Categories>";
+            }
+            else
+            {
+                json = JsonConvert.SerializeObject(dt, Formatting.Indented);
+            }
+
+            return json;
         }
     }
 }

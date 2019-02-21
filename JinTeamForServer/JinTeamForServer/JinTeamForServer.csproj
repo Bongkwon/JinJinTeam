@@ -82,12 +82,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChangeCustInfo.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="FrmInquireRecieve.aspx" />
+    <Content Include="FrmInquireSend.aspx" />
     <Content Include="FrmInsertCust.aspx" />
     <Content Include="FrmInstWishList.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmOrderList.aspx" />
     <Content Include="FrmShowProducts.aspx" />
+    <Content Include="FrmShowProStock.aspx" />
+    <Content Include="FrmShowWishList.aspx" />
     <Content Include="FrmUserShipInfo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JinTeamDB.mdf" />
@@ -97,6 +102,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeCustInfo.aspx.cs">
+      <DependentUpon>ChangeCustInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeCustInfo.aspx.designer.cs">
+      <DependentUpon>ChangeCustInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDAO.cs" />
     <Compile Include="DBConnection.cs" />
@@ -106,6 +118,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInquireRecieve.aspx.cs">
+      <DependentUpon>FrmInquireRecieve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInquireRecieve.aspx.designer.cs">
+      <DependentUpon>FrmInquireRecieve.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInquireSend.aspx.cs">
+      <DependentUpon>FrmInquireSend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInquireSend.aspx.designer.cs">
+      <DependentUpon>FrmInquireSend.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmInsertCust.aspx.cs">
       <DependentUpon>FrmInsertCust.aspx</DependentUpon>
@@ -142,6 +168,20 @@
     <Compile Include="FrmShowProducts.aspx.designer.cs">
       <DependentUpon>FrmShowProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmShowProStock.aspx.cs">
+      <DependentUpon>FrmShowProStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmShowProStock.aspx.designer.cs">
+      <DependentUpon>FrmShowProStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShowWishList.aspx.cs">
+      <DependentUpon>FrmShowWishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmShowWishList.aspx.designer.cs">
+      <DependentUpon>FrmShowWishList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmUserShipInfo.aspx.cs">
       <DependentUpon>FrmUserShipInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,11 +192,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Inquire_DAO.cs" />
+    <Compile Include="Inquire_VO.cs" />
     <Compile Include="OrderList_DAO.cs" />
     <Compile Include="OrderList_VO.cs" />
     <Compile Include="Product_VO.cs" />
     <Compile Include="ProductsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stock.cs" />
+    <Compile Include="StockDAO.cs" />
     <Compile Include="UserShipInfo_DAO.cs" />
     <Compile Include="UserShipInfo_VO.cs" />
     <Compile Include="WishList_VO.cs" />

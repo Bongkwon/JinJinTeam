@@ -133,5 +133,76 @@ namespace JinTeamForServer
             return set.Tables[0];
 
         }
+
+        //internal bool UpdateQuery(string sp, SqlParameter[] sqls)
+        //{
+        //    bool result = false;
+
+        //    cmd.Connection = OpenConnection();
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    cmd.CommandText = sp;
+        //    if (sqls != null)
+        //    {
+        //        cmd.Parameters.AddRange(sqls);
+        //    }
+        //    if (cmd.ExecuteNonQuery() == 1)
+        //    {
+        //        result = true;
+        //    }
+        //    conn.Close();
+
+        //    return result;
+        //}
+
+        public bool UpdateQuery(string query, SqlParameter[] sqlp)
+        {
+            bool result = false;
+
+            cmd.Connection = OpenConnection();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = query;
+            if (sqlp != null)
+            {
+                cmd.Parameters.AddRange(sqlp);
+            }
+            if (cmd.ExecuteNonQuery() == 1)
+            {
+                result = true;
+            }
+            conn.Close();
+
+            return result;
+        }
+
+        public List<Stock> ReadStocks(string query, SqlParameter[] sqlp)
+        {
+            List<Stock> stocks = new List<Stock>();
+            cmd.Connection = OpenConnection();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = query;
+
+            if (sqlp != null)
+            {
+                cmd.Parameters.AddRange(sqlp);
+            }
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            while (sdr.Read())
+            {
+                Stock stock = new Stock()
+                {
+                    Stock_id = sdr["stock_id"].ToString(),
+                    Pro_id = sdr["pro_id"].ToString(),
+                    Seller_no = int.Parse(sdr["seller_no"].ToString()),
+                    Stock_size = sdr["stock_size"].ToString(),
+                    Stock_count = int.Parse(sdr["stock_count"].ToString())
+                };
+
+                stocks.Add(stock);
+            }
+
+            conn.Close();
+            return stocks;
+        }
     }
 }
