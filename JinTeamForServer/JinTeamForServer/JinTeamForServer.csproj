@@ -87,6 +87,7 @@
     <Content Include="FrmOrderList.aspx" />
     <Content Include="FrmShowProducts.aspx" />
     <Content Include="FrmUserShipInfo.aspx" />
+    <Content Include="FrmViewReview.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JinTeamDB.mdf" />
     <Content Include="JinTeamDB_log.ldf">
@@ -147,6 +148,13 @@
     <Compile Include="FrmUserShipInfo.aspx.designer.cs">
       <DependentUpon>FrmUserShipInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmViewReview.aspx.cs">
+      <DependentUpon>FrmViewReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmViewReview.aspx.designer.cs">
+      <DependentUpon>FrmViewReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -155,6 +163,8 @@
     <Compile Include="Product_VO.cs" />
     <Compile Include="ProductsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReviewDao.cs" />
+    <Compile Include="ReviewVO.cs" />
     <Compile Include="UserShipInfo_DAO.cs" />
     <Compile Include="UserShipInfo_VO.cs" />
     <Compile Include="WishList_VO.cs" />
