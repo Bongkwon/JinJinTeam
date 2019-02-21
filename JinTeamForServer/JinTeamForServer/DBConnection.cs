@@ -49,39 +49,48 @@ namespace JinTeamForServer
             }
         }
 
-        public List<Product_VO> SendReadQuery(string query, SqlParameter[] sqlp)
+        public List<object> SendReadQuery(string query, SqlParameter[] sqlp)
         {
-            List<Product_VO> pro_lst = new List<Product_VO>();
-            cmd.Connection = OpenConnection();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.CommandText = query;
-            if (sqlp != null)
+            List<object> lstobj = new List<object>();
+            try
             {
-                cmd.Parameters.AddRange(sqlp);
-            }
-            SqlDataReader sdr = cmd.ExecuteReader();
-            while (sdr.Read())
-            {
-                Product_VO pv = new Product_VO();
+                cmd.Connection = OpenConnection();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = query;
+                if (sqlp != null)
                 {
-                    pv.Pro_ID = sdr["pro_Id"].ToString();
-                    pv.Cat_ID = sdr["cat_id"].ToString();
-                    pv.Seller_NO = Int32.Parse(sdr["seller_no"].ToString());
-                    pv.Pro_Name = sdr["pro_name"].ToString();
-                    pv.Pro_Price = Int32.Parse(sdr["pro_price"].ToString());
-                    pv.Main_Comment = sdr["main_comment"].ToString();
-                    pv.Sub_Comment = sdr["sub_comment"].ToString();
-                    pv.Main_Image = sdr["main_image"].ToString();
-                    pv.Pro_Hits = Int32.Parse(sdr["pro_hits"].ToString());
-                    pv.Pro_Like = Int32.Parse(sdr["pro_like"].ToString());
-                    pv.Pro_Discount = Int32.Parse(sdr["pro_discount"].ToString());
-                    pv.Pro_Gender = sdr["pro_gender"].ToString();
-                    pv.Pro_State = bool.Parse(sdr["pro_state"].ToString());
-                    pro_lst.Add(pv);
-                }                
+                    cmd.Parameters.AddRange(sqlp);
+                }
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (query == "select_pro")
+                {
+                    while (dr.Read())
+                    {
+                        Product_VO pv = new Product_VO(
+                            dr["pro_Id"].ToString(), dr["cat_id"].ToString(), Int32.Parse(dr["seller_no"].ToString()), dr["pro_name"].ToString(),
+                            Int32.Parse(dr["pro_price"].ToString()), dr["main_comment"].ToString(), dr["sub_comment"].ToString(),
+                            dr["main_image"].ToString(), Int32.Parse(dr["pro_hits"].ToString()), Int32.Parse(dr["pro_like"].ToString()),
+                            Int32.Parse(dr["pro_discount"].ToString()), dr["pro_gender"].ToString(), bool.Parse(dr["pro_state"].ToString())
+                    );
+                        lstobj.Add(pv);
+                    }
+                }
+                else if (query == "SelectReviewForCustomer")
+                {
+                    while (dr.Read())
+                    {
+                        lstobj.Add(new ReviewVO((int)dr["re_ID"], (int)dr["cus_no"], dr["stock_ID"].ToString(), (bool)dr["re_like"], dr["re_image"].ToString(), dr["re_txt"].ToString(), (DateTime)dr["re_date"], dr["re_comment"].ToString(), dr["re_comment_date"].ToString(), dr["cus_name"].ToString(), dr["main_image"].ToString()));
+                    }
+                    
+                }
             }
+            catch (Exception)
+            {
+                throw;
+            }
+
             conn.Close();
-            return pro_lst;            
+            return lstobj;
         }
     
         public bool ChkData(string query, SqlParameter[] sqlp)

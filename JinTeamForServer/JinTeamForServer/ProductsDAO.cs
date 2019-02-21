@@ -18,8 +18,13 @@ namespace JinTeamForServer
         }
         public List<Product_VO> ShoAllData(string sp)
         {
+            List<object> lstobj = new List<object>();
             pro_lst.Clear();
-            pro_lst = con.SendReadQuery(sp, null);
+            lstobj = con.SendReadQuery(sp, null);
+            foreach (var item in lstobj)
+            {
+                pro_lst.Add((Product_VO)item);
+            }
 
             return pro_lst;
         }
