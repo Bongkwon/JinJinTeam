@@ -15,6 +15,50 @@ namespace JinTeamForServer
         private string cus_Nickname;
         private int cus_gender;
         private int cus_age;
+        private int cus_no;
+        private string withdrawal_date;
+        private string join_date;
+        private int cus_count;
+        private int cus_state;
+        private string cus_guid;
+
+        public string Cus_guid
+        {
+            get { return cus_guid; }
+            set { cus_guid = value; }
+        }
+
+
+        public int Cus_state
+        {
+            get { return cus_state; }
+            set { cus_state = value; }
+        }
+
+
+        public int Cus_count
+        {
+            get { return cus_count; }
+            set { cus_count = value; }
+        }
+
+        public string Join_date
+        {
+            get { return join_date; }
+            set { join_date = value; }
+        }
+
+        public string Withdrawal_date
+        {
+            get { return withdrawal_date; }
+            set { withdrawal_date = value; }
+        }
+
+        public int Cus_no
+        {
+            get { return cus_no; }
+            set { cus_no = value; }
+        }
 
         public string Cus_ID
         {

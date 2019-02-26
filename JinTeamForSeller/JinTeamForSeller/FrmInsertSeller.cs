@@ -52,13 +52,26 @@ namespace JinTeamForSeller
                     btnSubmit.Enabled = true;
                 }
             }
+            else
+            {
+                MessageBox.Show("ID가 비어있을 수 없습니다.");
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtId.Text) && !string.IsNullOrEmpty(txtPass.Text) && !string.IsNullOrEmpty(txtChkPass.Text) && !string.IsNullOrEmpty(txtComName.Text) && !string.IsNullOrEmpty(txtBossName.Text) && !string.IsNullOrEmpty(txtPhone.Text) && !string.IsNullOrEmpty(txtPostal.Text) && !string.IsNullOrEmpty(txtAddr.Text) && !string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(txtFax.Text) && !string.IsNullOrEmpty(textBox1.Text) && !string.IsNullOrEmpty(txtReturnAddr.Text) && !string.IsNullOrEmpty(txtCorpRegistrationNo.Text))
             {
-                seller.InsertSeller(new Vo.SellerVO(txtId.Text, txtPass.Text, txtComName.Text, txtAddr.Text, txtBossName.Text, txtPhone.Text, txtPostal.Text, txtEmail.Text, txtFax.Text, txtReturnAddr.Text, txtCorpRegistrationNo.Text));
+                try
+                {
+                    seller.InsertSeller(new Vo.SellerVO(txtId.Text, txtPass.Text, txtComName.Text, txtAddr.Text, txtBossName.Text, txtPhone.Text, txtPostal.Text, txtEmail.Text, txtFax.Text, txtReturnAddr.Text, txtCorpRegistrationNo.Text));
+                    MessageBox.Show("가입 완료!");
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("가입 실패.");
+                }
             }
             else
             {
@@ -96,6 +109,26 @@ namespace JinTeamForSeller
             frm.ShowDialog();
             txtAddr.Text = FrmSearchAddr.roadAddr;
             txtPostal.Text = FrmSearchAddr.zipNo;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+                return;
+
+            s.Parent.Left = this.Left + (e.X - ((Point)s.Tag).X);
+            s.Parent.Top = this.Top + (e.Y - ((Point)s.Tag).Y);
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
         }
     }
 }

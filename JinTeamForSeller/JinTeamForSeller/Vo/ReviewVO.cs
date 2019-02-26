@@ -96,7 +96,7 @@ namespace JinTeamForSeller.Vo
             this.re_Like = re_Like;
             this.re_Image = re_Image;
             this.re_Txt = re_Txt;
-            this.re_Date = re_Date;
+            this.re_Date = re_Date; 
             this.re_Comment = re_Comment;
             this.re_Comment_Date = re_Comment_Date;
             this.cusName = cusName;

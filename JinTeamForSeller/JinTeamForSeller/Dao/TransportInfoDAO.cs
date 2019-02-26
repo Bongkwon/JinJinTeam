@@ -11,10 +11,16 @@ namespace JinTeamForSeller.Dao
     class TransportInfoDAO
     {
         DBConnection con = new DBConnection();
-        public bool InsertTransport(Transport_InfoVO ti)
+        public bool InsertTransport(Transport_InfoVO ti, int pay_ID)
         {
             string query = "InsertTransport";
-            SqlParameter[] sqlp = { new SqlParameter("seller_no", ti.Seller_no), new SqlParameter("waybill_ID", ti.Waybill_ID) };
+            SqlParameter[] sqlp = 
+                {
+                new SqlParameter("seller_no", ti.Seller_no),
+                new SqlParameter("waybill_ID", ti.Waybill_ID),
+                new SqlParameter("pay_ID", pay_ID),
+                new SqlParameter("transport_State", ti.Transport_State)
+            };
 
             return con.SendExqueteQuery(query, sqlp);
         }
@@ -26,10 +32,16 @@ namespace JinTeamForSeller.Dao
             return con.SendExqueteQuery(query, sqlp);
         }
 
-        internal bool UpdateTransportWaybill(string oldwaybillID, string waybill_ID)
+        internal bool UpdateTransportWaybill(Transport_InfoVO ti,string oldwaybillID, int pay_ID)
         {
             string query = "UpdateTransportWaybill";
-            SqlParameter[] sqlp = { new SqlParameter("oldWaybill_ID", oldwaybillID), new SqlParameter("waybill_ID", waybill_ID) };
+            SqlParameter[] sqlp =
+                {
+                new SqlParameter("oldWaybill_ID", oldwaybillID),
+                new SqlParameter("waybill_ID", ti.Waybill_ID),
+                new SqlParameter("pay_ID",pay_ID),
+                new SqlParameter("transport_State", ti.Transport_State)
+            };
             return con.SendExqueteQuery(query, sqlp);
         }
     }

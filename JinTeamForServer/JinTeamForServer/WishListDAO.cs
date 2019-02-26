@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -16,10 +18,66 @@ namespace JinTeamForServer
             SqlParameter[] sqls =
             {
                 new SqlParameter("wish_ID",wl.Wish_ID),
-                new SqlParameter("cus_ID",wl.Cus_ID),
+                new SqlParameter("cus_No",wl.Cus_ID),
                 new SqlParameter("stock_ID",wl.StockID),
                 new SqlParameter("wish_count",wl.Wish_count),
                 new SqlParameter("wish_price",wl.Wish_price)
+            };
+            try
+            {
+                con.SendExqueteQuery(query, sqls);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string SelectWishList(int cus_No)
+        {
+            string json = null;
+            DBConnection con = new DBConnection();
+            string sp = "select_wishlist";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("cus_No", cus_No);
+
+            DataTable dt = con.ExcuteSelect(sp, sqlParameters);
+
+            if (dt.Rows.Count == 0)
+            {
+                json = "<Categories><DataCount>" + dt.Rows.Count + "</DataCount></Categories>";
+            }
+            else
+            {
+                json = JsonConvert.SerializeObject(dt, Formatting.Indented);
+            }
+            
+            return json;
+        }
+
+        public void DeleteAllWishList(int cus_No)
+        {
+            string query = "Delete_AllWishList";
+            SqlParameter[] sqls =
+            {
+                new SqlParameter("cus_No",cus_No)
+            };
+            try
+            {
+                con.SendExqueteQuery(query, sqls);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void DeleteWishList(string wish_ID)
+        {
+            string query = "Delete_WishList";
+            SqlParameter[] sqls =
+            {
+                new SqlParameter("wish_ID",wish_ID)
             };
             try
             {

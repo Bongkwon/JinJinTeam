@@ -21,12 +21,50 @@ namespace JinTeamForSeller
         private int pro_Discount;
         private string pro_Gender;
         private bool pro_State;
+        private string proUri;
+
+        public string ProUri
+        {
+            get { return proUri; }
+            set { proUri = value; }
+        }
+
 
         public bool Pro_State
         {
             get { return pro_State; }
             set { pro_State = value; }
+        }        
+
+        public int Seller_NO
+        {
+            get { return seller_No; }
+            set { seller_No = value; }
         }
+
+        public string Cat_ID
+        {
+            get { return cat_ID; }
+            set { cat_ID = value; }
+        }
+
+        public string Pro_ID
+        {
+            get { return pro_Id; }
+            set { pro_Id = value; }
+        }
+        public string Pro_Name
+        {
+            get { return pro_name; }
+            set { pro_name = value; }
+        }
+        public int Pro_Price
+        {
+            get { return pro_Price; }
+            set { pro_Price = value; }
+        }
+
+        
 
         public string Pro_Gender
         {
@@ -70,34 +108,9 @@ namespace JinTeamForSeller
             set { main_Comment = value; }
         }
 
-        public int Pro_Price
+        public Product(string pro_Id, string cat_ID, int seller_No, string pro_name, int pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State, string proUri) : this(pro_Id, cat_ID, seller_No, pro_name, pro_Price, main_Comment, sub_Comment, main_Image, pro_Hits, pro_Like, pro_Discount, pro_Gender, pro_State)
         {
-            get { return pro_Price; }
-            set { pro_Price = value; }
-        }
-
-        public string Pro_Name
-        {
-            get { return pro_name; }
-            set { pro_name = value; }
-        }
-
-        public int Seller_NO
-        {
-            get { return seller_No; }
-            set { seller_No = value; }
-        }
-
-        public string Cat_ID
-        {
-            get { return cat_ID; }
-            set { cat_ID = value; }
-        }
-
-        public string Pro_ID
-        {
-            get { return pro_Id; }
-            set { pro_Id = value; }
+            this.proUri = proUri;
         }
 
         public Product(string pro_Id, string cat_ID, int seller_No, string pro_name, int pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State)

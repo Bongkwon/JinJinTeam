@@ -86,19 +86,22 @@
             this.lblPostalCode6 = new System.Windows.Forms.Label();
             this.lblJibunAddr6 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(10, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 0;
@@ -160,24 +163,29 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(90, 10);
+            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Location = new System.Drawing.Point(87, 78);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(222, 21);
+            this.txtSearch.Size = new System.Drawing.Size(222, 14);
             this.txtSearch.TabIndex = 7;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(318, 10);
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Location = new System.Drawing.Point(315, 78);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 21);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "찾기";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.panel1.Controls.Add(this.txtsangseAddr1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label2);
@@ -186,7 +194,7 @@
             this.panel1.Controls.Add(this.lblRoadAddr1);
             this.panel1.Controls.Add(this.lblPostalCode1);
             this.panel1.Controls.Add(this.lblJibunAddr1);
-            this.panel1.Location = new System.Drawing.Point(15, 37);
+            this.panel1.Location = new System.Drawing.Point(12, 105);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(452, 128);
             this.panel1.TabIndex = 9;
@@ -194,6 +202,7 @@
             // 
             // txtsangseAddr1
             // 
+            this.txtsangseAddr1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtsangseAddr1.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr1.Name = "txtsangseAddr1";
             this.txtsangseAddr1.Size = new System.Drawing.Size(331, 21);
@@ -210,7 +219,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.panel2.Controls.Add(this.txtsangseAddr2);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label6);
@@ -219,7 +228,7 @@
             this.panel2.Controls.Add(this.lblRoadAddr2);
             this.panel2.Controls.Add(this.lblPostalCode2);
             this.panel2.Controls.Add(this.lblJibunAddr2);
-            this.panel2.Location = new System.Drawing.Point(15, 171);
+            this.panel2.Location = new System.Drawing.Point(12, 239);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(452, 128);
             this.panel2.TabIndex = 10;
@@ -227,6 +236,7 @@
             // 
             // txtsangseAddr2
             // 
+            this.txtsangseAddr2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtsangseAddr2.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr2.Name = "txtsangseAddr2";
             this.txtsangseAddr2.Size = new System.Drawing.Size(331, 21);
@@ -298,7 +308,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.panel3.Controls.Add(this.txtsangseAddr3);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label14);
@@ -307,7 +317,7 @@
             this.panel3.Controls.Add(this.lblRoadAddr3);
             this.panel3.Controls.Add(this.lblPostalCode3);
             this.panel3.Controls.Add(this.lblJibunAddr3);
-            this.panel3.Location = new System.Drawing.Point(15, 305);
+            this.panel3.Location = new System.Drawing.Point(12, 373);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(452, 128);
             this.panel3.TabIndex = 11;
@@ -315,6 +325,7 @@
             // 
             // txtsangseAddr3
             // 
+            this.txtsangseAddr3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtsangseAddr3.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr3.Name = "txtsangseAddr3";
             this.txtsangseAddr3.Size = new System.Drawing.Size(331, 21);
@@ -385,7 +396,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.panel4.Controls.Add(this.txtsangseAddr4);
             this.panel4.Controls.Add(this.label20);
             this.panel4.Controls.Add(this.label21);
@@ -394,7 +405,7 @@
             this.panel4.Controls.Add(this.lblRoadAddr4);
             this.panel4.Controls.Add(this.lblPostalCode4);
             this.panel4.Controls.Add(this.lblJibunAddr4);
-            this.panel4.Location = new System.Drawing.Point(473, 37);
+            this.panel4.Location = new System.Drawing.Point(470, 105);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(452, 128);
             this.panel4.TabIndex = 12;
@@ -402,6 +413,7 @@
             // 
             // txtsangseAddr4
             // 
+            this.txtsangseAddr4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtsangseAddr4.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr4.Name = "txtsangseAddr4";
             this.txtsangseAddr4.Size = new System.Drawing.Size(331, 21);
@@ -472,7 +484,7 @@
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.panel5.Controls.Add(this.txtsangseAddr5);
             this.panel5.Controls.Add(this.label27);
             this.panel5.Controls.Add(this.label28);
@@ -481,7 +493,7 @@
             this.panel5.Controls.Add(this.lblRoadAddr5);
             this.panel5.Controls.Add(this.lblPostalCode5);
             this.panel5.Controls.Add(this.lblJibunAddr5);
-            this.panel5.Location = new System.Drawing.Point(473, 171);
+            this.panel5.Location = new System.Drawing.Point(470, 239);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(452, 128);
             this.panel5.TabIndex = 10;
@@ -489,6 +501,7 @@
             // 
             // txtsangseAddr5
             // 
+            this.txtsangseAddr5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtsangseAddr5.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr5.Name = "txtsangseAddr5";
             this.txtsangseAddr5.Size = new System.Drawing.Size(331, 21);
@@ -559,7 +572,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.panel6.Controls.Add(this.txtsangseAddr6);
             this.panel6.Controls.Add(this.label34);
             this.panel6.Controls.Add(this.label35);
@@ -568,7 +581,7 @@
             this.panel6.Controls.Add(this.lblRoadAddr6);
             this.panel6.Controls.Add(this.lblPostalCode6);
             this.panel6.Controls.Add(this.lblJibunAddr6);
-            this.panel6.Location = new System.Drawing.Point(473, 305);
+            this.panel6.Location = new System.Drawing.Point(470, 373);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(452, 128);
             this.panel6.TabIndex = 10;
@@ -576,6 +589,7 @@
             // 
             // txtsangseAddr6
             // 
+            this.txtsangseAddr6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtsangseAddr6.Location = new System.Drawing.Point(80, 94);
             this.txtsangseAddr6.Name = "txtsangseAddr6";
             this.txtsangseAddr6.Size = new System.Drawing.Size(331, 21);
@@ -647,28 +661,60 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(399, 13);
+            this.label41.Location = new System.Drawing.Point(396, 81);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(321, 12);
             this.label41.TabIndex = 13;
             this.label41.Text = "해당하는 주소를 더블클릭 하시면 자동으로 작성이 됩니다.";
             // 
-            // button1
+            // panel7
             // 
-            this.button1.Location = new System.Drawing.Point(849, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "닫기";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.panel7.Controls.Add(this.label10);
+            this.panel7.Controls.Add(this.button2);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(936, 72);
+            this.panel7.TabIndex = 38;
+            this.panel7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
+            this.panel7.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseMove);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(179, 54);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "JinTeam";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.button2.BackgroundImage = global::JinTeamForSeller.Properties.Resources.cancel1;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(872, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 49);
+            this.button2.TabIndex = 35;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmSearchAddr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 441);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(206)))), ((int)(((byte)(210)))));
+            this.ClientSize = new System.Drawing.Size(936, 511);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -679,8 +725,11 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSearchAddr";
             this.Text = "FrmSearchAddr";
+            this.Load += new System.EventHandler(this.FrmSearchAddr_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -693,6 +742,8 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -758,6 +809,8 @@
         private System.Windows.Forms.Label lblPostalCode6;
         private System.Windows.Forms.Label lblJibunAddr6;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label10;
     }
 }

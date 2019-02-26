@@ -1,5 +1,5 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -43,8 +43,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HtmlAgilityPack, Version=1.8.14.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.8.14\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.9.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.9.0\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MSSQL, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -53,11 +56,11 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.Common.4.1.0\lib\net451\System.Data.Common.dll</HintPath>
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SqlClient, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SqlClient.4.1.0\lib\net46\System.Data.SqlClient.dll</HintPath>
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.6.0\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -82,13 +85,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ChangeCustInfo.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="FrmDeleteWishList.aspx" />
+    <Content Include="FrmInquireRecieve.aspx" />
+    <Content Include="FrmInquireSend.aspx" />
     <Content Include="FrmInsertCust.aspx" />
+    <Content Include="FrmInsertReview.aspx" />
     <Content Include="FrmInstWishList.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmOrderList.aspx" />
+    <Content Include="FrmReviewList.aspx" />
     <Content Include="FrmShowProducts.aspx" />
+    <Content Include="FrmShowProStock.aspx" />
+    <Content Include="FrmShowWishList.aspx" />
     <Content Include="FrmUserShipInfo.aspx" />
+    <Content Include="FrmViewReview.aspx" />
     <Content Include="Global.asax" />
     <Content Include="JinTeamDB.mdf" />
     <Content Include="JinTeamDB_log.ldf">
@@ -97,6 +109,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeCustInfo.aspx.cs">
+      <DependentUpon>ChangeCustInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeCustInfo.aspx.designer.cs">
+      <DependentUpon>ChangeCustInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDAO.cs" />
     <Compile Include="DBConnection.cs" />
@@ -107,12 +126,40 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmDeleteWishList.aspx.cs">
+      <DependentUpon>FrmDeleteWishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmDeleteWishList.aspx.designer.cs">
+      <DependentUpon>FrmDeleteWishList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInquireRecieve.aspx.cs">
+      <DependentUpon>FrmInquireRecieve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInquireRecieve.aspx.designer.cs">
+      <DependentUpon>FrmInquireRecieve.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInquireSend.aspx.cs">
+      <DependentUpon>FrmInquireSend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInquireSend.aspx.designer.cs">
+      <DependentUpon>FrmInquireSend.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmInsertCust.aspx.cs">
       <DependentUpon>FrmInsertCust.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FrmInsertCust.aspx.designer.cs">
       <DependentUpon>FrmInsertCust.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInsertReview.aspx.cs">
+      <DependentUpon>FrmInsertReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInsertReview.aspx.designer.cs">
+      <DependentUpon>FrmInsertReview.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmInstWishList.aspx.cs">
       <DependentUpon>FrmInstWishList.aspx</DependentUpon>
@@ -135,12 +182,33 @@
     <Compile Include="FrmOrderList.aspx.designer.cs">
       <DependentUpon>FrmOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmReviewList.aspx.cs">
+      <DependentUpon>FrmReviewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmReviewList.aspx.designer.cs">
+      <DependentUpon>FrmReviewList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmShowProducts.aspx.cs">
       <DependentUpon>FrmShowProducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FrmShowProducts.aspx.designer.cs">
       <DependentUpon>FrmShowProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShowProStock.aspx.cs">
+      <DependentUpon>FrmShowProStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmShowProStock.aspx.designer.cs">
+      <DependentUpon>FrmShowProStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmShowWishList.aspx.cs">
+      <DependentUpon>FrmShowWishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmShowWishList.aspx.designer.cs">
+      <DependentUpon>FrmShowWishList.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmUserShipInfo.aspx.cs">
       <DependentUpon>FrmUserShipInfo.aspx</DependentUpon>
@@ -149,14 +217,27 @@
     <Compile Include="FrmUserShipInfo.aspx.designer.cs">
       <DependentUpon>FrmUserShipInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmViewReview.aspx.cs">
+      <DependentUpon>FrmViewReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmViewReview.aspx.designer.cs">
+      <DependentUpon>FrmViewReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Inquire_DAO.cs" />
+    <Compile Include="Inquire_VO.cs" />
     <Compile Include="OrderList_DAO.cs" />
     <Compile Include="OrderList_VO.cs" />
     <Compile Include="Product_VO.cs" />
     <Compile Include="ProductsDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stock.cs" />
+    <Compile Include="StockDAO.cs" />
+    <Compile Include="ReviewDao.cs" />
+    <Compile Include="ReviewVO.cs" />
     <Compile Include="UserShipInfo_DAO.cs" />
     <Compile Include="UserShipInfo_VO.cs" />
     <Compile Include="WishList_VO.cs" />
@@ -206,7 +287,7 @@
     <PropertyGroup>
       <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

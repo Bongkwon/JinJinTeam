@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -38,6 +39,25 @@ namespace JinTeamForServer
             {
                 throw;
             }
+        }
+
+        public Customer ReadTable(int cus_no)
+        {
+            string query = "select_cus_no";
+            SqlParameter[] sqls = { new SqlParameter("cus_no", cus_no) };
+            Customer[] cus;
+            try
+            {
+                var dt = con.ExcuteSelect(query, sqls);
+                var json = JsonConvert.SerializeObject(dt);
+                cus = JsonConvert.DeserializeObject<Customer[]>(json);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return cus[0];
         }
 
         public bool chkID(string cus_ID)

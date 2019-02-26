@@ -28,7 +28,7 @@ namespace JinTeamForSeller
 
         private void FrmReviewDetail_Load(object sender, EventArgs e)
         {
-            lblReviewCusName.Text = dr.Cells["CusName"].Value.ToString();
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2); lblReviewCusName.Text = dr.Cells["CusName"].Value.ToString();
             lblReviewDate.Text = dr.Cells["Re_Date"].Value.ToString();
             lblReviewStockId.Text = dr.Cells["Pro_ID"].Value.ToString();
             txtReviewBody.Text = dr.Cells["re_txt"].Value.ToString();
@@ -64,6 +64,26 @@ namespace JinTeamForSeller
                     this.Close();
                 }
             }
+        }
+        private void Panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            if (e.Button != System.Windows.Forms.MouseButtons.Left)
+                return;
+
+            s.Parent.Left = this.Left + (e.X - ((Point)s.Tag).X);
+            s.Parent.Top = this.Top + (e.Y - ((Point)s.Tag).Y);
+        }
+
+        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            var s = sender as Panel;
+            s.Tag = new Point(e.X, e.Y);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
