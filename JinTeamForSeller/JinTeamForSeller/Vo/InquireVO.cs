@@ -99,6 +99,15 @@ namespace JinTeamForSeller.Vo
         }
         private int inquireID;
 
+        public InquireVO(string inquire_type, string inquireTitle, string inquireBody, string inquireImage, int inquireID)
+        {
+            this.inquire_type = inquire_type;
+            this.inquireTitle = inquireTitle;
+            this.inquireBody = inquireBody;
+            this.inquireImage = inquireImage;
+            this.inquireID = inquireID;
+        }
+
         public InquireVO(int inquireNo, string inquire_type, int inquireID, string inquireTitle, 
             string inquireBody, string inquireDate, string inquireImage, string reDate, string reBody)
         {

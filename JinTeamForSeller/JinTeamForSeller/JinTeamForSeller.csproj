@@ -54,6 +54,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -66,6 +67,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChkData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChkData.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Dao\CatDAO.cs" />
     <Compile Include="Dao\DBConnection.cs" />
     <Compile Include="Dao\InquireDao.cs" />
@@ -179,6 +185,9 @@
     <Compile Include="Vo\StockVO.cs" />
     <Compile Include="Vo\Transport_InfoVO.cs" />
     <Compile Include="Vo\WebPage.cs" />
+    <None Include="ChkData.dbml.layout">
+      <DependentUpon>ChkData.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +243,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ChkData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ChkData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -253,8 +267,9 @@
     <Content Include="HTMLPage1.html" />
     <Content Include="procedure.sql" />
     <None Include="Resources\cancel.png" />
-    <None Include="Resources\cancel1.png" />
-    <Content Include="tables.sql" />
+    <None Include="Resources\cancel1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -270,6 +285,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Bus\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

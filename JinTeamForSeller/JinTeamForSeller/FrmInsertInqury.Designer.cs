@@ -190,6 +190,7 @@
             this.btnInsertInquire.TabIndex = 12;
             this.btnInsertInquire.Text = "문의 남기기";
             this.btnInsertInquire.UseVisualStyleBackColor = false;
+            this.btnInsertInquire.Click += new System.EventHandler(this.btnInsertInquire_Click);
             // 
             // txt_Re_Body
             // 
