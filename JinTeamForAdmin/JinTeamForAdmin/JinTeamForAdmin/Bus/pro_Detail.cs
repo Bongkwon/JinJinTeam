@@ -35,12 +35,12 @@ namespace JinTeamForAdmin.Bus
             pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
 
             lbl_catID.Text = pv.Cat_ID.ToString();
-            lbl_discount.Text = pv.Pro_Discount.ToString();
+            lbl_discount.Text = pv.Pro_Discount + "회";
             //lbl_gender.Text = pv.Pro_Gender.ToString();
-            lbl_hits.Text = pv.Pro_Hits.ToString();
-            lbl_like.Text = pv.Pro_Like.ToString();
+            lbl_hits.Text = pv.Pro_Hits + "회";
+            lbl_like.Text = pv.Pro_Like + "회";
 
-            lbl_m_comment.Text = pv.Main_Comment.ToString();
+            
             lbl_name.Text = pv.Pro_Name.ToString();
             lbl_price.Text = pv.Pro_Price.ToString();
             lbl_proID.Text = pv.Pro_ID.ToString();
@@ -48,7 +48,25 @@ namespace JinTeamForAdmin.Bus
 
             lbl_sellno.Text = pv.Seller_NO.ToString();
             //lbl_state.Text = pv.Pro_State.ToString();
-            lbl_s_comment.Text = pv.Sub_Comment.ToString();
+
+            if (pv.Sub_Comment.ToString() != "")
+            {
+                lbl_s_comment.Text = pv.Sub_Comment.ToString();
+            }
+            else
+            {
+                lbl_s_comment.Text = "작성한 내용이 없습니다.";
+            }
+
+            if (pv.Main_Comment.ToString() != "")
+            {
+                lbl_m_comment.Text = pv.Main_Comment.ToString();
+            }
+            else
+            {
+                lbl_m_comment.Text = "작성한 내용이 없습니다.";
+            }
+            
 
             if (pv.Pro_Gender == "A")
             {
