@@ -4,7 +4,9 @@ using JinTeamForAdmin.Vo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -127,6 +129,7 @@ namespace JinTeamForSeller.Bus
             Pay_changed();
             change_panel();
         }
+
 
         private void 문의내역ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -409,6 +412,7 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["pro_like"].HeaderText = "추천수";
             main_GV.Columns["pro_discount"].Visible = false;
             main_GV.Columns["pro_gender"].Visible = false;
+            main_GV.Columns["pro_url"].Visible = false;
             main_GV.Columns["pro_id"].HeaderText = "상품 번호";
             main_GV.Columns["seller_no"].HeaderText = "판매자 번호";
             main_GV.Columns["seller_no"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -769,7 +773,7 @@ namespace JinTeamForSeller.Bus
                             pay_GV();
                         }
                     }
-                    else if (gb_inq.Visible) { MessageBox.Show("Test"); }
+                    else if (gb_inq.Visible) { }
                 }
                 else
                 {

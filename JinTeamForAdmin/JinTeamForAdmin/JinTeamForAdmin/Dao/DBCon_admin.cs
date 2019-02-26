@@ -85,6 +85,7 @@ namespace JinTeamForAdmin
                             pv.Pro_Discount = Int32.Parse(sdr["pro_discount"].ToString());
                             pv.Pro_Gender = sdr["pro_gender"].ToString();
                             pv.Pro_State = bool.Parse(sdr["pro_state"].ToString());
+                            pv.Pro_Url = sdr["pro_Url"].ToString();
                         }
 
                         ob_lst.Add(pv);

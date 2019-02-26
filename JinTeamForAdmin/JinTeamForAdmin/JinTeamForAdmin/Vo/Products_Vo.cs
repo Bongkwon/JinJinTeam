@@ -90,7 +90,16 @@ namespace JinTeamForAdmin.Vo
             set { pro_State = value; }
         }
 
-        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, string pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State)
+        private string pro_Url;
+
+        public string Pro_Url
+        {
+            get { return pro_Url; }
+            set { pro_Url = value; }
+        }
+
+
+        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, string pro_Price, string main_Comment, string sub_Comment, string main_Image, int pro_Hits, int pro_Like, int pro_Discount, string pro_Gender, bool pro_State, string pro_Url)
         {
             this.pro_Id = pro_Id;
             this.cat_ID = cat_ID;
@@ -105,6 +114,7 @@ namespace JinTeamForAdmin.Vo
             this.pro_Discount = pro_Discount;
             this.pro_Gender = pro_Gender;
             this.pro_State = pro_State;
+            this.pro_Url = pro_Url;
         }
 
         public Products_Vo()
@@ -119,7 +129,7 @@ namespace JinTeamForAdmin.Vo
             this.main_Image = main_Image;
         }
 
-        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, string pro_Price, string main_Comment, string main_Image, string pro_Gender, bool pro_State)
+        public Products_Vo(string pro_Id, string cat_ID, int seller_No, string pro_name, string pro_Price, string main_Comment, string main_Image, string pro_Gender, bool pro_State, string pro_url)
         {
             this.pro_Id = pro_Id;
             this.cat_ID = cat_ID;
@@ -130,6 +140,7 @@ namespace JinTeamForAdmin.Vo
             this.main_Image = main_Image;
             this.pro_Gender = pro_Gender;
             this.pro_State = pro_State;
+            this.pro_Url = pro_url;
         }
 
         public override bool Equals(object obj)

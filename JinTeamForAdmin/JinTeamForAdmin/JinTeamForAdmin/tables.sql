@@ -139,13 +139,13 @@ CREATE TABLE [dbo].[stock_List] (
 go
 
 CREATE TABLE [dbo].[transport_info] (
-    [transport_ID]    INT           NOT NULL IDENTITY,	-- 운송 번호
+   -- [transport_ID]    INT           NOT NULL IDENTITY,	-- 운송 번호
     [seller_no]       INT           NOT NULL,	-- 판매자 번호
     [waybill_ID]      VARCHAR (13)  NOT NULL,	-- 운송장 번호
     [transport_state] NVARCHAR (20) NOT NULL,	-- 배송 상태
-    PRIMARY KEY CLUSTERED ([transport_ID] ASC)
+    PRIMARY KEY CLUSTERED ([waybill_ID] ASC)
 	-- ,CONSTRAINT [tran_sell_FK] FOREIGN KEY ([seller_no]) REFERENCES [dbo].[seller] ([seller_no]) 
-	-- ,CONSTRAINT [tran_pay_FK] FOREIGN KEY ([pay_ID]) REFERENCES [dbo].[payment_info] ([pay_ID]) 
+) 
 );
 go
 
@@ -182,7 +182,7 @@ CREATE TABLE [dbo].[Inquire_Admin] (
     [cus_or_sell]   VARCHAR (2)    NOT NULL,
     [Inquire_title] NVARCHAR (MAX) NOT NULL,
     [Inquire_body]  NVARCHAR (MAX) NOT NULL,
-    [Inquire_date]  DATETIME       DEFAULT (getdate()) NOT NULL,
+    [Inquire_date]  DATETIME       DEFAULT (dateadd(hour,(9),getdate())) NOT NULL,
     [Inquire_image] IMAGE          NULL,
     [re_date]       DATETIME       NULL,
     [re_body]       NVARCHAR (MAX) NULL,
@@ -201,7 +201,7 @@ CREATE TABLE [dbo].[Inquire_Seller] (
     [stock_ID]      VARCHAR (40)   NOT NULL,
     [Inquire_title] NVARCHAR (MAX) NOT NULL,
     [Inquire_body]  NVARCHAR (MAX) NOT NULL,
-    [Inquire_date]  DATETIME       DEFAULT (getdate()) NOT NULL,
+    [Inquire_date]  DATETIME       DEFAULT (dateadd(hour,(9),getdate())) NOT NULL,
     [Inquire_image] IMAGE          NULL,
     [re_date]       DATETIME       NULL,
     [re_body]       NVARCHAR (MAX) NULL,
