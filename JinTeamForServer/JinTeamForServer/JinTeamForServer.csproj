@@ -87,12 +87,15 @@
   <ItemGroup>
     <Content Include="ChangeCustInfo.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="FrmDeleteWishList.aspx" />
     <Content Include="FrmInquireRecieve.aspx" />
     <Content Include="FrmInquireSend.aspx" />
     <Content Include="FrmInsertCust.aspx" />
+    <Content Include="FrmInsertReview.aspx" />
     <Content Include="FrmInstWishList.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmOrderList.aspx" />
+    <Content Include="FrmReviewList.aspx" />
     <Content Include="FrmShowProducts.aspx" />
     <Content Include="FrmShowProStock.aspx" />
     <Content Include="FrmShowWishList.aspx" />
@@ -123,6 +126,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmDeleteWishList.aspx.cs">
+      <DependentUpon>FrmDeleteWishList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmDeleteWishList.aspx.designer.cs">
+      <DependentUpon>FrmDeleteWishList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmInquireRecieve.aspx.cs">
       <DependentUpon>FrmInquireRecieve.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,6 +154,13 @@
     <Compile Include="FrmInsertCust.aspx.designer.cs">
       <DependentUpon>FrmInsertCust.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmInsertReview.aspx.cs">
+      <DependentUpon>FrmInsertReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInsertReview.aspx.designer.cs">
+      <DependentUpon>FrmInsertReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmInstWishList.aspx.cs">
       <DependentUpon>FrmInstWishList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +181,13 @@
     </Compile>
     <Compile Include="FrmOrderList.aspx.designer.cs">
       <DependentUpon>FrmOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReviewList.aspx.cs">
+      <DependentUpon>FrmReviewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmReviewList.aspx.designer.cs">
+      <DependentUpon>FrmReviewList.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmShowProducts.aspx.cs">
       <DependentUpon>FrmShowProducts.aspx</DependentUpon>

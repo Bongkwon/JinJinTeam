@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Configuration;
 using System.Data;
+using Newtonsoft.Json;
 
 namespace JinTeamForServer
 {
@@ -29,6 +30,44 @@ namespace JinTeamForServer
                 conn.Open();
             }
             return conn;
+        }
+
+        internal string ReadReview(string query, SqlParameter[] sqls)
+        {
+            List<ReviewVO> reviews = new List<ReviewVO>();
+            cmd.Connection = OpenConnection();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = query;
+            cmd.Parameters.AddRange(sqls);
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            while (sdr.Read())
+            {
+                int temp;
+                if (sdr["re_like"].ToString().Equals("True"))
+                {
+                    temp = 1;
+                }
+                else
+                {
+                    temp = 0;
+                }
+                ReviewVO review = new ReviewVO()
+                {
+                    Re_image = sdr["re_image"].ToString(),
+                    Re_txt = sdr["re_txt"].ToString(),
+                    Re_date = sdr["re_date"].ToString(),
+                    Re_like = temp,
+                    Re_command = sdr["re_comment"].ToString(),
+                    Re_comment_date = sdr["re_comment_date"].ToString(),
+                    Cus_ID = sdr["cus_ID"].ToString(),
+                    Pro_name = sdr["pro_name"].ToString()
+                };
+
+                reviews.Add(review);
+            }
+
+            return JsonConvert.SerializeObject(reviews);
         }
 
         public void SendExqueteQuery(string query, SqlParameter[] sqlp)
@@ -75,14 +114,14 @@ namespace JinTeamForServer
                         lstobj.Add(pv);
                     }
                 }
-                else if (query == "SelectReviewForCustomer")
-                {
-                    while (dr.Read())
-                    {
-                        lstobj.Add(new ReviewVO((int)dr["re_ID"], (int)dr["cus_no"], dr["stock_ID"].ToString(), (bool)dr["re_like"], dr["re_image"].ToString(), dr["re_txt"].ToString(), (DateTime)dr["re_date"], dr["re_comment"].ToString(), dr["re_comment_date"].ToString(), dr["cus_name"].ToString(), dr["main_image"].ToString()));
-                    }
+                //else if (query == "SelectReviewForCustomer")
+                //{
+                //    while (dr.Read())
+                //    {
+                //        lstobj.Add(new ReviewVO((int)dr["re_ID"], (int)dr["cus_no"], dr["stock_ID"].ToString(), (bool)dr["re_like"], dr["re_image"].ToString(), dr["re_txt"].ToString(), (DateTime)dr["re_date"], dr["re_comment"].ToString(), dr["re_comment_date"].ToString(), dr["cus_name"].ToString(), dr["main_image"].ToString()));
+                //    }
                     
-                }
+                //}
             }
             catch (Exception)
             {

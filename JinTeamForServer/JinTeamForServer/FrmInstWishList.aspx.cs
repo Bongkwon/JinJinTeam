@@ -11,10 +11,11 @@ namespace JinTeamForServer
     {
         WishList_VO wl;
         WishListDAO wish = new WishListDAO();
+        string json;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.Params["wish_ID"] != null && Request.Params["cus_No"] != null &&
+            if (Request.Params["wish_ID"] != null && Request.Params["cus_No"] != null &&
                 Request.Params["stock_ID"] != null && Request.Params["wish_count"] != null && Request.Params["wish_price"] != null)
             {
                 wl = new WishList_VO()
@@ -25,13 +26,20 @@ namespace JinTeamForServer
                     Wish_count = int.Parse(Request.Params["wish_count"]),
                     Wish_price = int.Parse(Request.Params["wish_price"])
                 };
+
+                wish.InsertWishList(wl);
+                json = "1";
             }
             else
             {
-                // 에러코드보내기?
+                json = "1901";
             }
 
-            wish.InsertWishList(wl);
+
+            Response.Clear();
+            Response.Write(json);
+            Response.Flush();
+            Response.End();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace JinTeamForServer
             SqlParameter[] sqls =
             {
                 new SqlParameter("wish_ID",wl.Wish_ID),
-                new SqlParameter("cus_ID",wl.Cus_ID),
+                new SqlParameter("cus_No",wl.Cus_ID),
                 new SqlParameter("stock_ID",wl.StockID),
                 new SqlParameter("wish_count",wl.Wish_count),
                 new SqlParameter("wish_price",wl.Wish_price)
@@ -51,8 +51,42 @@ namespace JinTeamForServer
             {
                 json = JsonConvert.SerializeObject(dt, Formatting.Indented);
             }
-
+            
             return json;
+        }
+
+        public void DeleteAllWishList(int cus_No)
+        {
+            string query = "Delete_AllWishList";
+            SqlParameter[] sqls =
+            {
+                new SqlParameter("cus_No",cus_No)
+            };
+            try
+            {
+                con.SendExqueteQuery(query, sqls);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void DeleteWishList(string wish_ID)
+        {
+            string query = "Delete_WishList";
+            SqlParameter[] sqls =
+            {
+                new SqlParameter("wish_ID",wish_ID)
+            };
+            try
+            {
+                con.SendExqueteQuery(query, sqls);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

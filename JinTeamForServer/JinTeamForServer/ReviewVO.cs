@@ -7,6 +7,27 @@ namespace JinTeamForServer
 {
     public class ReviewVO
     {
+        private string re_comment_date;
+
+        public string Re_comment_date
+        {
+            get { return re_comment_date; }
+            set { re_comment_date = value; }
+        }
+        private string re_command;
+
+        public string Re_command
+        {
+            get { return re_command; }
+            set { re_command = value; }
+        }
+        private string re_date;
+
+        public string Re_date
+        {
+            get { return re_date; }
+            set { re_date = value; }
+        }
         private int re_ID;
 
         public int Re_ID
@@ -14,96 +35,54 @@ namespace JinTeamForServer
             get { return re_ID; }
             set { re_ID = value; }
         }
-        private int cus_NO;
+        private int cus_no;
 
-        public int Cus_NO
+        public int Cus_no
         {
-            get { return cus_NO; }
-            set { cus_NO = value; }
+            get { return cus_no; }
+            set { cus_no = value; }
         }
-        public string CusName
+        private string stock_ID;
+
+        public string Stock_ID
         {
-            get { return cusName; }
-            set { cusName = value; }
+            get { return stock_ID; }
+            set { stock_ID = value; }
         }
-        private string pro_ID;
+        private int re_like;
 
-        public string Pro_ID
+        public int Re_like
         {
-            get { return pro_ID; }
-            set { pro_ID = value; }
+            get { return re_like; }
+            set { re_like = value; }
         }
-        private bool re_Like;
+        private string re_image;
 
-        public bool Re_Like
+        public string Re_image
         {
-            get { return re_Like; }
-            set { re_Like = value; }
+            get { return re_image; }
+            set { re_image = value; }
         }
-        private string re_Image;
+        private string re_txt;
 
-        public string Re_Image
+        public string Re_txt
         {
-            get { return re_Image; }
-            set { re_Image = value; }
+            get { return re_txt; }
+            set { re_txt = value; }
         }
-        private string re_Txt;
+        private string cus_ID;
 
-        public string Re_Txt
+        public string Cus_ID
         {
-            get { return re_Txt; }
-            set { re_Txt = value; }
+            get { return cus_ID; }
+            set { cus_ID = value; }
         }
+        private string pro_name;
 
-        private DateTime re_Date;
-
-        public DateTime Re_Date
+        public string Pro_name
         {
-            get { return re_Date; }
-            set { re_Date = value; }
-        }
-        private string re_Comment;
-
-        public string Re_Comment
-        {
-            get { return re_Comment; }
-            set { re_Comment = value; }
-        }
-        private string re_Comment_Date;
-
-        public string Re_Commnet_Date
-        {
-            get { return re_Comment_Date; }
-            set { re_Comment_Date = value; }
-        }
-        private string cusName;
-        private string mainImage;
-
-        public string MainImage
-        {
-            get { return mainImage; }
-            set { mainImage = value; }
-        }
-
-
-        public ReviewVO(int re_ID, int cus_NO, string pro_ID, bool re_Like, string re_Image, string re_Txt,
-            DateTime re_Date, string re_Comment, string re_Comment_Date, string cusName, string mainImage)
-        {
-            this.re_ID = re_ID;
-            this.cus_NO = cus_NO;
-            this.pro_ID = pro_ID;
-            this.re_Like = re_Like;
-            this.re_Image = re_Image;
-            this.re_Txt = re_Txt;
-            this.re_Date = re_Date;
-            this.re_Comment = re_Comment;
-            this.re_Comment_Date = re_Comment_Date;
-            this.cusName = cusName;
-            this.mainImage = mainImage;
-        }
-
-        public ReviewVO()
-        {
+            get { return pro_name; }
+            set { pro_name = value; }
         }
     }
 }
