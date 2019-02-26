@@ -37,6 +37,7 @@ namespace JinTeamForAdmin.Bus
 
         private void Inquire_Admin_Detail_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
             //Inquire_Admin_Vo ia = selectedRows as Inquire_Admin_Vo;
             var cells = selectedRows[0].Cells;
             txt_body.Text = selectedRows[0].Cells[7].Value.ToString();  // 본문
@@ -79,6 +80,25 @@ namespace JinTeamForAdmin.Bus
                 Close();
             }
             
+        }
+
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
+            }
         }
     }
 }

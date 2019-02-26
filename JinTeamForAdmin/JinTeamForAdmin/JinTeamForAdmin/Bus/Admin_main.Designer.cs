@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.main_GV = new System.Windows.Forms.DataGridView();
             this.rdo_all_cus = new System.Windows.Forms.RadioButton();
             this.rdo_deactive_cus = new System.Windows.Forms.RadioButton();
@@ -88,32 +88,32 @@
             // main_GV
             // 
             this.main_GV.BackgroundColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_GV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.main_GV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.main_GV.EnableHeadersVisualStyles = false;
             this.main_GV.Location = new System.Drawing.Point(12, 143);
             this.main_GV.MultiSelect = false;
             this.main_GV.Name = "main_GV";
             this.main_GV.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_GV.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.main_GV.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.main_GV.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.main_GV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             this.main_GV.RowTemplate.Height = 23;
             this.main_GV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -284,7 +284,7 @@
             // pn1
             // 
             this.pn1.BackColor = System.Drawing.Color.White;
-            this.pn1.Location = new System.Drawing.Point(12, 55);
+            this.pn1.Location = new System.Drawing.Point(12, 54);
             this.pn1.Name = "pn1";
             this.pn1.Size = new System.Drawing.Size(93, 34);
             this.pn1.TabIndex = 19;
@@ -294,7 +294,7 @@
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(12, 55);
+            this.panel2.Location = new System.Drawing.Point(12, 54);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(93, 30);
             this.panel2.TabIndex = 20;
@@ -315,7 +315,7 @@
             this.panel3.BackColor = System.Drawing.Color.LightGray;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(105, 55);
+            this.panel3.Location = new System.Drawing.Point(105, 54);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(93, 30);
             this.panel3.TabIndex = 22;
@@ -334,7 +334,7 @@
             // pn2
             // 
             this.pn2.BackColor = System.Drawing.Color.White;
-            this.pn2.Location = new System.Drawing.Point(105, 55);
+            this.pn2.Location = new System.Drawing.Point(105, 54);
             this.pn2.Name = "pn2";
             this.pn2.Size = new System.Drawing.Size(93, 34);
             this.pn2.TabIndex = 21;
@@ -345,7 +345,7 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(291, 55);
+            this.panel5.Location = new System.Drawing.Point(291, 54);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(93, 30);
             this.panel5.TabIndex = 26;
@@ -373,7 +373,7 @@
             // pn4
             // 
             this.pn4.BackColor = System.Drawing.Color.White;
-            this.pn4.Location = new System.Drawing.Point(291, 55);
+            this.pn4.Location = new System.Drawing.Point(291, 54);
             this.pn4.Name = "pn4";
             this.pn4.Size = new System.Drawing.Size(93, 34);
             this.pn4.TabIndex = 25;
@@ -383,7 +383,7 @@
             this.panel7.BackColor = System.Drawing.Color.LightGray;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(198, 55);
+            this.panel7.Location = new System.Drawing.Point(198, 54);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(93, 30);
             this.panel7.TabIndex = 24;
@@ -402,7 +402,7 @@
             // pn3
             // 
             this.pn3.BackColor = System.Drawing.Color.White;
-            this.pn3.Location = new System.Drawing.Point(198, 55);
+            this.pn3.Location = new System.Drawing.Point(198, 54);
             this.pn3.Name = "pn3";
             this.pn3.Size = new System.Drawing.Size(93, 34);
             this.pn3.TabIndex = 23;
@@ -410,7 +410,7 @@
             // pn6
             // 
             this.pn6.BackColor = System.Drawing.Color.White;
-            this.pn6.Location = new System.Drawing.Point(477, 55);
+            this.pn6.Location = new System.Drawing.Point(477, 54);
             this.pn6.Name = "pn6";
             this.pn6.Size = new System.Drawing.Size(93, 34);
             this.pn6.TabIndex = 29;
@@ -420,7 +420,7 @@
             this.panel11.BackColor = System.Drawing.Color.LightGray;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.label6);
-            this.panel11.Location = new System.Drawing.Point(384, 55);
+            this.panel11.Location = new System.Drawing.Point(384, 54);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(93, 30);
             this.panel11.TabIndex = 28;
@@ -439,7 +439,7 @@
             // pn5
             // 
             this.pn5.BackColor = System.Drawing.Color.White;
-            this.pn5.Location = new System.Drawing.Point(384, 55);
+            this.pn5.Location = new System.Drawing.Point(384, 54);
             this.pn5.Name = "pn5";
             this.pn5.Size = new System.Drawing.Size(93, 34);
             this.pn5.TabIndex = 27;
@@ -460,7 +460,7 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.label7);
             this.panel9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel9.Location = new System.Drawing.Point(477, 55);
+            this.panel9.Location = new System.Drawing.Point(477, 54);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(93, 30);
             this.panel9.TabIndex = 29;
@@ -489,6 +489,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pb_Exit);
             this.panel1.Location = new System.Drawing.Point(0, 0);

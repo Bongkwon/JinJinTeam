@@ -72,9 +72,9 @@ namespace JinTeamForAdmin.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap 세금계산서_예시 {
+        internal static System.Drawing.Bitmap 세금계산서_양식예시 {
             get {
-                object obj = ResourceManager.GetObject("세금계산서_예시", resourceCulture);
+                object obj = ResourceManager.GetObject("세금계산서_양식예시", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,6 +30,8 @@ namespace JinTeamForAdmin.Bus
 
         private void Sales_Manager_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
+            
             sales_lst.Clear();
             sales_sub_lst.Clear();
 
@@ -195,6 +197,25 @@ namespace JinTeamForAdmin.Bus
                                        "건수 : " + count + Environment.NewLine +
                                        "날짜 : " + date
                                        , chart_sales, new Point(nowPosition.X + 10, nowPosition.Y + 15));
+            }
+        }
+
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
             }
         }
     }

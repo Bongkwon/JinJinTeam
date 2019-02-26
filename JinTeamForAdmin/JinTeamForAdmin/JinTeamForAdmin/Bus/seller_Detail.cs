@@ -30,6 +30,9 @@ namespace JinTeamForAdmin.Bus
 
         private void seller_Detail_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
+
+
             lbl_No.Text = sv.Seller_NO.ToString();
             lbl_addr.Text = sv.Seller_addr.ToString();
             lbl_boss.Text = sv.Seller_boss.ToString();
@@ -128,6 +131,25 @@ namespace JinTeamForAdmin.Bus
             else
             {
                 j_s = false;
+            }
+        }
+
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
             }
         }
     }

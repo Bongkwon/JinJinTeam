@@ -32,6 +32,7 @@ namespace JinTeamForAdmin.Bus
 
         private void cus_Detail_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
             lbl_addr.Text = cv.Cus_addr.ToString();
             lbl_count.Text = cv.Cus_count.ToString();
 
@@ -65,6 +66,25 @@ namespace JinTeamForAdmin.Bus
             else
             {
                 lbl_state.Text = "탈퇴 상태";
+            }
+        }
+
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
             }
         }
     }

@@ -31,6 +31,7 @@ namespace JinTeamForAdmin.Bus
 
         private void return_inquire_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
             var cells = selectedRows[0].Cells;
             lbl_email.Text = cells[3].Value.ToString();
             lbl_name.Text = cells[2].Value.ToString();
@@ -102,6 +103,25 @@ namespace JinTeamForAdmin.Bus
                 MessageBox.Show("취소 하셨습니다.");
             }
             Close();
+        }
+
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
+            }
         }
     }
 }

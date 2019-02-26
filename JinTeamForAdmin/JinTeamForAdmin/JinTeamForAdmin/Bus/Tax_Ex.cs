@@ -34,9 +34,13 @@ namespace JinTeamForAdmin.Bus
         private void Tax_Ex_Load(object sender, EventArgs e)
         {
 
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
+
             lbl_path.Text = "저장위치를 지정 해주세요";
 
-            BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/세금계산서.png");
+            //BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/세금계산서_양식예시.png");
+            pictureBox1.Image = Image.FromFile(Application.StartupPath + "/Resources/세금계산서_양식예시.png");
+
 
             lbl_corporate_registration_no.Text = tv.Corporate_registration_no;
             lbl_stock_id.Text = tv.Stock_ID;
@@ -148,6 +152,24 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
-     
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
+            }
+        }
+
     }
 }
