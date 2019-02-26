@@ -69,5 +69,21 @@ namespace JinTeamForSeller.Dao
             }
             return lstinq;
         }
+
+        public bool InsertInquire_Seller(InquireVO iVO)
+        {
+            string query = "InsertInquire_Seller";
+            SqlParameter[] sqlp = { new SqlParameter("Inquire_type",iVO.Inquire_type), new SqlParameter("Inquire_Id",iVO.InquireID),
+                new SqlParameter("Inquire_title",iVO.InquireTitle), new SqlParameter("Inquire_body",iVO.InquireBody),
+                new SqlParameter("Inquire_image",iVO.InquireImage)};
+            try
+            {
+                return conn.SendExqueteQuery(query, sqlp);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

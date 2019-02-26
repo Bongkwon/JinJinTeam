@@ -66,7 +66,7 @@ namespace JinTeamForSeller.Dao
                 {
                     while (dr.Read())
                     {
-                        lstObj.Add(new Product(dr["pro_Id"].ToString(), dr["cat_ID"].ToString(), (int)dr["seller_no"], dr["pro_name"].ToString(), (int)dr["pro_price"], dr["main_comment"].ToString(), dr["sub_comment"].ToString(), dr["main_image"].ToString(), (int)dr["pro_hits"], (int)dr["pro_like"], (int)dr["pro_discount"], dr["pro_gender"].ToString(), (bool)dr["pro_state"]));
+                        lstObj.Add(new Product(dr["pro_Id"].ToString(), dr["cat_ID"].ToString(), (int)dr["seller_no"], dr["pro_name"].ToString(), (int)dr["pro_price"], dr["main_comment"].ToString(), dr["sub_comment"].ToString(), dr["main_image"].ToString(), (int)dr["pro_hits"], (int)dr["pro_like"], (int)dr["pro_discount"], dr["pro_gender"].ToString(), (bool)dr["pro_state"], dr["pro_url"].ToString()));
                     }
                 }
                 else if(query == "SelectCategory")

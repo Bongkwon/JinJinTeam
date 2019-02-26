@@ -9,7 +9,7 @@ namespace JinTeamForSeller.Dao
 {
     class StockListDAO
     {
-        DBConnection conn = new DBConnection();
+        DBConnection conn = new DBConnection();        
         public bool InsertStock(StockVO stock)
         {
             string query = "insert_stock";

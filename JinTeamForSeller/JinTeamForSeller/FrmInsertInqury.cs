@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JinTeamForSeller.Dao;
+using JinTeamForSeller.Vo;
 
 namespace JinTeamForSeller
 {
     public partial class FrmInsertInqury : Form
     {
         DataGridViewRow dr;
+        InquireDao iDao = new InquireDao();
+        string imgPath = "";
         public FrmInsertInqury()
         {
             InitializeComponent();
@@ -27,6 +31,7 @@ namespace JinTeamForSeller
             if(openFileDialog1.ShowDialog() == DialogResult.OK)
             {                
                 picInquire.Image = Image.FromFile(openFileDialog1.FileName);
+                imgPath = openFileDialog1.FileName;
             }
         }
 
@@ -51,7 +56,7 @@ namespace JinTeamForSeller
             }
             else
             {
-                this.Size = new Size(693, 343);
+                this.Size = new Size(683, 390);
                 
             }
         }
@@ -74,6 +79,12 @@ namespace JinTeamForSeller
         {
             var s = sender as Panel;
             s.Tag = new Point(e.X, e.Y);
+        }
+
+        private void btnInsertInquire_Click(object sender, EventArgs e)
+        {
+            InquireVO iVo = new InquireVO(this.cmbInquireType.Text, this.txtInquireTitle.Text, this.txtInquireBody.Text, imgPath, Form1.CompanyNo);
+            iDao.InsertInquire_Seller(iVo);
         }
     }
 }

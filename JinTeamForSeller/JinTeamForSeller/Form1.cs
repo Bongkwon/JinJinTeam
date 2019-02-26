@@ -190,8 +190,15 @@ namespace JinTeamForSeller
 
         private void button1_Click(object sender, EventArgs e) // 로그인
         {
+            int a = 0;
             SellerDAO seller = new SellerDAO();
-            int a = seller.ChkLogin(txtId.Text, txtPwd.Text);
+            try
+            {
+                a = seller.ChkLogin(txtId.Text, txtPwd.Text);
+            }
+            catch (Exception)
+            {
+            }
             
 
             if (a != 0)
@@ -351,6 +358,44 @@ namespace JinTeamForSeller
         }
 
         private void button3_Click_1(object sender, EventArgs e)
+        {
+            ProductDAO pdao = new ProductDAO();
+            List<Product> lstpro = pdao.select_proEachSeller(2);
+            foreach (var item in lstpro)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    StockListDAO sDao = new StockListDAO();
+                    switch (i)
+                    {
+                        case 0:                            
+                            sDao.InsertStock(new StockVO(item.Pro_ID + "_" + "S", item.Pro_ID, 2, "S", 50));
+                            break;
+                        case 1:
+                            sDao.InsertStock(new StockVO(item.Pro_ID + "_" + "M", item.Pro_ID, 2, "M", 50));
+                            break;
+                        case 2:
+                            sDao.InsertStock(new StockVO(item.Pro_ID + "_" + "L", item.Pro_ID, 2, "L", 50));
+                            break;
+                        case 3:
+                            sDao.InsertStock(new StockVO(item.Pro_ID + "_" + "XL", item.Pro_ID, 2, "XL", 50));
+                            break;
+                        case 4:
+                            sDao.InsertStock(new StockVO(item.Pro_ID + "_" + "XXL", item.Pro_ID, 2, "XXL", 50));
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
 
         }
