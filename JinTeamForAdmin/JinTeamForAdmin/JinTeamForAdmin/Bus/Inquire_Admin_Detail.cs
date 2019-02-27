@@ -70,10 +70,10 @@ namespace JinTeamForAdmin.Bus
         {
             Return_inquire ri = new Return_inquire(selectedRows);
             ri.Owner = this;         
-            ri.Show();
+            ri.ShowDialog();
 
             Admin_main ad = (Admin_main)Owner;
-            ad.Temp = this.temp;
+            ad.Pro_Temp = this.temp;
 
             if (temp)
             {

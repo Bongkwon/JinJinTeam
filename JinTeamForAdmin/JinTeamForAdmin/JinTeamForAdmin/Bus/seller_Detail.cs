@@ -99,7 +99,7 @@ namespace JinTeamForAdmin.Bus
                     {
                         MessageBox.Show("수정 성공");
                         Admin_main ad = (Admin_main)Owner;
-                        ad.Temp = true;
+                        ad.Pro_Temp = true;
                     }
                 }
                 else

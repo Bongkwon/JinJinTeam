@@ -53,6 +53,7 @@
             // 
             this.chart_sales.BackColor = System.Drawing.Color.LightGray;
             this.chart_sales.BorderlineColor = System.Drawing.Color.Empty;
+            this.chart_sales.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             this.chart_sales.BorderSkin.PageColor = System.Drawing.Color.Empty;
             chartArea1.Name = "ChartArea1";
             this.chart_sales.ChartAreas.Add(chartArea1);

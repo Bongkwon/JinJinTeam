@@ -140,7 +140,7 @@ namespace JinTeamForAdmin
                         ob_lst.Add(sv);
                     }
                 }
-                else if( type_p == "pay")
+                else if (type_p == "pay")
                 {
                     while (sdr.Read())
                     {
@@ -203,7 +203,8 @@ namespace JinTeamForAdmin
                             });
                         }
                     }                  
-                }else if (type_p == "sal")
+                }
+                else if (type_p == "sal")
                 {
                     while (sdr.Read())
                     {
@@ -215,6 +216,13 @@ namespace JinTeamForAdmin
                             Pay_count = Int32.Parse(sdr["pay_count"].ToString()),
                             Pay_price = Int32.Parse(sdr["Pay_price"].ToString())
                         });
+                    }
+                }
+                else if (type_p == "dashboard")
+                {
+                    while (sdr.Read())
+                    {
+                        ob_lst.Add(sdr["count"]);
                     }
                 }
             }

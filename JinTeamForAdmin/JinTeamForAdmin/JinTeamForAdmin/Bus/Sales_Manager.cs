@@ -1,5 +1,6 @@
 ﻿using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
+using JinTeamForSeller.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,18 +19,23 @@ namespace JinTeamForAdmin.Bus
         List<Sales_manager_Vo> sales_lst;
         List<Sales_manager_Vo> sales_sub_lst;
         List<object> ob_lst;
+        Point p = new Point();
 
-        public Sales_Manager()
+        public Sales_Manager(Point p)
         {
             InitializeComponent();
             sales_lst = new List<Sales_manager_Vo>();
             sales_sub_lst = new List<Sales_manager_Vo>();
             ob_lst = new List<object>();
+            this.p = p;      
         }
 
 
         private void Sales_Manager_Load(object sender, EventArgs e)
         {
+            //this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
+            this.Location = new Point(p.X+10 , p.Y);
+
             pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
             
             sales_lst.Clear();
@@ -202,7 +208,9 @@ namespace JinTeamForAdmin.Bus
 
         private void pb_Exit_Click(object sender, EventArgs e)
         {
-            Close();
+            Admin_main admin = (Admin_main)Owner;
+            admin.Sales_Temp = false;
+            Close();          
         }
 
         Point mousePoint;
