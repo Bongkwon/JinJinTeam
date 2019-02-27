@@ -23,7 +23,7 @@ namespace JinTeamForSeller
         public static string CompanyName = "";
         List<WebPage> lstWeb = new List<WebPage>();
         List<Product> lstPro = new List<Product>();
-
+        InquireDao idao = new InquireDao();
         public Form1()
         {
             InitializeComponent();
@@ -33,6 +33,11 @@ namespace JinTeamForSeller
         private void Form1_Load(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
+            //string msg = idao.GetMsg();
+            //if (!string.IsNullOrEmpty(msg))
+            //{
+            //    MessageBox.Show(msg);
+            //}
         }
 
         private void ParsingDetail_Click(object sender, EventArgs e)
@@ -191,26 +196,28 @@ namespace JinTeamForSeller
         private void button1_Click(object sender, EventArgs e) // 로그인
         {
             int a = 0;
+            SellerInfo sInfo = new SellerInfo();
             SellerDAO seller = new SellerDAO();
             try
             {
-                a = seller.ChkLogin(txtId.Text, txtPwd.Text);
+                sInfo = seller.ChkLogin(txtId.Text, txtPwd.Text);                
             }
             catch (Exception)
             {
             }
             
-
-            if (a != 0)
+            if (sInfo!=null)
             {
-                CompanyNo = a;
-                CompanyName = txtId.Text.Substring(0, 7);
-                new FrmMain().Show();
+                CompanyNo = sInfo.Seller_No;
+                CompanyName = sInfo.Seller_Name;
+                new FrmDashBorad().Show();
+                //new FrmMain().Show();
             }
             else
             {
                 MessageBox.Show("비밀번호 또는 아이디가 틀립니다.");
             }
+            //MessageBox.Show(CompanyName);
         }
 
         private void button7_Click(object sender, EventArgs e)

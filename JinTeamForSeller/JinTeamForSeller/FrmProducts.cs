@@ -42,7 +42,17 @@ namespace JinTeamForSeller
             gViewProducts.Columns["Main_Comment"].Visible = false;
             gViewProducts.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(143, 145, 147);
             gViewProducts.EnableHeadersVisualStyles = false;
-            
+
+            gViewProducts.Columns["Pro_State"].HeaderText = "제품 상태";
+            gViewProducts.Columns["Cat_ID"].HeaderText = "카테고리";
+            gViewProducts.Columns["Pro_ID"].HeaderText = "제품 코드";
+            gViewProducts.Columns["Pro_Name"].HeaderText = "이름";
+            gViewProducts.Columns["Pro_Price"].HeaderText = "가격";
+            gViewProducts.Columns["Pro_Gender"].HeaderText = "성별";
+            gViewProducts.Columns["Pro_Discount"].HeaderText = "성별";
+            gViewProducts.Columns["Pro_Like"].HeaderText = "좋아요";
+            gViewProducts.Columns["Pro_Hits"].HeaderText = "상품 조회수";
+            gViewProducts.Columns["ProUri"].HeaderText = "제품 페이지";
         }
 
         private void gViewProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

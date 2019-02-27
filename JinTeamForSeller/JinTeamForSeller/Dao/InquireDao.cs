@@ -85,5 +85,16 @@ namespace JinTeamForSeller.Dao
                 throw;
             }
         }
+        public int NewInquireSeller(int seller_No)
+        {
+            string qurey = "NewInquireSeller";
+            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
+            int rowCount = conn.SendScalarReadQuery(qurey, sqlp);
+            return rowCount;
+        }
+        //public string GetMsg()
+        //{
+        //    return conn.GetMsg();
+        //}
     }
 }

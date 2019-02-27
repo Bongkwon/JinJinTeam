@@ -32,6 +32,7 @@ namespace JinTeamForSeller
 
         private void FrmInsertProduct_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             cat_kinds = cat.SelectCategory();
             foreach (var item in cat_kinds)
             {

@@ -39,11 +39,11 @@ namespace JinTeamForSeller
         }
 
         private void ViewGView()
-        {            
-            
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        {
+            dataGridView1.Visible = false;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             lstSales = sDao.selectSalesManagementForSeller(Form1.CompanyNo);
-            dataGridView1.DataSource = lstSales;            
+            //dataGridView1.DataSource = lstSales;            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

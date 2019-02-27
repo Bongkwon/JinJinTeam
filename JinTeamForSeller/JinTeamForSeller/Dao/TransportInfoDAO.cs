@@ -44,5 +44,29 @@ namespace JinTeamForSeller.Dao
             };
             return con.SendExqueteQuery(query, sqlp);
         }
+
+        public int WaybillNotYet(int seller_No)
+        {
+            string qurey = "WaybillNotYet";
+            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
+            int rowCount = con.SendScalarReadQuery(qurey, sqlp);
+            return rowCount;
+        }
+
+        public int NotShipping(int seller_No)
+        {
+            string qurey = "NotShipping";
+            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
+            int rowCount = con.SendScalarReadQuery(qurey, sqlp);
+            return rowCount;
+        }
+        
+        public int SumOfPayCount(int seller_No)
+        {
+            string qurey = "SumOfPayCount";
+            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
+            int rowCount = con.SendScalarReadQuery(qurey, sqlp);
+            return rowCount;
+        }
     }
 }

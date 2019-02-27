@@ -32,5 +32,12 @@ namespace JinTeamForSeller.Dao
 
             return con.SendExqueteQuery(query, sqlp);
         }
+        public int NewReview(int seller_No)
+        {
+            string qurey = "NewReview";
+            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
+            int rowCount = con.SendScalarReadQuery(qurey, sqlp);
+            return rowCount;
+        }
     }
 }

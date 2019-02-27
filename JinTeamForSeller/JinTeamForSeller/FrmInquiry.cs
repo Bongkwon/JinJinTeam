@@ -56,18 +56,29 @@ namespace JinTeamForSeller
             gViewInquiry.Columns["inquireImage"].Visible = false;
             gViewInquiry.Columns["MainImage"].Visible = false;
             gViewInquiry.Columns["InquireID"].Visible = false;
+
+            gViewInquiry.Columns["Inquire_type"].HeaderText = "문의 구분";
+            gViewInquiry.Columns["InquireID"].Visible = false;
+            gViewInquiry.Columns["CusName"].HeaderText = "문의자";
+            gViewInquiry.Columns["StockId"].HeaderText = "재고번호";
+            gViewInquiry.Columns["InquireTitle"].HeaderText = "문의 제목";
+            gViewInquiry.Columns["InquireBody"].HeaderText = "문의 내용";
+            gViewInquiry.Columns["InquireDate"].HeaderText = "문의 날짜";
+            gViewInquiry.Columns["ReBody"].HeaderText = "답글";
+            gViewInquiry.Columns["ReDate"].HeaderText = "답글 날짜";
         }
 
         private void FrmInquiry_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             gViewInquiry.DataSource = null;
             gViewInquiry.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gViewInquiry.DataSource = iDao.SelectInquireForSeller(Form1.CompanyNo);
-            gViewInquiry.Columns["cusNo"].Visible = false;
-            gViewInquiry.Columns["inquireNo"].Visible = false;
-            gViewInquiry.Columns["inquireImage"].Visible = false;
-            gViewInquiry.Columns["MainImage"].Visible = false;
-
+            //gViewInquiry.DataSource = iDao.SelectInquireForSeller(Form1.CompanyNo);
+            //gViewInquiry.Columns["cusNo"].Visible = false;
+            //gViewInquiry.Columns["inquireNo"].Visible = false;
+            //gViewInquiry.Columns["inquireImage"].Visible = false;
+            //gViewInquiry.Columns["MainImage"].Visible = false;
+            rdoInquryOfProduct_CheckedChanged(null, null);
             DataGridViewCellStyle style = new DataGridViewCellStyle();
             style.BackColor = Color.FromArgb(143, 145, 147);
             //style.

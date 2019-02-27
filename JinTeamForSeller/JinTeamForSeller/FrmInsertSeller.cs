@@ -130,5 +130,10 @@ namespace JinTeamForSeller
             var s = sender as Panel;
             s.Tag = new Point(e.X, e.Y);
         }
+
+        private void FrmInsertSeller_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
+        }
     }
 }

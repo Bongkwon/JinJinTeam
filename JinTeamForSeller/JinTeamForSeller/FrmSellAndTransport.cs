@@ -40,9 +40,9 @@ namespace JinTeamForSeller
             style.BackColor = Color.FromArgb(143, 145, 147);
             //style.
             gViewPayInfo.DefaultCellStyle = style;
-            gViewPayInfo.DataSource = lstPInfo;
+            //gViewPayInfo.DataSource = lstPInfo;
             gViewPayInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            rdoShowAll_CheckedChanged(null, null);
             //gViewPayInfo.Columns["order_ID"].Visible = false;
             //gViewPayInfo.Columns["Seller_No"].Visible = false;
             foreach (DataGridViewColumn item in gViewPayInfo.Columns)
@@ -61,7 +61,6 @@ namespace JinTeamForSeller
             
             CheckTransportStateCom();
             gViewPayInfo.Columns["trans_State_Com"].ReadOnly = false;
-            // MessageBox.Show(gViewPayInfo.Rows.Count.ToString());
         }
 
         private void CheckTransportStateCom()
@@ -99,6 +98,22 @@ namespace JinTeamForSeller
                 gViewPayInfo.DataSource = null;
                 gViewPayInfo.DataSource = lstPInfo;
                 CheckTransportStateCom();
+                gViewPayInfo.Columns["trans_State_Com"].ReadOnly = false;
+                // MessageBox.Show(gViewPayInfo.Rows.Count.ToString());
+                gViewPayInfo.Columns["Pay_ID"].Visible = false;
+                gViewPayInfo.Columns["Order_ID"].HeaderText = "주문번호";
+                gViewPayInfo.Columns["User_Ship_ID"].Visible = false;
+                gViewPayInfo.Columns["Stock_ID"].HeaderText = "재고번호";
+                gViewPayInfo.Columns["Seller_No"].Visible = false;
+                gViewPayInfo.Columns["Pay_Count"].HeaderText = "판매양";
+                gViewPayInfo.Columns["Pay_Price"].HeaderText = "판매가";
+                gViewPayInfo.Columns["Waybill_ID"].HeaderText = "운송장번호";
+                gViewPayInfo.Columns["Cus_name"].HeaderText = "구매자";
+                gViewPayInfo.Columns["User_addr"].HeaderText = "배송지";
+                gViewPayInfo.Columns["User_name"].HeaderText = "받는이";
+                gViewPayInfo.Columns["Transport_state"].HeaderText = "배송상태";
+                gViewPayInfo.Columns["Order_require"].HeaderText = "구매시 요구사항";
+                gViewPayInfo.Columns["Ship_require"].HeaderText = "제품 요구사항";
             }
         }
         private void rdoShowYet_CheckedChanged(object sender, EventArgs e)

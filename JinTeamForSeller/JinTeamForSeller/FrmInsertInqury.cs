@@ -37,6 +37,7 @@ namespace JinTeamForSeller
 
         private void FrmInsertInqury_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             if (dr != null)
             {
                 //cmbInquireType.Text = dr.Cells[]

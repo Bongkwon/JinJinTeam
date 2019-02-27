@@ -88,6 +88,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDashBorad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDashBorad.Designer.cs">
+      <DependentUpon>FrmDashBorad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDetailPro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vo\ReviewVO.cs" />
     <Compile Include="Vo\SalesManagementVO.cs" />
+    <Compile Include="Vo\SellerInfo.cs" />
     <Compile Include="Vo\SellerVO.cs" />
     <Compile Include="Vo\StockVO.cs" />
     <Compile Include="Vo\Transport_InfoVO.cs" />
@@ -190,6 +197,9 @@
     </None>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDashBorad.resx">
+      <DependentUpon>FrmDashBorad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDetailPro.resx">
       <DependentUpon>FrmDetailPro.cs</DependentUpon>
@@ -267,9 +277,9 @@
     <Content Include="HTMLPage1.html" />
     <Content Include="procedure.sql" />
     <None Include="Resources\cancel.png" />
-    <None Include="Resources\cancel1.png">
+    <EmbeddedResource Include="Resources\cancel1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

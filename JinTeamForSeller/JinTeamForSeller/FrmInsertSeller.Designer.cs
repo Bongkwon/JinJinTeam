@@ -499,6 +499,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmInsertSeller";
             this.Text = "판매자 회원가입";
+            this.Load += new System.EventHandler(this.FrmInsertSeller_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgRegistration)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
