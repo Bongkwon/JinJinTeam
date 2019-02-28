@@ -13,7 +13,9 @@ namespace JinTeamForSeller.Dao
         public bool InsertStock(StockVO stock)
         {
             string query = "insert_stock";
-            SqlParameter[] sqlp = { new SqlParameter("stock_ID", stock.Stock_ID), new SqlParameter("pro_ID", stock.Pro_Id), new SqlParameter("seller_no", stock.Seller_no), new SqlParameter("stock_size", stock.Stock_Size), new SqlParameter("stock_count", stock.Stock_Count) };
+            SqlParameter[] sqlp = { new SqlParameter("stock_ID", stock.Stock_ID), new SqlParameter("pro_ID", stock.Pro_Id),
+                new SqlParameter("seller_no", stock.Seller_no), new SqlParameter("stock_size", stock.Stock_Size),
+                new SqlParameter("stock_count", stock.Stock_Count) };
 
             return conn.SendExqueteQuery(query, sqlp);
         }

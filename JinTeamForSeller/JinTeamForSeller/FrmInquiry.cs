@@ -25,12 +25,21 @@ namespace JinTeamForSeller
         {
             gViewInquiry.DataSource = null;
             btnInsertInquiry.Visible = true;
-            gViewInquiry.DataSource = iDao.SelectInquireAdminForSeller(Form1.CompanyNo, "S");
+            gViewInquiry.DataSource = iDao.SelectInquireAdminForSeller(Form1.CompanyNo);
             gViewInquiry.Columns["inquireImage"].Visible = false;
             gViewInquiry.Columns["MainImage"].Visible = false;
             gViewInquiry.Columns["InquireID"].Visible = false;
             gViewInquiry.Columns["CusNO"].Visible = false;
             gViewInquiry.Columns["stockID"].Visible = false;
+            gViewInquiry.Columns["CusName"].Visible = false;
+
+            gViewInquiry.Columns["InquireNo"].HeaderText = "문의 번호";
+            gViewInquiry.Columns["Inquire_type"].HeaderText = "구분";
+            gViewInquiry.Columns["InquireTitle"].HeaderText = "문의 제목";
+            gViewInquiry.Columns["InquireBody"].HeaderText = "문의 내용";
+            gViewInquiry.Columns["InquireDate"].HeaderText = "문의일";
+            gViewInquiry.Columns["ReBody"].HeaderText = "답변";
+            gViewInquiry.Columns["ReDate"].HeaderText = "답변 날짜";
         }
 
         private void rdoReviewForPro_CheckedChanged(object sender, EventArgs e)
@@ -44,6 +53,12 @@ namespace JinTeamForSeller
             gViewInquiry.Columns["MainImage"].Visible = false;
             gViewInquiry.Columns["Cus_no"].Visible = false;
             //gViewInquiry.Columns["mainImage"].Visible = false;
+            gViewInquiry.Columns["CusName"].HeaderText = "구매자명";
+            gViewInquiry.Columns["Pro_ID"].HeaderText = "상품명";
+            gViewInquiry.Columns["Re_Txt"].HeaderText = "리뷰 내용";
+            gViewInquiry.Columns["Re_Date"].HeaderText = "리뷰 남긴날";
+            gViewInquiry.Columns["Re_Comment"].HeaderText = "답변";
+            gViewInquiry.Columns["Re_Commnet_Date"].HeaderText = "답변일";
         }
 
         private void rdoInquryOfProduct_CheckedChanged(object sender, EventArgs e)

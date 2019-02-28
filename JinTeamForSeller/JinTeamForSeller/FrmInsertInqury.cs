@@ -85,7 +85,16 @@ namespace JinTeamForSeller
         private void btnInsertInquire_Click(object sender, EventArgs e)
         {
             InquireVO iVo = new InquireVO(this.cmbInquireType.Text, this.txtInquireTitle.Text, this.txtInquireBody.Text, imgPath, Form1.CompanyNo);
-            iDao.InsertInquire_Seller(iVo);
+            try
+            {
+                iDao.InsertInquire_Seller(iVo);
+                MessageBox.Show("문의 남기기에 성공했습니다.");
+                this.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

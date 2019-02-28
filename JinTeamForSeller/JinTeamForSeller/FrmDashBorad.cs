@@ -49,8 +49,9 @@ namespace JinTeamForSeller
             lblNewReview.Text = rDao.NewReview(Form1.CompanyNo).ToString();
             lblNotShipping.Text = tDao.NotShipping(Form1.CompanyNo).ToString();
             lblWaybillNotYet.Text = tDao.WaybillNotYet(Form1.CompanyNo).ToString();
-            lblSumOfProLike.Text = pDao.SumOfProLike(Form1.CompanyNo).ToString();
+            lblSumOfProLike.Text = pDao.CountOfProState(Form1.CompanyNo).ToString();
             lblSumOfPayCount.Text = tDao.SumOfPayCount(Form1.CompanyNo).ToString();
+
         }
 
         private void panel2_Click(object sender, EventArgs e)
@@ -75,6 +76,11 @@ namespace JinTeamForSeller
         {
             FrmSaleManagement frm = new FrmSaleManagement();
             frm.Show();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            this.OnLoad(null);
         }
     }
 }
