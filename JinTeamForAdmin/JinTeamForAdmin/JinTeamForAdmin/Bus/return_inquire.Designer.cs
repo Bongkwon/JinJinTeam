@@ -40,8 +40,8 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pb_Exit = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pb_Exit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).BeginInit();
             this.SuspendLayout();
@@ -147,6 +147,8 @@
             this.label13.Size = new System.Drawing.Size(172, 54);
             this.label13.TabIndex = 34;
             this.label13.Text = "JinShop";
+            this.label13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // panel1
             // 
@@ -162,16 +164,6 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
-            // pb_Exit
-            // 
-            this.pb_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_Exit.Location = new System.Drawing.Point(516, 9);
-            this.pb_Exit.Name = "pb_Exit";
-            this.pb_Exit.Size = new System.Drawing.Size(36, 36);
-            this.pb_Exit.TabIndex = 33;
-            this.pb_Exit.TabStop = false;
-            this.pb_Exit.Click += new System.EventHandler(this.pb_Exit_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -182,6 +174,18 @@
             this.label5.Size = new System.Drawing.Size(77, 15);
             this.label5.TabIndex = 36;
             this.label5.Text = "문의 정보";
+            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pb_Exit
+            // 
+            this.pb_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pb_Exit.Location = new System.Drawing.Point(516, 9);
+            this.pb_Exit.Name = "pb_Exit";
+            this.pb_Exit.Size = new System.Drawing.Size(36, 36);
+            this.pb_Exit.TabIndex = 33;
+            this.pb_Exit.TabStop = false;
+            this.pb_Exit.Click += new System.EventHandler(this.pb_Exit_Click);
             // 
             // Return_inquire
             // 

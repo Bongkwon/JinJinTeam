@@ -2,7 +2,7 @@
 CREATE PROCEDURE [dbo].Select_Cus_Inq
 as
 select c.cus_Nickname, C.cus_ID ,I.* from dbo.Inquire_Admin I, dbo.customers C
-where cus_or_sell = 'C' and c.cus_no = i.Inquire_Id
+where cus_or_sell = 'C' and c.cus_no = i.cus_no
 order by I.Inquire_no desc;
 go
 
@@ -15,7 +15,7 @@ go
 CREATE PROCEDURE [dbo].Select_Sel_Inq
 as
 select s.seller_ID,s.seller_email ,I.* from dbo.Inquire_Admin I, dbo.seller S
-where cus_or_sell = 'S' and S.seller_no = I.Inquire_Id
+where cus_or_sell = 'S' and S.seller_no = I.seller_no
 order by I.Inquire_no desc;
 go
 
@@ -119,4 +119,29 @@ AS
 	update dbo.Inquire_Admin
 	set re_body = @re_body, re_date = CONVERT(date,(dateadd(hour,(9),getdate())),112)
 	where Inquire_no = @inquire_no
+go
+
+--Selct_T_Inq_count
+CREATE PROCEDURE [dbo].Selct_T_Inq_count
+AS
+select count(1) count from dbo.Inquire_Admin I
+where CONVERT(date,I.Inquire_date,112) = convert(date,dateadd(hour,9,getdate()),112)
+go
+--Selct_T_pay_count
+CREATE PROCEDURE [dbo].Selct_T_pay_count
+AS
+select count(1) count from payment_info p
+where convert(date,p.pay_date,112) = convert(date,dateadd(hour,9,getdate()),112)
+go
+--Selct_Sel_join_count
+CREATE PROCEDURE [dbo].Selct_Sel_join_count
+AS
+select count(1) count from dbo.seller s
+where s.join_state = 0
+go
+--Selct_Pro_state_count
+CREATE PROCEDURE [dbo].Selct_Pro_state_count
+AS
+select count(1) count from dbo.products p
+where p.pro_state = 0
 go

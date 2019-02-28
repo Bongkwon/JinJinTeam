@@ -1,6 +1,6 @@
 ﻿using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

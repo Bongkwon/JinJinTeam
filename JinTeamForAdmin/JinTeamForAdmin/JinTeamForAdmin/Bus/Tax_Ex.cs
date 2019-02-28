@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace JinTeamForAdmin.Bus
@@ -39,7 +39,7 @@ namespace JinTeamForAdmin.Bus
             lbl_path.Text = "저장위치를 지정 해주세요";
 
             //BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/세금계산서_양식예시.png");
-            pictureBox1.Image = Image.FromFile(Application.StartupPath + "/Resources/세금계산서_양식예시.png");
+            pictureBox1.Image = Image.FromFile(Application.StartupPath + "/Resources/Tax_FormatEx.png");
 
 
             lbl_corporate_registration_no.Text = tv.Corporate_registration_no;
@@ -96,7 +96,7 @@ namespace JinTeamForAdmin.Bus
             Excel.Worksheet workSheet;
             object missingValue = System.Reflection.Missing.Value;
 
-            workBook = excelApp.Workbooks.Open(Application.StartupPath +"/Resources/세금계산서_양식");
+            workBook = excelApp.Workbooks.Open(Application.StartupPath +"/Resources/Tax_Format.xlsx");
             workSheet = workBook.Worksheets.Item[1];
 
 

@@ -12,12 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
-namespace JinTeamForSeller.Bus
+namespace JinTeamForAdmin.Bus
 {
     public partial class Admin_main : Form
     {
-       
+        List<Sales_manager_Vo> sales_lst;
+        List<Sales_manager_Vo> sales_sub_lst;
         List<Customers_Vo> cus_lst;
         List<object> ob_lst;
         List<Seller_Vo> sell_lst;
@@ -60,26 +62,20 @@ namespace JinTeamForSeller.Bus
             tax_lst = new List<TaxBill_Vo>();
             inq_lst = new List<Inquire_Admin_Vo>();
             inq_lst_sub = new List<Inquire_Admin_Vo>();
+            sales_lst = new List<Sales_manager_Vo>();
+            sales_sub_lst = new List<Sales_manager_Vo>();
         }
 
 
         private void Admin_main_Load(object sender, EventArgs e)
-        {
-            
-            //MessageBox.Show(this.Location.X +", "+ this.Location.Y +"");
-            //MessageBox.Show(pb_Exit.Location.X + ", "+this.Location.Y );
+        {           
             this.Location = new Point(100, 100);
 
-            //rdo_all_seller.Checked = true;
-            //seller_changed(null, null);
             pl_main_Click(null, null);
             change_panel();
 
-            //btn_Refresh.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/refresh-arrow.png");
             pb_refresh.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/refresh-arrow.png");
             pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
-            
-            //매출관리ToolStripMenuItem_Click(null, null);
         }
 
 
@@ -143,25 +139,25 @@ namespace JinTeamForSeller.Bus
             {
                 int inq=0, pay=0, pc=0, sc = 0;
                 type_s = "dashboard";
-                sp = "Selct_T_Inq_count";
+                sp = "Select_T_Inq_count";
                 ob_lst = new Admin_Dao().Select_ob(sp, type_s);
                 foreach (int item in ob_lst)
                 {
                     inq = item;
                 }
-                sp = "Selct_T_pay_count";
+                sp = "Select_T_pay_count";
                 ob_lst = new Admin_Dao().Select_ob(sp, type_s);
                 foreach (int item in ob_lst)
                 {
                     pay = item;
                 }
-                sp = "Selct_Sel_join_count";
+                sp = "Select_Sel_join_count";
                 ob_lst = new Admin_Dao().Select_ob(sp, type_s);
                 foreach (int item in ob_lst)
                 {
                     sc = item;
                 }
-                sp = "Selct_Pro_state_count";
+                sp = "Select_Pro_state_count";
                 ob_lst = new Admin_Dao().Select_ob(sp, type_s);
                 foreach (int item in ob_lst)
                 {
@@ -174,12 +170,58 @@ namespace JinTeamForSeller.Bus
 
 
                 change_panel();
+
+                sales_lst.Clear();
+                sales_sub_lst.Clear();
+
+                ob_lst = new Admin_Dao().Select_ob("Select_sales", "sal");
+                foreach (var item in ob_lst)
+                {
+                    sales_lst.Add((Sales_manager_Vo)item);
+                }
+
+                var result = from sales in sales_lst
+                             orderby sales.Pay_date descending
+                             group sales by sales.Pay_date;
+                foreach (var itemG in result)
+                {
+                    int price = 0;
+                    int count = 0;
+                    string name = "";
+                    int mm = 0;
+                    //textBox1.Text += itemG.Key + " 금액 : ";
+
+                    foreach (var itemK in itemG)
+                    {
+                        price += (itemK.Pay_price * itemK.Pay_count);
+                        
+                        count += 1;
+                        name = itemK.Seller_ID;
+                        mm = Int32.Parse(itemK.Pay_date_m);
+                    }
+
+                    if (sales_sub_lst.Count < 3)
+                    {
+                        sales_sub_lst.Add(new Sales_manager_Vo
+                        {
+                            Seller_ID = name,
+                            Pay_price = price,
+                            Pay_count = count,
+                            Pay_date = itemG.Key.Substring(5),
+                            Pay_date_m = mm.ToString()
+                        });
+                    }
+                }
+
+                sales_sub_lst.Reverse();
+
+                chart_sales.Series[0].Points.DataBind(sales_sub_lst, "pay_date", "Pay_price", null);
+                chart_sales.Series[0].Name = "액수";
             }
         }
 
         private void seller목록ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             rdo_all_seller.Checked = true;
             seller_changed(null, null);
             change_panel();
@@ -248,6 +290,7 @@ namespace JinTeamForSeller.Bus
 
         }
 
+
         private void cb_inquire_TextChanged(object sender, EventArgs e)
         {
             inq_lst_sub.Clear();
@@ -285,6 +328,7 @@ namespace JinTeamForSeller.Bus
             cb_inquire.Items.Add("시스템");
             cb_inquire.Items.Add("기타");
         }
+
 
         private void Pay_changed()
         {
@@ -340,6 +384,8 @@ namespace JinTeamForSeller.Bus
                 cb_inquire.Items.Add("피드백");
 
                 sp = "select_sel_inq";
+
+
             }
 
 
@@ -469,14 +515,26 @@ namespace JinTeamForSeller.Bus
 
         }
 
+
         private void Inq_GV()
         {
-            //main_GV.DataSource = inq_lst_sub;
-
             main_GV.Columns["inquire_image"].Visible = false;
             main_GV.Columns["inquire_body"].Visible = false;
             main_GV.Columns["inquire_email"].Visible = false;
-            main_GV.Columns["inquire_id"].Visible = false;
+            main_GV.Columns["cus_no"].HeaderText = "고객 번호";
+            main_GV.Columns["seller_no"].HeaderText = "판매자 번호";
+            if (rd_sel_inq.Checked)
+            {
+                main_GV.Columns["cus_no"].Visible = false;
+                main_GV.Columns["seller_no"].Visible = true;
+            }
+            else
+            {
+                main_GV.Columns["cus_no"].Visible = true;
+                main_GV.Columns["seller_no"].Visible = false;
+            }
+
+            //main_GV.Columns["inquire_id"].Visible = false;
             main_GV.Columns["re_body"].Visible = false;
             main_GV.Columns["cus_or_sell"].Visible = false;
             main_GV.Columns["inquire_no"].HeaderText = "문의 번호";
@@ -486,10 +544,6 @@ namespace JinTeamForSeller.Bus
             main_GV.Columns["inquire_title"].HeaderText = "문의 제목";
             main_GV.Columns["re_date"].HeaderText = "답변 날짜";
             main_GV.Columns["inquire_date"].HeaderText = "문의 날짜";
-            //main_GV.Columns["inquire_title"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            //main_GV.Columns["inquire_email"].Visible = false;
-            //main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
@@ -948,11 +1002,6 @@ namespace JinTeamForSeller.Bus
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         Point mousePoint;
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -967,5 +1016,38 @@ namespace JinTeamForSeller.Bus
             }
         }
 
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        Point? previous = null;
+        ToolTip myToolTip = new ToolTip();
+
+        private void chart_sales_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point nowPosition = e.Location;
+            if (previous.HasValue && nowPosition == previous) // 마우스 움직임이 없을 때
+            {
+                return;
+            }
+            myToolTip.RemoveAll();
+            previous = nowPosition;
+            HitTestResult hit = chart_sales.HitTest(nowPosition.X, nowPosition.Y, ChartElementType.DataPoint);
+            if (hit.ChartElementType == ChartElementType.DataPoint)
+            {
+                var name = sales_sub_lst[hit.PointIndex].Seller_ID;
+                var price = sales_sub_lst[hit.PointIndex].Pay_price.ToString("#,##0") + "원";
+                var count = sales_sub_lst[hit.PointIndex].Pay_count.ToString("#,##0") + "건";
+                string date = "";
+                date = sales_sub_lst[hit.PointIndex].Pay_date;
+
+                myToolTip.Show(/*"회사 : " + name + Environment.NewLine +*/
+                                        "매출 : " + price + Environment.NewLine +
+                                       "건수 : " + count + Environment.NewLine +
+                                       "날짜 : " + date
+                                       , chart_sales, new Point(nowPosition.X + 10, nowPosition.Y + 15));
+            }
+        }
     }
 }

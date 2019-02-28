@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JinTeamForAdmin.Vo
 {
-    class Inquire_Admin_Vo
+    public class Inquire_Admin_Vo
     {
         private int inquire_no;
 
@@ -38,14 +38,22 @@ namespace JinTeamForAdmin.Vo
             set { inquire_email = value; }
         }
 
+        private int seller_no;
 
-        private int inquire_id;
-
-        public int Inquire_id
+        public int Seller_no
         {
-            get { return inquire_id; }
-            set { inquire_id = value; }
+            get { return seller_no; }
+            set { seller_no = value; }
         }
+
+        private int cus_no;
+
+        public int Cus_no
+        {
+            get { return cus_no; }
+            set { cus_no = value; }
+        }
+
         private string cus_or_sell;
 
         public string Cus_or_sell

@@ -265,6 +265,8 @@
             this.label13.Size = new System.Drawing.Size(172, 54);
             this.label13.TabIndex = 34;
             this.label13.Text = "JinShop";
+            this.label13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // panel1
             // 
@@ -290,6 +292,8 @@
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 35;
             this.label1.Text = "결제 정보";
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // Tax_Ex
             // 

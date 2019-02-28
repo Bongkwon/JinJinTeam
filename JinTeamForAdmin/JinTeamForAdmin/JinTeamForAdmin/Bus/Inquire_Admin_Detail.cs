@@ -1,5 +1,5 @@
 ﻿using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +56,7 @@ namespace JinTeamForAdmin.Bus
             }
             else
             {
-                lbl_redate.Text = cells[10].Value.ToString();
+                lbl_redate.Text = cells[11].Value.ToString();
             }
             
         }

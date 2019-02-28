@@ -60,7 +60,7 @@
             legend1.BackColor = System.Drawing.Color.LightGray;
             legend1.Name = "Legend1";
             this.chart_sales.Legends.Add(legend1);
-            this.chart_sales.Location = new System.Drawing.Point(1, 87);
+            this.chart_sales.Location = new System.Drawing.Point(0, 98);
             this.chart_sales.Name = "chart_sales";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -74,9 +74,11 @@
             // rd_Price
             // 
             this.rd_Price.AutoSize = true;
+            this.rd_Price.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rd_Price.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.rd_Price.Location = new System.Drawing.Point(3, 12);
             this.rd_Price.Name = "rd_Price";
-            this.rd_Price.Size = new System.Drawing.Size(47, 16);
+            this.rd_Price.Size = new System.Drawing.Size(60, 20);
             this.rd_Price.TabIndex = 1;
             this.rd_Price.TabStop = true;
             this.rd_Price.Text = "매출";
@@ -86,9 +88,11 @@
             // rd_Count
             // 
             this.rd_Count.AutoSize = true;
-            this.rd_Count.Location = new System.Drawing.Point(50, 12);
+            this.rd_Count.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rd_Count.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.rd_Count.Location = new System.Drawing.Point(69, 12);
             this.rd_Count.Name = "rd_Count";
-            this.rd_Count.Size = new System.Drawing.Size(71, 16);
+            this.rd_Count.Size = new System.Drawing.Size(94, 20);
             this.rd_Count.TabIndex = 2;
             this.rd_Count.TabStop = true;
             this.rd_Count.Text = "주문건수";
@@ -98,9 +102,11 @@
             // rd_mm
             // 
             this.rd_mm.AutoSize = true;
-            this.rd_mm.Location = new System.Drawing.Point(51, 12);
+            this.rd_mm.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rd_mm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.rd_mm.Location = new System.Drawing.Point(69, 12);
             this.rd_mm.Name = "rd_mm";
-            this.rd_mm.Size = new System.Drawing.Size(47, 16);
+            this.rd_mm.Size = new System.Drawing.Size(60, 20);
             this.rd_mm.TabIndex = 7;
             this.rd_mm.TabStop = true;
             this.rd_mm.Text = "월별";
@@ -110,9 +116,11 @@
             // rd_dd
             // 
             this.rd_dd.AutoSize = true;
+            this.rd_dd.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.rd_dd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.rd_dd.Location = new System.Drawing.Point(3, 12);
             this.rd_dd.Name = "rd_dd";
-            this.rd_dd.Size = new System.Drawing.Size(47, 16);
+            this.rd_dd.Size = new System.Drawing.Size(60, 20);
             this.rd_dd.TabIndex = 6;
             this.rd_dd.TabStop = true;
             this.rd_dd.Text = "일별";
@@ -124,9 +132,9 @@
             this.gb_sales_S_C.BackColor = System.Drawing.Color.LightGray;
             this.gb_sales_S_C.Controls.Add(this.rd_Price);
             this.gb_sales_S_C.Controls.Add(this.rd_Count);
-            this.gb_sales_S_C.Location = new System.Drawing.Point(0, 50);
+            this.gb_sales_S_C.Location = new System.Drawing.Point(0, 57);
             this.gb_sales_S_C.Name = "gb_sales_S_C";
-            this.gb_sales_S_C.Size = new System.Drawing.Size(126, 33);
+            this.gb_sales_S_C.Size = new System.Drawing.Size(167, 39);
             this.gb_sales_S_C.TabIndex = 8;
             this.gb_sales_S_C.TabStop = false;
             // 
@@ -135,9 +143,9 @@
             this.gb_sales_D_M.BackColor = System.Drawing.Color.LightGray;
             this.gb_sales_D_M.Controls.Add(this.rd_mm);
             this.gb_sales_D_M.Controls.Add(this.rd_dd);
-            this.gb_sales_D_M.Location = new System.Drawing.Point(127, 50);
+            this.gb_sales_D_M.Location = new System.Drawing.Point(173, 57);
             this.gb_sales_D_M.Name = "gb_sales_D_M";
-            this.gb_sales_D_M.Size = new System.Drawing.Size(126, 33);
+            this.gb_sales_D_M.Size = new System.Drawing.Size(157, 38);
             this.gb_sales_D_M.TabIndex = 9;
             this.gb_sales_D_M.TabStop = false;
             // 
@@ -150,7 +158,7 @@
             this.panel1.Controls.Add(this.label13);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(657, 54);
+            this.panel1.Size = new System.Drawing.Size(517, 54);
             this.panel1.TabIndex = 38;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -160,11 +168,12 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
-            this.label1.Location = new System.Drawing.Point(168, 23);
+            this.label1.Location = new System.Drawing.Point(168, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 35;
             this.label1.Text = "매출 정보";
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // pb_Exit
             // 
@@ -181,18 +190,20 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("맑은 고딕", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
-            this.label13.Location = new System.Drawing.Point(5, -9);
+            this.label13.Location = new System.Drawing.Point(5, -5);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(172, 54);
             this.label13.TabIndex = 34;
             this.label13.Text = "JinShop";
+            this.label13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // Sales_Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(517, 485);
+            this.ClientSize = new System.Drawing.Size(518, 503);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gb_sales_S_C);
             this.Controls.Add(this.gb_sales_D_M);

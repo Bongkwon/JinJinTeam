@@ -414,6 +414,8 @@
             this.label13.Size = new System.Drawing.Size(172, 54);
             this.label13.TabIndex = 34;
             this.label13.Text = "JinShop";
+            this.label13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label13.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // panel1
             // 
@@ -439,6 +441,8 @@
             this.label14.Size = new System.Drawing.Size(93, 15);
             this.label14.TabIndex = 36;
             this.label14.Text = "판매자 정보";
+            this.label14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label14.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // Seller_Detail
             // 

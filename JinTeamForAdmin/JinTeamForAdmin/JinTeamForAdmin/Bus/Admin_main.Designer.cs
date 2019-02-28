@@ -1,4 +1,4 @@
-﻿namespace JinTeamForSeller.Bus
+﻿namespace JinTeamForAdmin.Bus
 {
     partial class Admin_main
     {
@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.main_GV = new System.Windows.Forms.DataGridView();
             this.rdo_all_cus = new System.Windows.Forms.RadioButton();
             this.rdo_deactive_cus = new System.Windows.Forms.RadioButton();
@@ -89,6 +92,9 @@
             this.lbl_pro_state = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.gb_dashboard = new System.Windows.Forms.GroupBox();
+            this.chart_sales = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.main_GV)).BeginInit();
             this.gb_pro.SuspendLayout();
             this.gb_seller.SuspendLayout();
@@ -110,41 +116,43 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.gb_dashboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sales)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_GV
             // 
             this.main_GV.BackgroundColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_GV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.main_GV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.main_GV.EnableHeadersVisualStyles = false;
-            this.main_GV.Location = new System.Drawing.Point(18, 48);
+            this.main_GV.Location = new System.Drawing.Point(6, 48);
             this.main_GV.MultiSelect = false;
             this.main_GV.Name = "main_GV";
             this.main_GV.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_GV.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.main_GV.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.main_GV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.main_GV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             this.main_GV.RowTemplate.Height = 23;
             this.main_GV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.main_GV.Size = new System.Drawing.Size(858, 392);
+            this.main_GV.Size = new System.Drawing.Size(975, 403);
             this.main_GV.TabIndex = 0;
             this.main_GV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -474,9 +482,9 @@
             // pb_refresh
             // 
             this.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_refresh.Location = new System.Drawing.Point(839, 11);
+            this.pb_refresh.Location = new System.Drawing.Point(951, 12);
             this.pb_refresh.Name = "pb_refresh";
-            this.pb_refresh.Size = new System.Drawing.Size(37, 36);
+            this.pb_refresh.Size = new System.Drawing.Size(30, 30);
             this.pb_refresh.TabIndex = 31;
             this.pb_refresh.TabStop = false;
             this.pb_refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
@@ -508,12 +516,12 @@
             // pb_Exit
             // 
             this.pb_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_Exit.Location = new System.Drawing.Point(1027, 7);
+            this.pb_Exit.Location = new System.Drawing.Point(1074, 9);
             this.pb_Exit.Name = "pb_Exit";
             this.pb_Exit.Size = new System.Drawing.Size(36, 36);
             this.pb_Exit.TabIndex = 32;
             this.pb_Exit.TabStop = false;
-            this.pb_Exit.Click += new System.EventHandler(this.button2_Click);
+            this.pb_Exit.Click += new System.EventHandler(this.pb_Exit_Click);
             // 
             // panel1
             // 
@@ -523,7 +531,7 @@
             this.panel1.Controls.Add(this.pb_Exit);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1073, 54);
+            this.panel1.Size = new System.Drawing.Size(1118, 54);
             this.panel1.TabIndex = 33;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -538,6 +546,8 @@
             this.label8.Size = new System.Drawing.Size(172, 54);
             this.label8.TabIndex = 33;
             this.label8.Text = "JinShop";
+            this.label8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // panel2
             // 
@@ -549,6 +559,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(291, 90);
             this.panel2.TabIndex = 34;
+            this.panel2.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
             // 
             // lbl_pay_D
             // 
@@ -572,6 +583,7 @@
             this.lbl_T_pay.Size = new System.Drawing.Size(48, 30);
             this.lbl_T_pay.TabIndex = 1;
             this.lbl_T_pay.Text = "0회";
+            this.lbl_T_pay.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -583,6 +595,7 @@
             this.label1.Size = new System.Drawing.Size(161, 30);
             this.label1.TabIndex = 0;
             this.label1.Text = "금일 결제 건수";
+            this.label1.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
             // 
             // gb_main_GV
             // 
@@ -592,9 +605,9 @@
             this.gb_main_GV.Controls.Add(this.gb_seller);
             this.gb_main_GV.Controls.Add(this.gb_pro);
             this.gb_main_GV.Controls.Add(this.main_GV);
-            this.gb_main_GV.Location = new System.Drawing.Point(163, 72);
+            this.gb_main_GV.Location = new System.Drawing.Point(125, 58);
             this.gb_main_GV.Name = "gb_main_GV";
-            this.gb_main_GV.Size = new System.Drawing.Size(882, 451);
+            this.gb_main_GV.Size = new System.Drawing.Size(989, 457);
             this.gb_main_GV.TabIndex = 36;
             this.gb_main_GV.TabStop = false;
             // 
@@ -619,6 +632,7 @@
             this.label4.Size = new System.Drawing.Size(74, 21);
             this.label4.TabIndex = 31;
             this.label4.Text = "메인화면";
+            this.label4.Click += new System.EventHandler(this.pl_main_Click);
             // 
             // pn7
             // 
@@ -638,6 +652,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(291, 90);
             this.panel3.TabIndex = 39;
+            this.panel3.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
             // 
             // lbl_inq_D
             // 
@@ -661,6 +676,7 @@
             this.lbl_T_inq.Size = new System.Drawing.Size(48, 30);
             this.lbl_T_inq.TabIndex = 1;
             this.lbl_T_inq.Text = "0회";
+            this.lbl_T_inq.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
             // 
             // label7
             // 
@@ -672,6 +688,7 @@
             this.label7.Size = new System.Drawing.Size(161, 30);
             this.label7.TabIndex = 0;
             this.label7.Text = "금일 문의 내역";
+            this.label7.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
             // 
             // panel6
             // 
@@ -683,6 +700,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(291, 90);
             this.panel6.TabIndex = 35;
+            this.panel6.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
             // 
             // lbl_sel_D
             // 
@@ -706,6 +724,7 @@
             this.lbl_sell_state.Size = new System.Drawing.Size(48, 30);
             this.lbl_sell_state.TabIndex = 1;
             this.lbl_sell_state.Text = "0회";
+            this.lbl_sell_state.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
             // 
             // label11
             // 
@@ -717,6 +736,7 @@
             this.label11.Size = new System.Drawing.Size(219, 30);
             this.label11.TabIndex = 0;
             this.label11.Text = "승인대기중인 판매자";
+            this.label11.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
             // 
             // panel7
             // 
@@ -728,6 +748,7 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(291, 90);
             this.panel7.TabIndex = 35;
+            this.panel7.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
             // 
             // lbl_pro_D
             // 
@@ -751,6 +772,7 @@
             this.lbl_pro_state.Size = new System.Drawing.Size(48, 30);
             this.lbl_pro_state.TabIndex = 1;
             this.lbl_pro_state.Text = "0회";
+            this.lbl_pro_state.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
             // 
             // label14
             // 
@@ -762,25 +784,63 @@
             this.label14.Size = new System.Drawing.Size(153, 30);
             this.label14.TabIndex = 0;
             this.label14.Text = "비활성화 물품";
+            this.label14.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
             // 
             // gb_dashboard
             // 
+            this.gb_dashboard.Controls.Add(this.chart_sales);
             this.gb_dashboard.Controls.Add(this.panel7);
             this.gb_dashboard.Controls.Add(this.panel6);
             this.gb_dashboard.Controls.Add(this.panel3);
             this.gb_dashboard.Controls.Add(this.panel2);
-            this.gb_dashboard.Location = new System.Drawing.Point(157, 74);
+            this.gb_dashboard.Location = new System.Drawing.Point(169, 64);
             this.gb_dashboard.Name = "gb_dashboard";
-            this.gb_dashboard.Size = new System.Drawing.Size(312, 438);
+            this.gb_dashboard.Size = new System.Drawing.Size(699, 438);
             this.gb_dashboard.TabIndex = 40;
             this.gb_dashboard.TabStop = false;
+            // 
+            // chart_sales
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart_sales.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_sales.Legends.Add(legend1);
+            this.chart_sales.Location = new System.Drawing.Point(330, 8);
+            this.chart_sales.Name = "chart_sales";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_sales.Series.Add(series1);
+            this.chart_sales.Size = new System.Drawing.Size(363, 420);
+            this.chart_sales.TabIndex = 40;
+            this.chart_sales.Text = "chart1";
+            this.chart_sales.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
+            this.chart_sales.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart_sales_MouseMove);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.DarkGray;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 513);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1118, 22);
+            this.statusStrip1.TabIndex = 41;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(61, 17);
+            this.toolStripStatusLabel1.Text = " : JinTeam";
             // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1073, 535);
+            this.ClientSize = new System.Drawing.Size(1118, 535);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.gb_dashboard);
             this.Controls.Add(this.p_main);
             this.Controls.Add(this.pn7);
@@ -839,7 +899,11 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.gb_dashboard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sales)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -903,5 +967,8 @@
         private System.Windows.Forms.Label lbl_pro_state;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox gb_dashboard;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_sales;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

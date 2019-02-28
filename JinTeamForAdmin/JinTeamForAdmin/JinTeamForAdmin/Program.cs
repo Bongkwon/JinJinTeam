@@ -1,4 +1,4 @@
-﻿using JinTeamForSeller.Bus;
+﻿using JinTeamForAdmin.Bus;
 using System;
 using System.Collections.Generic;
 using System.Linq;

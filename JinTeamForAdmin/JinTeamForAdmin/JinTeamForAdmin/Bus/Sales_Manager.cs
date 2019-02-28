@@ -1,6 +1,6 @@
 ﻿using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,7 +109,7 @@ namespace JinTeamForAdmin.Bus
                     //textBox1.Text += " : " + itemK.Pay_date + " " + itemK.Pay_price + " " + price + " " + count;
                     //textBox1.Text += Environment.NewLine;
                 }
-                if (sales_sub_lst.Count < 3)
+                if (sales_sub_lst.Count < 3)    // 최신 3개만 불러오는
                 {
                     sales_sub_lst.Add(new Sales_manager_Vo
                     {
