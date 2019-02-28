@@ -87,15 +87,19 @@
   <ItemGroup>
     <Content Include="ChangeCustInfo.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="FrmDeleteUserShipInfo.aspx" />
     <Content Include="FrmDeleteWishList.aspx" />
     <Content Include="FrmInquireRecieve.aspx" />
     <Content Include="FrmInquireSend.aspx" />
     <Content Include="FrmInsertCust.aspx" />
     <Content Include="FrmInsertReview.aspx" />
+    <Content Include="FrmInserUserShipInfo.aspx" />
     <Content Include="FrmInstWishList.aspx" />
     <Content Include="FrmLogin.aspx" />
     <Content Include="FrmOrderList.aspx" />
+    <Content Include="FrmPayment.aspx" />
     <Content Include="FrmReviewList.aspx" />
+    <Content Include="FrmSavedUserShipInfo.aspx" />
     <Content Include="FrmShowProducts.aspx" />
     <Content Include="FrmShowProStock.aspx" />
     <Content Include="FrmShowWishList.aspx" />
@@ -109,6 +113,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="CategoryDAO.cs" />
     <Compile Include="ChangeCustInfo.aspx.cs">
       <DependentUpon>ChangeCustInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,6 +131,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDeleteUserShipInfo.aspx.cs">
+      <DependentUpon>FrmDeleteUserShipInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmDeleteUserShipInfo.aspx.designer.cs">
+      <DependentUpon>FrmDeleteUserShipInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmDeleteWishList.aspx.cs">
       <DependentUpon>FrmDeleteWishList.aspx</DependentUpon>
@@ -161,6 +174,13 @@
     <Compile Include="FrmInsertReview.aspx.designer.cs">
       <DependentUpon>FrmInsertReview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmInserUserShipInfo.aspx.cs">
+      <DependentUpon>FrmInserUserShipInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmInserUserShipInfo.aspx.designer.cs">
+      <DependentUpon>FrmInserUserShipInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmInstWishList.aspx.cs">
       <DependentUpon>FrmInstWishList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,12 +202,26 @@
     <Compile Include="FrmOrderList.aspx.designer.cs">
       <DependentUpon>FrmOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FrmPayment.aspx.cs">
+      <DependentUpon>FrmPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmPayment.aspx.designer.cs">
+      <DependentUpon>FrmPayment.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FrmReviewList.aspx.cs">
       <DependentUpon>FrmReviewList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FrmReviewList.aspx.designer.cs">
       <DependentUpon>FrmReviewList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSavedUserShipInfo.aspx.cs">
+      <DependentUpon>FrmSavedUserShipInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmSavedUserShipInfo.aspx.designer.cs">
+      <DependentUpon>FrmSavedUserShipInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="FrmShowProducts.aspx.cs">
       <DependentUpon>FrmShowProducts.aspx</DependentUpon>
