@@ -1,6 +1,6 @@
 ﻿using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +29,14 @@ namespace JinTeamForAdmin.Bus
             this.selectedRows = selectedRows;
         }
 
+        /// <summary>
+        /// 화면 로드시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void return_inquire_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
             var cells = selectedRows[0].Cells;
             lbl_email.Text = cells[3].Value.ToString();
             lbl_name.Text = cells[2].Value.ToString();
@@ -44,6 +50,11 @@ namespace JinTeamForAdmin.Bus
             Close();
         }
 
+        /// <summary>
+        /// 보내기 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void btn_send_Click(object sender, EventArgs e)
         {
 
@@ -102,6 +113,41 @@ namespace JinTeamForAdmin.Bus
                 MessageBox.Show("취소 하셨습니다.");
             }
             Close();
+        }
+
+
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        /// <summary>
+        /// 화면이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        /// <summary>
+        /// 화면이동을 위한 이벤트 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
+            }
         }
     }
 }

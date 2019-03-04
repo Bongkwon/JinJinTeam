@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace JinTeamForAdmin.Bus
@@ -31,12 +31,21 @@ namespace JinTeamForAdmin.Bus
             this.tv = tv;
         }
 
+        /// <summary>
+        /// 화면 로드시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void Tax_Ex_Load(object sender, EventArgs e)
         {
 
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
+
             lbl_path.Text = "저장위치를 지정 해주세요";
 
-            BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/세금계산서.png");
+            //BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/세금계산서_양식예시.png");
+            pictureBox1.Image = Image.FromFile(Application.StartupPath + "/Resources/Tax_FormatEx.png");
+
 
             lbl_corporate_registration_no.Text = tv.Corporate_registration_no;
             lbl_stock_id.Text = tv.Stock_ID;
@@ -62,6 +71,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 저장위치 변경 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void btn_saveLocation_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -75,11 +89,21 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// 출력 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_output_Click(object sender, EventArgs e)
         {
 
@@ -92,7 +116,7 @@ namespace JinTeamForAdmin.Bus
             Excel.Worksheet workSheet;
             object missingValue = System.Reflection.Missing.Value;
 
-            workBook = excelApp.Workbooks.Open(Application.StartupPath +"/Resources/세금계산서_양식");
+            workBook = excelApp.Workbooks.Open(Application.StartupPath +"/Resources/Tax_Format.xlsx");
             workSheet = workBook.Worksheets.Item[1];
 
 
@@ -144,10 +168,43 @@ namespace JinTeamForAdmin.Bus
                 MessageBox.Show("저장 성공");
 
                 Admin_main ad = (Admin_main)Owner;
-                ad.Temp = true;
+                ad.Pro_Temp = true;
             }
         }
 
-     
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        /// <summary>
+        /// 화면이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        /// <summary>
+        /// 화면이동을 위한 이벤트 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
+            }
+        }
+
     }
 }

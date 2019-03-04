@@ -5,16 +5,27 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JinTeamForAdmin", "JinTeamForAdmin\JinTeamForAdmin.csproj", "{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "JinShop_Admin", "JinShop_Admin\JinShop_Admin.aiproj", "{233F1325-144A-47A7-94D1-4F0434D5BCA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.All|Any CPU.Build.0 = Release|Any CPU
 		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AFC56F1-FFAC-4FE4-B771-2B00CB0C9DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233F1325-144A-47A7-94D1-4F0434D5BCA2}.All|Any CPU.ActiveCfg = DefaultBuild
+		{233F1325-144A-47A7-94D1-4F0434D5BCA2}.All|Any CPU.Build.0 = DefaultBuild
+		{233F1325-144A-47A7-94D1-4F0434D5BCA2}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{233F1325-144A-47A7-94D1-4F0434D5BCA2}.Debug|Any CPU.Build.0 = DefaultBuild
+		{233F1325-144A-47A7-94D1-4F0434D5BCA2}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{233F1325-144A-47A7-94D1-4F0434D5BCA2}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

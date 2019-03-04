@@ -1,4 +1,4 @@
-﻿namespace JinTeamForSeller.Bus
+﻿namespace JinTeamForAdmin.Bus
 {
     partial class Admin_main
     {
@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.main_GV = new System.Windows.Forms.DataGridView();
             this.rdo_all_cus = new System.Windows.Forms.RadioButton();
             this.rdo_deactive_cus = new System.Windows.Forms.RadioButton();
@@ -47,77 +50,109 @@
             this.rd_sel_inq = new System.Windows.Forms.RadioButton();
             this.rd_cus_inq = new System.Windows.Forms.RadioButton();
             this.pn1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.p_sell = new System.Windows.Forms.Panel();
+            this.lbl_sell = new System.Windows.Forms.Label();
+            this.p_cus = new System.Windows.Forms.Panel();
+            this.lbl_cus = new System.Windows.Forms.Label();
             this.pn2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.p_pay = new System.Windows.Forms.Panel();
+            this.lbl_pay = new System.Windows.Forms.Label();
             this.pn4 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.p_pro = new System.Windows.Forms.Panel();
+            this.lbl_pro = new System.Windows.Forms.Label();
             this.pn3 = new System.Windows.Forms.Panel();
             this.pn6 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.p_inq = new System.Windows.Forms.Panel();
+            this.lbl_inq = new System.Windows.Forms.Label();
             this.pn5 = new System.Windows.Forms.Panel();
             this.pb_refresh = new System.Windows.Forms.PictureBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.p_sal = new System.Windows.Forms.Panel();
+            this.lbl_sal = new System.Windows.Forms.Label();
             this.pb_Exit = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_pay_D = new System.Windows.Forms.Label();
+            this.lbl_T_pay = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.gb_main_GV = new System.Windows.Forms.GroupBox();
+            this.p_main = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pn7 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lbl_inq_D = new System.Windows.Forms.Label();
+            this.lbl_T_inq = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lbl_sel_D = new System.Windows.Forms.Label();
+            this.lbl_sell_state = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lbl_pro_D = new System.Windows.Forms.Label();
+            this.lbl_pro_state = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.gb_dashboard = new System.Windows.Forms.GroupBox();
+            this.chart_sales = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.main_GV)).BeginInit();
             this.gb_pro.SuspendLayout();
             this.gb_seller.SuspendLayout();
             this.gb_cus.SuspendLayout();
             this.gb_inq.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel11.SuspendLayout();
+            this.p_sell.SuspendLayout();
+            this.p_cus.SuspendLayout();
+            this.p_pay.SuspendLayout();
+            this.p_pro.SuspendLayout();
+            this.p_inq.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_refresh)).BeginInit();
-            this.panel9.SuspendLayout();
+            this.p_sal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.gb_main_GV.SuspendLayout();
+            this.p_main.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.gb_dashboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sales)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // main_GV
             // 
             this.main_GV.BackgroundColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_GV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.main_GV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.main_GV.EnableHeadersVisualStyles = false;
-            this.main_GV.Location = new System.Drawing.Point(12, 143);
+            this.main_GV.Location = new System.Drawing.Point(6, 48);
             this.main_GV.MultiSelect = false;
             this.main_GV.Name = "main_GV";
             this.main_GV.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.main_GV.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.LightGray;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            this.main_GV.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.main_GV.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.main_GV.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.main_GV.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
             this.main_GV.RowTemplate.Height = 23;
             this.main_GV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.main_GV.Size = new System.Drawing.Size(978, 380);
+            this.main_GV.Size = new System.Drawing.Size(975, 403);
             this.main_GV.TabIndex = 0;
             this.main_GV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -196,7 +231,7 @@
             // 
             this.gb_pro.Controls.Add(this.rdo_deactive_pro);
             this.gb_pro.Controls.Add(this.rdo_all_pro);
-            this.gb_pro.Location = new System.Drawing.Point(12, 94);
+            this.gb_pro.Location = new System.Drawing.Point(13, 11);
             this.gb_pro.Name = "gb_pro";
             this.gb_pro.Size = new System.Drawing.Size(200, 36);
             this.gb_pro.TabIndex = 12;
@@ -208,7 +243,7 @@
             this.gb_seller.Controls.Add(this.rdo_Disabled_seller);
             this.gb_seller.Controls.Add(this.rdo_deactive_seller);
             this.gb_seller.Controls.Add(this.rdo_all_seller);
-            this.gb_seller.Location = new System.Drawing.Point(12, 94);
+            this.gb_seller.Location = new System.Drawing.Point(13, 11);
             this.gb_seller.Name = "gb_seller";
             this.gb_seller.Size = new System.Drawing.Size(309, 36);
             this.gb_seller.TabIndex = 13;
@@ -230,7 +265,7 @@
             // 
             this.gb_cus.Controls.Add(this.rdo_deactive_cus);
             this.gb_cus.Controls.Add(this.rdo_all_cus);
-            this.gb_cus.Location = new System.Drawing.Point(12, 94);
+            this.gb_cus.Location = new System.Drawing.Point(13, 11);
             this.gb_cus.Name = "gb_cus";
             this.gb_cus.Size = new System.Drawing.Size(200, 36);
             this.gb_cus.TabIndex = 14;
@@ -243,7 +278,7 @@
             this.gb_inq.Controls.Add(this.cb_inquire);
             this.gb_inq.Controls.Add(this.rd_sel_inq);
             this.gb_inq.Controls.Add(this.rd_cus_inq);
-            this.gb_inq.Location = new System.Drawing.Point(12, 94);
+            this.gb_inq.Location = new System.Drawing.Point(13, 11);
             this.gb_inq.Name = "gb_inq";
             this.gb_inq.Size = new System.Drawing.Size(318, 36);
             this.gb_inq.TabIndex = 17;
@@ -284,216 +319,219 @@
             // pn1
             // 
             this.pn1.BackColor = System.Drawing.Color.White;
-            this.pn1.Location = new System.Drawing.Point(12, 55);
+            this.pn1.Location = new System.Drawing.Point(0, 97);
             this.pn1.Name = "pn1";
-            this.pn1.Size = new System.Drawing.Size(93, 34);
+            this.pn1.Size = new System.Drawing.Size(119, 44);
             this.pn1.TabIndex = 19;
             // 
-            // panel2
+            // p_sell
             // 
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(12, 55);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(93, 30);
-            this.panel2.TabIndex = 20;
-            this.panel2.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            this.p_sell.BackColor = System.Drawing.Color.LightGray;
+            this.p_sell.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_sell.Controls.Add(this.lbl_sell);
+            this.p_sell.Location = new System.Drawing.Point(0, 97);
+            this.p_sell.Name = "p_sell";
+            this.p_sell.Size = new System.Drawing.Size(113, 44);
+            this.p_sell.TabIndex = 20;
+            this.p_sell.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
             // 
-            // label1
+            // lbl_sell
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 12);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "판매자 목록";
-            this.label1.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            this.lbl_sell.AutoSize = true;
+            this.lbl_sell.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_sell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_sell.Location = new System.Drawing.Point(7, 10);
+            this.lbl_sell.Name = "lbl_sell";
+            this.lbl_sell.Size = new System.Drawing.Size(96, 21);
+            this.lbl_sell.TabIndex = 31;
+            this.lbl_sell.Text = "판매자 목록";
+            this.lbl_sell.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
             // 
-            // panel3
+            // p_cus
             // 
-            this.panel3.BackColor = System.Drawing.Color.LightGray;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(105, 55);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(93, 30);
-            this.panel3.TabIndex = 22;
-            this.panel3.Click += new System.EventHandler(this.customer목록ToolStripMenuItem_Click);
+            this.p_cus.BackColor = System.Drawing.Color.LightGray;
+            this.p_cus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_cus.Controls.Add(this.lbl_cus);
+            this.p_cus.Location = new System.Drawing.Point(0, 141);
+            this.p_cus.Name = "p_cus";
+            this.p_cus.Size = new System.Drawing.Size(113, 44);
+            this.p_cus.TabIndex = 22;
+            this.p_cus.Click += new System.EventHandler(this.customer목록ToolStripMenuItem_Click);
             // 
-            // label2
+            // lbl_cus
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 12);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "고객 목록";
-            this.label2.Click += new System.EventHandler(this.customer목록ToolStripMenuItem_Click);
+            this.lbl_cus.AutoSize = true;
+            this.lbl_cus.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_cus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_cus.Location = new System.Drawing.Point(7, 9);
+            this.lbl_cus.Name = "lbl_cus";
+            this.lbl_cus.Size = new System.Drawing.Size(80, 21);
+            this.lbl_cus.TabIndex = 32;
+            this.lbl_cus.Text = "고객 목록";
+            this.lbl_cus.Click += new System.EventHandler(this.customer목록ToolStripMenuItem_Click);
             // 
             // pn2
             // 
             this.pn2.BackColor = System.Drawing.Color.White;
-            this.pn2.Location = new System.Drawing.Point(105, 55);
+            this.pn2.Location = new System.Drawing.Point(0, 141);
             this.pn2.Name = "pn2";
-            this.pn2.Size = new System.Drawing.Size(93, 34);
+            this.pn2.Size = new System.Drawing.Size(119, 44);
             this.pn2.TabIndex = 21;
             // 
-            // panel5
+            // p_pay
             // 
-            this.panel5.BackColor = System.Drawing.Color.LightGray;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(291, 55);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(93, 30);
-            this.panel5.TabIndex = 26;
-            this.panel5.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            this.p_pay.BackColor = System.Drawing.Color.LightGray;
+            this.p_pay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_pay.Controls.Add(this.lbl_pay);
+            this.p_pay.Location = new System.Drawing.Point(0, 229);
+            this.p_pay.Name = "p_pay";
+            this.p_pay.Size = new System.Drawing.Size(113, 44);
+            this.p_pay.TabIndex = 26;
+            this.p_pay.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
             // 
-            // label5
+            // lbl_pay
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 12);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "결제 정보";
-            this.label5.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 12);
-            this.label4.TabIndex = 33;
-            this.label4.Text = "결제 정보";
+            this.lbl_pay.AutoSize = true;
+            this.lbl_pay.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_pay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_pay.Location = new System.Drawing.Point(6, 10);
+            this.lbl_pay.Name = "lbl_pay";
+            this.lbl_pay.Size = new System.Drawing.Size(80, 21);
+            this.lbl_pay.TabIndex = 34;
+            this.lbl_pay.Text = "결제 정보";
+            this.lbl_pay.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
             // 
             // pn4
             // 
             this.pn4.BackColor = System.Drawing.Color.White;
-            this.pn4.Location = new System.Drawing.Point(291, 55);
+            this.pn4.Location = new System.Drawing.Point(0, 229);
             this.pn4.Name = "pn4";
-            this.pn4.Size = new System.Drawing.Size(93, 34);
+            this.pn4.Size = new System.Drawing.Size(119, 44);
             this.pn4.TabIndex = 25;
             // 
-            // panel7
+            // p_pro
             // 
-            this.panel7.BackColor = System.Drawing.Color.LightGray;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Location = new System.Drawing.Point(198, 55);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(93, 30);
-            this.panel7.TabIndex = 24;
-            this.panel7.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            this.p_pro.BackColor = System.Drawing.Color.LightGray;
+            this.p_pro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_pro.Controls.Add(this.lbl_pro);
+            this.p_pro.Location = new System.Drawing.Point(0, 185);
+            this.p_pro.Name = "p_pro";
+            this.p_pro.Size = new System.Drawing.Size(113, 44);
+            this.p_pro.TabIndex = 24;
+            this.p_pro.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
             // 
-            // label3
+            // lbl_pro
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 12);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "상품 목록";
-            this.label3.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            this.lbl_pro.AutoSize = true;
+            this.lbl_pro.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_pro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_pro.Location = new System.Drawing.Point(7, 10);
+            this.lbl_pro.Name = "lbl_pro";
+            this.lbl_pro.Size = new System.Drawing.Size(80, 21);
+            this.lbl_pro.TabIndex = 32;
+            this.lbl_pro.Text = "상품 목록";
+            this.lbl_pro.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
             // 
             // pn3
             // 
             this.pn3.BackColor = System.Drawing.Color.White;
-            this.pn3.Location = new System.Drawing.Point(198, 55);
+            this.pn3.Location = new System.Drawing.Point(0, 185);
             this.pn3.Name = "pn3";
-            this.pn3.Size = new System.Drawing.Size(93, 34);
+            this.pn3.Size = new System.Drawing.Size(119, 44);
             this.pn3.TabIndex = 23;
             // 
             // pn6
             // 
             this.pn6.BackColor = System.Drawing.Color.White;
-            this.pn6.Location = new System.Drawing.Point(477, 55);
+            this.pn6.Location = new System.Drawing.Point(0, 317);
             this.pn6.Name = "pn6";
-            this.pn6.Size = new System.Drawing.Size(93, 34);
+            this.pn6.Size = new System.Drawing.Size(119, 44);
             this.pn6.TabIndex = 29;
             // 
-            // panel11
+            // p_inq
             // 
-            this.panel11.BackColor = System.Drawing.Color.LightGray;
-            this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.label6);
-            this.panel11.Location = new System.Drawing.Point(384, 55);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(93, 30);
-            this.panel11.TabIndex = 28;
-            this.panel11.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            this.p_inq.BackColor = System.Drawing.Color.LightGray;
+            this.p_inq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_inq.Controls.Add(this.lbl_inq);
+            this.p_inq.Location = new System.Drawing.Point(0, 273);
+            this.p_inq.Name = "p_inq";
+            this.p_inq.Size = new System.Drawing.Size(113, 44);
+            this.p_inq.TabIndex = 28;
+            this.p_inq.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
             // 
-            // label6
+            // lbl_inq
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 12);
-            this.label6.TabIndex = 34;
-            this.label6.Text = "문의 내역";
-            this.label6.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            this.lbl_inq.AutoSize = true;
+            this.lbl_inq.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_inq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_inq.Location = new System.Drawing.Point(7, 10);
+            this.lbl_inq.Name = "lbl_inq";
+            this.lbl_inq.Size = new System.Drawing.Size(80, 21);
+            this.lbl_inq.TabIndex = 34;
+            this.lbl_inq.Text = "문의 내역";
+            this.lbl_inq.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
             // 
             // pn5
             // 
             this.pn5.BackColor = System.Drawing.Color.White;
-            this.pn5.Location = new System.Drawing.Point(384, 55);
+            this.pn5.Location = new System.Drawing.Point(0, 273);
             this.pn5.Name = "pn5";
-            this.pn5.Size = new System.Drawing.Size(93, 34);
+            this.pn5.Size = new System.Drawing.Size(119, 44);
             this.pn5.TabIndex = 27;
             // 
             // pb_refresh
             // 
             this.pb_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_refresh.Location = new System.Drawing.Point(953, 101);
+            this.pb_refresh.Location = new System.Drawing.Point(951, 12);
             this.pb_refresh.Name = "pb_refresh";
-            this.pb_refresh.Size = new System.Drawing.Size(37, 36);
+            this.pb_refresh.Size = new System.Drawing.Size(30, 30);
             this.pb_refresh.TabIndex = 31;
             this.pb_refresh.TabStop = false;
             this.pb_refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
-            // panel9
+            // p_sal
             // 
-            this.panel9.BackColor = System.Drawing.Color.LightGray;
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.label7);
-            this.panel9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel9.Location = new System.Drawing.Point(477, 55);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(93, 30);
-            this.panel9.TabIndex = 29;
-            this.panel9.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
+            this.p_sal.BackColor = System.Drawing.Color.LightGray;
+            this.p_sal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_sal.Controls.Add(this.lbl_sal);
+            this.p_sal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.p_sal.Location = new System.Drawing.Point(0, 317);
+            this.p_sal.Name = "p_sal";
+            this.p_sal.Size = new System.Drawing.Size(113, 44);
+            this.p_sal.TabIndex = 29;
+            this.p_sal.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
             // 
-            // label7
+            // lbl_sal
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 12);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "매출 관리";
-            this.label7.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
+            this.lbl_sal.AutoSize = true;
+            this.lbl_sal.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_sal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_sal.Location = new System.Drawing.Point(9, 9);
+            this.lbl_sal.Name = "lbl_sal";
+            this.lbl_sal.Size = new System.Drawing.Size(80, 21);
+            this.lbl_sal.TabIndex = 34;
+            this.lbl_sal.Text = "매출 관리";
+            this.lbl_sal.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
             // 
             // pb_Exit
             // 
             this.pb_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pb_Exit.Location = new System.Drawing.Point(958, 8);
+            this.pb_Exit.Location = new System.Drawing.Point(1074, 9);
             this.pb_Exit.Name = "pb_Exit";
             this.pb_Exit.Size = new System.Drawing.Size(36, 36);
             this.pb_Exit.TabIndex = 32;
             this.pb_Exit.TabStop = false;
-            this.pb_Exit.Click += new System.EventHandler(this.button2_Click);
+            this.pb_Exit.Click += new System.EventHandler(this.pb_Exit_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.pb_Exit);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1001, 54);
+            this.panel1.Size = new System.Drawing.Size(1118, 54);
             this.panel1.TabIndex = 33;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -508,32 +546,318 @@
             this.label8.Size = new System.Drawing.Size(172, 54);
             this.label8.TabIndex = 33;
             this.label8.Text = "JinShop";
+            this.label8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.label8.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.lbl_pay_D);
+            this.panel2.Controls.Add(this.lbl_T_pay);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(9, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(291, 90);
+            this.panel2.TabIndex = 34;
+            this.panel2.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
+            // lbl_pay_D
+            // 
+            this.lbl_pay_D.AutoSize = true;
+            this.lbl_pay_D.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_pay_D.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_pay_D.Location = new System.Drawing.Point(173, 58);
+            this.lbl_pay_D.Name = "lbl_pay_D";
+            this.lbl_pay_D.Size = new System.Drawing.Size(106, 21);
+            this.lbl_pay_D.TabIndex = 2;
+            this.lbl_pay_D.Text = "자세히보기▶";
+            this.lbl_pay_D.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
+            // lbl_T_pay
+            // 
+            this.lbl_T_pay.AutoSize = true;
+            this.lbl_T_pay.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.lbl_T_pay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_T_pay.Location = new System.Drawing.Point(95, 50);
+            this.lbl_T_pay.Name = "lbl_T_pay";
+            this.lbl_T_pay.Size = new System.Drawing.Size(48, 30);
+            this.lbl_T_pay.TabIndex = 1;
+            this.lbl_T_pay.Text = "0회";
+            this.lbl_T_pay.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label1.Location = new System.Drawing.Point(13, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "금일 결제 건수";
+            this.label1.Click += new System.EventHandler(this.결제정보세금계산서출력ToolStripMenuItem_Click);
+            // 
+            // gb_main_GV
+            // 
+            this.gb_main_GV.Controls.Add(this.pb_refresh);
+            this.gb_main_GV.Controls.Add(this.gb_inq);
+            this.gb_main_GV.Controls.Add(this.gb_cus);
+            this.gb_main_GV.Controls.Add(this.gb_seller);
+            this.gb_main_GV.Controls.Add(this.gb_pro);
+            this.gb_main_GV.Controls.Add(this.main_GV);
+            this.gb_main_GV.Location = new System.Drawing.Point(125, 58);
+            this.gb_main_GV.Name = "gb_main_GV";
+            this.gb_main_GV.Size = new System.Drawing.Size(989, 457);
+            this.gb_main_GV.TabIndex = 36;
+            this.gb_main_GV.TabStop = false;
+            // 
+            // p_main
+            // 
+            this.p_main.BackColor = System.Drawing.Color.LightGray;
+            this.p_main.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.p_main.Controls.Add(this.label4);
+            this.p_main.Location = new System.Drawing.Point(0, 53);
+            this.p_main.Name = "p_main";
+            this.p_main.Size = new System.Drawing.Size(113, 44);
+            this.p_main.TabIndex = 38;
+            this.p_main.Click += new System.EventHandler(this.pl_main_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label4.Location = new System.Drawing.Point(7, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 21);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "메인화면";
+            this.label4.Click += new System.EventHandler(this.pl_main_Click);
+            // 
+            // pn7
+            // 
+            this.pn7.BackColor = System.Drawing.Color.White;
+            this.pn7.Location = new System.Drawing.Point(0, 53);
+            this.pn7.Name = "pn7";
+            this.pn7.Size = new System.Drawing.Size(119, 44);
+            this.pn7.TabIndex = 37;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.lbl_inq_D);
+            this.panel3.Controls.Add(this.lbl_T_inq);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Location = new System.Drawing.Point(9, 122);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(291, 90);
+            this.panel3.TabIndex = 39;
+            this.panel3.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
+            // lbl_inq_D
+            // 
+            this.lbl_inq_D.AutoSize = true;
+            this.lbl_inq_D.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_inq_D.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_inq_D.Location = new System.Drawing.Point(173, 58);
+            this.lbl_inq_D.Name = "lbl_inq_D";
+            this.lbl_inq_D.Size = new System.Drawing.Size(106, 21);
+            this.lbl_inq_D.TabIndex = 2;
+            this.lbl_inq_D.Text = "자세히보기▶";
+            this.lbl_inq_D.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
+            // lbl_T_inq
+            // 
+            this.lbl_T_inq.AutoSize = true;
+            this.lbl_T_inq.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.lbl_T_inq.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_T_inq.Location = new System.Drawing.Point(95, 50);
+            this.lbl_T_inq.Name = "lbl_T_inq";
+            this.lbl_T_inq.Size = new System.Drawing.Size(48, 30);
+            this.lbl_T_inq.TabIndex = 1;
+            this.lbl_T_inq.Text = "0회";
+            this.lbl_T_inq.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label7.Location = new System.Drawing.Point(13, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 30);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "금일 문의 내역";
+            this.label7.Click += new System.EventHandler(this.문의내역ToolStripMenuItem_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.lbl_sel_D);
+            this.panel6.Controls.Add(this.lbl_sell_state);
+            this.panel6.Controls.Add(this.label11);
+            this.panel6.Location = new System.Drawing.Point(9, 231);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(291, 90);
+            this.panel6.TabIndex = 35;
+            this.panel6.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            // 
+            // lbl_sel_D
+            // 
+            this.lbl_sel_D.AutoSize = true;
+            this.lbl_sel_D.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_sel_D.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_sel_D.Location = new System.Drawing.Point(173, 58);
+            this.lbl_sel_D.Name = "lbl_sel_D";
+            this.lbl_sel_D.Size = new System.Drawing.Size(106, 21);
+            this.lbl_sel_D.TabIndex = 2;
+            this.lbl_sel_D.Text = "자세히보기▶";
+            this.lbl_sel_D.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            // 
+            // lbl_sell_state
+            // 
+            this.lbl_sell_state.AutoSize = true;
+            this.lbl_sell_state.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.lbl_sell_state.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_sell_state.Location = new System.Drawing.Point(95, 50);
+            this.lbl_sell_state.Name = "lbl_sell_state";
+            this.lbl_sell_state.Size = new System.Drawing.Size(48, 30);
+            this.lbl_sell_state.TabIndex = 1;
+            this.lbl_sell_state.Text = "0회";
+            this.lbl_sell_state.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label11.Location = new System.Drawing.Point(13, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(219, 30);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "승인대기중인 판매자";
+            this.label11.Click += new System.EventHandler(this.seller목록ToolStripMenuItem_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.lbl_pro_D);
+            this.panel7.Controls.Add(this.lbl_pro_state);
+            this.panel7.Controls.Add(this.label14);
+            this.panel7.Location = new System.Drawing.Point(9, 338);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(291, 90);
+            this.panel7.TabIndex = 35;
+            this.panel7.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            // 
+            // lbl_pro_D
+            // 
+            this.lbl_pro_D.AutoSize = true;
+            this.lbl_pro_D.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lbl_pro_D.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_pro_D.Location = new System.Drawing.Point(173, 58);
+            this.lbl_pro_D.Name = "lbl_pro_D";
+            this.lbl_pro_D.Size = new System.Drawing.Size(106, 21);
+            this.lbl_pro_D.TabIndex = 2;
+            this.lbl_pro_D.Text = "자세히보기▶";
+            this.lbl_pro_D.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            // 
+            // lbl_pro_state
+            // 
+            this.lbl_pro_state.AutoSize = true;
+            this.lbl_pro_state.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.lbl_pro_state.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.lbl_pro_state.Location = new System.Drawing.Point(95, 50);
+            this.lbl_pro_state.Name = "lbl_pro_state";
+            this.lbl_pro_state.Size = new System.Drawing.Size(48, 30);
+            this.lbl_pro_state.TabIndex = 1;
+            this.lbl_pro_state.Text = "0회";
+            this.lbl_pro_state.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("맑은 고딕", 16F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
+            this.label14.Location = new System.Drawing.Point(13, 14);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(153, 30);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "비활성화 물품";
+            this.label14.Click += new System.EventHandler(this.products목록ToolStripMenuItem_Click);
+            // 
+            // gb_dashboard
+            // 
+            this.gb_dashboard.Controls.Add(this.chart_sales);
+            this.gb_dashboard.Controls.Add(this.panel7);
+            this.gb_dashboard.Controls.Add(this.panel6);
+            this.gb_dashboard.Controls.Add(this.panel3);
+            this.gb_dashboard.Controls.Add(this.panel2);
+            this.gb_dashboard.Location = new System.Drawing.Point(169, 64);
+            this.gb_dashboard.Name = "gb_dashboard";
+            this.gb_dashboard.Size = new System.Drawing.Size(699, 438);
+            this.gb_dashboard.TabIndex = 40;
+            this.gb_dashboard.TabStop = false;
+            // 
+            // chart_sales
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart_sales.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart_sales.Legends.Add(legend1);
+            this.chart_sales.Location = new System.Drawing.Point(330, 8);
+            this.chart_sales.Name = "chart_sales";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart_sales.Series.Add(series1);
+            this.chart_sales.Size = new System.Drawing.Size(363, 420);
+            this.chart_sales.TabIndex = 40;
+            this.chart_sales.Text = "chart1";
+            this.chart_sales.Click += new System.EventHandler(this.매출관리ToolStripMenuItem_Click);
+            this.chart_sales.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart_sales_MouseMove);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.DarkGray;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 513);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1118, 22);
+            this.statusStrip1.TabIndex = 41;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(61, 17);
+            this.toolStripStatusLabel1.Text = " : JinTeam";
             // 
             // Admin_main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGray;
-            this.ClientSize = new System.Drawing.Size(1002, 535);
+            this.ClientSize = new System.Drawing.Size(1118, 535);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.gb_dashboard);
+            this.Controls.Add(this.p_main);
+            this.Controls.Add(this.pn7);
+            this.Controls.Add(this.gb_main_GV);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel9);
-            this.Controls.Add(this.pb_refresh);
+            this.Controls.Add(this.p_sal);
             this.Controls.Add(this.pn6);
-            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.p_inq);
             this.Controls.Add(this.pn5);
-            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.p_pay);
             this.Controls.Add(this.pn4);
-            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.p_pro);
             this.Controls.Add(this.pn3);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.p_cus);
             this.Controls.Add(this.pn2);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.p_sell);
             this.Controls.Add(this.pn1);
-            this.Controls.Add(this.gb_inq);
-            this.Controls.Add(this.gb_cus);
-            this.Controls.Add(this.gb_seller);
-            this.Controls.Add(this.gb_pro);
-            this.Controls.Add(this.main_GV);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Admin_main";
             this.Text = "Admin_main";
@@ -547,23 +871,39 @@
             this.gb_cus.PerformLayout();
             this.gb_inq.ResumeLayout(false);
             this.gb_inq.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
+            this.p_sell.ResumeLayout(false);
+            this.p_sell.PerformLayout();
+            this.p_cus.ResumeLayout(false);
+            this.p_cus.PerformLayout();
+            this.p_pay.ResumeLayout(false);
+            this.p_pay.PerformLayout();
+            this.p_pro.ResumeLayout(false);
+            this.p_pro.PerformLayout();
+            this.p_inq.ResumeLayout(false);
+            this.p_inq.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_refresh)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
+            this.p_sal.ResumeLayout(false);
+            this.p_sal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Exit)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.gb_main_GV.ResumeLayout(false);
+            this.p_main.ResumeLayout(false);
+            this.p_main.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.gb_dashboard.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart_sales)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -585,27 +925,50 @@
         private System.Windows.Forms.RadioButton rd_cus_inq;
         private System.Windows.Forms.ComboBox cb_inquire;
         private System.Windows.Forms.Panel pn1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel p_sell;
+        private System.Windows.Forms.Panel p_cus;
         private System.Windows.Forms.Panel pn2;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel p_pay;
         private System.Windows.Forms.Panel pn4;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel p_pro;
         private System.Windows.Forms.Panel pn3;
         private System.Windows.Forms.Panel pn6;
-        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel p_inq;
         private System.Windows.Forms.Panel pn5;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_sell;
+        private System.Windows.Forms.Label lbl_cus;
+        private System.Windows.Forms.Label lbl_pro;
+        private System.Windows.Forms.Label lbl_pay;
+        private System.Windows.Forms.Label lbl_inq;
         private System.Windows.Forms.PictureBox pb_refresh;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel p_sal;
+        private System.Windows.Forms.Label lbl_sal;
         private System.Windows.Forms.PictureBox pb_Exit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gb_main_GV;
+        private System.Windows.Forms.Label lbl_pay_D;
+        private System.Windows.Forms.Label lbl_T_pay;
+        private System.Windows.Forms.Panel p_main;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel pn7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lbl_inq_D;
+        private System.Windows.Forms.Label lbl_T_inq;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label lbl_sel_D;
+        private System.Windows.Forms.Label lbl_sell_state;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lbl_pro_D;
+        private System.Windows.Forms.Label lbl_pro_state;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox gb_dashboard;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart_sales;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

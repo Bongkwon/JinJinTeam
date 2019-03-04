@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 
 namespace JinTeamForAdmin.Bus
 {
@@ -28,8 +28,16 @@ namespace JinTeamForAdmin.Bus
             this.sv = (Seller_Vo)sv;
         }
 
+        /// <summary>
+        /// 화면 로드시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void seller_Detail_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
+
+
             lbl_No.Text = sv.Seller_NO.ToString();
             lbl_addr.Text = sv.Seller_addr.ToString();
             lbl_boss.Text = sv.Seller_boss.ToString();
@@ -72,12 +80,22 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
 
             Close();
         }
 
+        /// <summary>
+        /// 확인 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_ok_Click(object sender, EventArgs e)
         {
             string type_u = "seller";
@@ -96,7 +114,7 @@ namespace JinTeamForAdmin.Bus
                     {
                         MessageBox.Show("수정 성공");
                         Admin_main ad = (Admin_main)Owner;
-                        ad.Temp = true;
+                        ad.Pro_Temp = true;
                     }
                 }
                 else
@@ -107,6 +125,11 @@ namespace JinTeamForAdmin.Bus
             Close();
         }
 
+        /// <summary>
+        /// 라디오 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void s_state_changed(object sender, EventArgs e)
         {
             if (rdo_on.Checked)
@@ -119,6 +142,11 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 라디오 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void j_state_changed(object sender, EventArgs e)
         {
             if (rdo_receive.Checked)
@@ -128,6 +156,40 @@ namespace JinTeamForAdmin.Bus
             else
             {
                 j_s = false;
+            }
+        }
+
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        /// <summary>
+        /// 화면이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        /// <summary>
+        /// 화면이동을 위한 이벤트 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
             }
         }
     }
