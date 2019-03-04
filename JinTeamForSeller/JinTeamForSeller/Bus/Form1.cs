@@ -206,16 +206,20 @@ namespace JinTeamForSeller
             {
             }
             
-            if (sInfo!=null)
+            //if (sInfo!=null)
+            //{
+                
+            //    //new FrmMain().Show();
+            //}
+            if(string.IsNullOrEmpty(sInfo.Seller_Name))
+            {
+                MessageBox.Show("비밀번호 또는 아이디가 틀립니다.");
+            }
+            else
             {
                 CompanyNo = sInfo.Seller_No;
                 CompanyName = sInfo.Seller_Name;
                 new FrmDashBorad().Show();
-                //new FrmMain().Show();
-            }
-            else
-            {
-                MessageBox.Show("비밀번호 또는 아이디가 틀립니다.");
             }
             //MessageBox.Show(CompanyName);
         }

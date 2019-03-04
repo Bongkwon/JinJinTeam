@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panelFor = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblWaybillNotYet = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblNewInquireSeller = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.lblSumOfProLike = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblSumOfPayCount = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.lblNewReview = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblNotShipping = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panelFor.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,6 +85,20 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnRefresh.BackgroundImage = global::JinTeamForSeller.Properties.Resources.refresh_circular_arrow;
+            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Location = new System.Drawing.Point(1065, 12);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(44, 43);
+            this.btnRefresh.TabIndex = 23;
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -96,6 +110,20 @@
             this.label6.Size = new System.Drawing.Size(179, 54);
             this.label6.TabIndex = 22;
             this.label6.Text = "JinTeam";
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.btnClose.BackgroundImage = global::JinTeamForSeller.Properties.Resources.cancel1;
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(1173, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(44, 43);
+            this.btnClose.TabIndex = 0;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // panelFor
             // 
@@ -111,6 +139,27 @@
             this.panelFor.Size = new System.Drawing.Size(373, 296);
             this.panelFor.TabIndex = 7;
             this.panelFor.Click += new System.EventHandler(this.panelFor_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label18.Location = new System.Drawing.Point(25, 50);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(101, 21);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "배송 보기";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label8.Location = new System.Drawing.Point(174, 256);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(194, 29);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "자세히보기>>";
+            this.label8.Click += new System.EventHandler(this.panelFor_Click);
             // 
             // lblWaybillNotYet
             // 
@@ -147,6 +196,27 @@
             this.panel2.TabIndex = 8;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label15.Location = new System.Drawing.Point(15, 50);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(101, 21);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "문의 보기";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label9.Location = new System.Drawing.Point(229, 256);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(194, 29);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "자세히보기>>";
+            this.label9.Click += new System.EventHandler(this.panel2_Click);
+            // 
             // lblNewInquireSeller
             // 
             this.lblNewInquireSeller.AutoSize = true;
@@ -181,6 +251,27 @@
             this.panel3.Size = new System.Drawing.Size(428, 296);
             this.panel3.TabIndex = 9;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label14.Location = new System.Drawing.Point(15, 50);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(101, 21);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "상품 보기";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label11.Location = new System.Drawing.Point(229, 256);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(194, 29);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "자세히보기>>";
+            this.label11.Click += new System.EventHandler(this.panel3_Click);
             // 
             // lblSumOfProLike
             // 
@@ -217,6 +308,27 @@
             this.panel4.TabIndex = 12;
             this.panel4.Click += new System.EventHandler(this.panel4_Click);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label19.Location = new System.Drawing.Point(15, 58);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(101, 21);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "매출 보기";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label12.Location = new System.Drawing.Point(229, 259);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(194, 29);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "자세히보기>>";
+            this.label12.Click += new System.EventHandler(this.panel4_Click);
+            // 
             // lblSumOfPayCount
             // 
             this.lblSumOfPayCount.AutoSize = true;
@@ -251,6 +363,27 @@
             this.panel5.Size = new System.Drawing.Size(428, 298);
             this.panel5.TabIndex = 11;
             this.panel5.Click += new System.EventHandler(this.panel2_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label16.Location = new System.Drawing.Point(15, 58);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(101, 21);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "문의 보기";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label13.Location = new System.Drawing.Point(229, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(194, 29);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "자세히보기>>";
+            this.label13.Click += new System.EventHandler(this.panel2_Click);
             // 
             // lblNewReview
             // 
@@ -287,6 +420,27 @@
             this.panel6.TabIndex = 10;
             this.panel6.Click += new System.EventHandler(this.panelFor_Click);
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label17.Location = new System.Drawing.Point(25, 58);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(101, 21);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "배송 보기";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label10.Location = new System.Drawing.Point(174, 259);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(194, 29);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "자세히보기>>";
+            this.label10.Click += new System.EventHandler(this.panelFor_Click);
+            // 
             // lblNotShipping
             // 
             this.lblNotShipping.AutoSize = true;
@@ -306,160 +460,6 @@
             this.label7.Size = new System.Drawing.Size(165, 27);
             this.label7.TabIndex = 1;
             this.label7.Text = "배송 중 상품";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(174, 256);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(194, 29);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "자세히보기>>";
-            this.label8.Click += new System.EventHandler(this.panelFor_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(229, 256);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(194, 29);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "자세히보기>>";
-            this.label9.Click += new System.EventHandler(this.panel2_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(174, 259);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(194, 29);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "자세히보기>>";
-            this.label10.Click += new System.EventHandler(this.panelFor_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(229, 256);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(194, 29);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "자세히보기>>";
-            this.label11.Click += new System.EventHandler(this.panel3_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.Location = new System.Drawing.Point(229, 259);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(194, 29);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "자세히보기>>";
-            this.label12.Click += new System.EventHandler(this.panel4_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("굴림", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label13.Location = new System.Drawing.Point(229, 259);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(194, 29);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "자세히보기>>";
-            this.label13.Click += new System.EventHandler(this.panel2_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label14.Location = new System.Drawing.Point(15, 50);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(101, 21);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "상품 보기";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label15.Location = new System.Drawing.Point(15, 50);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(101, 21);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "문의 보기";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label16.Location = new System.Drawing.Point(15, 58);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 21);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "문의 보기";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label18.Location = new System.Drawing.Point(25, 50);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(101, 21);
-            this.label18.TabIndex = 8;
-            this.label18.Text = "배송 보기";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label17.Location = new System.Drawing.Point(25, 58);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(101, 21);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "배송 보기";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("굴림", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label19.Location = new System.Drawing.Point(15, 58);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(101, 21);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "매출 보기";
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
-            this.btnRefresh.BackgroundImage = global::JinTeamForSeller.Properties.Resources.refresh_circular_arrow;
-            this.btnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Location = new System.Drawing.Point(1065, 12);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(44, 43);
-            this.btnRefresh.TabIndex = 23;
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
-            this.btnClose.BackgroundImage = global::JinTeamForSeller.Properties.Resources.cancel1;
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(1173, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(44, 43);
-            this.btnClose.TabIndex = 0;
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // FrmDashBorad
             // 

@@ -6,11 +6,11 @@
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_PROPPATH_DIR_PERBUILD_HtmlAgilityPack.dll" Value="..\packages\HtmlAgilityPack.1.9.0\lib\Net45"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForSeller.exe" Value="..\JinTeamForSeller\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForSeller.exe.config" Value="..\JinTeamForSeller\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForSeller.pdb" Value="..\JinTeamForSeller\bin\Debug"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_cancel1.png" Value="..\JinTeamForSeller\bin\Debug\Resources"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_refreshcirculararrow.png" Value="..\JinTeamForSeller\bin\Debug\Resources"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForSeller.exe" Value="..\JinTeamForSeller\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForSeller.exe.config" Value="..\JinTeamForSeller\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForSeller.pdb" Value="..\JinTeamForSeller\bin\Release"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_cancel1.png" Value="..\JinTeamForSeller\bin\Release\Resources"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_refreshcirculararrow.png" Value="..\JinTeamForSeller\bin\Release\Resources"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_HtmlAgilityPack.dll" Value="HtmlAgilityPack.dll"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_JinTeamForSeller.exe" Value="JinTeamForSeller.exe"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_JinTeamForSeller.exe.config" Value="JinTeamForSeller.exe.config"/>
