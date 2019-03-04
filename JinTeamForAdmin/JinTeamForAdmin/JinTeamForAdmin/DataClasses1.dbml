@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JinDB" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=jinteamdb2.database.windows.net;Initial Catalog=JinDB;Persist Security Info=True;User ID=gd" SettingsObjectName="JinTeamForAdmin.Properties.Settings" SettingsPropertyName="JinDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.category_List" Member="category_List">
+    <Type Name="category_List">
+      <Column Name="cat_ID" Type="System.String" DbType="VarChar(6) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cat_kind" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="category_List_products" Member="products" ThisKey="cat_ID" OtherKey="cat_ID" Type="products" />
+    </Type>
+  </Table>
+  <Table Name="dbo.customers" Member="customers">
+    <Type Name="customers">
+      <Column Name="cus_no" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cus_ID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="cus_pwd" Type="System.Data.Linq.Binary" DbType="VarBinary(128) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="cus_phone" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="cus_addr" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="cus_name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="cus_Nickname" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="cus_gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="cus_age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cus_state" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="cus_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="withdrawal_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="join_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="cus_guid" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Association Name="customers_Inquire_Admin" Member="Inquire_Admin" ThisKey="cus_no" OtherKey="cus_no" Type="Inquire_Admin" />
+      <Association Name="customers_Inquire_Seller" Member="Inquire_Seller" ThisKey="cus_no" OtherKey="cus_no" Type="Inquire_Seller" />
+      <Association Name="customers_order_List" Member="order_List" ThisKey="cus_no" OtherKey="cus_no" Type="order_List" />
+      <Association Name="customers_review" Member="review" ThisKey="cus_no" OtherKey="cus_no" Type="review" />
+      <Association Name="customers_user_ship_info" Member="user_ship_info" ThisKey="cus_no" OtherKey="cus_no" Type="user_ship_info" />
+      <Association Name="customers_wish_List" Member="wish_List" ThisKey="cus_no" OtherKey="cus_no" Type="wish_List" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inquire_Admin" Member="Inquire_Admin">
+    <Type Name="Inquire_Admin">
+      <Column Name="Inquire_no" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Inquire_type" Type="System.String" DbType="NVarChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_no" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cus_or_sell" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_title" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_image" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="re_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="re_body" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="cus_no" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="customers_Inquire_Admin" Member="customers" ThisKey="cus_no" OtherKey="cus_no" Type="customers" IsForeignKey="true" />
+      <Association Name="seller_Inquire_Admin" Member="seller" ThisKey="seller_no" OtherKey="seller_no" Type="seller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inquire_Seller" Member="Inquire_Seller">
+    <Type Name="Inquire_Seller">
+      <Column Name="Inquire_no" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Inquire_type" Type="System.String" DbType="NVarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="cus_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stock_ID" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_title" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_body" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Inquire_image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="re_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="re_body" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="customers_Inquire_Seller" Member="customers" ThisKey="cus_no" OtherKey="cus_no" Type="customers" IsForeignKey="true" />
+      <Association Name="stock_List_Inquire_Seller" Member="stock_List" ThisKey="stock_ID" OtherKey="stock_ID" Type="stock_List" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.order_List" Member="order_List">
+    <Type Name="order_List">
+      <Column Name="order_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cus_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stock_ID" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="order_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="order_price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="order_require" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="order_List_payment_info" Member="payment_info" ThisKey="order_ID" OtherKey="order_ID" Type="payment_info" />
+      <Association Name="customers_order_List" Member="customers" ThisKey="cus_no" OtherKey="cus_no" Type="customers" IsForeignKey="true" />
+      <Association Name="stock_List_order_List" Member="stock_List" ThisKey="stock_ID" OtherKey="stock_ID" Type="stock_List" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.payment_info" Member="payment_info">
+    <Type Name="payment_info">
+      <Column Name="pay_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="order_ID" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="user_ship_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="seller_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pay_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pay_price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="waybill_ID" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="pay_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="output_date_tax" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="output_date_order" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="order_List_payment_info" Member="order_List" ThisKey="order_ID" OtherKey="order_ID" Type="order_List" IsForeignKey="true" />
+      <Association Name="seller_payment_info" Member="seller" ThisKey="seller_no" OtherKey="seller_no" Type="seller" IsForeignKey="true" />
+      <Association Name="transport_info_payment_info" Member="transport_info" ThisKey="waybill_ID" OtherKey="waybill_ID" Type="transport_info" IsForeignKey="true" />
+      <Association Name="user_ship_info_payment_info" Member="user_ship_info" ThisKey="user_ship_ID" OtherKey="user_ship_Id" Type="user_ship_info" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.products" Member="products">
+    <Type Name="products">
+      <Column Name="pro_ID" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cat_ID" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pro_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pro_price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="main_comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="sub_comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="main_image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="pro_hits" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pro_like" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pro_discount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pro_gender" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="pro_state" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="pro_url" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="products_stock_List" Member="stock_List" ThisKey="pro_ID" OtherKey="pro_ID" Type="stock_List" />
+      <Association Name="category_List_products" Member="category_List" ThisKey="cat_ID" OtherKey="cat_ID" Type="category_List" IsForeignKey="true" />
+      <Association Name="seller_products" Member="seller" ThisKey="seller_no" OtherKey="seller_no" Type="seller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.review" Member="review">
+    <Type Name="review">
+      <Column Name="re_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cus_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stock_ID" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="re_like" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="re_image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="re_txt" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="re_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="re_comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="re_comment_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="customers_review" Member="customers" ThisKey="cus_no" OtherKey="cus_no" Type="customers" IsForeignKey="true" />
+      <Association Name="stock_List_review" Member="stock_List" ThisKey="stock_ID" OtherKey="stock_ID" Type="stock_List" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.seller" Member="seller">
+    <Type Name="seller">
+      <Column Name="seller_no" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="seller_ID" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_pwd" Type="System.Data.Linq.Binary" DbType="VarBinary(128) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="seller_name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_addr" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_boss" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_phone" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_postal" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_fax" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="return_addr" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_state" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="corporate_registration_no" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="join_state" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="seller_Inquire_Admin" Member="Inquire_Admin" ThisKey="seller_no" OtherKey="seller_no" Type="Inquire_Admin" />
+      <Association Name="seller_payment_info" Member="payment_info" ThisKey="seller_no" OtherKey="seller_no" Type="payment_info" />
+      <Association Name="seller_products" Member="products" ThisKey="seller_no" OtherKey="seller_no" Type="products" />
+      <Association Name="seller_stock_List" Member="stock_List" ThisKey="seller_no" OtherKey="seller_no" Type="stock_List" />
+      <Association Name="seller_transport_info" Member="transport_info" ThisKey="seller_no" OtherKey="seller_no" Type="transport_info" />
+    </Type>
+  </Table>
+  <Table Name="dbo.stock_List" Member="stock_List">
+    <Type Name="stock_List">
+      <Column Name="stock_ID" Type="System.String" DbType="NVarChar(40) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="pro_ID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="seller_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stock_size" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="stock_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="stock_List_Inquire_Seller" Member="Inquire_Seller" ThisKey="stock_ID" OtherKey="stock_ID" Type="Inquire_Seller" />
+      <Association Name="stock_List_order_List" Member="order_List" ThisKey="stock_ID" OtherKey="stock_ID" Type="order_List" />
+      <Association Name="stock_List_review" Member="review" ThisKey="stock_ID" OtherKey="stock_ID" Type="review" />
+      <Association Name="stock_List_wish_List" Member="wish_List" ThisKey="stock_ID" OtherKey="stock_ID" Type="wish_List" />
+      <Association Name="products_stock_List" Member="products" ThisKey="pro_ID" OtherKey="pro_ID" Type="products" IsForeignKey="true" />
+      <Association Name="seller_stock_List" Member="seller" ThisKey="seller_no" OtherKey="seller_no" Type="seller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.transport_info" Member="transport_info">
+    <Type Name="transport_info">
+      <Column Name="seller_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="waybill_ID" Type="System.String" DbType="VarChar(13) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transport_state" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="transport_info_payment_info" Member="payment_info" ThisKey="waybill_ID" OtherKey="waybill_ID" Type="payment_info" />
+      <Association Name="seller_transport_info" Member="seller" ThisKey="seller_no" OtherKey="seller_no" Type="seller" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.user_ship_info" Member="user_ship_info">
+    <Type Name="user_ship_info">
+      <Column Name="user_ship_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cus_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="user_addr" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="postal_code" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ship_require" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="user_ship_info_payment_info" Member="payment_info" ThisKey="user_ship_Id" OtherKey="user_ship_ID" Type="payment_info" />
+      <Association Name="customers_user_ship_info" Member="customers" ThisKey="cus_no" OtherKey="cus_no" Type="customers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.wish_List" Member="wish_List">
+    <Type Name="wish_List">
+      <Column Name="wish_ID" Type="System.String" DbType="VarChar(25) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cus_no" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stock_ID" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="wish_count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="wish_price" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="customers_wish_List" Member="customers" ThisKey="cus_no" OtherKey="cus_no" Type="customers" IsForeignKey="true" />
+      <Association Name="stock_List_wish_List" Member="stock_List" ThisKey="stock_ID" OtherKey="stock_ID" Type="stock_List" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

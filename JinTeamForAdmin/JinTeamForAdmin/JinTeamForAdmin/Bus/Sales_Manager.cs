@@ -234,6 +234,8 @@ namespace JinTeamForAdmin.Bus
         /// <param name="e">버튼 클릭</param>
         private void pb_Exit_Click(object sender, EventArgs e)
         {
+            Admin_main admin = (Admin_main)Owner;
+            admin.Sales_Temp = false;
             Close();
         }
 
