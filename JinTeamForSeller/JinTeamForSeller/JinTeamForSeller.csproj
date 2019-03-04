@@ -82,103 +82,103 @@
     <Compile Include="Dao\SellerDAO.cs" />
     <Compile Include="Dao\StockListDAO.cs" />
     <Compile Include="Dao\TransportInfoDAO.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Bus\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Bus\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDashBorad.cs">
+    <Compile Include="Bus\FrmDashBorad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDashBorad.Designer.cs">
+    <Compile Include="Bus\FrmDashBorad.Designer.cs">
       <DependentUpon>FrmDashBorad.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDetailPro.cs">
+    <Compile Include="Bus\FrmDetailPro.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDetailPro.Designer.cs">
+    <Compile Include="Bus\FrmDetailPro.Designer.cs">
       <DependentUpon>FrmDetailPro.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInquireDetail.cs">
+    <Compile Include="Bus\FrmInquireDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInquireDetail.Designer.cs">
+    <Compile Include="Bus\FrmInquireDetail.Designer.cs">
       <DependentUpon>FrmInquireDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInquiry.cs">
+    <Compile Include="Bus\FrmInquiry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInquiry.Designer.cs">
+    <Compile Include="Bus\FrmInquiry.Designer.cs">
       <DependentUpon>FrmInquiry.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInsertInqury.cs">
+    <Compile Include="Bus\FrmInsertInqury.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInsertInqury.Designer.cs">
+    <Compile Include="Bus\FrmInsertInqury.Designer.cs">
       <DependentUpon>FrmInsertInqury.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInsertProduct.cs">
+    <Compile Include="Bus\FrmInsertProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInsertProduct.Designer.cs">
+    <Compile Include="Bus\FrmInsertProduct.Designer.cs">
       <DependentUpon>FrmInsertProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInsertSeller.cs">
+    <Compile Include="Bus\FrmInsertSeller.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInsertSeller.Designer.cs">
+    <Compile Include="Bus\FrmInsertSeller.Designer.cs">
       <DependentUpon>FrmInsertSeller.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="Bus\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="Bus\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProducts.cs">
+    <Compile Include="Bus\FrmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProducts.Designer.cs">
+    <Compile Include="Bus\FrmProducts.Designer.cs">
       <DependentUpon>FrmProducts.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReviewDetail.cs">
+    <Compile Include="Bus\FrmReviewDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReviewDetail.Designer.cs">
+    <Compile Include="Bus\FrmReviewDetail.Designer.cs">
       <DependentUpon>FrmReviewDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSaleManagement.cs">
+    <Compile Include="Bus\FrmSaleManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSaleManagement.Designer.cs">
+    <Compile Include="Bus\FrmSaleManagement.Designer.cs">
       <DependentUpon>FrmSaleManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSalesDetail.cs">
+    <Compile Include="Bus\FrmSalesDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSalesDetail.Designer.cs">
+    <Compile Include="Bus\FrmSalesDetail.Designer.cs">
       <DependentUpon>FrmSalesDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSearchAddr.cs">
+    <Compile Include="Bus\FrmSearchAddr.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSearchAddr.Designer.cs">
+    <Compile Include="Bus\FrmSearchAddr.Designer.cs">
       <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSearchID.cs">
+    <Compile Include="Bus\FrmSearchID.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSearchID.Designer.cs">
+    <Compile Include="Bus\FrmSearchID.Designer.cs">
       <DependentUpon>FrmSearchID.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSellAndTransport.cs">
+    <Compile Include="Bus\FrmSellAndTransport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSellAndTransport.Designer.cs">
+    <Compile Include="Bus\FrmSellAndTransport.Designer.cs">
       <DependentUpon>FrmSellAndTransport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Juso.cs" />
+    <Compile Include="Vo\Juso.cs" />
     <Compile Include="Vo\CatVO.cs" />
     <Compile Include="Vo\InquireVO.cs" />
     <Compile Include="Vo\Payment_InfoVO.cs" />
@@ -195,52 +195,52 @@
     <None Include="ChkData.dbml.layout">
       <DependentUpon>ChkData.dbml</DependentUpon>
     </None>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Bus\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDashBorad.resx">
+    <EmbeddedResource Include="Bus\FrmDashBorad.resx">
       <DependentUpon>FrmDashBorad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDetailPro.resx">
+    <EmbeddedResource Include="Bus\FrmDetailPro.resx">
       <DependentUpon>FrmDetailPro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInquireDetail.resx">
+    <EmbeddedResource Include="Bus\FrmInquireDetail.resx">
       <DependentUpon>FrmInquireDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInquiry.resx">
+    <EmbeddedResource Include="Bus\FrmInquiry.resx">
       <DependentUpon>FrmInquiry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInsertInqury.resx">
+    <EmbeddedResource Include="Bus\FrmInsertInqury.resx">
       <DependentUpon>FrmInsertInqury.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInsertProduct.resx">
+    <EmbeddedResource Include="Bus\FrmInsertProduct.resx">
       <DependentUpon>FrmInsertProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInsertSeller.resx">
+    <EmbeddedResource Include="Bus\FrmInsertSeller.resx">
       <DependentUpon>FrmInsertSeller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
+    <EmbeddedResource Include="Bus\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProducts.resx">
+    <EmbeddedResource Include="Bus\FrmProducts.resx">
       <DependentUpon>FrmProducts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReviewDetail.resx">
+    <EmbeddedResource Include="Bus\FrmReviewDetail.resx">
       <DependentUpon>FrmReviewDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSaleManagement.resx">
+    <EmbeddedResource Include="Bus\FrmSaleManagement.resx">
       <DependentUpon>FrmSaleManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSalesDetail.resx">
+    <EmbeddedResource Include="Bus\FrmSalesDetail.resx">
       <DependentUpon>FrmSalesDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchAddr.resx">
+    <EmbeddedResource Include="Bus\FrmSearchAddr.resx">
       <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchID.resx">
+    <EmbeddedResource Include="Bus\FrmSearchID.resx">
       <DependentUpon>FrmSearchID.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSellAndTransport.resx">
+    <EmbeddedResource Include="Bus\FrmSellAndTransport.resx">
       <DependentUpon>FrmSellAndTransport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -276,11 +276,12 @@
     <Content Include="DetailXml.xml" />
     <Content Include="HTMLPage1.html" />
     <Content Include="procedure.sql" />
-    <None Include="Resources\refresh-circular-arrow.png" />
-    <None Include="Resources\cancel.png" />
-    <EmbeddedResource Include="Resources\cancel1.png">
+    <Content Include="Resources\refresh-circular-arrow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
+    <Content Include="Resources\cancel1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -294,9 +295,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Bus\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
