@@ -66,16 +66,16 @@ namespace JinTeamForSeller
                 }
                 if (string.IsNullOrEmpty(originFile))
                 {
-                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "", 0, 0, 0, cmbGender.Text, false);
+                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "", 0, 0, 0, cmbGender.Text, false, txtProURL.Text);
                 }
                 else
                 {
-                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "https://jinweb.azurewebsites.net/img/" + pathFile, 0, 0, 0, cmbGender.Text, false);
+                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "https://jinweb.azurewebsites.net/img/" + pathFile, 0, 0, 0, cmbGender.Text, false, txtProURL.Text);
                 }
 
                 try
                 {
-                    pDao.Insert_Product(pro);
+                    pDao.Insert_Product2(pro);
                     // Get the object used to communicate with the server.                
                     var request = (FtpWebRequest)WebRequest.Create(@"ftp://waws-prod-ps1-001.ftp.azurewebsites.windows.net/site/wwwroot/img/" + pathFile);
                     request.Method = WebRequestMethods.Ftp.UploadFile;

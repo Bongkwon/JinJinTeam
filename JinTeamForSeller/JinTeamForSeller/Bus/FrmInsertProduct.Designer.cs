@@ -61,6 +61,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.txtProURL = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.proPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStockCount)).BeginInit();
             this.panel1.SuspendLayout();
@@ -72,7 +74,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
-            this.button1.Location = new System.Drawing.Point(983, 583);
+            this.button1.Location = new System.Drawing.Point(942, 601);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -111,7 +113,7 @@
             // 
             this.txtProName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtProName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtProName.Location = new System.Drawing.Point(85, 163);
+            this.txtProName.Location = new System.Drawing.Point(85, 184);
             this.txtProName.Multiline = true;
             this.txtProName.Name = "txtProName";
             this.txtProName.Size = new System.Drawing.Size(387, 187);
@@ -120,7 +122,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 163);
+            this.label3.Location = new System.Drawing.Point(12, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 5;
@@ -148,7 +150,7 @@
             // 
             this.txtMainComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtMainComment.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMainComment.Location = new System.Drawing.Point(85, 356);
+            this.txtMainComment.Location = new System.Drawing.Point(85, 377);
             this.txtMainComment.Multiline = true;
             this.txtMainComment.Name = "txtMainComment";
             this.txtMainComment.Size = new System.Drawing.Size(387, 250);
@@ -157,7 +159,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 359);
+            this.label5.Location = new System.Drawing.Point(12, 380);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 9;
@@ -167,7 +169,7 @@
             // 
             this.txtSubComment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
             this.txtSubComment.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSubComment.Location = new System.Drawing.Point(582, 356);
+            this.txtSubComment.Location = new System.Drawing.Point(562, 374);
             this.txtSubComment.Multiline = true;
             this.txtSubComment.Name = "txtSubComment";
             this.txtSubComment.Size = new System.Drawing.Size(374, 250);
@@ -176,7 +178,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(523, 359);
+            this.label6.Location = new System.Drawing.Point(503, 377);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 11;
@@ -217,7 +219,7 @@
             // 
             // proPic
             // 
-            this.proPic.Location = new System.Drawing.Point(582, 107);
+            this.proPic.Location = new System.Drawing.Point(562, 125);
             this.proPic.Name = "proPic";
             this.proPic.Size = new System.Drawing.Size(374, 244);
             this.proPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -227,7 +229,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(507, 107);
+            this.label8.Location = new System.Drawing.Point(487, 125);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 12);
             this.label8.TabIndex = 17;
@@ -239,7 +241,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
-            this.button2.Location = new System.Drawing.Point(968, 327);
+            this.button2.Location = new System.Drawing.Point(942, 345);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(86, 23);
             this.button2.TabIndex = 18;
@@ -256,7 +258,7 @@
             // lblImgNo
             // 
             this.lblImgNo.AutoSize = true;
-            this.lblImgNo.Location = new System.Drawing.Point(966, 312);
+            this.lblImgNo.Location = new System.Drawing.Point(947, 286);
             this.lblImgNo.Name = "lblImgNo";
             this.lblImgNo.Size = new System.Drawing.Size(0, 12);
             this.lblImgNo.TabIndex = 19;
@@ -384,12 +386,32 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // txtProURL
+            // 
+            this.txtProURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(143)))), ((int)(((byte)(145)))), ((int)(((byte)(147)))));
+            this.txtProURL.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtProURL.Location = new System.Drawing.Point(85, 161);
+            this.txtProURL.Name = "txtProURL";
+            this.txtProURL.Size = new System.Drawing.Size(387, 14);
+            this.txtProURL.TabIndex = 30;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(12, 163);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 12);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "상품 URL";
+            // 
             // FrmInsertProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(206)))), ((int)(((byte)(210)))));
             this.ClientSize = new System.Drawing.Size(1070, 653);
+            this.Controls.Add(this.txtProURL);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.numStockCount);
             this.Controls.Add(this.label10);
@@ -466,5 +488,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtProURL;
+        private System.Windows.Forms.Label label12;
     }
 }
