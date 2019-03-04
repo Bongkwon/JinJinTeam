@@ -13,16 +13,22 @@
     <AssemblyName>JinSell</AssemblyName>
     <Name>JinSell</Name>
     <RootNamespace>JinSell</RootNamespace>
-    <LoadFromTemplate>True</LoadFromTemplate>
+    <LoadFromTemplate>
+    </LoadFromTemplate>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'All' ">
-    <DebugSymbols>false</DebugSymbols>
-    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
-  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DefaultBuild' " />
   <ItemGroup>
     <Compile Include="JinSell.aip">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JinTeamForSeller\JinTeamForSeller.csproj">
+      <Name>JinTeamForSeller</Name>
+      <Project>{886dc1ae-af99-469e-b75e-bfcc107e1228}</Project>
+      <Private>True</Private>
+      <OutputsToImport>PrimaryOutput;References;ContentOutput;SymbolsOutput</OutputsToImport>
+    </ProjectReference>
   </ItemGroup>
   <Target Name="Build">
     <Error Text="This project requires Advanced Installer tool. Please download it from https://www.advancedinstaller.com/download.html" />
