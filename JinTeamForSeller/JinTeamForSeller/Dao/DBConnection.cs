@@ -11,10 +11,10 @@ namespace JinTeamForSeller.Dao
 {
     class DBConnection
     {
-        static SqlConnection conn;
+        SqlConnection conn;        
         public DBConnection()
         {
-            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);
+            conn = new SqlConnection(ConfigurationManager.ConnectionStrings["azureCon"].ConnectionString);            
         }
 
         private SqlConnection OpenConnection()
@@ -53,7 +53,7 @@ namespace JinTeamForSeller.Dao
             List<object> lstObj = new List<object>();
             SqlCommand cmd = new SqlCommand();
             try
-            {
+            {                
                 cmd.Connection = OpenConnection();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = query;
@@ -69,74 +69,67 @@ namespace JinTeamForSeller.Dao
                         lstObj.Add(new Product(dr["pro_Id"].ToString(), dr["cat_ID"].ToString(), (int)dr["seller_no"], dr["pro_name"].ToString(), (int)dr["pro_price"], dr["main_comment"].ToString(), dr["sub_comment"].ToString(), dr["main_image"].ToString(), (int)dr["pro_hits"], (int)dr["pro_like"], (int)dr["pro_discount"], dr["pro_gender"].ToString(), (bool)dr["pro_state"], dr["pro_url"].ToString()));
                     }
                 }
-                else if (query == "SelectCategory")
+                else if(query == "SelectCategory")
                 {
                     while (dr.Read())
                     {
                         lstObj.Add(new CatVO(dr["cat_ID"].ToString(), dr["cat_kind"].ToString()));
                     }
                 }
-                else if (query == "SelectStock")
+                else if(query == "SelectStock")
                 {
                     while (dr.Read())
                     {
                         lstObj.Add(new StockVO(dr["stock_ID"].ToString(), dr["pro_ID"].ToString(), int.Parse(dr["seller_no"].ToString()), dr["stock_size"].ToString(), int.Parse(dr["stock_count"].ToString())));
                     }
                 }
-                else if (query == "SelectPayInfo")
+                else if(query == "SelectPayInfo")
                 {
                     while (dr.Read())
                     {
                         lstObj.Add(new Payment_InfoVO((int)dr["pay_ID"], dr["order_ID"].ToString(), dr["user_ship_ID"].ToString().ToString(), (int)dr["seller_no"], (int)dr["pay_count"], (int)dr["pay_price"], dr["waybill_ID"].ToString()));
                     }
                 }
-                else if (query == "SelectPayInfoForSeller")
+                else if(query == "SelectPayInfoForSeller")
                 {
                     while (dr.Read())
                     {
                         lstObj.Add(new Payment_InfoVO((int)dr["pay_ID"], dr["order_ID"].ToString(), dr["user_ship_ID"].ToString().ToString(), (int)dr["seller_no"], (int)dr["pay_count"], (int)dr["pay_price"], dr["waybill_ID"].ToString(), dr["cus_name"].ToString(), dr["user_addr"].ToString(), dr["stock_ID"].ToString(), dr["order_require"].ToString(), dr["ship_require"].ToString(), dr["transport_state"].ToString(), dr["user_name"].ToString()));
                     }
                 }
-                else if (query == "SearchSellerID")
+                else if(query == "SearchSellerID")
                 {
                     while (dr.Read())
                     {
                         lstObj.Add(new SellerVO(dr["seller_ID"].ToString()));
                     }
                 }
-                else if (query == "SelectReviewForSeller")
+                else if(query == "SelectReviewForSeller")
                 {
                     while (dr.Read())
                     {
                         lstObj.Add(new ReviewVO((int)dr["re_ID"], (int)dr["cus_no"], dr["stock_ID"].ToString(), (bool)dr["re_like"], dr["re_image"].ToString(), dr["re_txt"].ToString(), (DateTime)dr["re_date"], dr["re_comment"].ToString(), dr["re_comment_date"].ToString(), dr["cus_name"].ToString(), dr["main_image"].ToString()));
                     }
                 }
-                else if (query == "SelectInquireForSeller")
+                else if(query == "SelectInquireForSeller")
                 {
                     while (dr.Read())
                     {
-                        lstObj.Add(new InquireVO((int)dr["Inquire_no"], dr["Inquire_type"].ToString(), (int)dr["cus_no"], dr["cus_name"].ToString(), dr["stock_ID"].ToString(), dr["Inquire_title"].ToString(), dr["Inquire_body"].ToString(), dr["Inquire_date"].ToString(), dr["Inquire_image"].ToString(), dr["re_date"].ToString(), dr["re_body"].ToString(), dr["main_image"].ToString()));
+                        lstObj.Add(new InquireVO((int)dr["Inquire_no"],dr["Inquire_type"].ToString(), (int)dr["cus_no"], dr["cus_name"].ToString(), dr["stock_ID"].ToString(), dr["Inquire_title"].ToString(), dr["Inquire_body"].ToString(),dr["Inquire_date"].ToString(),dr["Inquire_image"].ToString(), dr["re_date"].ToString(), dr["re_body"].ToString(), dr["main_image"].ToString()));
                     }
                 }
-                else if (query == "SelectInquireAdminForSeller")
+                else if(query == "SelectInquireAdminForSeller")
                 {
                     while (dr.Read())
                     {
-                        lstObj.Add(new InquireVO((int)dr["inquire_no"], dr["Inquire_type"].ToString(), (int)dr["seller_no"], dr["Inquire_title"].ToString(), dr["Inquire_body"].ToString(), dr["Inquire_date"].ToString(), dr["Inquire_image"].ToString(), dr["re_date"].ToString(), dr["re_body"].ToString()));
+                        lstObj.Add(new InquireVO((int)dr["Inquire_no"], dr["Inquire_type"].ToString(), (int)dr["inquire_id"], dr["Inquire_title"].ToString(), dr["Inquire_body"].ToString(), dr["Inquire_date"].ToString(), dr["Inquire_image"].ToString(), dr["re_date"].ToString(), dr["re_body"].ToString()));
                     }
                 }
-                else if (query == "selectSalesManagementForSeller")
+                else if(query == "selectSalesManagementForSeller")
                 {
                     while (dr.Read())
                     {
                         lstObj.Add(new SalesManagementVO(dr["pro_name"].ToString(), dr["stock_ID"].ToString(), (int)dr["pay_count"], (int)dr["pay_price"], DateTime.Parse(dr["pay_date"].ToString())));
-                    }
-                }
-                else if (query == "ChkSeller")
-                {
-                    while (dr.Read())
-                    {
-                        lstObj.Add(new SellerInfo((int)dr["seller_no"], dr["seller_name"].ToString()));
                     }
                 }
                 conn.Close();
@@ -151,8 +144,8 @@ namespace JinTeamForSeller.Dao
         public int SendScalarReadQuery(string query, SqlParameter[] sqlp)
         {
             SqlCommand cmd = new SqlCommand();
-            int a = 0;
-
+            int a = 0;            
+            
             cmd.Connection = OpenConnection();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = query;
@@ -168,28 +161,11 @@ namespace JinTeamForSeller.Dao
             {
                 throw;
             }
-
+            
             conn.Close();
-
+            
             return a;
 
         }
-        //string msg;
-        //public string GetMsg()
-        //{
-            
-
-        //    conn.FireInfoMessageEventOnUserErrors = true;
-        //    conn.InfoMessage += new SqlInfoMessageEventHandler(OninfoMsg);            
-        //    return 
-        //}
-
-        //public static void OninfoMsg(object sender, SqlInfoMessageEventArgs e)
-        //{
-        //    conn.Open();
-        //    conn.FireInfoMessageEventOnUserErrors = true;
-        //    System.Windows.Forms.MessageBox.Show(e.Message);
-            
-        //}
-    }    
+    }
 }

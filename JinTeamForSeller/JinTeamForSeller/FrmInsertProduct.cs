@@ -20,7 +20,7 @@ namespace JinTeamForSeller
         List<CatVO> cat_kinds;
         ProductDAO pDao = new ProductDAO();
         StockListDAO sDao = new StockListDAO();
-        string originFile="";
+        string originFile;
         string pathFile;
         Product pro;
         //Product pro = new Product();
@@ -32,7 +32,6 @@ namespace JinTeamForSeller
 
         private void FrmInsertProduct_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             cat_kinds = cat.SelectCategory();
             foreach (var item in cat_kinds)
             {
@@ -72,42 +71,6 @@ namespace JinTeamForSeller
                 {
                     pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "https://jinweb.azurewebsites.net/img/" + pathFile, 0, 0, 0, cmbGender.Text, false);
                 }
-
-                try
-                {
-                    pDao.Insert_Product(pro);
-                    // Get the object used to communicate with the server.                
-                    var request = (FtpWebRequest)WebRequest.Create(@"ftp://waws-prod-ps1-001.ftp.azurewebsites.windows.net/site/wwwroot/img/" + pathFile);
-                    request.Method = WebRequestMethods.Ftp.UploadFile;
-
-                    // This example assumes the FTP site uses anonymous logon.
-                    request.Credentials = new NetworkCredential(@"JinWeb\$JinWeb", "2SdrxPjgTjN0kJv6djRdLuYAJofn0B2pZAZPL1f081PigdFh9KcfadcCWBEw");
-
-                    // Copy the contents of the file to the request stream.
-                    byte[] fileContents;
-                    if (!string.IsNullOrEmpty(originFile))
-                    {
-                        using (StreamReader sourceStream = new StreamReader(originFile))
-                        {
-                            fileContents = File.ReadAllBytes(originFile);
-                            //Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
-                        }
-                        request.ContentLength = fileContents.Length;
-
-                        using (Stream requestStream = request.GetRequestStream())
-                        {
-                            requestStream.Write(fileContents, 0, fileContents.Length);
-                        }
-                        FtpWebResponse resp = (FtpWebResponse)request.GetResponse();
-                        MessageBox.Show("저장 성공 !");
-                    }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("저장 실패");
-                }
-                this.Close();
-                
                 if (chkSizeS.Checked)
                 {
                     StockVO stock = new StockVO(Form1.CompanyName + "_" + txtProID.Text + "_" + "S", Form1.CompanyName + "_" + txtProID.Text, Form1.CompanyNo, "S", (int)numStockCount.Value);
@@ -134,7 +97,38 @@ namespace JinTeamForSeller
                     sDao.InsertStock(stock);
                 }
 
-                
+                if (pDao.Insert_Product(pro))
+                {
+                    // Get the object used to communicate with the server.                
+                    var request = (FtpWebRequest)WebRequest.Create(@"ftp://waws-prod-ps1-001.ftp.azurewebsites.windows.net/site/wwwroot/img/" + pathFile);
+                    request.Method = WebRequestMethods.Ftp.UploadFile;
+
+                    // This example assumes the FTP site uses anonymous logon.
+                    request.Credentials = new NetworkCredential(@"JinWeb\$JinWeb", "2SdrxPjgTjN0kJv6djRdLuYAJofn0B2pZAZPL1f081PigdFh9KcfadcCWBEw");
+
+                    // Copy the contents of the file to the request stream.
+                    byte[] fileContents;
+                    using (StreamReader sourceStream = new StreamReader(originFile))
+                    {
+                        fileContents = File.ReadAllBytes(originFile);
+                            //Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
+                    }
+                    
+
+                    request.ContentLength = fileContents.Length;
+
+                    using (Stream requestStream = request.GetRequestStream())
+                    {
+                        requestStream.Write(fileContents, 0, fileContents.Length);
+                    }
+                    FtpWebResponse resp = (FtpWebResponse)request.GetResponse();
+                    MessageBox.Show("저장 성공 !");
+                    this.Close();                    
+                }
+                else
+                {
+                    MessageBox.Show("저장 실패");
+                }
             }
             else
             {

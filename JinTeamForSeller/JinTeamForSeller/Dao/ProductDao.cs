@@ -82,21 +82,5 @@ namespace JinTeamForSeller.Dao
 
             return con.SendExqueteQuery(query, sqlp);
         }
-
-        public int SumOfProLike(int seller_No)
-        {
-            string qurey = "SumOfProLike";
-            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
-            int rowCount = con.SendScalarReadQuery(qurey, sqlp);
-            return rowCount;
-        }
-        //CountOfProState
-        public int CountOfProState(int seller_No)
-        {
-            string qurey = "CountOfProState";
-            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
-            int rowCount = con.SendScalarReadQuery(qurey, sqlp);
-            return rowCount;
-        }
     }
 }

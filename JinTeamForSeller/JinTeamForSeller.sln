@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JinTeamForSeller", "JinTeamForSeller\JinTeamForSeller.csproj", "{886DC1AE-AF99-469E-B75E-BFCC107E1228}"
 EndProject
-Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "JinSeller", "JinSeller\JinSeller.aiproj", "{D4B26BB7-2190-4E84-BE6B-E64FE42FB0C4}"
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "JinSell", "JinSell\JinSell.aiproj", "{4C43D74E-E134-4A7D-B6E3-83EB26944DDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,12 +20,12 @@ Global
 		{886DC1AE-AF99-469E-B75E-BFCC107E1228}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{886DC1AE-AF99-469E-B75E-BFCC107E1228}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{886DC1AE-AF99-469E-B75E-BFCC107E1228}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4B26BB7-2190-4E84-BE6B-E64FE42FB0C4}.All|Any CPU.ActiveCfg = DefaultBuild
-		{D4B26BB7-2190-4E84-BE6B-E64FE42FB0C4}.All|Any CPU.Build.0 = DefaultBuild
-		{D4B26BB7-2190-4E84-BE6B-E64FE42FB0C4}.Debug|Any CPU.ActiveCfg = DefaultBuild
-		{D4B26BB7-2190-4E84-BE6B-E64FE42FB0C4}.Debug|Any CPU.Build.0 = DefaultBuild
-		{D4B26BB7-2190-4E84-BE6B-E64FE42FB0C4}.Release|Any CPU.ActiveCfg = DefaultBuild
-		{D4B26BB7-2190-4E84-BE6B-E64FE42FB0C4}.Release|Any CPU.Build.0 = DefaultBuild
+		{4C43D74E-E134-4A7D-B6E3-83EB26944DDD}.All|Any CPU.ActiveCfg = DefaultBuild
+		{4C43D74E-E134-4A7D-B6E3-83EB26944DDD}.All|Any CPU.Build.0 = DefaultBuild
+		{4C43D74E-E134-4A7D-B6E3-83EB26944DDD}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{4C43D74E-E134-4A7D-B6E3-83EB26944DDD}.Debug|Any CPU.Build.0 = DefaultBuild
+		{4C43D74E-E134-4A7D-B6E3-83EB26944DDD}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{4C43D74E-E134-4A7D-B6E3-83EB26944DDD}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

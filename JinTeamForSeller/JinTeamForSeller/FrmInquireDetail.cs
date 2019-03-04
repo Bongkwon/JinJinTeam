@@ -28,7 +28,6 @@ namespace JinTeamForSeller
 
         private void FrmInquireDetail_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             lblInquireType.Text = dr.Cells["Inquire_type"].Value.ToString();
             lblInquireCusName.Text = dr.Cells["CusName"].Value.ToString();
             lblInquireStockId.Text = dr.Cells["StockID"].Value.ToString();
@@ -36,9 +35,9 @@ namespace JinTeamForSeller
             lblInquireTitle.Text = dr.Cells["InquireTitle"].Value.ToString();
             //lblInquireBody.Text = dr.Cells["InquireBody"].Value.ToString();
             txtInquireBody.Text = dr.Cells["InquireBody"].Value.ToString();
-            if (string.IsNullOrEmpty(dr.Cells["inquireImage"].Value.ToString()))
+            if (string.IsNullOrEmpty(dr.Cells["inquireImage"].Value.ToString()) == true)
             {
-                //ShowImg(dr.Cells["MainImage"].Value.ToString());
+                ShowImg(dr.Cells["MainImage"].Value.ToString());
             }
             else
             {

@@ -43,17 +43,15 @@ namespace JinTeamForSeller.Dao
             }            
         }
 
-        public SellerInfo ChkLogin(string sellerID, string sellerPwd)
+        public int ChkLogin(string sellerID, string sellerPwd)
         {
-            List<object> lstObj = new List<object>();
-            SellerInfo result = new SellerInfo();
+            int result = 0;
             string query = "ChkSeller";
             SqlParameter[] sqlp = { new SqlParameter("seller_Id", sellerID), new SqlParameter("seller_pwd", sellerPwd) };
             
             try
             {
-                lstObj = con.SendReadQuery(query, sqlp);
-                result = (SellerInfo)lstObj[0];
+                result = con.SendScalarReadQuery(query, sqlp);
             }
             catch (Exception)
             {

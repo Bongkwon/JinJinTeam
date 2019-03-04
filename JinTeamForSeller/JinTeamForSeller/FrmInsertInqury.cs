@@ -37,7 +37,6 @@ namespace JinTeamForSeller
 
         private void FrmInsertInqury_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
             if (dr != null)
             {
                 //cmbInquireType.Text = dr.Cells[]
@@ -85,16 +84,7 @@ namespace JinTeamForSeller
         private void btnInsertInquire_Click(object sender, EventArgs e)
         {
             InquireVO iVo = new InquireVO(this.cmbInquireType.Text, this.txtInquireTitle.Text, this.txtInquireBody.Text, imgPath, Form1.CompanyNo);
-            try
-            {
-                iDao.InsertInquire_Seller(iVo);
-                MessageBox.Show("문의 남기기에 성공했습니다.");
-                this.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            iDao.InsertInquire_Seller(iVo);
         }
     }
 }

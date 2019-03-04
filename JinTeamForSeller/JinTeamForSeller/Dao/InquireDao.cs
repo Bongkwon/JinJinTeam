@@ -48,13 +48,13 @@ namespace JinTeamForSeller.Dao
             }
         }
 
-        public List<InquireVO> SelectInquireAdminForSeller(int Inquire_Id)
+        public List<InquireVO> SelectInquireAdminForSeller(int Inquire_Id, string cus_or_sell)
         {
             List<object> lstobj = new List<object>();
             List<InquireVO> lstinq = new List<InquireVO>();
 
             string query = "SelectInquireAdminForSeller";
-            SqlParameter[] sqlp = { new SqlParameter("inquire_ID", Inquire_Id), new SqlParameter("cus_or_sell", "S") };
+            SqlParameter[] sqlp = { new SqlParameter("Inquire_Id", Inquire_Id), new SqlParameter("cus_or_sell", cus_or_sell) };
             try
             {
                 lstobj = conn.SendReadQuery(query, sqlp);
@@ -85,16 +85,5 @@ namespace JinTeamForSeller.Dao
                 throw;
             }
         }
-        public int NewInquireSeller(int seller_No)
-        {
-            string qurey = "NewInquireSeller";
-            SqlParameter[] sqlp = { new SqlParameter("seller_No", seller_No) };
-            int rowCount = conn.SendScalarReadQuery(qurey, sqlp);
-            return rowCount;
-        }
-        //public string GetMsg()
-        //{
-        //    return conn.GetMsg();
-        //}
     }
 }
