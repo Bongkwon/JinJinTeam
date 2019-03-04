@@ -5,13 +5,13 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForAdmin.exe" Value="..\JinTeamForAdmin\bin\Release"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForAdmin.exe.config" Value="..\JinTeamForAdmin\bin\Release"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForAdmin.pdb" Value="..\JinTeamForAdmin\bin\Release"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD__.png" Value="..\JinTeamForAdmin\bin\Release\Resources"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD__.xlsx" Value="..\JinTeamForAdmin\bin\Release\Resources"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_cancel.png" Value="..\JinTeamForAdmin\bin\Release\Resources"/>
-    <ROW Property="AI_PROPPATH_DIR_PERBUILD_refresharrow.png" Value="..\JinTeamForAdmin\bin\Release\Resources"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForAdmin.exe" Value="..\JinTeamForAdmin\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForAdmin.exe.config" Value="..\JinTeamForAdmin\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_JinTeamForAdmin.pdb" Value="..\JinTeamForAdmin\bin\Debug"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD__.png" Value="..\JinTeamForAdmin\bin\Debug\Resources"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD__.xlsx" Value="..\JinTeamForAdmin\bin\Debug\Resources"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_cancel.png" Value="..\JinTeamForAdmin\bin\Debug\Resources"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_refresharrow.png" Value="..\JinTeamForAdmin\bin\Debug\Resources"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_JinTeamForAdmin.exe" Value="JinTeamForAdmin.exe"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_JinTeamForAdmin.exe.config" Value="JinTeamForAdmin.exe.config"/>
     <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_JinTeamForAdmin.pdb" Value="JinTeamForAdmin.pdb"/>

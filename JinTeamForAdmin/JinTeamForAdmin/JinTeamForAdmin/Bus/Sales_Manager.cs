@@ -30,7 +30,11 @@ namespace JinTeamForAdmin.Bus
             this.p = p;      
         }
 
-
+        /// <summary>
+        /// 화면 로드시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void Sales_Manager_Load(object sender, EventArgs e)
         {
             //this.Location = new Point(Screen.PrimaryScreen.Bounds.Width / 2 - this.Size.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2 - this.Size.Height / 2);
@@ -59,7 +63,11 @@ namespace JinTeamForAdmin.Bus
             chart_sales.Series[0].Name = "액수";
         }
 
-
+        /// <summary>
+        /// 라디오 버튼이 바뀔때 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void rd_CheckedChanged(object sender, EventArgs e)
         {
             if (rd_Price.Checked && rd_dd.Checked)
@@ -84,6 +92,10 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 매출 월별을 나타내는 이벤트
+        /// </summary>
+        /// <param name="pay_type"></param>
         private void Sales_month(string pay_type)
         {
             sales_sub_lst.Clear();
@@ -123,6 +135,11 @@ namespace JinTeamForAdmin.Bus
 
             chart_sales.Series[0].Points.DataBind(sales_sub_lst, "pay_date_m", pay_type, null);
         }
+
+        /// <summary>
+        /// 매출 일별을 나타내는 이벤트
+        /// </summary>
+        /// <param name="pay_type"></param>
         private void Sales_day(string pay_type)
         {
             sales_sub_lst.Clear();
@@ -172,7 +189,11 @@ namespace JinTeamForAdmin.Bus
 
         Point? previous = null;
         ToolTip myToolTip = new ToolTip();
-
+        /// <summary>
+        /// 차트 마우스 툴팁 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chart1_MouseMove(object sender, MouseEventArgs e)
         {
             Point nowPosition = e.Location;
@@ -206,19 +227,32 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void pb_Exit_Click(object sender, EventArgs e)
         {
-            Admin_main admin = (Admin_main)Owner;
-            admin.Sales_Temp = false;
-            Close();          
+            Close();
         }
 
         Point mousePoint;
+        /// <summary>
+        /// 화면이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             mousePoint = new Point(e.X, e.Y);
         }
 
+        /// <summary>
+        /// 화면이동을 위한 이벤트 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)

@@ -66,7 +66,11 @@ namespace JinTeamForAdmin.Bus
             sales_sub_lst = new List<Sales_manager_Vo>();
         }
 
-
+        /// <summary>
+        /// 메인 화면 로드시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void Admin_main_Load(object sender, EventArgs e)
         {           
             this.Location = new Point(100, 100);
@@ -78,7 +82,9 @@ namespace JinTeamForAdmin.Bus
             pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
         }
 
-
+        /// <summary>
+        /// 패널 클릭시 색 바꾸기위한 이벤트
+        /// </summary>
         private void change_panel()
         {
             pn1.BackColor = Color.White;
@@ -130,6 +136,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 메인화면 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void pl_main_Click(object sender, EventArgs e)
         {
             gb_dashboard.Visible = true;
@@ -220,6 +231,11 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 판매자 목록 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼클릭</param>
         private void seller목록ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rdo_all_seller.Checked = true;
@@ -227,6 +243,11 @@ namespace JinTeamForAdmin.Bus
             change_panel();
         }
 
+        /// <summary>
+        /// 상품 목록 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼클릭</param>
         private void products목록ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rdo_all_pro.Checked = true;
@@ -239,6 +260,11 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 고객 목록 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼클릭</param>
         private void customer목록ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rdo_all_cus.Checked = true;
@@ -246,12 +272,22 @@ namespace JinTeamForAdmin.Bus
             change_panel();
         }
 
+        /// <summary>
+        /// 결제 정보 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼클릭</param>
         private void 결제정보세금계산서출력ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Pay_changed();
             change_panel();
         }
 
+        /// <summary>
+        /// 문의 내역 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼클릭</param>
         private void 문의내역ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rd_sel_inq.Checked = true;
@@ -259,6 +295,11 @@ namespace JinTeamForAdmin.Bus
             change_panel();
         }
 
+        /// <summary>
+        /// 매출 관리 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼클릭</param>
         private void 매출관리ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //gb_seller.Visible = false;
@@ -290,7 +331,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
-
+        /// <summary>
+        /// 문의 내역 콤보 박스 텍스트가 바뀔때 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">콤보박스 텍스트 체인지</param>
         private void cb_inquire_TextChanged(object sender, EventArgs e)
         {
             inq_lst_sub.Clear();
@@ -318,6 +363,9 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 문의 내역 안의 공통된 콤보박스 내용 추가
+        /// </summary>
         private void common_cb()
         {
             cb_inquire.Items.Clear();
@@ -329,7 +377,9 @@ namespace JinTeamForAdmin.Bus
             cb_inquire.Items.Add("기타");
         }
 
-
+        /// <summary>
+        /// 결제 정보가 클릭되었을시 데이터를 받아오는 이벤트
+        /// </summary>
         private void Pay_changed()
         {
             gb_main_GV.Visible = true;
@@ -355,6 +405,11 @@ namespace JinTeamForAdmin.Bus
             pay_GV();
         }
 
+        /// <summary>
+        /// 문의 내역이 클릭되었을시 데이터를 받아오는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">라디오 버튼 클릭</param>
         private void inq_changed(object sender, EventArgs e)
         {
             gb_main_GV.Visible = true;
@@ -384,8 +439,6 @@ namespace JinTeamForAdmin.Bus
                 cb_inquire.Items.Add("피드백");
 
                 sp = "select_sel_inq";
-
-
             }
 
 
@@ -406,6 +459,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 고객 목록이 클릭되었을시 데이터를 받아오는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">라디오 버튼 클릭</param>
         private void cus_Changed(object sender, EventArgs e)
         {
             gb_main_GV.Visible = true;
@@ -442,6 +500,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 상품 목록이 클릭되었을시 데이터를 받아오는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">라디오 버튼 클릭</param>
         private void pro_changed(object sender, EventArgs e)
         {
             gb_main_GV.Visible = true;
@@ -476,6 +539,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 판매자 목록이 클릭되었을시 데이터를 받아오는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">라디오 버튼 클릭</param>
         private void seller_changed(object sender, EventArgs e)
         {
             gb_main_GV.Visible = true;
@@ -515,7 +583,9 @@ namespace JinTeamForAdmin.Bus
 
         }
 
-
+        /// <summary>
+        /// 문의 내역 그리드뷰 컬럼 Visible 비활성화 목록
+        /// </summary>
         private void Inq_GV()
         {
             main_GV.Columns["inquire_image"].Visible = false;
@@ -547,6 +617,9 @@ namespace JinTeamForAdmin.Bus
             main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        /// <summary>
+        /// 결제 정보 그리드뷰 컬럼 Visible 비활성화 목록
+        /// </summary>
         private void pay_GV()
         {
             main_GV.DataSource = tax_lst;
@@ -567,6 +640,9 @@ namespace JinTeamForAdmin.Bus
             main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        /// <summary>
+        /// 고객 목록 그리드뷰 컬럼 Visible 비활성화 목록
+        /// </summary>
         private void cus_GV()
         {
             main_GV.DataSource = cus_lst;
@@ -589,6 +665,9 @@ namespace JinTeamForAdmin.Bus
             main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        /// <summary>
+        /// 상품 목록 그리드뷰 컬럼 Visible 비활성화 목록
+        /// </summary>
         private void pro_GV()
         {
             main_GV.DataSource = null;
@@ -616,6 +695,9 @@ namespace JinTeamForAdmin.Bus
             main_GV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
+        /// <summary>
+        /// 판매자 목록 그리드뷰 컬럼 Visible 비활성화 목록
+        /// </summary>
         private void sell_GV()
         {
             main_GV.DataSource = sell_lst;
@@ -660,6 +742,11 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 메인 그리드뷰 에서 셀및 헤드라인 컬럼 클릭시 각각에 대한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">셀 클릭 및 해드라인 컬럼 클릭</param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Pro_Temp = false;
@@ -976,6 +1063,11 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 새로고침 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">픽쳐 박스 클릭</param>
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             //switch_pro = false;
@@ -1003,11 +1095,21 @@ namespace JinTeamForAdmin.Bus
         }
 
         Point mousePoint;
+        /// <summary>
+        /// 화면이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             mousePoint = new Point(e.X, e.Y);
         }
 
+        /// <summary>
+        /// 화면이동을 위한 이벤트 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
@@ -1016,6 +1118,11 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">픽쳐 박스 클릭</param>
         private void pb_Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -1024,6 +1131,11 @@ namespace JinTeamForAdmin.Bus
         Point? previous = null;
         ToolTip myToolTip = new ToolTip();
 
+        /// <summary>
+        /// 차트에서 마우스 툴팁 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chart_sales_MouseMove(object sender, MouseEventArgs e)
         {
             Point nowPosition = e.Location;

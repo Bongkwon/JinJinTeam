@@ -10,7 +10,12 @@ namespace JinTeamForAdmin.Dao
 {
     class Admin_Dao
     {
-
+        /// <summary>
+        /// select문을 처리 하기 위한 이벤트
+        /// </summary>
+        /// <param name="sp"></param>
+        /// <param name="type_s"></param>
+        /// <returns></returns>
         public List<object> Select_ob(string sp, string type_s)
         {
             List<object> ob_lst = new List<object>();
@@ -26,6 +31,12 @@ namespace JinTeamForAdmin.Dao
             return result;
         }
 
+        /// <summary>
+        /// 업데이트 문을 처리 하기 위한 메서드
+        /// </summary>
+        /// <param name="ob_sub"></param>
+        /// <param name="type_u"></param>
+        /// <returns></returns>
         internal bool Update_state_ob(object ob_sub,string type_u)
         {
             SqlParameter[] sqlParameters = new SqlParameter[0];

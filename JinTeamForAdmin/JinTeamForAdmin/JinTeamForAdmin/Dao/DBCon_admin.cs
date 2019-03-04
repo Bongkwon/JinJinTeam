@@ -20,6 +20,10 @@ namespace JinTeamForAdmin
             ob_lst = new List<object>();
         }
 
+        /// <summary>
+        /// DB를 Connect하는 메서드. private을 이용하여 SingleTon기법 사용 
+        /// </summary>
+        /// <returns></returns>
         private SqlConnection OpenCon()
         {
             if (con.State == ConnectionState.Closed || con.State == ConnectionState.Broken)
@@ -54,7 +58,12 @@ namespace JinTeamForAdmin
         }
 
   
-
+        /// <summary>
+        /// select 문을 처리 하기 위한 메서드
+        /// </summary>
+        /// <param name="sp"></param>
+        /// <param name="type_p"></param>
+        /// <returns></returns>
         internal List<object> Select_ob(string sp, string type_p)
         {
             SqlConnection sqlCon = OpenCon();
@@ -237,6 +246,7 @@ namespace JinTeamForAdmin
             return ob_lst;
         }
 
+
         internal bool ExecuteNonQuery_GV(string sp)
         {
             bool result = false;
@@ -257,6 +267,12 @@ namespace JinTeamForAdmin
             return result;
         }
 
+        /// <summary>
+        /// update 문을 처리하기 위한 메서드
+        /// </summary>
+        /// <param name="sp"></param>
+        /// <param name="sqlParameters"></param>
+        /// <returns></returns>
         internal bool Update_ob(string sp, SqlParameter[] sqlParameters)
         {
             bool result = false;

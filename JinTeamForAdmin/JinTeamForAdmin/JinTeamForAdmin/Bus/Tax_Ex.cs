@@ -31,6 +31,11 @@ namespace JinTeamForAdmin.Bus
             this.tv = tv;
         }
 
+        /// <summary>
+        /// 화면 로드시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void Tax_Ex_Load(object sender, EventArgs e)
         {
 
@@ -66,6 +71,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 저장위치 변경 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void btn_saveLocation_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -79,11 +89,21 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// 출력 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_output_Click(object sender, EventArgs e)
         {
 
@@ -152,17 +172,32 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void pb_Exit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
         Point mousePoint;
+        /// <summary>
+        /// 화면이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             mousePoint = new Point(e.X, e.Y);
         }
 
+        /// <summary>
+        /// 화면이동을 위한 이벤트 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
