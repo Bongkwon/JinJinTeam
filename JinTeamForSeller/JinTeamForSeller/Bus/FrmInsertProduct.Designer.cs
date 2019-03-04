@@ -364,9 +364,9 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.label11.Location = new System.Drawing.Point(0, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(179, 54);
+            this.label11.Size = new System.Drawing.Size(197, 54);
             this.label11.TabIndex = 22;
-            this.label11.Text = "JinTeam";
+            this.label11.Text = "상품 추가";
             // 
             // button3
             // 

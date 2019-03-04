@@ -422,9 +422,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 54);
+            this.label2.Size = new System.Drawing.Size(183, 54);
             this.label2.TabIndex = 36;
-            this.label2.Text = "JinTeam";
+            this.label2.Text = "회원가입";
             // 
             // button1
             // 
