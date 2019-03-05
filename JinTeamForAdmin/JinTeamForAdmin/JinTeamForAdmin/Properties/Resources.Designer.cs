@@ -63,18 +63,18 @@ namespace JinTeamForAdmin.Properties {
         /// <summary>
         ///   PK!b?h^?[Content_Types].xml ?(?[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
-        internal static string 세금계산서_양식 {
+        internal static string Tax_Format {
             get {
-                return ResourceManager.GetString("세금계산서_양식", resourceCulture);
+                return ResourceManager.GetString("Tax_Format", resourceCulture);
             }
         }
         
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap 세금계산서_예시 {
+        internal static System.Drawing.Bitmap Tax_FormatEx {
             get {
-                object obj = ResourceManager.GetObject("세금계산서_예시", resourceCulture);
+                object obj = ResourceManager.GetObject("Tax_FormatEx", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

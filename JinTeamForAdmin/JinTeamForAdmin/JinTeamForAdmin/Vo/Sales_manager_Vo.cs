@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JinTeamForAdmin.Vo
 {
-    class Sales_manager_Vo
+    public class Sales_manager_Vo
     {
         private string seller_ID;
 

@@ -1,6 +1,6 @@
 ﻿using JinTeamForAdmin.Dao;
 using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,15 +30,22 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 화면 로드 시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void pro_Detail_Load(object sender, EventArgs e)
         {
-            lbl_catID.Text = pv.Cat_ID.ToString();
-            lbl_discount.Text = pv.Pro_Discount.ToString();
-            //lbl_gender.Text = pv.Pro_Gender.ToString();
-            lbl_hits.Text = pv.Pro_Hits.ToString();
-            lbl_like.Text = pv.Pro_Like.ToString();
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
 
-            lbl_m_comment.Text = pv.Main_Comment.ToString();
+            lbl_catID.Text = pv.Cat_ID.ToString();
+            lbl_discount.Text = pv.Pro_Discount + "회";
+            //lbl_gender.Text = pv.Pro_Gender.ToString();
+            lbl_hits.Text = pv.Pro_Hits + "회";
+            lbl_like.Text = pv.Pro_Like + "회";
+
+            
             lbl_name.Text = pv.Pro_Name.ToString();
             lbl_price.Text = pv.Pro_Price.ToString();
             lbl_proID.Text = pv.Pro_ID.ToString();
@@ -46,7 +53,25 @@ namespace JinTeamForAdmin.Bus
 
             lbl_sellno.Text = pv.Seller_NO.ToString();
             //lbl_state.Text = pv.Pro_State.ToString();
-            lbl_s_comment.Text = pv.Sub_Comment.ToString();
+
+            if (pv.Sub_Comment.ToString() != "")
+            {
+                lbl_s_comment.Text = pv.Sub_Comment.ToString();
+            }
+            else
+            {
+                lbl_s_comment.Text = "작성한 내용이 없습니다.";
+            }
+
+            if (pv.Main_Comment.ToString() != "")
+            {
+                lbl_m_comment.Text = pv.Main_Comment.ToString();
+            }
+            else
+            {
+                lbl_m_comment.Text = "작성한 내용이 없습니다.";
+            }
+            
 
             if (pv.Pro_Gender == "A")
             {
@@ -73,11 +98,21 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// 확인 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void btn_ok_Click(object sender, EventArgs e)
         {
             string type_u = "pro";
@@ -99,7 +134,7 @@ namespace JinTeamForAdmin.Bus
                         MessageBox.Show("수정 성공");
 
                         Admin_main ad = (Admin_main)Owner;
-                        ad.Temp = true;
+                        ad.Pro_Temp = true;
                     }
                 }
                 else
@@ -111,6 +146,11 @@ namespace JinTeamForAdmin.Bus
 
         }
 
+        /// <summary>
+        /// 상품 상태 변경 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">라디오 버튼 클릭</param>
         private void p_state_changed(object sender, EventArgs e)
         {
             
@@ -126,11 +166,49 @@ namespace JinTeamForAdmin.Bus
             }
         }
 
-
+        /// <summary>
+        /// 픽쳐박스 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">픽쳐박스 클릭</param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
             Process.Start(pv.Main_Image);
+        }
+
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        /// <summary>
+        /// 화면이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        /// <summary>
+        /// 화면이동을 위한 이벤트 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
+            }
         }
     }
 }
