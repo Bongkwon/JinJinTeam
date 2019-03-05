@@ -65,12 +65,51 @@ namespace JinTeamForSeller
                 }
                 if (string.IsNullOrEmpty(originFile))
                 {
-                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "", 0, 0, 0, cmbGender.Text, false);
+                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "", 0, 0, 0, cmbGender.Text, false, txtProURL.Text);
                 }
                 else
                 {
-                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "https://jinweb.azurewebsites.net/img/" + pathFile, 0, 0, 0, cmbGender.Text, false);
+                    pro = new Product(proname, catId, Form1.CompanyNo, txtProName.Text, int.Parse(txtProPrice.Text), txtMainComment.Text, txtSubComment.Text, "https://jinweb.azurewebsites.net/img/" + pathFile, 0, 0, 0, cmbGender.Text, false, txtProURL.Text);
                 }
+<<<<<<< HEAD:JinTeamForSeller/JinTeamForSeller/FrmInsertProduct.cs
+=======
+
+                try
+                {
+                    pDao.Insert_Product2(pro);
+                    // Get the object used to communicate with the server.                
+                    var request = (FtpWebRequest)WebRequest.Create(@"ftp://waws-prod-ps1-001.ftp.azurewebsites.windows.net/site/wwwroot/img/" + pathFile);
+                    request.Method = WebRequestMethods.Ftp.UploadFile;
+
+                    // This example assumes the FTP site uses anonymous logon.
+                    request.Credentials = new NetworkCredential(@"JinWeb\$JinWeb", "2SdrxPjgTjN0kJv6djRdLuYAJofn0B2pZAZPL1f081PigdFh9KcfadcCWBEw");
+
+                    // Copy the contents of the file to the request stream.
+                    byte[] fileContents;
+                    if (!string.IsNullOrEmpty(originFile))
+                    {
+                        using (StreamReader sourceStream = new StreamReader(originFile))
+                        {
+                            fileContents = File.ReadAllBytes(originFile);
+                            //Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
+                        }
+                        request.ContentLength = fileContents.Length;
+
+                        using (Stream requestStream = request.GetRequestStream())
+                        {
+                            requestStream.Write(fileContents, 0, fileContents.Length);
+                        }
+                        FtpWebResponse resp = (FtpWebResponse)request.GetResponse();
+                        MessageBox.Show("저장 성공 !");
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("저장 실패");
+                }
+                this.Close();
+                
+>>>>>>> 7630114faaef26806d97300bab369654396e345f:JinTeamForSeller/JinTeamForSeller/Bus/FrmInsertProduct.cs
                 if (chkSizeS.Checked)
                 {
                     StockVO stock = new StockVO(Form1.CompanyName + "_" + txtProID.Text + "_" + "S", Form1.CompanyName + "_" + txtProID.Text, Form1.CompanyNo, "S", (int)numStockCount.Value);

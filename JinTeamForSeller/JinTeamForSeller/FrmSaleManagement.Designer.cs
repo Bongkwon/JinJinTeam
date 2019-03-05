@@ -215,7 +215,11 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartSales.Series.Add(series1);
+<<<<<<< HEAD:JinTeamForSeller/JinTeamForSeller/FrmSaleManagement.Designer.cs
             this.chartSales.Size = new System.Drawing.Size(775, 323);
+=======
+            this.chartSales.Size = new System.Drawing.Size(775, 443);
+>>>>>>> 7630114faaef26806d97300bab369654396e345f:JinTeamForSeller/JinTeamForSeller/Bus/FrmSaleManagement.Designer.cs
             this.chartSales.TabIndex = 12;
             this.chartSales.Text = "chart1";
             this.chartSales.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chartSales_MouseMove);
@@ -242,9 +246,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(179, 54);
+            this.label6.Size = new System.Drawing.Size(197, 54);
             this.label6.TabIndex = 36;
-            this.label6.Text = "JinTeam";
+            this.label6.Text = "매출 내역";
             // 
             // button1
             // 

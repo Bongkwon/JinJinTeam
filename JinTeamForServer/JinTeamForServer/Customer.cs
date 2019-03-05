@@ -13,13 +13,13 @@ namespace JinTeamForServer
         private string cus_addr;
         private string cus_name;
         private string cus_Nickname;
-        private int cus_gender;
+        private bool cus_gender;
         private int cus_age;
         private int cus_no;
         private string withdrawal_date;
         private string join_date;
         private int cus_count;
-        private int cus_state;
+        private bool cus_state;
         private string cus_guid;
 
         public string Cus_guid
@@ -29,7 +29,7 @@ namespace JinTeamForServer
         }
 
 
-        public int Cus_state
+        public bool Cus_state
         {
             get { return cus_state; }
             set { cus_state = value; }
@@ -92,7 +92,7 @@ namespace JinTeamForServer
             set { cus_Nickname = value; }
         }
 
-        public int Cus_gender
+        public bool Cus_gender
         {
             get { return cus_gender; }
             set { cus_gender = value; }
@@ -104,7 +104,7 @@ namespace JinTeamForServer
             set { cus_age = value; }
         }
 
-        public Customer(string cus_ID, string cus_pwd, string cus_phone, string cus_addr, string cus_name, string cus_Nickname, int cus_gender, int cus_age)
+        public Customer(string cus_ID, string cus_pwd, string cus_phone, string cus_addr, string cus_name, string cus_Nickname, bool cus_gender, int cus_age)
         {
             this.cus_ID = cus_ID ?? throw new ArgumentNullException(nameof(cus_ID));
             this.cus_pwd = cus_pwd ?? throw new ArgumentNullException(nameof(cus_pwd));

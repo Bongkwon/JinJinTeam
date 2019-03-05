@@ -200,16 +200,29 @@ namespace JinTeamForSeller
             {
             }
             
+<<<<<<< HEAD:JinTeamForSeller/JinTeamForSeller/Form1.cs
 
             if (a != 0)
             {
                 CompanyNo = a;
                 CompanyName = txtId.Text.Substring(0, 7);
                 new FrmMain().Show();
+=======
+            //if (sInfo!=null)
+            //{
+                
+            //    //new FrmMain().Show();
+            //}
+            if(string.IsNullOrEmpty(sInfo.Seller_Name))
+            {
+                MessageBox.Show("비밀번호 또는 아이디가 틀립니다.");
+>>>>>>> 7630114faaef26806d97300bab369654396e345f:JinTeamForSeller/JinTeamForSeller/Bus/Form1.cs
             }
             else
             {
-                MessageBox.Show("비밀번호 또는 아이디가 틀립니다.");
+                CompanyNo = sInfo.Seller_No;
+                CompanyName = sInfo.Seller_Name;
+                new FrmDashBorad().Show();
             }
         }
 

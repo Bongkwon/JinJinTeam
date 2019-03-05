@@ -99,11 +99,11 @@ namespace JinTeamForSeller
             if (rdoMonthMonth.Checked == true)
             {
                 DateTime fromDate = new DateTime(dTPicFromDate.Value.Year, dTPicFromDate.Value.Month,1);
-                DateTime toDate = new DateTime(dTPicToDate.Value.Year, dTPicToDate.Value.Month, DateTime.DaysInMonth(dTPicToDate.Value.Year, dTPicToDate.Value.Month));
+                DateTime toDate = new DateTime(dTPicToDate.Value.Year, dTPicToDate.Value.Month, DateTime.DaysInMonth(dTPicToDate.Value.Year, dTPicToDate.Value.Month), 23, 59, 59);
                 
                 var groupingbyMonth = from s in lstSales
                                       where s.Pay_Date >= fromDate.Date
-                                      && toDate.Date > s.Pay_Date
+                                      && toDate.Date >= s.Pay_Date
                                       //s.Pay_Date.Month >= dTPicFromDate.Value.Month
                                       //&& s.Pay_Date.Year >= dTPicFromDate.Value.Year
                                       //&& dTPicToDate.Value.Year >= s.Pay_Date.Year

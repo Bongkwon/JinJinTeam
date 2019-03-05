@@ -171,9 +171,9 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.label4.Location = new System.Drawing.Point(12, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(179, 54);
+            this.label4.Size = new System.Drawing.Size(197, 54);
             this.label4.TabIndex = 19;
-            this.label4.Text = "JinTeam";
+            this.label4.Text = "상품 내역";
             // 
             // btnClose
             // 

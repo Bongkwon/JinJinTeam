@@ -250,9 +250,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(72)))), ((int)(((byte)(78)))));
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(179, 54);
+            this.label6.Size = new System.Drawing.Size(237, 54);
             this.label6.TabIndex = 22;
-            this.label6.Text = "JinTeam";
+            this.label6.Text = "문의 남기기";
             // 
             // button1
             // 

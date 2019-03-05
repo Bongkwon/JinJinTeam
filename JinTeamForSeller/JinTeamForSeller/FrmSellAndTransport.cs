@@ -160,7 +160,6 @@ namespace JinTeamForSeller
         string trans_State = "";
         private void button1_Click(object sender, EventArgs e)
         {
-
             try
             {
                 for (int i = 0; i < gViewPayInfo.RowCount; i++)
@@ -190,16 +189,41 @@ namespace JinTeamForSeller
                         !string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
                     {
                         Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
-                        tDao.InsertTransport(tVo, (int)gViewPayInfo["Pay_ID", i].Value);
+                        try
+                        {
+                            tDao.InsertTransport(tVo, (int)gViewPayInfo["Pay_ID", i].Value);
+                        }
+                        catch (Exception)
+                        {
+                            
+                        }
                         //MessageBox.Show("Test1");
                     }
                     else if (!string.IsNullOrEmpty(gViewPayInfo["Waybill_ID", i].Value.ToString()))
                     {
                         // && lstPInfo[i].Waybill_ID != gViewPayInfo["Waybill_ID", i].Value.ToString()
                         Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
-                        tDao.UpdateTransportWaybill(tVo, lstOldWaybill[i], (int)gViewPayInfo["Pay_ID", i].Value);
+                        try
+                        {
+                            tDao.UpdateTransportWaybill(tVo, lstOldWaybill[i], (int)gViewPayInfo["Pay_ID", i].Value);
+                        }
+                        catch (Exception)
+                        {
+                            
+                        }
                         //MessageBox.Show(lstOldWaybill[i]);
                         //MessageBox.Show(tVo.Waybill_ID);
+                    }
+                    if(gViewPayInfo["Waybill_ID", i].Value.ToString() != lstOldWaybill[i] && !string.IsNullOrEmpty(lstOldWaybill[i]))
+                    {
+                        Transport_InfoVO tVo = new Transport_InfoVO(0, Form1.CompanyNo, gViewPayInfo["Waybill_ID", i].Value.ToString(), trans_State);
+                        try
+                        {
+                            tDao.InsertTransport(tVo, (int)gViewPayInfo["Pay_ID", i].Value);
+                        }
+                        catch (Exception)
+                        {                            
+                        }
                     }
                 }
             }

@@ -1,5 +1,5 @@
 ﻿using JinTeamForAdmin.Vo;
-using JinTeamForSeller.Bus;
+using JinTeamForAdmin.Bus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,8 +35,14 @@ namespace JinTeamForAdmin.Bus
             this.selectedRows = selectedRows;
         }
 
+        /// <summary>
+        /// 화면 로드 될시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">Load</param>
         private void Inquire_Admin_Detail_Load(object sender, EventArgs e)
         {
+            pb_Exit.BackgroundImage = Image.FromFile(Application.StartupPath + "/Resources/cancel.png");
             //Inquire_Admin_Vo ia = selectedRows as Inquire_Admin_Vo;
             var cells = selectedRows[0].Cells;
             txt_body.Text = selectedRows[0].Cells[7].Value.ToString();  // 본문
@@ -55,30 +61,74 @@ namespace JinTeamForAdmin.Bus
             }
             else
             {
-                lbl_redate.Text = cells[10].Value.ToString();
+                lbl_redate.Text = cells[11].Value.ToString();
             }
             
         }
 
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void btn_close_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// 답글 달기 버튼 클릭시 발생하는 이벤트 답글폼 출력
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
         private void btn_return_Click(object sender, EventArgs e)
         {
             Return_inquire ri = new Return_inquire(selectedRows);
             ri.Owner = this;         
-            ri.Show();
+            ri.ShowDialog();
 
             Admin_main ad = (Admin_main)Owner;
-            ad.Temp = this.temp;
+            ad.Pro_Temp = this.temp;
 
             if (temp)
             {
                 Close();
             }
             
+        }
+
+        /// <summary>
+        /// 종료 버튼 클릭시 발생하는 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
+        private void pb_Exit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        Point mousePoint;
+        /// <summary>
+        /// 화면 이동을 위한 이벤트
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y);
+        }
+
+        /// <summary>
+        /// 화면 이동을 위한 이벤트2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e">버튼 클릭</param>
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
+            {
+                Location = new Point(this.Left - (mousePoint.X - e.X), this.Top - (mousePoint.Y - e.Y));
+            }
         }
     }
 }
