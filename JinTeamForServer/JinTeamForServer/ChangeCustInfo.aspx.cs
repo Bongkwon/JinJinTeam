@@ -14,18 +14,8 @@ namespace JinTeamForServer
         string errCode;
 
         int cus_no;
-        string cus_ID;
-        string cus_pwd;
-        string cus_Nickname;
-        string cus_addr;
-        string cus_name;
-        string cus_phone;
-        int cus_age;
-        int cus_count;
-        int cus_state;
-        string withdrawal_date;
-        string join_date;
-        int cus_gender;
+        int cus_state = 0;
+        int cus_gender = 0;
 
         Customer customer;
         CustomerDAO custDao = new CustomerDAO();
@@ -41,25 +31,37 @@ namespace JinTeamForServer
 
             if (Request.Params["cus_gender"] != null)
             {
-                customer.Cus_gender = int.Parse(Request.Params["cus_gender"]);
-
-                customer.Cus_state = int.Parse(Request.Params["cus_state"]);
+                if (Request.Params["cus_gender"].Equals("1"))
+                {
+                    cus_gender = 1;
+                }
+                else
+                {
+                    cus_gender = 0;
+                }
+                if (customer.Cus_state)
+                {
+                    cus_state = 1;
+                }
+                else
+                {
+                    cus_state = 0;
+                }
             }
             else
             {
-                // bool 측에서 에러 확인용
+                // gender 오류
                 errCode = "900";
             }
 
             if (Request.Params["cus_pwd"] != null && Request.Params["cus_Nickname"] != null && Request.Params["cus_addr"] != null && Request.Params["cus_name"] != null &&
-                Request.Params["cus_phone"] != null && Request.Params["cus_gender"] != null && Request.Params["cus_age"] != null)
+                Request.Params["cus_phone"] != null && Request.Params["cus_gender"] != null)
             {
                 customer.Cus_pwd = Request.Params["cus_pwd"];
                 customer.Cus_Nickname = Request.Params["cus_Nickname"];
                 customer.Cus_addr = Request.Params["cus_addr"];
                 customer.Cus_name = Request.Params["cus_name"];
                 customer.Cus_phone = Request.Params["cus_phone"];
-                customer.Cus_age = int.Parse(Request.Params["cus_age"]);
 
                 if (UpdateCust())
                 {
@@ -88,6 +90,12 @@ namespace JinTeamForServer
         {
             DBConnection connection = new DBConnection();
             string sp = "update_cus";
+
+            if (string.IsNullOrEmpty(customer.Withdrawal_date))
+            {
+                customer.Withdrawal_date = "11111111";
+            }
+
             SqlParameter[] sqls =
             {
                 new SqlParameter("cus_no",customer.Cus_no),
@@ -97,9 +105,9 @@ namespace JinTeamForServer
                 new SqlParameter("cus_addr",customer.Cus_addr),
                 new SqlParameter("cus_name",customer.Cus_name),
                 new SqlParameter("cus_Nickname",customer.Cus_Nickname),
-                new SqlParameter("cus_gender",customer.Cus_gender),
+                new SqlParameter("cus_gender",cus_gender),
+                new SqlParameter("cus_state",cus_state),
                 new SqlParameter("cus_age",customer.Cus_age),
-                new SqlParameter("cus_state",customer.Cus_state),
                 new SqlParameter("cus_count",customer.Cus_count),
                 new SqlParameter("withdrawal_date",customer.Withdrawal_date),
                 new SqlParameter("join_date",customer.Join_date)

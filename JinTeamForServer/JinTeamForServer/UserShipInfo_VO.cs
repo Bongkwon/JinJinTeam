@@ -20,5 +20,14 @@ namespace JinTeamForServer
         public string User_addr { get => user_addr; set => user_addr = value; }
         public string Postal_Code { get => postal_Code; set => postal_Code = value; }
         public string Ship_Require { get => ship_Require; set => ship_Require = value; }
+
+        public UserShipInfo_VO(int cus_No, string user_name, string user_addr, string postal_Code, string ship_Require)
+        {
+            this.cus_No = cus_No;
+            this.user_name = user_name;
+            this.user_addr = user_addr;
+            this.postal_Code = postal_Code;
+            this.ship_Require = ship_Require;
+        }
     }
 }

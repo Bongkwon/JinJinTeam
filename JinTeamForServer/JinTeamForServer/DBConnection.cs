@@ -221,7 +221,33 @@ namespace JinTeamForServer
 
             return result;
         }
+        internal List<Category> ReadCategory(string query, SqlParameter[] sqls)
+        {
+            List<Category> categories = new List<Category>();
+            cmd.Connection = OpenConnection();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = query;
 
+            if (sqls != null)
+            {
+                cmd.Parameters.AddRange(sqls);
+            }
+            SqlDataReader sdr = cmd.ExecuteReader();
+
+            while (sdr.Read())
+            {
+                Category category = new Category()
+                {
+                    Cat_ID = sdr["cat_ID"].ToString(),
+                    Cat_kind = sdr["cat_kind"].ToString()
+                };
+
+                categories.Add(category);
+            }
+
+            conn.Close();
+            return categories;
+        }
         public List<Stock> ReadStocks(string query, SqlParameter[] sqlp)
         {
             List<Stock> stocks = new List<Stock>();

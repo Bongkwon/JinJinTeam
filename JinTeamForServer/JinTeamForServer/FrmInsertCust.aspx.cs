@@ -17,7 +17,7 @@ namespace JinTeamForServer
         string cus_addr;
         string cus_name;
         string cus_Nickname;
-        int cus_gender;
+        bool cus_gender;
         int cus_age;
         CustomerDAO cust = new CustomerDAO();
         protected void Page_Load(object sender, EventArgs e)
@@ -60,8 +60,16 @@ namespace JinTeamForServer
                 cus_addr = Request.Params["cus_addr"];
                 cus_name = Request.Params["cus_name"];
                 cus_Nickname = Request.Params["cus_Nickname"];
-                cus_gender = int.Parse(Request.Params["cus_gender"]);
                 cus_age = int.Parse(Request.Params["cus_age"]);
+                if (int.Parse(Request.Params["cus_gender"]) == 1)
+                {
+                    cus_gender = true;
+                }
+                else
+                {
+                    cus_gender = false;
+                }
+                
 
                 try
                 {

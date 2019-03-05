@@ -14,7 +14,7 @@ namespace JinTeamForServer
 
         public void InsertInquire(Inquire_VO iv)
         {
-            string query = "InsertInquire";
+            string query = "Insert_Inquire";
             SqlParameter[] sqls =
             {
                 new SqlParameter("inquire_type",iv.Inquire_type),
