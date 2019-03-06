@@ -140,6 +140,9 @@ namespace JinTeamForServer
             cmd.Connection = OpenConnection();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = query;
+
+            cmd.Parameters.Clear();
+
             if (sqlp != null)
             {
                 cmd.Parameters.AddRange(sqlp);

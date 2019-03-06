@@ -22,19 +22,16 @@ namespace JinTeamForServer
         CustomerDAO cust = new CustomerDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["cus_ID"] != null && Request.Params["cus_pwd"] == null)
+            if (Request.Params["cus_ID"] != null)
             {
                 cus_ID = Request.Params["cus_ID"];
                 if (cust.chkID(cus_ID))
                 {
                     errCode = "202";    // ID 중복 에러
+                    Response.Clear();
                     Response.Write(errCode);
                     Response.Flush();
-                    return;
-                }
-                else
-                {
-                    // 이메일 보내기
+                    Response.End();
                     return;
                 }
             }
@@ -45,8 +42,10 @@ namespace JinTeamForServer
                 if (cust.ChkPhone(cus_phone))
                 {
                     errCode = "201";    // phone 유니크 에러
+                    Response.Clear();
                     Response.Write(errCode);
                     Response.Flush();
+                    Response.End();
                     return;
                 }
             }
