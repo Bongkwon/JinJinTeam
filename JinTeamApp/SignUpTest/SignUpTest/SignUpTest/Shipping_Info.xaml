@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.Shipping_Info"
+             >
+    <ScrollView>
+        <StackLayout>
+            <StackLayout Padding="0,0,0,0" Orientation="Horizontal">
+            <Image Source="ship.JPG" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" WidthRequest="60" HeightRequest="60"></Image>
+            <Label Text=" 배 송 정 보 " HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" FontSize="Large" TextColor="Black"
+               x:Name="txtTitle"/>
+            </StackLayout>
+            <StackLayout Padding="20,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                <Label x:Name="txtUserName" VerticalTextAlignment="Center" FontSize="Micro" />
+                <Label x:Name="txtUserAddr" VerticalTextAlignment="Center" FontSize="Micro" 
+                                   LineBreakMode="TailTruncation"/>
+                <Label x:Name="txtPostalCode"  VerticalTextAlignment="Center" FontSize="Micro" />
+                <Label x:Name="txtShipRequire"  VerticalTextAlignment="Center" FontSize="Micro" />
+                <Label x:Name="txtWayBillID"  VerticalTextAlignment="Center" FontSize="Micro" FontAttributes="Bold"/>
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

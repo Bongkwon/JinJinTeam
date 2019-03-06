@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.InsertReview">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0" BackgroundColor="LightCoral">
+                <Image Source="love.jpg" WidthRequest="30" HeightRequest="30"></Image>
+                <Label Text="JinShop 리뷰작성" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="Medium" TextColor="Snow"
+               x:Name="txtHI"/>
+            </StackLayout>
+            <Label Text="리뷰 내용" FontSize="13"></Label>
+            <StackLayout>
+                <Editor
+                    PlaceholderColor="LightPink"
+                    x:Name="reviewBody"
+                    Placeholder="리뷰 내용을 작성해주세요"
+                    TextColor="Beige"
+                        BackgroundColor="#2c3e50" HeightRequest="200" FontSize="11"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="리뷰 등록" HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+                    Clicked="ReviewSend_Clicked"/>
+                <Button Text="취소"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+                Clicked="Cancel_Clicked"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <Button Text="이미지 등록" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                    Clicked="Button_Clicked"/>
+                <Image x:Name="reviewImage"
+                       WidthRequest="50"
+                       HeightRequest="50"
+                       IsVisible="False"
+                           VerticalOptions="FillAndExpand"
+                           Source="wkfk.jpg"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

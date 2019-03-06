@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             x:Class="SignUpTest.ClassicViewPage">
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal" BackgroundColor="LightCoral">
+            <Label Text="검색 : "></Label>
+            <Entry Placeholder="검색하실 상품을 입력하세요"></Entry>
+        </StackLayout>
+        <ListView x:Name="wishListView"  ItemsSource="{Binding .}" RowHeight="50" ItemTapped="OnItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0,0,0,0" VerticalOptions="Start" Orientation="Horizontal" BackgroundColor="Orange">
+                            <Image HorizontalOptions="Start" Source="{Binding Main_Image}" WidthRequest="50" HeightRequest="50"></Image>
+                            <StackLayout Padding="0,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical" Spacing="0">
+                                <StackLayout Orientation="Horizontal" Spacing="0" Padding="0,0,0,0">
+                                    <Label Text="{Binding Pro_Name}" VerticalTextAlignment="Center" FontSize="8" HeightRequest="25" VerticalOptions="FillAndExpand"/>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0">
+                                    <Label Text="{Binding Main_Comment}" VerticalTextAlignment="Center" FontSize="8" FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <Label Text="가격 : " FontSize="8" HorizontalOptions="Center"></Label>
+                                <Label Text="{Binding Pro_Price}" VerticalTextAlignment="Center" FontSize="8" FontAttributes="Bold"/>
+                                <Label Text="원" FontSize="8"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

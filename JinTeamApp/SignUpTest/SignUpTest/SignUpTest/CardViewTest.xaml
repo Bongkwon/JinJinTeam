@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             x:Class="App1.CardViewTest">
+    <ContentView.Content>
+        <StackLayout x:Name="stack">
+            <cardView:CardView CardViewHeightRequest="200" CardViewOutlineColor="Aqua" CardViewOutlineColorThickness="1"
+                           CardViewInnerFrameOutlineColor="Gray" CardViewInnerFrameOutlineColorThickness="1"
+                                   WidthRequest="100"
+                               x:Name="Cardd"
+                                   >
+                <cardView:CardView.CardViewContent>
+                    <StackLayout BackgroundColor="White">
+                        <Image 
+                                   HeightRequest="50"
+                               x:Name="main_image">
+                        </Image>
+                        <Label VerticalOptions="Center"
+                                   FontSize="Small"
+                                   HorizontalOptions="Center"
+                               x:Name="pro_name"></Label>
+                        <Label  VerticalOptions="Center"
+                                   FontSize="Small"
+                                   HorizontalOptions="Center"
+                               x:Name="pro_price"/>
+                    </StackLayout>
+                </cardView:CardView.CardViewContent>
+            </cardView:CardView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

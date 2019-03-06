@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.InquireShow">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0" BackgroundColor="LightCoral">
+            <Image Source="feedback.jpg" WidthRequest="30" HeightRequest="30"></Image>
+            <Label Text="JinShop 문의내역 " HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="Medium" TextColor="Snow"
+               x:Name="txtTitle"/>
+        </StackLayout>
+        <ScrollView>
+            <ListView x:Name="OrderHistoryView"  ItemsSource="{Binding .}" RowHeight="150" ItemTapped="OnItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="문의 구분 : " FontSize="10"></Label>
+                                    <Label x:Name="txtType" Text="{Binding Inquire_type}" VerticalTextAlignment="Center" FontSize="11" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="문의 날짜 : " Font="10"></Label>
+                                    <Label x:Name="txtDate" Text ="{Binding Inquire_date}" VerticalTextAlignment="Center" FontSize="9" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="제목 : " Font="10"></Label>
+                                    <Label x:Name="txtTitle" Text="{Binding Inquire_title}" VerticalTextAlignment="Center" FontSize="10" />
+                                </StackLayout>
+                                <Label x:Name="txtBody" Text="{Binding Inquire_body }" VerticalTextAlignment="Center" FontSize="8"
+                                   LineBreakMode="TailTruncation"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

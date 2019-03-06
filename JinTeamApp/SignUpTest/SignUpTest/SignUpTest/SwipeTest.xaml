@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App1" 
+             x:Class="App1.SwipeTest">
+    <StackLayout VerticalOptions="Fill">
+        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0" BackgroundColor="LightCoral">
+            <Image Source="sale.jpg" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start"></Image>
+            <Label Text="JIN STORE" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="Medium" TextColor="Snow"
+               x:Name="txtTitle"/>
+            <Image Source="sale2.jpg" WidthRequest="30" HeightRequest="30" HorizontalOptions="End"></Image>
+        </StackLayout>
+        <AbsoluteLayout>
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All" >
+
+                <local:SwipeContainer Swipe="SwipeGestureRecognizer_Swiped" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"             
+                                  x:Name="top"
+                                    >
+
+                    <Image Source="wkfk.jpg"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"
+                   x:Name="TopImage">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked" NumberOfTapsRequired="1"
+                                              x:Name="topC"/>
+                            <TapGestureRecognizer Tapped="TapGestureRecongizer_Tapped" NumberOfTapsRequired="2"
+                                                  x:Name="topTC"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </local:SwipeContainer>
+
+                <local:SwipeContainer Swipe="SwipeGestureRecognizer_Swiped" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"
+                                  x:Name="mid"
+                                  >
+                    <Image Source="wkfk.jpg"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"
+                   x:Name="MidImage">
+
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked" NumberOfTapsRequired="1"
+                                                  x:Name="midC">
+                            </TapGestureRecognizer>
+                            <TapGestureRecognizer Tapped="TapGestureRecongizer_Tapped" NumberOfTapsRequired="2"
+                                                  x:Name="midTC"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                </local:SwipeContainer>
+
+                <local:SwipeContainer Swipe="SwipeGestureRecognizer_Swiped" HorizontalOptions="Fill" VerticalOptions="CenterAndExpand"
+                                  x:Name="bot"
+                                  >
+                    <Image Source="wkfk.jpg"
+                   WidthRequest="150"
+                   HorizontalOptions="Center"
+                   x:Name="BotImage">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ClickGestureRecognizer_Clicked" NumberOfTapsRequired="1"
+                                                  x:Name="botC">
+                            </TapGestureRecognizer>
+                            <TapGestureRecognizer Tapped="TapGestureRecongizer_Tapped" NumberOfTapsRequired="2"
+                                                  x:Name="botTC"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </local:SwipeContainer>
+            </StackLayout>
+
+            <ContentView x:Name="overlay" 
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All" 
+                         IsVisible="False"
+                         BackgroundColor="#C0808080"
+                         Padding="10, 0">
+                <StackLayout Padding="10" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="상세 옵션"  />
+
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="사이즈"
+                               FontSize="Micro"/>
+                        <Picker Title="사이즈 선택"
+                                x:Name="SizePicker"
+                                FontSize="Small"
+                                SelectedIndexChanged="SizePicker_SelectedIndexChanged"/>
+                        <Label Text="수량"
+                               FontSize="Micro"/>
+                        <Picker Title="사이즈를 먼저 선택하세요"
+                                x:Name="Quantity"
+                                FontSize="Small"
+                                IsEnabled="False"
+                                SelectedIndexChanged="Quantity_SelectedIndexChanged"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                            <Button Text="OK" HorizontalOptions="Start"
+                                    Clicked="Button_Clicked"
+                                    x:Name="btn_OK"
+                                    IsEnabled="False"/>
+                            <Button Text="cancel" HorizontalOptions="End"
+                                    Clicked="Button_Clicked_1"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+
+            <ContentView x:Name="twoTap"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All" 
+                         IsVisible="False"
+                         BackgroundColor="#C0808080"
+                         Padding="10, 0">
+                <StackLayout Padding="10" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+                    <Label Text="상세 설정"/>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="카테고리 설정"
+                               FontSize="Micro"/>
+                        <Picker Title="-"
+                                FontSize="Small"
+                                x:Name="catePicker"/>
+                        <Label Text="검색"
+                               FontSize="Micro"/>
+                        <!--<StackLayout Orientation="Horizontal">-->
+                        <Editor 
+                                    HorizontalOptions="Start"
+                                    WidthRequest="100"
+                                    Placeholder="검색할 단어를 입력해주세요."
+                                    PlaceholderColor="HotPink"
+                                    FontSize="Micro"
+                                    x:Name="search"/>
+                        <!--<Button Text="검색"
+                                    Clicked="SearchButton_Clicked"
+                                    x:Name="btn_Search"/>-->
+                        <!--</StackLayout>-->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                            <Button Text="확인" HorizontalOptions="Start"
+                                    Clicked="FinishBtn_Clicked"/>
+                            <Button Text="취소" HorizontalOptions="End"
+                                    Clicked="Button_Clicked_1"/>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+
+        </AbsoluteLayout>
+        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0" VerticalOptions="EndAndExpand"  BackgroundColor="LightCoral">
+            <Image Source="sale3.jpg" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="End"></Image>
+            <Label Text="JinTeam View" HorizontalOptions="CenterAndExpand" VerticalOptions="End" FontSize="Medium" TextColor="Snow"
+               x:Name="txtUnderTitle" />
+            <Image Source="sale4.jpg" WidthRequest="30" HeightRequest="30" HorizontalOptions="End" VerticalOptions="End"></Image>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

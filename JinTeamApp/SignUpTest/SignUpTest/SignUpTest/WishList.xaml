@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.WishList"
+             x:Name="Hi">
+    <StackLayout>
+    <ListView x:Name="wishListView"  ItemsSource="{Binding .}" RowHeight="50" ItemTapped="OnItemTapped">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="0,0,0,0" VerticalOptions="Start" Orientation="Horizontal" BackgroundColor="Orange">
+                            <Image HorizontalOptions="Start" Source="{Binding Main_image}" WidthRequest="50" HeightRequest="50"></Image>
+                            <StackLayout Padding="0,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical" Spacing="0">
+                                <StackLayout Orientation="Horizontal" Spacing="0" Padding="0,0,0,0">
+                                    <Label Text="{Binding Pro_name}" VerticalTextAlignment="Center" FontSize="8" HeightRequest="25" VerticalOptions="FillAndExpand"
+                                           />
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0">
+                                    <Label Text="사이즈 : " FontSize="8" ></Label>
+                                    <Label Text="{Binding Stock_size}" VerticalTextAlignment="Center" FontSize="8" FontAttributes="Bold"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0">
+                                    <Label Text="수량 : " FontSize="8"></Label>
+                                    <Label x:Name="itemInfo" Text="{Binding Wish_count}" VerticalTextAlignment="Center" FontSize="8" 
+                                   LineBreakMode="TailTruncation" FontAttributes="Bold" WidthRequest="15"/>
+
+
+                                    <Label Text="가격 : " FontSize="8" HorizontalOptions="Center"></Label>
+                                    <Label Text="{Binding Wish_price}" VerticalTextAlignment="Center" FontSize="8" FontAttributes="Bold"/>
+                                    <Label Text="원" FontSize="8"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <!--<Button Text="삭제" BackgroundColor="LightSeaGreen" HorizontalOptions="EndAndExpand" CommandParameter="{Binding}" Clicked="DeleteProduct_Clicked" WidthRequest="40" FontSize="10" />-->
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0">
+            <Button Text="모두 구매" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="LightSeaGreen" WidthRequest="125" Clicked="WishListBuyAll_Clicked"></Button>
+            <Button Text="바구니 비우기" HorizontalOptions="FillAndExpand" VerticalOptions="End" BackgroundColor="LightPink" WidthRequest="125" 
+                    Clicked="WishListClear_Clicked"
+                    x:Name="Bye"></Button>
+        </StackLayout>
+        <ContentView x:Name="AppCloseOption" 
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All" 
+                         IsVisible="False"
+                         BackgroundColor="White"
+                         Padding="0, 0" VerticalOptions="EndAndExpand">
+            <StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,0" Margin="0">
+                <StackLayout Orientation="Horizontal" BackgroundColor="White" Spacing="0" Padding="0,0,0,0" Margin="0">
+                    <Image Source="login.jpg" HeightRequest="100" WidthRequest="150" HorizontalOptions="Start" Margin="0"></Image>
+                    <Label Text="로그아웃 
+                       하시겠습니까?" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="Small"></Label>
+                </StackLayout>
+                <StackLayout Padding="0" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
+
+                    <Button Text="로그아웃" HorizontalOptions="Fill" BackgroundColor="White"
+                                    Clicked="Logout_Clicked" TextColor="HotPink" FontSize="Micro"/>
+                    <Button Text="취소" HorizontalOptions="Fill" BackgroundColor="White"
+                                    Clicked="Cancel_Clicked" TextColor="Black" FontSize="Micro"/>
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+    </StackLayout>
+</ContentPage>

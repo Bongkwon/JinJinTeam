@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.InfoChange">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                 Spacing="0"
+                 Padding="5,10">
+
+
+            <Label Text="PW 변경"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="변경할 PW를 입력하세요"
+               IsPassword="True"
+               FontSize="10"
+                   TextChanged="Txt_Pw_TextChanged"
+               x:Name="txt_Pw"/>
+
+            <Label Text="PW 확인"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="변경 PW 확인"
+               IsPassword="True"
+               FontSize="10"
+                   TextChanged="Txt_ChkPw_TextChanged"
+                   IsEnabled="False"
+               x:Name="txt_ChkPw"/>
+
+            <Label Text=""
+                   FontSize="5"
+                   TextColor="PaleVioletRed"
+                   x:Name="label_chk"
+                   />
+
+            <Label Text="별명"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="변경할 별명을 입력하세요"
+               TextChanged="Txt_Pw_TextChanged"
+               FontSize="10"
+               x:Name="txt_Alias"/>
+
+            <Label Text="주소"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="변경할 주소 입력"
+                   TextChanged="Txt_Pw_TextChanged"
+               FontSize="10"
+               x:Name="txt_Addr"/>
+
+            <Label Text="이름"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   WidthRequest="200"
+                   Placeholder="변경할 이름 입력"
+                   TextChanged="Txt_Pw_TextChanged"
+               FontSize="10"
+               x:Name="txt_Name"/>
+
+            <Label Text="핸드폰 번호"
+               FontSize="10"
+               />
+            <Entry HorizontalOptions="Start"
+                   Placeholder="변경할 핸드폰 번호 입력"
+                   WidthRequest="200"
+                   TextChanged="Txt_Pw_TextChanged"
+               FontSize="10"
+               x:Name="txt_Phone"/>
+
+            <Label Text="성별"
+               FontSize="10"
+               />
+            <Switch IsToggled="false" 
+                HorizontalOptions="Start"
+                HeightRequest="30"
+                Scale="1.0"
+                    Toggled="Sw_gender_Toggled"
+                    x:Name="sw_gender"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button Text="완료" Clicked="Button_Clicked" x:Name="btn_ok" IsEnabled="False"/>
+                <Button Text="취소" Clicked="Button_Clicked_1"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

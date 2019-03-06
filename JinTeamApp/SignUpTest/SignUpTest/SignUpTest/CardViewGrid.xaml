@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
+             x:Class="App1.CardViewGrid">
+    <ContentPage.Content>
+        <ScrollView Scrolled="ScrollView_Scrolled">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" BackgroundColor="LightCoral">
+                    <Label Text="검색 : "/>
+                    <Editor Placeholder="검색하실 상품을 입력하세요" x:Name="txt_search"/>
+                    <Button Text="검색" Clicked="Search_Clicked"/>
+                </StackLayout>
+                    <StackLayout>
+                    <Grid x:Name="gridLayout">
+
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

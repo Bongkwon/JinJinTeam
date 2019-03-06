@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.ListReview">
+    <ContentPage.Content>
+        <StackLayout>
+        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0" BackgroundColor="LightCoral">
+            <Image Source="love.jpg" WidthRequest="30" HeightRequest="30"></Image>
+            <Label Text="JinShop 리뷰내역" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="Medium" TextColor="Snow"
+               x:Name="txtHI"/>
+        </StackLayout>
+        <StackLayout>
+            <Image x:Name="pro_image"></Image>
+            <Label x:Name="pro_name" FontSize="Medium" VerticalTextAlignment="Center"/>
+            <Label x:Name="txt" FontSize="Medium" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+            <ListView x:Name="ReviewHistory" ItemSelected="OnItemSelected" ItemsSource="{Binding .}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0,0,0,0" HorizontalOptions="Fill" VerticalOptions="Start" Orientation="Horizontal" Spacing="0">
+                                <Image HorizontalOptions="Start" Source="{Binding Re_image}" WidthRequest="50" HeightRequest="50"></Image>
+
+                                <StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,0">
+                                    <Label Text="{Binding Cus_ID}" VerticalTextAlignment="Center" FontSize="8"/>
+                                    <Label Text="{Binding Re_txt}" VerticalTextAlignment="Center" FontSize="8" 
+                                           LineBreakMode="TailTruncation"/>
+                                </StackLayout>
+                                <StackLayout Padding="0,0,0,0" Orientation="Vertical" Spacing="0">
+                                    <Label Text="{Binding Re_date}" FontSize="8" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Txt_like}" FontSize="8" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Recommand}" FontSize="8" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <StackLayout Padding="0,0,0,0" Orientation="Horizontal" Spacing="0">
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

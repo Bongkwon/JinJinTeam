@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.MyPage">
+    
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="배송지 설정" Clicked="SetShipInfo_Clicked" 
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="주문 내역" Clicked="OrderHistory_Clicked" 
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="회원정보 수정" Clicked="ProfileSet_Clicked" 
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="리뷰 내역" Clicked="ReviewHistory_Clicked"
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+                <Button Text="문의" Clicked="QuestionHistory_Clicked"
+           VerticalOptions="StartAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </ScrollView>
+    <ContentView x:Name="AppCloseOption" 
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All" 
+                         IsVisible="False"
+                         BackgroundColor="White"
+                         Padding="0, 0" VerticalOptions="EndAndExpand">
+        <StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,0" Margin="0" VerticalOptions="EndAndExpand">
+            <StackLayout Orientation="Horizontal" BackgroundColor="White" Spacing="0" Padding="0,0,0,0" Margin="0">
+                <Image Source="login.jpg" HeightRequest="100" WidthRequest="150" HorizontalOptions="Start" Margin="0"></Image>
+                <Label Text="로그아웃 
+                       하시겠습니까?" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" FontSize="Small"></Label>
+            </StackLayout>
+            <StackLayout Padding="0" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
+
+                <Button Text="로그아웃" HorizontalOptions="Fill" BackgroundColor="White"
+                                    Clicked="Logout_Clicked" TextColor="HotPink" FontSize="Micro"/>
+                <Button Text="취소" HorizontalOptions="Fill" BackgroundColor="White"
+                                    Clicked="Cancel_Clicked" TextColor="Black" FontSize="Micro"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView>
+    </StackLayout>
+</ContentPage>

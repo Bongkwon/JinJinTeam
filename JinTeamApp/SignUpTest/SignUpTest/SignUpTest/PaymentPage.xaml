@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SignUpTest.PaymentPage">
+    <AbsoluteLayout Padding="0,0,0,0" Margin="0" VerticalOptions="Fill">
+        <StackLayout Padding="0,0,0,0" Margin="0" Spacing="0" VerticalOptions="Fill">
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0" BackgroundColor="LightCoral">
+                <Image Source="billingpage.jpg" WidthRequest="30" HeightRequest="30"></Image>
+                <Label Text="JinShop 결제진행" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="Medium" TextColor="Snow"
+               x:Name="txtTitle"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="결제대기중 상품 목록"  HorizontalOptions="Fill" VerticalOptions="Start" FontAttributes="Bold"></Label>
+            </StackLayout>
+            <ListView x:Name="wishListView"  ItemsSource="{Binding .}" RowHeight="50" VerticalOptions="Start" HeightRequest="250">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0,0,0,0" VerticalOptions="Start" Orientation="Horizontal" BackgroundColor="LightYellow">
+                                <Image HorizontalOptions="Start" Source="{Binding Main_image}" WidthRequest="50" HeightRequest="50"></Image>
+                                <StackLayout Padding="0,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical" Spacing="0">
+                                    <StackLayout Orientation="Horizontal" Spacing="0" Padding="0,0,0,0">
+                                        <Label Text="{Binding Pro_name}" VerticalTextAlignment="Center" FontSize="8" HeightRequest="25" VerticalOptions="FillAndExpand"
+                                           />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0">
+                                        <Label Text="사이즈 : " FontSize="8" ></Label>
+                                        <Label Text="{Binding Stock_size}" VerticalTextAlignment="Center" FontSize="8" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0">
+                                        <Label Text="수량 : " FontSize="8"></Label>
+                                        <Label x:Name="itemInfo" Text="{Binding Wish_count}" VerticalTextAlignment="Center" FontSize="8" 
+                                   LineBreakMode="TailTruncation" FontAttributes="Bold" WidthRequest="15"/>
+
+
+                                        <Label Text="가격 : " FontSize="8" HorizontalOptions="Center"></Label>
+                                        <Label Text="{Binding Wish_price}" VerticalTextAlignment="Center" FontSize="8" FontAttributes="Bold"/>
+                                        <Label Text="원" FontSize="8"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="배송정보 입력"  HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" FontAttributes="Bold"></Label>
+                <Button Text="신규주소지 입력" Clicked="NewAddr_Clicked" HorizontalOptions="End"></Button>
+                <Button Text="내 주소 불러오기" Clicked="OpenMyAddr_Clicked" HorizontalOptions="EndAndExpand"></Button>
+            </StackLayout>
+           
+
+            <ContentView x:Name="OpenAddr" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                AbsoluteLayout.LayoutFlags="All" 
+                         IsVisible="False"
+                         BackgroundColor="#C0808080"
+                         Padding="10, 0">
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Spacing="0" BackgroundColor="LightCoral">
+                        <Label Text="나의 배송지" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" FontSize="Medium" TextColor="Snow"
+               x:Name="txtMyAddr"/>
+                    </StackLayout>
+                    <ListView x:Name="SavedAddr" ItemsSource="{Binding .}" ItemTapped="AddrTapped" Margin="5" HeightRequest="150" RowHeight="50">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="0,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical" Spacing="0" BackgroundColor="WhiteSmoke">
+                                        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Margin="0" Spacing="0">
+                                            <Label Text="받는이:" FontSize="8" VerticalTextAlignment="Center"/>
+                                            <Label x:Name="bindUser_name" Text="{Binding User_name}" FontSize="8" VerticalTextAlignment="Center" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Margin="0" Spacing="0">
+                                            <Label Text="우편번호:" FontSize="8" VerticalTextAlignment="Center"/>
+                                            <Label x:Name="bindPostal_Code" Text="{Binding Postal_Code}" FontSize="8" VerticalTextAlignment="Center" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Margin="0" Spacing="0">
+                                            <Label Text="배송지 :" FontSize="8" VerticalTextAlignment="Center"/>
+                                            <Label x:Name="bindUser_Addr" Text="{Binding User_addr}" VerticalTextAlignment="Center" FontSize="8" 
+                                   LineBreakMode="TailTruncation" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Padding="0,0,0,0" Margin="0" Spacing="0">
+                                            <Label Text="요구사항 :" FontSize="8" VerticalTextAlignment="Center"/>
+                                            <Label x:Name="bindShip_Require" Text="{Binding Ship_Require}" VerticalTextAlignment="Center" FontSize="8" 
+                                   LineBreakMode="TailTruncation" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ContentView>
+            <StackLayout Orientation="Horizontal" Spacing="0" Margin="0" Padding="0,0,0,0">
+                <Label 
+                Text="받으시는 분"
+               FontSize="10"
+                    WidthRequest="70"
+               />
+                <Entry HorizontalOptions="StartAndExpand"
+                   WidthRequest="200"
+                   Placeholder="받으시는분 성함을 입력해주세요"
+               FontSize="10"
+               x:Name="txtUser_Name"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0" Margin="0" Padding="0,0,0,0">
+                <Label Text="배송지"
+               FontSize="10" WidthRequest="70"
+
+               />
+                <Entry HorizontalOptions="StartAndExpand"
+                   WidthRequest="200"
+               FontSize="10"
+                       IsEnabled="False"
+               x:Name="txtUser_Addr"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0" Margin="0" Padding="0,0,0,0">
+                <Label Text="우편번호"
+               FontSize="10" WidthRequest="70"
+               />
+                <Entry HorizontalOptions="StartAndExpand"
+                   WidthRequest="200"
+               FontSize="10"
+                       IsEnabled="False"
+               x:Name="txtPostal_Code"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0" Margin="0" Padding="0,0,0,0" >
+                <Label Text="요구사항"
+               FontSize="10" WidthRequest="70"
+               />
+                <Entry HorizontalOptions="StartAndExpand"
+                   WidthRequest="200"
+               FontSize="10"
+                     Placeholder="요구사항을 입력해주세요 (선택사항)"
+               x:Name="txtShip_Require"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                <Button Text="결제 완료" BackgroundColor="LightPink" Clicked="PaymentComplete_Clicked" HorizontalOptions="FillAndExpand" FontAttributes="Bold" VerticalOptions="End"></Button>
+                <Button Text="취소" Clicked="Cancel_Clicked" HorizontalOptions="FillAndExpand" FontAttributes="Bold" BackgroundColor="DimGray" VerticalOptions="End"></Button>
+            </StackLayout>
+        </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>
